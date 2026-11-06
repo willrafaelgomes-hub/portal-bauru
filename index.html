@@ -77,7 +77,7 @@ async function deletePhoto(r){
 $('uploadPhotos').onclick=async()=>{
  if(!editing){$('photoStatus').textContent='Salve o imóvel antes de adicionar fotografias.';return}
  const files=[...$('photoInput').files];if(!files.length){$('photoStatus').textContent='Selecione uma ou mais fotos.';return}
- const btn=$('uploadPhotos');btn.disabled=true;let ok=0;const errors=[];let nextOrder=photoRecords.reduce((m,r)=>Math.max(m,Number(r.ordem)||0),0)+1;
+ const btn=$('uploadPhotos');btn.disabled=true;let ok=0;const errors=[];let nextOrder=photoRecords.length ? Math.max(...photoRecords.map(r=>Number(r.ordem)||0))+1 : 1;
  for(const file of files){
   if(nextOrder>30){errors.push(file.name+': limite de 30 fotos por imóvel');continue}
   if(!['image/jpeg','image/png','image/webp'].includes(file.type)){errors.push(file.name+': formato não permitido');continue}
@@ -87,9 +87,10 @@ $('uploadPhotos').onclick=async()=>{
   const path=String(editing)+'/'+crypto.randomUUID()+'.'+ext;
   const {error:uploadError}=await supabase.storage.from(bucket).upload(path,file,{contentType:file.type,upsert:false});
   if(uploadError){errors.push(file.name+': '+uploadError.message);continue}
-  const {error:dbError}=await supabase.from('imovel_fotos').insert({imovel_id:String(editing),caminho:path,ordem:nextOrder});
-  if(dbError){await supabase.storage.from(bucket).remove([path]);errors.push(file.name+': '+dbError.message);continue}
-  ok++;nextOrder++;
+  const ordemEnvio=Math.min(30,Math.max(1,Math.trunc(Number(nextOrder)||1)));
+  const {error:dbError}=await supabase.from('imovel_fotos').insert({imovel_id:String(editing),caminho:path,ordem:ordemEnvio});
+  if(dbError){await supabase.storage.from(bucket).remove([path]);errors.push(file.name+' (posição enviada: '+ordemEnvio+'): '+dbError.message);continue}
+  ok++;nextOrder=ordemEnvio+1;
  }
  btn.disabled=false;$('photoInput').value='';await loadPhotos();
  $('photoStatus').textContent=ok+' fotografia(s) enviada(s).'+(errors.length?' Falhas: '+errors.join(' | '):'');
