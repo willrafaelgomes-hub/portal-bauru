@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Encontre casas, apartamentos e terrenos à venda ou para locação em Bauru. Portal Bauru, por W. Rafael Gomes e Débora Navas.">
+<title>Imóveis em Bauru | Portal Bauru</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#14253D;background:#F6F1EA}*{box-sizing:border-box}body{margin:0}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}.top{background:#14253D;color:#fff;padding:18px max(20px,calc((100vw - 1180px)/2));display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-size:22px;font-weight:800;letter-spacing:-.6px}.top small{font-size:12px;color:#e1e7ed}.hero{background:linear-gradient(120deg,#14253D,#253d5a);color:white;padding:70px 20px 90px}.wrap{max-width:1180px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:2px;color:#ffad80;font-size:12px;font-weight:800}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.08;letter-spacing:-1.8px;max-width:780px;margin:14px 0}.hero p{max-width:600px;color:#dce3eb;line-height:1.6}.search{background:white;border-radius:18px;padding:20px;box-shadow:0 15px 45px #14253d1f;margin:-48px auto 0;position:relative;max-width:1180px}.fields{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:12px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:13px 12px;border:1px solid #d8dde3;border-radius:10px;background:#fff;color:#14253D;min-width:0}.actions{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:15px;flex-wrap:wrap}.btn{border:0;background:#F85F08;color:white;padding:13px 22px;border-radius:10px;font-weight:800}.btn.secondary{background:#edf0f3;color:#14253D}.content{max-width:1180px;margin:52px auto 75px;padding:0 20px}.heading{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px}.heading h2{font-size:29px;letter-spacing:-.8px;margin:0 0 6px}.muted{color:#697386}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.property{background:white;border-radius:16px;overflow:hidden;box-shadow:0 6px 22px #14253d0c;border:1px solid #e8e8e8;display:flex;flex-direction:column}.visual{aspect-ratio:4/3;position:relative;background:#e8edf0;overflow:hidden}.visual img{width:100%;height:100%;object-fit:cover;display:block}.placeholder{display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:14px;color:#7b8794}.pill{position:absolute;top:13px;left:13px;background:#14253D;color:white;border-radius:6px;padding:7px 10px;font-size:11px;font-weight:800;text-transform:uppercase}.pill.orange{background:#F85F08}.details{padding:20px;display:flex;flex-direction:column;flex:1}.location{font-size:13px;color:#697386}.details h3{font-size:19px;line-height:1.35;margin:9px 0;min-height:50px}.features{font-size:13px;color:#536173;line-height:1.7;margin:8px 0 17px}.price{font-size:24px;font-weight:800;letter-spacing:-.7px;margin-top:auto}.link{display:block;background:#14253D;color:white;text-align:center;padding:13px;border-radius:9px;font-weight:750;margin-top:15px}.empty{padding:38px 24px;text-align:center;background:#fff;border-radius:14px;border:1px solid #e6e6e6}.footer{background:#14253D;color:#fff;padding:35px 20px}.footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer small{color:#cbd4df}.error{color:#9f2d24}.count{font-size:14px}#loading{padding:35px 0;text-align:center;color:#697386}@media(max-width:850px){.fields{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:570px){.top{padding:16px 20px}.top small{display:none}.hero{padding:55px 20px 85px}.search{margin:-44px 16px 0}.fields,.grid{grid-template-columns:1fr}.heading{align-items:start}.content{margin-top:40px}.details h3{min-height:0}}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="imoveis.html">PORTAL BAURU</a><small>Imóveis em Bauru • Rafael Gomes &amp; Débora Navas</small></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">Seu próximo endereço começa aqui</div><h1>Encontre o imóvel ideal em Bauru.</h1><p>Casas, apartamentos e oportunidades selecionadas, com informações claras e atendimento próximo.</p></div></section>
+<section class="search" aria-label="Buscar imóveis">
+<div class="fields">
+<div class="field"><label for="busca">Bairro, condomínio ou código</label><input id="busca" placeholder="O que você procura?"></div>
+<div class="field"><label for="finalidade">Finalidade</label><select id="finalidade"><option value="">Comprar ou alugar</option><option value="venda">Comprar</option><option value="locacao">Alugar</option></select></div>
+<div class="field"><label for="tipo">Tipo de imóvel</label><select id="tipo"><option value="">Todos os tipos</option><option value="apartamento">Apartamento</option><option value="casa">Casa</option><option value="sobrado">Sobrado</option><option value="terreno">Terreno</option><option value="chacara">Chácara</option><option value="comercial">Comercial</option><option value="outro">Outro</option></select></div>
+<div class="field"><label for="preco">Valor máximo</label><select id="preco"><option value="">Qualquer valor</option><option value="150000">Até R$ 150 mil</option><option value="200000">Até R$ 200 mil</option><option value="300000">Até R$ 300 mil</option><option value="500000">Até R$ 500 mil</option><option value="800000">Até R$ 800 mil</option><option value="1200000">Até R$ 1,2 milhão</option></select></div>
+<div class="field"><label for="quartos">Quartos (mínimo)</label><select id="quartos"><option value="">Qualquer</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
+<div class="field"><label for="vagas">Vagas (mínimo)</label><select id="vagas"><option value="">Qualquer</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select></div>
+</div>
+<div class="actions"><span class="muted count" id="count">Buscando imóveis...</span><div><button class="btn secondary" id="limpar" type="button">Limpar filtros</button> <button class="btn" id="buscar" type="button">Buscar imóveis</button></div></div>
+</section>
+<main class="content"><div class="heading"><div><div class="eyebrow" style="color:#F85F08">Explore as oportunidades</div><h2>Imóveis disponíveis</h2><span class="muted">Encontre um lugar para chamar de seu.</span></div></div><div id="loading">Carregando imóveis...</div><div id="grid" class="grid"></div><div id="empty" class="empty" hidden>Nenhum imóvel encontrado com esses filtros. Experimente ampliar sua busca.</div></main>
+<footer class="footer"><div class="wrap"><div><strong>PORTAL BAURU</strong><p><small>Imóveis em Bauru/SP</small></p></div><div><small>W. Rafael Gomes &amp; Débora Navas</small></div></div></footer>
+<script type="module">
+import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+const supabase=createClient('https://dtkszimtovtqdojjpqsy.supabase.co','sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi');
+const $=id=>document.getElementById(id);
+const params=new URLSearchParams(location.search);
+const ref=params.get('ref');
+const origin=['rafael','debora'].includes(ref)?ref:null;
+let properties=[];
+const money=value=>value==null?'Consulte o valor':new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(Number(value));
+const labelType={apartamento:'Apartamento',casa:'Casa',sobrado:'Sobrado',terreno:'Terreno',chacara:'Chácara',comercial:'Comercial',outro:'Imóvel'};
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e}
+function propertyCard(p){
+ const a=el('article','property');const visual=el('div','visual');
+ if(p.foto){const img=el('img');img.src=supabase.storage.from('portal-imoveis').getPublicUrl(p.foto).data.publicUrl;img.alt='Fotografia de '+(p.titulo||'imóvel');img.loading='lazy';img.onerror=()=>{img.replaceWith(el('div','placeholder','Fotografia indisponível'))};visual.append(img)}else visual.append(el('div','placeholder','Fotografia em breve'));
+ if(p.selo&&p.selo!=='nenhum'){const texts={novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido'};visual.append(el('span','pill orange',texts[p.selo]||p.selo))}
+ const d=el('div','details');d.append(el('div','location',[p.bairro,'Bauru/SP'].filter(Boolean).join(' • ')));
+ d.append(el('h3','',p.titulo||[labelType[p.tipo]||'Imóvel',p.empreendimento].filter(Boolean).join(' • ')));
+ const specs=[];if(p.quartos!=null)specs.push(p.quartos+' quarto(s)');if(p.suites)specs.push(p.suites+' suíte(s)');if(p.vagas!=null)specs.push(p.vagas+' vaga(s)');if(p.area_privativa)specs.push(Number(p.area_privativa).toLocaleString('pt-BR')+' m²');
+ d.append(el('div','features',specs.join('  •  ')));d.append(el('div','price',money(p.preco)));
+ const link=el('a','link','Ver detalhes do imóvel');const url=new URL('imovel.html',location.href);url.searchParams.set('id',p.id);if(origin)url.searchParams.set('ref',origin);link.href=url.toString();d.append(link);a.append(visual,d);return a;
+}
+function render(){const q=$('busca').value.trim().toLocaleLowerCase('pt-BR');const f=$('finalidade').value,t=$('tipo').value,max=Number($('preco').value)||Infinity,minRooms=Number($('quartos').value)||0,minVagas=Number($('vagas').value)||0;
+ const results=properties.filter(p=>(!q||[p.codigo,p.titulo,p.empreendimento,p.bairro,p.descricao].some(x=>String(x||'').toLocaleLowerCase('pt-BR').includes(q)))&&(!f||p.finalidade===f)&&(!t||p.tipo===t)&&(p.preco==null||Number(p.preco)<=max)&&Number(p.quartos||0)>=minRooms&&Number(p.vagas||0)>=minVagas);
+ const grid=$('grid');grid.replaceChildren();for(const p of results)grid.append(propertyCard(p));$('count').textContent=results.length+' imóvel(is) encontrado(s)';$('empty').hidden=results.length!==0;
+}
+$('buscar').onclick=render;
+$('limpar').onclick=()=>{for(const id of ['busca','finalidade','tipo','preco','quartos','vagas'])$(id).value='';render()};
+$('busca').addEventListener('keydown',e=>{if(e.key==='Enter')render()});
+for(const id of ['finalidade','tipo','preco','quartos','vagas'])$(id).addEventListener('change',render);
+async function load(){
+ try{
+ const {data,error}=await supabase.from('imoveis').select('id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,vagas,selo,destaque,publicado,situacao').eq('publicado',true).order('destaque',{ascending:false}).order('criado_em',{ascending:false});
+ if(error)throw error;
+ properties=(data||[]).filter(p=>!['vendido','alugado'].includes(p.situacao));
+ if(properties.length){const ids=properties.map(p=>p.id);const photos=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',ids).order('ordem',{ascending:true});if(photos.error)console.warn('Fotografias não disponíveis:',photos.error.message);else{const covers=new Map();for(const photo of photos.data||[])if(!covers.has(photo.imovel_id))covers.set(photo.imovel_id,photo.caminho);properties.forEach(p=>p.foto=covers.get(p.id)||null)}}
+ $('loading').hidden=true;render();
+ }catch(error){$('loading').textContent='Não foi possível carregar os imóveis. Verifique a conexão e as permissões de leitura pública no Supabase.';$('loading').className='error';$('count').textContent='Não foi possível consultar os anúncios';console.error(error)}
+}
+load();
+</script>
+</body>
+</html>
