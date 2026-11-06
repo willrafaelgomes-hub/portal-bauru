@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14253D">
-<meta name="robots" content="noindex,follow" id="robots-meta">
+<meta name="robots" content="index,follow" id="robots-meta">
 <meta name="description" content="Conheça imóveis à venda em Bauru/SP no Portal Bauru. Consulte características, fotografias, valores e agende uma visita." id="seo-description">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Portal Bauru">
@@ -14,7 +14,6 @@
 <meta property="og:description" content="Conheça este imóvel no Portal Bauru." id="og-description">
 <meta property="og:url" content="https://portalbauru.pages.dev/imovel.html" id="og-url">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://portalbauru.pages.dev/imovel.html" id="canonical">
 <title>Detalhes do imóvel | Portal Bauru</title>
 <style>
 :root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#14253D;background:#F6F1EA}
@@ -397,8 +396,14 @@ function prepareSEO(p){
  setMeta('#og-title','content',title);
  setMeta('#og-description','content',description);
  setMeta('#og-url','content',canonical);
- setMeta('#canonical','href',canonical);
- setMeta('#robots-meta','content','index,follow');
+
+ let canonicalTag=document.querySelector('link[rel="canonical"]');
+ if(!canonicalTag){
+  canonicalTag=document.createElement('link');
+  canonicalTag.rel='canonical';
+  document.head.append(canonicalTag);
+ }
+ canonicalTag.href=canonical;
 
  if(photos.length){
   let image=document.querySelector('meta[property="og:image"]');
@@ -418,7 +423,6 @@ function prepareSEO(p){
   name:rawTitle||`${type} ${purpose} ${place}`,
   description:cleanText(p.descricao)||description,
   inLanguage:'pt-BR',
-  dateModified:undefined,
   mainEntity:{
    '@type':'Accommodation',
    name:rawTitle||`${type} em Bauru`,
@@ -427,8 +431,7 @@ function prepareSEO(p){
     '@type':'PostalAddress',
     addressLocality:'Bauru',
     addressRegion:'SP',
-    addressCountry:'BR',
-    ...(p.bairro?{addressLocality:'Bauru',streetAddress:undefined}: {})
+    addressCountry:'BR'
    },
    ...(p.area_privativa?{
     floorSize:{
@@ -460,16 +463,13 @@ function prepareSEO(p){
  };
 
  if(p.bairro){
-  realEstate.mainEntity.address.addressRegion='SP';
-  realEstate.mainEntity.address.addressLocality='Bauru';
-  realEstate.mainEntity.address.addressCountry='BR';
   realEstate.mainEntity.address.addressSubregion=p.bairro;
  }
 
  const script=document.createElement('script');
  script.type='application/ld+json';
  script.id='property-structured-data';
- script.textContent=JSON.stringify(realEstate);
+ script.textContent=JSON.stringify(realEstate).replace(/</g,'\\u003c');
  document.head.append(script);
 }
 
