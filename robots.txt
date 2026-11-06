@@ -3,3 +3,5 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 Disallow: /admin-backup.html
+
+Sitemap: https://portalbauru.pages.dev/sitemap.xml
