@@ -1,130 +1,840 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portal Bauru | Administração</title><style>:root{font-family:Inter,system-ui,sans-serif;color:#14253D;background:#F6F1EA}*{box-sizing:border-box}body{margin:0}header{background:#14253D;color:white;padding:20px 5%;display:flex;align-items:center;justify-content:space-between}header strong{font-size:22px}main{max-width:1100px;margin:35px auto;padding:0 18px}.card{background:white;border-radius:18px;padding:26px;box-shadow:0 6px 30px #14253d12;margin-bottom:20px}h1{font-size:26px}h2{font-size:20px}input,select,textarea{width:100%;padding:12px;border:1px solid #d5d8dd;border-radius:9px;font:inherit;margin:7px 0 16px}textarea{min-height:110px}button{border:0;border-radius:10px;background:#F85F08;color:white;padding:12px 18px;font-weight:700;cursor:pointer}button.secondary{background:#14253D}button.ghost{background:#e9edf2;color:#14253D}button:disabled{opacity:.5;cursor:wait}.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:12px;margin:15px 0}.photo{border:1px solid #ddd;border-radius:12px;overflow:hidden;padding:8px;background:#fafafa}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:7px}.photo button{width:100%;font-size:12px;padding:9px 5px;margin-top:5px}.photo small{display:block;margin:5px 0}.photo .drag-handle{touch-action:none;cursor:grab;background:#14253D;color:white;user-select:none}.photo.dragging{opacity:.45;outline:3px solid #F85F08}.photo.drop-target{outline:3px dashed #F85F08}.photos.busy{pointer-events:none;opacity:.65}.photo button.ghost{background:#e9edf2}.hint{font-size:13px;color:#697386}.uploadbar{border:1px dashed #b9c0c8;border-radius:12px;padding:15px;margin-top:12px}.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:180px}.hidden{display:none!important}.muted{color:#697386}.item{border-top:1px solid #eee;padding:16px 0;display:flex;justify-content:space-between;gap:14px;align-items:center}.item-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.item-actions button{font-size:12px;padding:10px 12px}.item-details{min-width:0;overflow-wrap:anywhere}.search-info{font-size:13px;color:#697386;margin:0 0 8px}.copy-feedback{font-size:12px;color:#176d3b;margin-top:5px}.error{color:#a12820}.success{color:#176d3b}label{font-size:14px;font-weight:600}.check{display:flex;gap:8px;align-items:center;margin:12px 0}.check input{width:auto;margin:0}#status{min-height:22px}@media(max-width:550px){.item{display:block}.item button{margin:8px 6px 0 0}}</style></head><body><header><strong>Portal Bauru</strong><span>Administração de imóveis</span></header><main><section id="login" class="card"><h1>Entrar no painel</h1><p class="muted">Acesso exclusivo aos administradores autorizados.</p><form id="loginForm"><label>E-mail<input id="email" type="email" autocomplete="username" required></label><label>Senha<input id="password" type="password" autocomplete="current-password" required></label><button>Entrar</button></form></section><section id="dashboard" class="hidden"><div class="row" style="align-items:center"><h1>Gerenciar imóveis</h1><div style="text-align:right"><button id="logout" class="ghost">Sair</button></div></div><section class="card"><div class="row"><input id="search" placeholder="Buscar condomínio, bairro, código ou título" aria-label="Buscar imóveis"><button id="new" style="flex:0 0 auto">+ Novo imóvel</button></div><p id="searchCount" class="search-info" role="status"></p><div id="items"></div></section><section id="editor" class="card hidden"><h2 id="editorTitle">Novo imóvel</h2><form id="propertyForm"><div class="row"><label>Código<input id="codigo" placeholder="Ex.: BAU-001"></label><label>Título<input id="titulo" required></label></div><div class="row"><label>Finalidade<select id="finalidade"><option value="venda">Venda</option><option value="locacao">Locação</option></select></label><label>Tipo<select id="tipo"><option value="apartamento">Apartamento</option><option value="casa">Casa</option><option value="sobrado">Sobrado</option><option value="terreno">Terreno</option><option value="chacara">Chácara</option><option value="comercial">Comercial</option><option value="outro">Outro</option></select></label></div><div class="row"><label>Empreendimento<input id="empreendimento"></label><label>Bairro<input id="bairro"></label></div><div class="row"><label>Preço (R$)<input id="preco" type="number" min="0" step="0.01"></label><label>Área privativa (m²)<input id="area_privativa" type="number" min="0" step="0.01"></label></div><div class="row"><label>Quartos<input id="quartos" type="number" min="0"></label><label>Suítes<input id="suites" type="number" min="0"></label><label>Banheiros<input id="banheiros" type="number" min="0"></label><label>Vagas<input id="vagas" type="number" min="0"></label></div><label>Descrição<textarea id="descricao"></textarea></label><div class="row"><label>Situação<select id="situacao"><option value="disponivel">Disponível</option><option value="reservado">Reservado</option><option value="vendido">Vendido</option><option value="alugado">Alugado</option></select></label><label>Selo<select id="selo"><option value="nenhum">Nenhum</option><option value="novidade">Novidade</option><option value="oportunidade">Oportunidade</option><option value="preco_reduzido">Preço reduzido</option></select></label></div><label class="check"><input id="aceita_financiamento" type="checkbox"> Aceita financiamento</label><label class="check"><input id="aceita_fgts" type="checkbox"> Aceita FGTS</label><label class="check"><input id="destaque" type="checkbox"> Destacar na página inicial</label><label class="check"><input id="publicado" type="checkbox"> Publicar anúncio</label><button type="submit">Salvar imóvel</button> <button id="cancel" type="button" class="ghost">Cancelar</button></form><section id="photoSection" class="hidden"><h2>Fotografias do imóvel</h2><p class="hint">As fotos ficam vinculadas ao imóvel salvo. Selecione imagens reais em JPG, PNG ou WebP. A primeira foto será a capa. Segure o botão “Arrastar” e leve a foto até a posição desejada, ou use as setas.</p><div class="uploadbar"><label for="photoInput">Selecionar fotografias</label><input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple><button type="button" id="uploadPhotos">Enviar fotografias</button><p id="photoStatus" class="hint" role="status"></p></div><div id="photoGrid" class="photos"></div></section><p class="muted">Características avançadas serão adicionadas na próxima etapa. Cadastros podem ser salvos como rascunho.</p></section></section><p id="status" role="status"></p></main><script type="module">
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal Bauru | Administração</title>
+<style>
+:root{font-family:Inter,system-ui,sans-serif;color:#14253D;background:#F6F1EA}
+*{box-sizing:border-box}
+body{margin:0}
+header{background:#14253D;color:white;padding:20px 5%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+header strong{font-size:22px}
+main{max-width:1100px;margin:35px auto;padding:0 18px}
+.card{background:white;border-radius:18px;padding:26px;box-shadow:0 6px 30px #14253d12;margin-bottom:20px}
+h1{font-size:26px}
+h2{font-size:20px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d5d8dd;border-radius:9px;font:inherit;margin:7px 0 16px}
+textarea{min-height:110px}
+button{border:0;border-radius:10px;background:#F85F08;color:white;padding:12px 18px;font-weight:700;cursor:pointer}
+button.secondary{background:#14253D}
+button.ghost{background:#e9edf2;color:#14253D}
+button:disabled{opacity:.5;cursor:wait}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:12px;margin:15px 0}
+.photo{border:1px solid #ddd;border-radius:12px;overflow:hidden;padding:8px;background:#fafafa}
+.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:7px}
+.photo button{width:100%;font-size:12px;padding:9px 5px;margin-top:5px}
+.photo small{display:block;margin:5px 0}
+.photo .drag-handle{touch-action:none;cursor:grab;background:#14253D;color:white;user-select:none}
+.photo.dragging{opacity:.45;outline:3px solid #F85F08}
+.photo.drop-target{outline:3px dashed #F85F08}
+.photos.busy{pointer-events:none;opacity:.65}
+.hint{font-size:13px;color:#697386}
+.uploadbar{border:1px dashed #b9c0c8;border-radius:12px;padding:15px;margin-top:12px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>*{flex:1;min-width:180px}
+.hidden{display:none!important}
+.muted{color:#697386}
+.item{border-top:1px solid #eee;padding:16px 0;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.item-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.item-actions button{font-size:12px;padding:10px 12px}
+.item-details{min-width:0;overflow-wrap:anywhere}
+.search-info{font-size:13px;color:#697386;margin:0 0 8px}
+.copy-feedback{font-size:12px;color:#176d3b;margin-top:5px}
+.error{color:#a12820}
+.success{color:#176d3b}
+label{font-size:14px;font-weight:600}
+.check{display:flex;gap:8px;align-items:center;margin:12px 0}
+.check input{width:auto;margin:0}
+#status{min-height:22px}
+.address-panel{border:1px solid #e2e6ea;border-radius:14px;padding:18px;margin:16px 0;background:#fafbfd}
+.address-panel h3{margin:0 0 5px}
+.cep-actions{display:flex;gap:10px;align-items:flex-start}
+.cep-actions input{flex:1;min-width:0}
+.cep-actions button{margin-top:7px;white-space:nowrap}
+.address-feedback{min-height:18px;margin:0 0 12px;font-size:13px}
+@media(max-width:550px){
+.item{display:block}
+.item button{margin:8px 6px 0 0}
+.cep-actions{flex-wrap:wrap}
+.cep-actions button{margin-top:0}
+}
+</style>
+</head>
+<body>
+<header>
+<strong>Portal Bauru</strong>
+<span>Administração de imóveis</span>
+</header>
+<main>
+<section id="login" class="card">
+<h1>Entrar no painel</h1>
+<p class="muted">Acesso exclusivo aos administradores autorizados.</p>
+<form id="loginForm">
+<label>E-mail<input id="email" type="email" autocomplete="username" required></label>
+<label>Senha<input id="password" type="password" autocomplete="current-password" required></label>
+<button>Entrar</button>
+</form>
+</section>
+
+<section id="dashboard" class="hidden">
+<div class="row" style="align-items:center">
+<h1>Gerenciar imóveis</h1>
+<div style="text-align:right"><button id="logout" class="ghost">Sair</button></div>
+</div>
+
+<section class="card">
+<div class="row">
+<input id="search" placeholder="Buscar condomínio, bairro, código ou título" aria-label="Buscar imóveis">
+<button id="new" style="flex:0 0 auto">+ Novo imóvel</button>
+</div>
+<p id="searchCount" class="search-info" role="status"></p>
+<div id="items"></div>
+</section>
+
+<section id="editor" class="card hidden">
+<h2 id="editorTitle">Novo imóvel</h2>
+<form id="propertyForm">
+<div class="row">
+<label>Código<input id="codigo" placeholder="Ex.: BAU-001"></label>
+<label>Título<input id="titulo" required></label>
+</div>
+
+<div class="row">
+<label>Finalidade
+<select id="finalidade">
+<option value="venda">Venda</option>
+<option value="locacao">Locação</option>
+</select>
+</label>
+<label>Tipo
+<select id="tipo">
+<option value="apartamento">Apartamento</option>
+<option value="casa">Casa</option>
+<option value="sobrado">Sobrado</option>
+<option value="terreno">Terreno</option>
+<option value="chacara">Chácara</option>
+<option value="comercial">Comercial</option>
+<option value="outro">Outro</option>
+</select>
+</label>
+</div>
+
+<div class="row">
+<label>Empreendimento / Condomínio
+<input id="empreendimento" placeholder="Ex.: Residencial Parque Bonardi">
+</label>
+<label>Bairro<input id="bairro"></label>
+</div>
+
+<div class="address-panel">
+<h3>Endereço do imóvel</h3>
+<p class="hint">Digite o CEP para preencher o endereço automaticamente. Confira os dados e informe quadra e número conforme o padrão de Bauru.</p>
+
+<label for="cep">CEP</label>
+<div class="cep-actions">
+<input id="cep" type="text" inputmode="numeric" maxlength="9" placeholder="00000-000" autocomplete="postal-code">
+<button id="buscarCep" type="button" class="secondary">Buscar CEP</button>
+</div>
+<p id="cepStatus" class="address-feedback" role="status"></p>
+
+<label>Logradouro (rua, avenida, alameda etc.)
+<input id="logradouro" autocomplete="address-line1">
+</label>
+
+<div class="row">
+<label>Quadra<input id="quadra" placeholder="Ex.: 12"></label>
+<label>Número<input id="numero" placeholder="Ex.: 5"></label>
+</div>
+
+<label>Complemento
+<input id="complemento" placeholder="Apartamento, bloco, casa, lote etc.">
+</label>
+
+<div class="row">
+<label>Cidade<input id="cidade" value="Bauru" autocomplete="address-level2"></label>
+<label>Estado (UF)<input id="estado" value="SP" maxlength="2" autocomplete="address-level1"></label>
+</div>
+</div>
+
+<div class="row">
+<label>Preço (R$)<input id="preco" type="number" min="0" step="0.01"></label>
+<label>Área privativa (m²)<input id="area_privativa" type="number" min="0" step="0.01"></label>
+</div>
+
+<div class="row">
+<label>Quartos<input id="quartos" type="number" min="0"></label>
+<label>Suítes<input id="suites" type="number" min="0"></label>
+<label>Banheiros<input id="banheiros" type="number" min="0"></label>
+<label>Vagas<input id="vagas" type="number" min="0"></label>
+</div>
+
+<label>Descrição<textarea id="descricao"></textarea></label>
+
+<div class="row">
+<label>Situação
+<select id="situacao">
+<option value="disponivel">Disponível</option>
+<option value="reservado">Reservado</option>
+<option value="vendido">Vendido</option>
+<option value="alugado">Alugado</option>
+</select>
+</label>
+<label>Selo
+<select id="selo">
+<option value="nenhum">Nenhum</option>
+<option value="novidade">Novidade</option>
+<option value="oportunidade">Oportunidade</option>
+<option value="preco_reduzido">Preço reduzido</option>
+</select>
+</label>
+</div>
+
+<label class="check"><input id="aceita_financiamento" type="checkbox"> Aceita financiamento</label>
+<label class="check"><input id="aceita_fgts" type="checkbox"> Aceita FGTS</label>
+<label class="check"><input id="destaque" type="checkbox"> Destacar na página inicial</label>
+<label class="check"><input id="publicado" type="checkbox"> Publicar anúncio</label>
+
+<button type="submit" id="saveProperty">Salvar imóvel</button>
+<button id="cancel" type="button" class="ghost">Cancelar</button>
+</form>
+
+<section id="photoSection" class="hidden">
+<h2>Fotografias do imóvel</h2>
+<p class="hint">As fotos ficam vinculadas ao imóvel salvo. Selecione imagens reais em JPG, PNG ou WebP. A primeira foto será a capa. Segure o botão “Arrastar” e leve a foto até a posição desejada, ou use as setas.</p>
+<div class="uploadbar">
+<label for="photoInput">Selecionar fotografias</label>
+<input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+<button type="button" id="uploadPhotos">Enviar fotografias</button>
+<p id="photoStatus" class="hint" role="status"></p>
+</div>
+<div id="photoGrid" class="photos"></div>
+</section>
+<p class="muted">Características avançadas serão adicionadas na próxima etapa. Cadastros podem ser salvos como rascunho.</p>
+</section>
+</section>
+<p id="status" role="status"></p>
+</main>
+
+<script type="module">
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-const supabase=createClient('https://dtkszimtovtqdojjpqsy.supabase.co','sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi');
-const $=id=>document.getElementById(id), fields=['codigo','titulo','descricao','finalidade','tipo','empreendimento','preco','bairro','area_privativa','quartos','suites','banheiros','vagas','situacao','selo','aceita_financiamento','aceita_fgts','destaque','publicado'];let records=[],editing=null,photoRecords=[];
-function message(msg,error=false){$('status').textContent=msg;$('status').className=error?'error':'success'}
-async function check(){const {data:{user}}=await supabase.auth.getUser();if(!user){$('login').classList.remove('hidden');$('dashboard').classList.add('hidden');return}const {data,error}=await supabase.rpc('portal_eh_admin');if(error||!data){message('Sua conta não está autorizada como administradora.',true);await supabase.auth.signOut();$('login').classList.remove('hidden');$('dashboard').classList.add('hidden');return}$('login').classList.add('hidden');$('dashboard').classList.remove('hidden');await load()}
-async function load(){const {data,error}=await supabase.from('imoveis').select('*').order('atualizado_em',{ascending:false});if(error){message('Erro ao consultar imóveis: '+error.message,true);return}records=data||[];render()}
-const normalizeSearch=value=>String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');
-const propertyLink=(id,broker)=>{const url=new URL('imovel.html',location.href);url.searchParams.set('id',id);url.searchParams.set('ref',broker);return url.href};
-async function copyBrokerLink(id,broker,feedback){
- const url=propertyLink(id,broker);
- try{
-  if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(url)}
-  else{const field=document.createElement('textarea');field.value=url;field.style.position='fixed';field.style.opacity='0';document.body.append(field);field.select();const copied=document.execCommand('copy');field.remove();if(!copied)throw new Error('Cópia indisponível')}
-  feedback.textContent='Link de '+(broker==='rafael'?'Rafael':'Débora')+' copiado!';
- }catch(error){feedback.textContent='Não foi possível copiar automaticamente. Selecione o endereço abaixo:';const field=document.createElement('input');field.value=url;field.readOnly=true;field.setAttribute('aria-label','Link para copiar');field.onclick=()=>field.select();feedback.append(field);field.focus();field.select()}
+
+const supabase=createClient(
+'https://dtkszimtovtqdojjpqsy.supabase.co',
+'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
+);
+const $=id=>document.getElementById(id);
+
+const fields=[
+'codigo','titulo','descricao','finalidade','tipo',
+'empreendimento','preco','bairro','area_privativa',
+'quartos','suites','banheiros','vagas','situacao',
+'selo','aceita_financiamento','aceita_fgts',
+'destaque','publicado','cep','logradouro','quadra',
+'numero','complemento','cidade','estado'
+];
+
+let records=[],editing=null,photoRecords=[];
+
+function message(msg,error=false){
+$('status').textContent=msg;
+$('status').className=error?'error':'success';
 }
-function render(){
- const q=normalizeSearch($('search').value.trim());
- const words=q.split(/\s+/).filter(Boolean);
- const matches=records.filter(r=>{const searchable=normalizeSearch([r.codigo,r.titulo,r.empreendimento,r.bairro,r.tipo,r.finalidade].join(' '));return words.every(word=>searchable.includes(word))});
- const root=$('items');root.replaceChildren();
- $('searchCount').textContent=matches.length+' imóvel(is) encontrado(s)'+(q?' para a busca':'')+'.';
- if(!matches.length){const p=document.createElement('p');p.className='muted';p.textContent='Nenhum imóvel encontrado. Tente o nome do condomínio, bairro ou código.';root.append(p)}
- for(const r of matches){
-  const div=document.createElement('div');div.className='item';
-  const details=document.createElement('div');details.className='item-details';
-  const strong=document.createElement('strong');strong.textContent=r.titulo||'Imóvel sem título';
-  const small=document.createElement('div');small.className='muted';small.textContent=[r.codigo,r.empreendimento,r.bairro,r.publicado?'Publicado':'Rascunho'].filter(Boolean).join(' • ');
-  const feedback=document.createElement('div');feedback.className='copy-feedback';feedback.setAttribute('role','status');
-  details.append(strong,small,feedback);
-  const actions=document.createElement('div');actions.className='item-actions';
-  const edit=document.createElement('button');edit.textContent='Editar';edit.className='secondary';edit.onclick=()=>openEditor(r);actions.append(edit);
-  if(r.publicado && r.id){
-   for(const broker of ['rafael','debora']){const button=document.createElement('button');button.type='button';button.className='ghost';button.textContent='Copiar link '+(broker==='rafael'?'Rafael':'Débora');button.onclick=()=>copyBrokerLink(r.id,broker,feedback);actions.append(button)}
-  }
-  div.append(details,actions);root.append(div)
- }
+
+async function check(){
+const {data:{user}}=await supabase.auth.getUser();
+if(!user){
+$('login').classList.remove('hidden');
+$('dashboard').classList.add('hidden');
+return;
 }
-async function openEditor(r=null){editing=r?.id||null;$('propertyForm').reset();$('editorTitle').textContent=r?'Editar imóvel':'Novo imóvel';if(r)for(const f of fields){const el=$(f);if(el.type==='checkbox')el.checked=!!r[f];else el.value=r[f]??''}$('editor').classList.remove('hidden');$('photoSection').classList.toggle('hidden',!editing);$('photoGrid').replaceChildren();$('photoStatus').textContent='';if(editing)await loadPhotos();$('editor').scrollIntoView({behavior:'smooth'})}
-$('new').onclick=()=>openEditor();$('cancel').onclick=()=>$('editor').classList.add('hidden');$('search').oninput=render;
-$('loginForm').onsubmit=async e=>{e.preventDefault();message('Autenticando...');const {error}=await supabase.auth.signInWithPassword({email:$('email').value,password:$('password').value});if(error){message('Não foi possível entrar: '+error.message,true);return}$('password').value='';await check()};
-$('logout').onclick=async()=>{await supabase.auth.signOut();message('Sessão encerrada.');await check()};
-$('propertyForm').onsubmit=async e=>{e.preventDefault();const payload={};for(const f of fields){const el=$(f);payload[f]=el.type==='checkbox'?el.checked:el.value.trim()||null}for(const f of ['preco','area_privativa','quartos','suites','banheiros','vagas'])if(payload[f]!==null)payload[f]=Number(payload[f]);payload.descricao??='';const {error}=editing?await supabase.from('imoveis').update(payload).eq('id',editing):await supabase.from('imoveis').insert(payload);if(error){message('Erro ao salvar: '+error.message,true);return}message('Imóvel salvo com sucesso.');$('editor').classList.add('hidden');await load()};
-const bucket='portal-imoveis';
-async function loadPhotos(){
- if(!editing)return;
- const {data,error}=await supabase.from('imovel_fotos').select('*').eq('imovel_id',String(editing)).order('ordem',{ascending:true}).order('criado_em',{ascending:true});
- if(error){$('photoStatus').textContent='Não foi possível carregar fotos: '+error.message;return}
- photoRecords=data||[];renderPhotos();
+const {data,error}=await supabase.rpc('portal_eh_admin');
+if(error||!data){
+message('Sua conta não está autorizada como administradora.',true);
+await supabase.auth.signOut();
+$('login').classList.remove('hidden');
+$('dashboard').classList.add('hidden');
+return;
 }
-function renderPhotos(){
- const root=$('photoGrid');root.replaceChildren();
- if(!photoRecords.length){const p=document.createElement('p');p.className='hint';p.textContent='Nenhuma fotografia cadastrada.';root.append(p);return}
- photoRecords.forEach((r,i)=>{
-  const card=document.createElement('div');card.className='photo';card.dataset.photoIndex=String(i);
-  const img=document.createElement('img');img.alt='Fotografia '+(i+1);img.loading='lazy';img.src=supabase.storage.from(bucket).getPublicUrl(r.caminho).data.publicUrl;
-  const label=document.createElement('small');label.textContent=i===0?'★ Foto principal':'Foto '+(i+1);
-  const buttons=document.createElement('div');
-  const drag=document.createElement('button');drag.type='button';drag.className='drag-handle';drag.textContent='☰ Segure e arraste';drag.setAttribute('aria-label','Segure e arraste a foto '+(i+1));drag.addEventListener('pointerdown',e=>beginPhotoDrag(e,i,card,drag));buttons.append(drag);
-  function action(text,fn,cls='ghost'){const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=text;b.onclick=fn;buttons.append(b)}
-  if(i>0)action('↑ Subir',()=>movePhoto(i,-1));
-  if(i<photoRecords.length-1)action('↓ Descer',()=>movePhoto(i,1));
-  if(i>0)action('Definir como capa',()=>makeCover(i));
-  action('Excluir',()=>deletePhoto(r),'secondary');card.append(img,label,buttons);root.append(card)
- });
+$('login').classList.add('hidden');
+$('dashboard').classList.remove('hidden');
+await load();
 }
-let orderBusy=false;
-function beginPhotoDrag(e,from,card,handle){
- if(orderBusy || (e.pointerType==='mouse' && e.button!==0))return;
- e.preventDefault();handle.setPointerCapture(e.pointerId);
- let target=from;card.classList.add('dragging');
- const move=ev=>{
-  const under=document.elementFromPoint(ev.clientX,ev.clientY)?.closest('.photo');
-  document.querySelectorAll('#photoGrid .drop-target').forEach(el=>el.classList.remove('drop-target'));
-  if(under && under.parentElement===$('photoGrid')){target=Number(under.dataset.photoIndex);if(under!==card)under.classList.add('drop-target')}
- };
- const finish=async ev=>{
-  handle.removeEventListener('pointermove',move);handle.removeEventListener('pointerup',finish);handle.removeEventListener('pointercancel',cancel);
-  card.classList.remove('dragging');document.querySelectorAll('#photoGrid .drop-target').forEach(el=>el.classList.remove('drop-target'));
-  if(target===from || orderBusy)return;
-  const arr=[...photoRecords];arr.splice(target,0,arr.splice(from,1)[0]);await saveOrder(arr);
- };
- const cancel=()=>{handle.removeEventListener('pointermove',move);handle.removeEventListener('pointerup',finish);handle.removeEventListener('pointercancel',cancel);card.classList.remove('dragging');document.querySelectorAll('#photoGrid .drop-target').forEach(el=>el.classList.remove('drop-target'))};
- handle.addEventListener('pointermove',move);handle.addEventListener('pointerup',finish);handle.addEventListener('pointercancel',cancel);
+
+async function load(){
+const {data,error}=await supabase.from('imoveis')
+.select('*')
+.order('atualizado_em',{ascending:false});
+if(error){
+message('Erro ao consultar imóveis: '+error.message,true);
+return;
 }
-async function saveOrder(arr){
- if(orderBusy)return;
- orderBusy=true;$('photoGrid').classList.add('busy');
- try { await persistOrder(arr); } finally { orderBusy=false;$('photoGrid').classList.remove('busy'); }
+records=data||[];
+render();
 }
-async function persistOrder(arr){
- $('photoStatus').textContent='Salvando ordem...';
- const {error}=await supabase.rpc('portal_reordenar_fotos',{p_imovel_id:editing,p_foto_ids:arr.map(r=>r.id)});
- if(error){$('photoStatus').textContent='Erro ao reorganizar: '+error.message;await loadPhotos();return}
- $('photoStatus').textContent='Ordem salva.';await loadPhotos();
-}
-async function movePhoto(i,delta){const arr=[...photoRecords];[arr[i],arr[i+delta]]=[arr[i+delta],arr[i]];await saveOrder(arr)}
-async function makeCover(i){const arr=[...photoRecords];arr.unshift(arr.splice(i,1)[0]);await saveOrder(arr)}
-async function deletePhoto(r){
- if(!confirm('Excluir esta fotografia do imóvel?'))return;
- const {error}=await supabase.from('imovel_fotos').delete().eq('id',r.id);
- if(error){$('photoStatus').textContent='Erro ao excluir: '+error.message;return}
- const {error:storageError}=await supabase.storage.from(bucket).remove([r.caminho]);
- $('photoStatus').textContent=storageError?'Foto retirada do anúncio, mas houve falha ao apagar o arquivo: '+storageError.message:'Fotografia excluída.';
- await loadPhotos();
-}
-$('uploadPhotos').onclick=async()=>{
- if(!editing){$('photoStatus').textContent='Salve o imóvel antes de adicionar fotografias.';return}
- const files=[...$('photoInput').files];if(!files.length){$('photoStatus').textContent='Selecione uma ou mais fotos.';return}
- const btn=$('uploadPhotos');btn.disabled=true;let ok=0;const errors=[];let nextOrder=photoRecords.length ? Math.max(...photoRecords.map(r=>Number(r.ordem)||0))+1 : 1;
- for(const file of files){
-  if(nextOrder>30){errors.push(file.name+': limite de 30 fotos por imóvel');continue}
-  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){errors.push(file.name+': formato não permitido');continue}
-  if(file.size>10*1024*1024){errors.push(file.name+': excede 10 MB');continue}
-  $('photoStatus').textContent='Enviando '+(ok+1)+' de '+files.length+'...';
-  const ext=file.type==='image/png'?'png':file.type==='image/webp'?'webp':'jpg';
-  const path=String(editing)+'/'+crypto.randomUUID()+'.'+ext;
-  const {error:uploadError}=await supabase.storage.from(bucket).upload(path,file,{contentType:file.type,upsert:false});
-  if(uploadError){errors.push(file.name+': '+uploadError.message);continue}
-  const ordemEnvio=Math.min(30,Math.max(1,Math.trunc(Number(nextOrder)||1)));
-  const {error:dbError}=await supabase.from('imovel_fotos').insert({imovel_id:String(editing),caminho:path,ordem:ordemEnvio});
-  if(dbError){await supabase.storage.from(bucket).remove([path]);errors.push(file.name+' (posição enviada: '+ordemEnvio+'): '+dbError.message);continue}
-  ok++;nextOrder=ordemEnvio+1;
- }
- btn.disabled=false;$('photoInput').value='';await loadPhotos();
- $('photoStatus').textContent=ok+' fotografia(s) enviada(s).'+(errors.length?' Falhas: '+errors.join(' | '):'');
+
+const normalizeSearch=value=>String(value??'')
+.normalize('NFD')
+.replace(/[\u0300-\u036f]/g,'')
+.toLocaleLowerCase('pt-BR');
+
+const propertyLink=(id,broker)=>{
+const url=new URL('imovel.html',location.href);
+url.searchParams.set('id',id);
+url.searchParams.set('ref',broker);
+return url.href;
 };
+
+async function copyBrokerLink(id,broker,feedback){
+const url=propertyLink(id,broker);
+try{
+if(navigator.clipboard&&window.isSecureContext){
+await navigator.clipboard.writeText(url);
+}else{
+const field=document.createElement('textarea');
+field.value=url;
+field.style.position='fixed';
+field.style.opacity='0';
+document.body.append(field);
+field.select();
+const copied=document.execCommand('copy');
+field.remove();
+if(!copied)throw new Error('Cópia indisponível');
+}
+feedback.textContent='Link de '+(broker==='rafael'?'Rafael':'Débora')+' copiado!';
+}catch(error){
+feedback.textContent='Não foi possível copiar automaticamente. Selecione o endereço abaixo:';
+const field=document.createElement('input');
+field.value=url;
+field.readOnly=true;
+field.setAttribute('aria-label','Link para copiar');
+field.onclick=()=>field.select();
+feedback.append(field);
+field.focus();
+field.select();
+}
+}
+
+function render(){
+const q=normalizeSearch($('search').value.trim());
+const words=q.split(/\s+/).filter(Boolean);
+const matches=records.filter(r=>{
+const searchable=normalizeSearch([
+r.codigo,r.titulo,r.empreendimento,r.bairro,
+r.tipo,r.finalidade
+].join(' '));
+return words.every(word=>searchable.includes(word));
+});
+const root=$('items');
+root.replaceChildren();
+$('searchCount').textContent=matches.length+
+' imóvel(is) encontrado(s)'+(q?' para a busca':'')+'.';
+
+if(!matches.length){
+const p=document.createElement('p');
+p.className='muted';
+p.textContent='Nenhum imóvel encontrado. Tente o nome do condomínio, bairro ou código.';
+root.append(p);
+}
+
+for(const r of matches){
+const div=document.createElement('div');
+div.className='item';
+
+const details=document.createElement('div');
+details.className='item-details';
+
+const strong=document.createElement('strong');
+strong.textContent=r.titulo||'Imóvel sem título';
+
+const small=document.createElement('div');
+small.className='muted';
+small.textContent=[
+r.codigo,r.empreendimento,r.bairro,
+r.publicado?'Publicado':'Rascunho'
+].filter(Boolean).join(' • ');
+
+const feedback=document.createElement('div');
+feedback.className='copy-feedback';
+feedback.setAttribute('role','status');
+details.append(strong,small,feedback);
+
+const actions=document.createElement('div');
+actions.className='item-actions';
+
+const edit=document.createElement('button');
+edit.textContent='Editar';
+edit.className='secondary';
+edit.onclick=()=>openEditor(r);
+actions.append(edit);
+
+if(r.publicado&&r.id){
+for(const broker of ['rafael','debora']){
+const button=document.createElement('button');
+button.type='button';
+button.className='ghost';
+button.textContent='Copiar link '+(broker==='rafael'?'Rafael':'Débora');
+button.onclick=()=>copyBrokerLink(r.id,broker,feedback);
+actions.append(button);
+}
+}
+div.append(details,actions);
+root.append(div);
+}
+}
+
+async function openEditor(r=null){
+editing=r?.id||null;
+$('propertyForm').reset();
+$('cepStatus').textContent='';
+$('editorTitle').textContent=r?'Editar imóvel':'Novo imóvel';
+
+if(r){
+for(const f of fields){
+const el=$(f);
+if(el.type==='checkbox')el.checked=!!r[f];
+else el.value=r[f]??'';
+}
+}else{
+$('cidade').value='Bauru';
+$('estado').value='SP';
+}
+
+$('editor').classList.remove('hidden');
+$('photoSection').classList.toggle('hidden',!editing);
+$('photoGrid').replaceChildren();
+$('photoStatus').textContent='';
+if(editing)await loadPhotos();
+$('editor').scrollIntoView({behavior:'smooth'});
+}
+
+$('new').onclick=()=>openEditor();
+$('cancel').onclick=()=>$('editor').classList.add('hidden');
+$('search').oninput=render;
+
+$('loginForm').onsubmit=async e=>{
+e.preventDefault();
+message('Autenticando...');
+const {error}=await supabase.auth.signInWithPassword({
+email:$('email').value,
+password:$('password').value
+});
+if(error){
+message('Não foi possível entrar: '+error.message,true);
+return;
+}
+$('password').value='';
+await check();
+};
+
+$('logout').onclick=async()=>{
+await supabase.auth.signOut();
+message('Sessão encerrada.');
+await check();
+};
+
+function formatCep(value){
+const digits=String(value||'').replace(/\D/g,'').slice(0,8);
+return digits.length>5?
+digits.slice(0,5)+'-'+digits.slice(5):digits;
+}
+
+$('cep').addEventListener('input',()=>{
+$('cep').value=formatCep($('cep').value);
+$('cepStatus').textContent='';
+});
+
+$('cep').addEventListener('keydown',e=>{
+if(e.key==='Enter'){
+e.preventDefault();
+buscarCep();
+}
+});
+
+$('cep').addEventListener('blur',()=>{
+if($('cep').value.replace(/\D/g,'').length===8
+&&!$('logradouro').value.trim())buscarCep();
+});
+
+$('buscarCep').onclick=buscarCep;
+
+let cepRequest=0;
+
+async function buscarCep(){
+const digits=$('cep').value.replace(/\D/g,'');
+if(digits.length!==8){
+$('cepStatus').textContent='Informe um CEP com 8 números.';
+$('cepStatus').className='address-feedback error';
+return;
+}
+const request=++cepRequest;
+const btn=$('buscarCep');
+btn.disabled=true;
+$('cepStatus').textContent='Consultando CEP...';
+$('cepStatus').className='address-feedback';
+
+try{
+const controller=new AbortController();
+const timeout=setTimeout(()=>controller.abort(),10000);
+let response;
+try{
+response=await fetch(
+'https://viacep.com.br/ws/'+digits+'/json/',
+{signal:controller.signal}
+);
+}finally{
+clearTimeout(timeout);
+}
+if(!response.ok)throw new Error('Serviço indisponível');
+const data=await response.json();
+if(request!==cepRequest)return;
+
+if(data.erro){
+$('cepStatus').textContent='CEP não encontrado. Confira os números ou preencha o endereço manualmente.';
+$('cepStatus').className='address-feedback error';
+return;
+}
+
+const mapping={
+logradouro:data.logradouro,
+bairro:data.bairro,
+cidade:data.localidade,
+estado:data.uf
+};
+
+for(const [field,value] of Object.entries(mapping)){
+if(value)$(field).value=value;
+}
+
+$('cep').value=formatCep(digits);
+$('cepStatus').textContent='Endereço encontrado! Confira os dados e preencha quadra, número e complemento.';
+$('cepStatus').className='address-feedback success';
+
+}catch(error){
+if(request===cepRequest){
+$('cepStatus').textContent='Não foi possível consultar agora. Você pode preencher o endereço manualmente.';
+$('cepStatus').className='address-feedback error';
+}
+}finally{
+if(request===cepRequest)btn.disabled=false;
+}
+}
+
+$('propertyForm').onsubmit=async e=>{
+e.preventDefault();
+const payload={};
+
+for(const f of fields){
+const el=$(f);
+payload[f]=el.type==='checkbox'?
+el.checked:el.value.trim()||null;
+}
+
+for(const f of [
+'preco','area_privativa','quartos',
+'suites','banheiros','vagas'
+]){
+if(payload[f]!==null)payload[f]=Number(payload[f]);
+}
+
+payload.descricao??='';
+
+if(payload.cep&&payload.cep.replace(/\D/g,'').length!==8){
+message('Confira o CEP: ele deve ter 8 números.',true);
+$('cep').focus();
+return;
+}
+
+if(payload.estado)payload.estado=payload.estado.toUpperCase();
+
+const btn=$('saveProperty');
+btn.disabled=true;
+
+try{
+const {error}=editing?
+await supabase.from('imoveis').update(payload).eq('id',editing):
+await supabase.from('imoveis').insert(payload);
+
+if(error){
+message('Erro ao salvar: '+error.message,true);
+return;
+}
+
+message('Imóvel salvo com sucesso.');
+$('editor').classList.add('hidden');
+await load();
+}finally{
+btn.disabled=false;
+}
+};
+
+const bucket='portal-imoveis';
+
+async function loadPhotos(){
+if(!editing)return;
+const {data,error}=await supabase.from('imovel_fotos')
+.select('*')
+.eq('imovel_id',String(editing))
+.order('ordem',{ascending:true})
+.order('criado_em',{ascending:true});
+
+if(error){
+$('photoStatus').textContent='Não foi possível carregar fotos: '+error.message;
+return;
+}
+photoRecords=data||[];
+renderPhotos();
+}
+
+function renderPhotos(){
+const root=$('photoGrid');
+root.replaceChildren();
+
+if(!photoRecords.length){
+const p=document.createElement('p');
+p.className='hint';
+p.textContent='Nenhuma fotografia cadastrada.';
+root.append(p);
+return;
+}
+
+photoRecords.forEach((r,i)=>{
+const card=document.createElement('div');
+card.className='photo';
+card.dataset.photoIndex=String(i);
+
+const img=document.createElement('img');
+img.alt='Fotografia '+(i+1);
+img.loading='lazy';
+img.src=supabase.storage.from(bucket)
+.getPublicUrl(r.caminho).data.publicUrl;
+
+const label=document.createElement('small');
+label.textContent=i===0?'★ Foto principal':'Foto '+(i+1);
+
+const buttons=document.createElement('div');
+const drag=document.createElement('button');
+drag.type='button';
+drag.className='drag-handle';
+drag.textContent='☰ Segure e arraste';
+drag.setAttribute('aria-label','Segure e arraste a foto '+(i+1));
+drag.addEventListener('pointerdown',e=>beginPhotoDrag(e,i,card,drag));
+buttons.append(drag);
+
+function action(text,fn,cls='ghost'){
+const b=document.createElement('button');
+b.type='button';
+b.className=cls;
+b.textContent=text;
+b.onclick=fn;
+buttons.append(b);
+}
+
+if(i>0)action('↑ Subir',()=>movePhoto(i,-1));
+if(i<photoRecords.length-1)action('↓ Descer',()=>movePhoto(i,1));
+if(i>0)action('Definir como capa',()=>makeCover(i));
+action('Excluir',()=>deletePhoto(r),'secondary');
+
+card.append(img,label,buttons);
+root.append(card);
+});
+}
+
+let orderBusy=false;
+
+function beginPhotoDrag(e,from,card,handle){
+if(orderBusy||(e.pointerType==='mouse'&&e.button!==0))return;
+e.preventDefault();
+handle.setPointerCapture(e.pointerId);
+let target=from;
+card.classList.add('dragging');
+
+const move=ev=>{
+const under=document.elementFromPoint(ev.clientX,ev.clientY)?.closest('.photo');
+document.querySelectorAll('#photoGrid .drop-target')
+.forEach(el=>el.classList.remove('drop-target'));
+if(under&&under.parentElement===$('photoGrid')){
+target=Number(under.dataset.photoIndex);
+if(under!==card)under.classList.add('drop-target');
+}
+};
+
+const finish=async ev=>{
+handle.removeEventListener('pointermove',move);
+handle.removeEventListener('pointerup',finish);
+handle.removeEventListener('pointercancel',cancel);
+card.classList.remove('dragging');
+document.querySelectorAll('#photoGrid .drop-target')
+.forEach(el=>el.classList.remove('drop-target'));
+
+if(target===from||orderBusy)return;
+const arr=[...photoRecords];
+arr.splice(target,0,arr.splice(from,1)[0]);
+await saveOrder(arr);
+};
+
+const cancel=()=>{
+handle.removeEventListener('pointermove',move);
+handle.removeEventListener('pointerup',finish);
+handle.removeEventListener('pointercancel',cancel);
+card.classList.remove('dragging');
+document.querySelectorAll('#photoGrid .drop-target')
+.forEach(el=>el.classList.remove('drop-target'));
+};
+
+handle.addEventListener('pointermove',move);
+handle.addEventListener('pointerup',finish);
+handle.addEventListener('pointercancel',cancel);
+}
+
+async function saveOrder(arr){
+if(orderBusy)return;
+orderBusy=true;
+$('photoGrid').classList.add('busy');
+try{
+await persistOrder(arr);
+}finally{
+orderBusy=false;
+$('photoGrid').classList.remove('busy');
+}
+}
+
+async function persistOrder(arr){
+$('photoStatus').textContent='Salvando ordem...';
+const {error}=await supabase.rpc('portal_reordenar_fotos',{
+p_imovel_id:editing,
+p_foto_ids:arr.map(r=>r.id)
+});
+
+if(error){
+$('photoStatus').textContent='Erro ao reorganizar: '+error.message;
+await loadPhotos();
+return;
+}
+$('photoStatus').textContent='Ordem salva.';
+await loadPhotos();
+}
+
+async function movePhoto(i,delta){
+const arr=[...photoRecords];
+[arr[i],arr[i+delta]]=[arr[i+delta],arr[i]];
+await saveOrder(arr);
+}
+
+async function makeCover(i){
+const arr=[...photoRecords];
+arr.unshift(arr.splice(i,1)[0]);
+await saveOrder(arr);
+}
+
+async function deletePhoto(r){
+if(!confirm('Excluir esta fotografia do imóvel?'))return;
+
+const {error}=await supabase.from('imovel_fotos')
+.delete().eq('id',r.id);
+
+if(error){
+$('photoStatus').textContent='Erro ao excluir: '+error.message;
+return;
+}
+
+const {error:storageError}=await supabase.storage
+.from(bucket).remove([r.caminho]);
+
+$('photoStatus').textContent=storageError?
+'Foto retirada do anúncio, mas houve falha ao apagar o arquivo: '+storageError.message:
+'Fotografia excluída.';
+
+await loadPhotos();
+}
+
+$('uploadPhotos').onclick=async()=>{
+if(!editing){
+$('photoStatus').textContent='Salve o imóvel antes de adicionar fotografias.';
+return;
+}
+
+const files=[...$('photoInput').files];
+if(!files.length){
+$('photoStatus').textContent='Selecione uma ou mais fotos.';
+return;
+}
+
+const btn=$('uploadPhotos');
+btn.disabled=true;
+let ok=0;
+const errors=[];
+let nextOrder=photoRecords.length?
+Math.max(...photoRecords.map(r=>Number(r.ordem)||0))+1:1;
+
+for(const file of files){
+if(nextOrder>30){
+errors.push(file.name+': limite de 30 fotos por imóvel');
+continue;
+}
+
+if(!['image/jpeg','image/png','image/webp'].includes(file.type)){
+errors.push(file.name+': formato não permitido');
+continue;
+}
+
+if(file.size>10*1024*1024){
+errors.push(file.name+': excede 10 MB');
+continue;
+}
+
+$('photoStatus').textContent='Enviando '+(ok+1)+' de '+files.length+'...';
+
+const ext=file.type==='image/png'?'png':
+file.type==='image/webp'?'webp':'jpg';
+
+const path=String(editing)+'/'+crypto.randomUUID()+'.'+ext;
+
+const {error:uploadError}=await supabase.storage
+.from(bucket).upload(path,file,{
+contentType:file.type,
+upsert:false
+});
+
+if(uploadError){
+errors.push(file.name+': '+uploadError.message);
+continue;
+}
+
+const ordemEnvio=Math.min(
+30,Math.max(1,Math.trunc(Number(nextOrder)||1))
+);
+
+const {error:dbError}=await supabase.from('imovel_fotos')
+.insert({
+imovel_id:String(editing),
+caminho:path,
+ordem:ordemEnvio
+});
+
+if(dbError){
+await supabase.storage.from(bucket).remove([path]);
+errors.push(
+file.name+' (posição enviada: '+ordemEnvio+'): '+dbError.message
+);
+continue;
+}
+
+ok++;
+nextOrder=ordemEnvio+1;
+}
+
+btn.disabled=false;
+$('photoInput').value='';
+await loadPhotos();
+
+$('photoStatus').textContent=
+ok+' fotografia(s) enviada(s).'+
+(errors.length?' Falhas: '+errors.join(' | '):'');
+};
+
 check();
-</script></body></html>
+</script>
+</body>
+</html>
