@@ -30,9 +30,24 @@ function closePhoto(){$('lightbox').classList.add('hidden');document.body.style.
 $('close').onclick=closePhoto;$('prev').onclick=()=>openPhoto(active-1);$('next').onclick=()=>openPhoto(active+1);$('lightbox').addEventListener('click',e=>{if(e.target===$('lightbox'))closePhoto()});document.addEventListener('keydown',e=>{if($('lightbox').classList.contains('hidden'))return;if(e.key==='Escape')closePhoto();if(e.key==='ArrowLeft')openPhoto(active-1);if(e.key==='ArrowRight')openPhoto(active+1)});
 function addFeature(value,label){if(value===null||value===undefined||value==='')return;const d=node('div','feature');d.append(node('strong','',String(value)),node('small','',label));$('features').append(d)}
 function renderGallery(){const g=$('gallery');if(!photos.length){g.append(node('div','no-photo','Fotografias em breve'));return}const main=node('img','main-photo');main.src=photos[0];main.alt='Foto principal do imóvel';main.onclick=()=>openPhoto(0);g.append(main);if(photos.length>1){const thumbs=node('div','thumbs');for(let i=1;i<Math.min(3,photos.length);i++){const b=node('button','thumb');b.type='button';b.setAttribute('aria-label',`Abrir foto ${i+1}`);const img=node('img');img.src=photos[i];img.alt=`Foto ${i+1} do imóvel`;img.loading='lazy';b.append(img);if(i===2&&photos.length>3)b.append(node('span','more',`+ ${photos.length-3} fotos`));b.onclick=()=>openPhoto(i);thumbs.append(b)}g.append(thumbs)}else{g.style.gridTemplateColumns='1fr'}}
-// Links compartilhados com ref preservam o corretor de origem.
-// Distribuição orgânica centralizada ainda será configurada; por enquanto o botão utiliza o contato padrão de Rafael.
-function contactLink(p){const broker=ref==='debora'?'5514981306115':'5514982329929';const msg=`Olá! Gostaria de saber mais sobre o imóvel ${p.codigo||p.titulo||''} anunciado no Portal Bauru. ${location.href}`;return `https://wa.me/${broker}?text=${encodeURIComponent(msg)}`}
+// Links com ref preservam o corretor de origem. Sem ref, o Supabase alterna o destino.
+const brokerPhone={rafael:'5514982329929',debora:'5514981306115'};
+function contactLink(p,broker){const msg=`Olá! Gostaria de saber mais sobre o imóvel ${p.codigo||p.titulo||''} anunciado no Portal Bauru. ${location.href}`;return `https://wa.me/${brokerPhone[broker]}?text=${encodeURIComponent(msg)}`}
+async function openContact(p){
+ const btn=$('contact');if(btn.dataset.busy==='1')return;
+ btn.dataset.busy='1';btn.textContent='Preparando atendimento...';btn.setAttribute('aria-disabled','true');
+ try{
+   let broker=ref;
+   if(!broker){
+     const {data,error}=await supabase.rpc('portal_proximo_corretor');
+     if(error)throw error;
+     if(!Object.hasOwn(brokerPhone,data))throw new Error('Resposta inesperada do rodízio');
+     broker=data;
+   }
+   window.location.assign(contactLink(p,broker));
+ }catch(e){console.error('Contato WhatsApp:',e);alert('Não foi possível preparar o WhatsApp agora. Tente novamente em instantes.');}
+ finally{btn.dataset.busy='0';btn.textContent='Conversar pelo WhatsApp';btn.removeAttribute('aria-disabled');}
+}
 async function load(){try{
 if(!id||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)){throw new Error('Link do imóvel inválido. Volte à lista e escolha um imóvel.')}
 const {data:p,error}=await supabase.from('imoveis').select('id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,banheiros,vagas,situacao,selo,aceita_financiamento,aceita_fgts,publicado').eq('id',id).eq('publicado',true).single();if(error||!p)throw new Error('Este imóvel não está disponível para consulta pública.');
@@ -43,7 +58,7 @@ if(p.selo&&p.selo!=='nenhum')$('badge').append(node('span','tag',({novidade:'Nov
 renderGallery();addFeature(p.area_privativa?Number(p.area_privativa).toLocaleString('pt-BR')+' m²':null,'Área privativa');addFeature(p.quartos,'Quartos');addFeature(p.suites,'Suítes');addFeature(p.banheiros,'Banheiros');addFeature(p.vagas,'Vagas');addFeature(typeNames[p.tipo]||p.tipo,'Tipo');
 if(p.descricao){$('description').textContent=p.descricao}else{$('description-panel').classList.add('hidden')}
 const extras=[];if(p.aceita_financiamento)extras.push('Aceita financiamento');if(p.aceita_fgts)extras.push('Aceita FGTS');if(p.situacao==='reservado')extras.push('Imóvel reservado: consulte disponibilidade');$('extra').textContent=extras.length?extras.join(' • '):'Consulte condições e disponibilidade com nossa equipe.';
-$('deal').textContent=p.finalidade==='locacao'?'Valor de locação':'Valor de venda';$('price').textContent=money(p.preco);$('code').textContent=p.codigo||'Não informado';$('contact').href=contactLink(p);
+$('deal').textContent=p.finalidade==='locacao'?'Valor de locação':'Valor de venda';$('price').textContent=money(p.preco);$('code').textContent=p.codigo||'Não informado';$('contact').href='#contato';$('contact').addEventListener('click',e=>{e.preventDefault();openContact(p)});
 $('share').onclick=async()=>{const url=location.href;try{if(navigator.share)await navigator.share({title:document.title,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);$('share').textContent='Link copiado!'}else prompt('Copie o link:',url)}catch(e){if(e.name!=='AbortError')prompt('Copie o link:',url)}};
 $('status').classList.add('hidden');$('content').classList.remove('hidden');
 }catch(e){$('status').textContent=e.message||'Não foi possível carregar o imóvel.';console.error(e)}}load();
