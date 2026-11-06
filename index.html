@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14253D">
-<meta name="description" content="Apartamentos, casas e terrenos à venda ou para locação em Bauru. Portal Bauru, com atendimento de Rafael Gomes e Débora Navas.">
-<title>Portal Bauru | Encontre seu próximo imóvel</title>
+<meta name="description" content="Encontre apartamentos, casas e terrenos à venda em Bauru. Oportunidades reais e atendimento profissional no Portal Bauru.">
+<title>Portal Bauru | Imóveis à venda em Bauru</title>
 <style>
 :root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#14253D;background:#F6F1EA;font-synthesis:none}
 *{box-sizing:border-box}
@@ -148,10 +148,10 @@ PORTAL <span>BAURU</span>
 
 <section class="hero">
 <div class="wrap hero-inner">
-<div class="eyebrow">Seu portal imobiliário em Bauru/SP</div>
+<div class="eyebrow">Imóveis à venda em Bauru/SP</div>
 <h1>Encontre seu próximo <em>imóvel em Bauru.</em></h1>
-<p>Apartamentos, casas e oportunidades reais para você conhecer, comparar e encontrar o imóvel certo.</p>
-<a class="btn primary" id="heroExplore" href="imoveis.html">Ver todos os imóveis</a>
+<p>Encontre apartamentos, casas e terrenos à venda em Bauru. Oportunidades reais, informações claras e atendimento profissional para ajudar você a conquistar seu próximo imóvel.</p>
+<a class="btn primary" id="heroExplore" href="imoveis.html">Ver imóveis à venda</a>
 </div>
 </section>
 
@@ -160,17 +160,17 @@ PORTAL <span>BAURU</span>
 <div class="section-head">
 <div>
 <div class="eyebrow" style="color:#D34D00">Oportunidades disponíveis</div>
-<h2>Imóveis à venda e para locação</h2>
-<p class="intro">Conheça os anúncios mais recentes do Portal Bauru.</p>
+<h2>Imóveis à venda em Bauru</h2>
+<p class="intro">Conheça os anúncios de venda mais recentes do Portal Bauru.</p>
 </div>
-<a class="text-link" id="allLink" href="imoveis.html">Ver todos os imóveis →</a>
+<a class="text-link" id="allLink" href="imoveis.html">Ver todos os imóveis à venda →</a>
 </div>
 <div id="properties" class="grid" aria-live="polite">
-<div class="empty">Carregando imóveis disponíveis...</div>
+<div class="empty">Carregando imóveis à venda...</div>
 </div>
 <div class="status" id="status"></div>
 <div class="section-actions">
-<a class="btn primary" id="allButton" href="imoveis.html">Explorar todos os imóveis</a>
+<a class="btn primary" id="allButton" href="imoveis.html">Explorar imóveis à venda</a>
 </div>
 </div>
 </section>
@@ -179,13 +179,12 @@ PORTAL <span>BAURU</span>
 <div class="wrap">
 <div class="eyebrow" style="color:#D34D00">Encontre o que procura</div>
 <h2>Busque seu imóvel ideal</h2>
-<p class="intro">Escolha a finalidade, o tipo de imóvel ou pesquise por bairro e condomínio.</p>
+<p class="intro">Pesquise imóveis à venda por tipo, bairro ou condomínio.</p>
 <form id="searchForm" class="search">
 <div class="field">
 <label for="finalidade">O que procura?</label>
 <select id="finalidade">
-<option value="">Comprar ou alugar</option>
-<option value="venda">Comprar</option>
+<option value="venda" selected>Comprar</option>
 <option value="locacao">Alugar</option>
 </select>
 </div>
@@ -217,7 +216,7 @@ PORTAL <span>BAURU</span>
 <div>
 <div class="eyebrow">Seleção especial</div>
 <h2>Escolhas da semana</h2>
-<p class="intro">Oportunidades selecionadas, renovadas automaticamente a cada sete dias.</p>
+<p class="intro">Imóveis à venda selecionados, com rodízio automático a cada sete dias.</p>
 </div>
 </div>
 <div id="weeklyProperties" class="weekly-grid" aria-live="polite">
@@ -248,7 +247,7 @@ PORTAL <span>BAURU</span>
 <div class="team-head">
 <div class="eyebrow" style="color:#D34D00">Quem está por trás do portal</div>
 <h2>Atendimento próximo, em cada etapa da sua conquista.</h2>
-<p>Encontrar o imóvel certo começa com uma boa conversa. No Portal Bauru, você encontra oportunidades em Bauru e atendimento profissional para avançar com segurança.</p>
+<p>Encontrar o imóvel certo começa com uma boa conversa. No Portal Bauru, você encontra oportunidades de compra em Bauru e atendimento profissional para avançar com segurança.</p>
 </div>
 <div class="team-grid">
 <div class="team-person">
@@ -275,7 +274,7 @@ PORTAL <span>BAURU</span>
 <div>
 <div class="eyebrow">Vamos encontrar seu imóvel?</div>
 <h2>A oportunidade certa pode estar a um clique.</h2>
-<p>Explore os imóveis disponíveis e encontre o que combina com você.</p>
+<p>Explore os imóveis à venda e encontre o que combina com você.</p>
 </div>
 <a class="btn primary" id="ctaLink" href="imoveis.html">Encontrar meu imóvel</a>
 </div>
@@ -291,7 +290,7 @@ PORTAL <span>BAURU</span>
 <div class="footer-info">Conectando pessoas às oportunidades certas.</div>
 <div class="footer-info">W. Rafael Gomes · CRECI 196.907-F &amp; Débora Navas · CRECI 196.899-F · Bauru/SP</div>
 </div>
-<a id="footerProperties" href="imoveis.html">Imóveis disponíveis</a>
+<a id="footerProperties" href="imoveis.html">Imóveis à venda</a>
 </div>
 </footer>
 
@@ -308,32 +307,33 @@ const ref=params.get('ref');
 const validRef=ref==='rafael'||ref==='debora'?ref:null;
 
 function linked(file,extra={}){
-const u=new URL(file,location.href);
-if(validRef)u.searchParams.set('ref',validRef);
-for(const [k,v] of Object.entries(extra)){
-if(v!==''&&v!=null)u.searchParams.set(k,v);
-}
-return u.href;
+ const u=new URL(file,location.href);
+ if(validRef)u.searchParams.set('ref',validRef);
+ for(const [k,v] of Object.entries(extra)){
+  if(v!==''&&v!=null)u.searchParams.set(k,v);
+ }
+ return u.href;
 }
 
 for(const id of ['homeLink','menuHome']){
-document.getElementById(id).href=linked('index.html');
+ document.getElementById(id).href=linked('index.html');
 }
+
 for(const id of [
-'menuProperties','menuExplore','heroExplore',
-'allLink','allButton','ctaLink','footerProperties'
+ 'menuProperties','menuExplore','heroExplore',
+ 'allLink','allButton','ctaLink','footerProperties'
 ]){
-document.getElementById(id).href=linked('imoveis.html');
+ document.getElementById(id).href=linked('imoveis.html',{finalidade:'venda'});
 }
 
 document.getElementById('searchForm').addEventListener('submit',e=>{
-e.preventDefault();
-const extra={};
-for(const id of ['finalidade','tipo','busca']){
-const v=document.getElementById(id).value.trim();
-if(v)extra[id]=v;
-}
-location.href=linked('imoveis.html',extra);
+ e.preventDefault();
+ const extra={};
+ for(const id of ['finalidade','tipo','busca']){
+  const v=document.getElementById(id).value.trim();
+  if(v)extra[id]=v;
+ }
+ location.href=linked('imoveis.html',extra);
 });
 
 const root=document.getElementById('properties');
@@ -341,208 +341,214 @@ const weeklyRoot=document.getElementById('weeklyProperties');
 const status=document.getElementById('status');
 
 const money=v=>v==null
-?'Consulte o valor'
-:new Intl.NumberFormat('pt-BR',{
-style:'currency',currency:'BRL',maximumFractionDigits:0
-}).format(v);
+ ?'Consulte o valor'
+ :new Intl.NumberFormat('pt-BR',{
+  style:'currency',
+  currency:'BRL',
+  maximumFractionDigits:0
+ }).format(v);
 
 function el(tag,cls,text){
-const n=document.createElement(tag);
-if(cls)n.className=cls;
-if(text!==undefined)n.textContent=text;
-return n;
+ const n=document.createElement(tag);
+ if(cls)n.className=cls;
+ if(text!==undefined)n.textContent=text;
+ return n;
 }
 
 function photoElement(p,photos,cls){
-const photo=el('div',cls);
-const cover=photos.get(p.id);
-if(cover){
-const img=el('img');
-img.src=supabase.storage.from('portal-imoveis')
-.getPublicUrl(cover).data.publicUrl;
-img.alt='Fotografia do imóvel '+(p.titulo||'');
-img.loading='lazy';
-img.onerror=()=>{
-img.remove();
-photo.append(el('span','','Fotografia indisponível'));
-};
-photo.append(img);
-}else{
-photo.append(el('span','','Fotografias em breve'));
-}
-return photo;
+ const photo=el('div',cls);
+ const cover=photos.get(p.id);
+
+ if(cover){
+  const img=el('img');
+  img.src=supabase.storage.from('portal-imoveis')
+   .getPublicUrl(cover).data.publicUrl;
+  img.alt='Fotografia do imóvel '+(p.titulo||'');
+  img.loading='lazy';
+  img.onerror=()=>{
+   img.remove();
+   photo.append(el('span','','Fotografia indisponível'));
+  };
+  photo.append(img);
+ }else{
+  photo.append(el('span','','Fotografias em breve'));
+ }
+ return photo;
 }
 
 function card(p,photos){
-const article=el('article','property');
-const photo=photoElement(p,photos,'photo');
-const seals={
-novidade:'Novidade',
-oportunidade:'Oportunidade',
-preco_reduzido:'Preço reduzido'
-};
-if(seals[p.selo]){
-photo.append(el('span','tag',seals[p.selo]));
-}
-article.append(photo);
+ const article=el('article','property');
+ const photo=photoElement(p,photos,'photo');
+ const seals={
+  novidade:'Novidade',
+  oportunidade:'Oportunidade',
+  preco_reduzido:'Preço reduzido'
+ };
 
-const content=el('div','property-content');
-content.append(el('div','location',
-[p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')
-));
-content.append(el('h3','',
-p.titulo||p.empreendimento||'Imóvel em Bauru'
-));
-content.append(el('div','price',money(p.preco)));
+ if(seals[p.selo]){
+  photo.append(el('span','tag',seals[p.selo]));
+ }
+ article.append(photo);
 
-const specs=[
-p.quartos!=null?p.quartos+' quarto(s)':null,
-p.suites?p.suites+' suíte(s)':null,
-p.vagas!=null?p.vagas+' vaga(s)':null,
-p.area_privativa?p.area_privativa+' m²':null
-].filter(Boolean);
+ const content=el('div','property-content');
+ content.append(el('div','location',
+  [p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')
+ ));
+ content.append(el('h3','',
+  p.titulo||p.empreendimento||'Imóvel em Bauru'
+ ));
+ content.append(el('div','price',money(p.preco)));
 
-if(specs.length){
-content.append(el('div','specs',specs.join(' · ')));
-}
-article.append(content);
+ const specs=[
+  p.quartos!=null?p.quartos+' quarto(s)':null,
+  p.suites?p.suites+' suíte(s)':null,
+  p.vagas!=null?p.vagas+' vaga(s)':null,
+  p.area_privativa?p.area_privativa+' m²':null
+ ].filter(Boolean);
 
-const a=el('a','view','Conhecer este imóvel');
-a.href=linked('imovel.html',{id:p.id});
-article.append(a);
-return article;
+ if(specs.length){
+  content.append(el('div','specs',specs.join(' · ')));
+ }
+ article.append(content);
+
+ const a=el('a','view','Conhecer este imóvel');
+ a.href=linked('imovel.html',{id:p.id});
+ article.append(a);
+ return article;
 }
 
 function weeklyCard(p,photos){
-const a=el('a','weekly-card');
-a.href=linked('imovel.html',{id:p.id});
-a.append(photoElement(p,photos,'weekly-photo'));
+ const a=el('a','weekly-card');
+ a.href=linked('imovel.html',{id:p.id});
+ a.append(photoElement(p,photos,'weekly-photo'));
 
-const content=el('div','weekly-content');
-content.append(el('div','location',
-[p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')
-));
-content.append(el('div','weekly-title',
-p.titulo||p.empreendimento||'Imóvel em Bauru'
-));
-content.append(el('div','weekly-price',money(p.preco)));
-content.append(el('div','weekly-link','Conhecer imóvel →'));
-a.append(content);
-return a;
+ const content=el('div','weekly-content');
+ content.append(el('div','location',
+  [p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')
+ ));
+ content.append(el('div','weekly-title',
+  p.titulo||p.empreendimento||'Imóvel em Bauru'
+ ));
+ content.append(el('div','weekly-price',money(p.preco)));
+ content.append(el('div','weekly-link','Conhecer imóvel →'));
+ a.append(content);
+ return a;
 }
 
-// Seleção muda a cada sete dias.
-// O cálculo é igual para todos os visitantes.
 function weeklySelection(items,count=2){
-if(!items.length)return [];
+ if(!items.length)return [];
 
-const week=Math.floor(Date.now()/(7*24*60*60*1000));
-const sorted=[...items].sort((a,b)=>
-String(a.id).localeCompare(String(b.id))
-);
+ const week=Math.floor(Date.now()/(7*24*60*60*1000));
+ const sorted=[...items].sort((a,b)=>
+  String(a.id).localeCompare(String(b.id))
+ );
 
-const start=(week*count)%sorted.length;
-const selected=[];
+ const start=(week*count)%sorted.length;
+ const selected=[];
 
-for(let i=0;i<Math.min(count,sorted.length);i++){
-selected.push(sorted[(start+i)%sorted.length]);
-}
-return selected;
+ for(let i=0;i<Math.min(count,sorted.length);i++){
+  selected.push(sorted[(start+i)%sorted.length]);
+ }
+ return selected;
 }
 
 async function load(){
-try{
-const {data,error}=await supabase
-.from('imoveis')
-.select('id,codigo,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,selo,destaque,publicado,situacao,atualizado_em')
-.eq('publicado',true)
-.order('atualizado_em',{ascending:false})
-.limit(1000);
+ try{
+  const {data,error}=await supabase
+   .from('imoveis')
+   .select('id,codigo,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,selo,destaque,publicado,situacao,finalidade,atualizado_em')
+   .eq('publicado',true)
+   .order('atualizado_em',{ascending:false})
+   .limit(1000);
 
-if(error)throw error;
+  if(error)throw error;
 
-const available=(data||[]).filter(p=>
-!['vendido','alugado'].includes(
-String(p.situacao||'').toLowerCase()
-)
-);
+  const available=(data||[]).filter(p=>
+   !['vendido','alugado'].includes(
+    String(p.situacao||'').toLowerCase()
+   )
+  );
 
-// Vitrine principal: seis imóveis mais recentes.
-const recent=available.slice(0,6);
+  // Apenas imóveis à venda aparecem na página inicial.
+  const sales=available.filter(p=>
+   String(p.finalidade||'').trim().toLowerCase()==='venda'
+  );
 
-// Vitrine semanal: somente anúncios marcados como destaque.
-const featured=available.filter(p=>p.destaque===true);
+  // Seis imóveis mais recentes à venda.
+  const recent=sales.slice(0,6);
 
-// Sempre que possível, evita repetir imóveis recentes.
-const otherFeatured=featured.filter(p=>
-!recent.some(r=>r.id===p.id)
-);
+  // Destaques semanais também são exclusivamente de venda.
+  const featured=sales.filter(p=>p.destaque===true);
 
-const weeklyPool=otherFeatured.length>=2
-?otherFeatured
-:featured;
+  const otherFeatured=featured.filter(p=>
+   !recent.some(r=>r.id===p.id)
+  );
 
-const weekly=weeklySelection(weeklyPool,2);
+  const weeklyPool=otherFeatured.length>=2
+   ?otherFeatured
+   :featured;
 
-const ids=[...new Set([
-...recent.map(p=>p.id),
-...weekly.map(p=>p.id)
-])];
+  const weekly=weeklySelection(weeklyPool,2);
 
-const photos=new Map();
+  const ids=[...new Set([
+   ...recent.map(p=>p.id),
+   ...weekly.map(p=>p.id)
+  ])];
 
-if(ids.length){
-const r=await supabase
-.from('imovel_fotos')
-.select('imovel_id,caminho,ordem')
-.in('imovel_id',ids)
-.order('ordem',{ascending:true});
+  const photos=new Map();
 
-if(r.error){
-console.warn('Não foi possível carregar as capas',r.error);
-}else{
-for(const p of r.data||[]){
-if(!photos.has(p.imovel_id)&&p.caminho){
-photos.set(p.imovel_id,p.caminho);
-}
-}
-}
-}
+  if(ids.length){
+   const r=await supabase
+    .from('imovel_fotos')
+    .select('imovel_id,caminho,ordem')
+    .in('imovel_id',ids)
+    .order('ordem',{ascending:true});
 
-root.replaceChildren();
+   if(r.error){
+    console.warn('Não foi possível carregar as capas',r.error);
+   }else{
+    for(const p of r.data||[]){
+     if(!photos.has(p.imovel_id)&&p.caminho){
+      photos.set(p.imovel_id,p.caminho);
+     }
+    }
+   }
+  }
 
-if(!recent.length){
-root.append(el('div','empty',
-'Nenhum imóvel publicado disponível no momento.'
-));
-}else{
-for(const p of recent){
-root.append(card(p,photos));
-}
-}
+  root.replaceChildren();
 
-weeklyRoot.replaceChildren();
+  if(!recent.length){
+   root.append(el('div','empty',
+    'Nenhum imóvel à venda publicado disponível no momento.'
+   ));
+  }else{
+   for(const p of recent){
+    root.append(card(p,photos));
+   }
+  }
 
-if(!weekly.length){
-weeklyRoot.append(el('div','weekly-empty',
-'Em breve, novas oportunidades selecionadas para você.'
-));
-}else{
-for(const p of weekly){
-weeklyRoot.append(weeklyCard(p,photos));
-}
-}
+  weeklyRoot.replaceChildren();
 
-}catch(e){
-console.error(e);
-root.replaceChildren(el('div','empty',
-'Não foi possível carregar os imóveis agora.'
-));
-weeklyRoot.replaceChildren(el('div','weekly-empty',
-'Não foi possível carregar as escolhas da semana.'
-));
-status.textContent='Tente atualizar a página em alguns instantes.';
-}
+  if(!weekly.length){
+   weeklyRoot.append(el('div','weekly-empty',
+    'Em breve, novas oportunidades à venda selecionadas para você.'
+   ));
+  }else{
+   for(const p of weekly){
+    weeklyRoot.append(weeklyCard(p,photos));
+   }
+  }
+
+ }catch(e){
+  console.error(e);
+  root.replaceChildren(el('div','empty',
+   'Não foi possível carregar os imóveis agora.'
+  ));
+  weeklyRoot.replaceChildren(el('div','weekly-empty',
+   'Não foi possível carregar as escolhas da semana.'
+  ));
+  status.textContent='Tente atualizar a página em alguns instantes.';
+ }
 }
 
 load();
