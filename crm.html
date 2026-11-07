@@ -1,0 +1,616 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14253D">
+<meta name="robots" content="noindex,nofollow">
+<title>CRM | Portal Bauru Imóveis</title>
+<style>
+:root{
+ font-family:Inter,Arial,sans-serif;
+ color:#14253D;
+ background:#F6F1EA
+}
+*{box-sizing:border-box}
+body{margin:0}
+header{
+ background:#14253D;
+ color:white;
+ padding:20px 5%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:15px
+}
+header strong{font-size:19px}
+header small{display:block;color:#D4DCE5;margin-top:5px}
+header a{color:white;text-decoration:none;font-size:13px}
+main{max-width:1150px;margin:25px auto;padding:0 15px}
+h1{font-size:27px;margin:0 0 8px}
+h2{font-size:20px}
+.card{
+ background:white;
+ border:1px solid #E7E2DA;
+ border-radius:15px;
+ padding:20px;
+ margin-bottom:18px
+}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.row>*{flex:1;min-width:170px}
+label{font-size:13px;font-weight:750}
+input,select,textarea{
+ display:block;
+ width:100%;
+ padding:11px;
+ border:1px solid #D3D9DF;
+ border-radius:9px;
+ background:white;
+ color:#14253D;
+ margin:7px 0 15px;
+ font:inherit
+}
+textarea{min-height:100px;resize:vertical}
+button,.button{
+ border:0;
+ border-radius:9px;
+ padding:12px 15px;
+ background:#F85F08;
+ color:white;
+ font-weight:800;
+ cursor:pointer;
+ text-decoration:none;
+ display:inline-block
+}
+button.secondary{background:#14253D}
+button.ghost{background:#E9EDF2;color:#14253D}
+button.danger{background:#9E3930}
+button:disabled{opacity:.55;cursor:wait}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.hidden{display:none!important}
+.muted{color:#687789;font-size:13px;line-height:1.5}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
+ margin:20px 0
+}
+.stat{
+ background:white;
+ border:1px solid #E7E2DA;
+ padding:18px;
+ border-radius:13px
+}
+.stat strong{display:block;font-size:27px}
+.stat span{font-size:12px;color:#647385}
+.stat.alert strong{color:#B34222}
+.lead{
+ padding:16px 0;
+ border-bottom:1px solid #ECEEF0;
+ display:flex;
+ justify-content:space-between;
+ align-items:start;
+ gap:15px;
+ flex-wrap:wrap
+}
+.lead:last-child{border-bottom:0}
+.lead strong{font-size:16px}
+.lead p{margin:7px 0;color:#617083;font-size:13px}
+.lead-actions{display:flex;gap:7px;flex-wrap:wrap}
+.lead-actions button,.lead-actions a{
+ font-size:12px;
+ padding:9px 11px
+}
+.lead-actions a{
+ background:#168A4D;
+ color:white;
+ border-radius:9px;
+ text-decoration:none;
+ font-weight:800
+}
+.tag{
+ display:inline-block;
+ border-radius:7px;
+ padding:5px 8px;
+ background:#EDF1F5;
+ font-size:11px;
+ font-weight:800
+}
+.overdue{color:#B34222!important;font-weight:800}
+.today{color:#B66A09!important;font-weight:800}
+#message{font-size:13px;min-height:20px}
+@media(max-width:650px){
+ header strong{font-size:15px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .card{padding:15px}
+ .lead{display:block}
+ .lead-actions{margin-top:12px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div>
+<strong>PORTAL BAURU IMÓVEIS</strong>
+<small>CRM · Gestão de clientes</small>
+</div>
+<a href="admin.html">← Painel de imóveis</a>
+</header>
+
+<main>
+<section id="loading" class="card">
+Verificando acesso...
+</section>
+
+<section id="app" class="hidden">
+<div class="row" style="align-items:center">
+<div>
+<h1>Meus clientes</h1>
+<p class="muted">Acompanhe cada oportunidade de atendimento.</p>
+</div>
+<div style="text-align:right">
+<button id="newLead">+ Novo cliente</button>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><strong id="total">0</strong><span>Clientes</span></div>
+<div class="stat"><strong id="active">0</strong><span>Em andamento</span></div>
+<div class="stat alert"><strong id="late">0</strong><span>Retornos atrasados</span></div>
+<div class="stat"><strong id="today">0</strong><span>Retornos hoje</span></div>
+</div>
+
+<section class="card">
+<div class="row">
+<label>Pesquisar
+<input id="search" placeholder="Nome, telefone ou imóvel">
+</label>
+<label>Filtrar por etapa
+<select id="filter">
+<option value="">Todas as etapas</option>
+<option value="novo">Novo</option>
+<option value="em_atendimento">Em atendimento</option>
+<option value="qualificado">Qualificado</option>
+<option value="visita">Visita</option>
+<option value="proposta">Proposta</option>
+<option value="negociacao">Negociação</option>
+<option value="concluido">Concluído</option>
+<option value="perdido">Perdido</option>
+</select>
+</label>
+<label>Próximo contato
+<select id="dueFilter">
+<option value="">Todos</option>
+<option value="late">Atrasados</option>
+<option value="today">Hoje</option>
+<option value="upcoming">Futuros</option>
+</select>
+</label>
+</div>
+<div id="leadList"></div>
+</section>
+</section>
+
+<section id="editor" class="card hidden">
+<h2 id="editorTitle">Novo cliente</h2>
+<form id="leadForm">
+
+<div class="row">
+<label>Nome do cliente *
+<input id="nome" required maxlength="150">
+</label>
+<label>WhatsApp
+<input id="telefone" type="tel" placeholder="(14) 99999-9999">
+</label>
+</div>
+
+<div class="row">
+<label>Origem
+<select id="origem">
+<option value="nao_informada">Não informada</option>
+<option value="marketplace">Facebook Marketplace</option>
+<option value="instagram">Instagram</option>
+<option value="facebook_ads">Facebook Ads</option>
+<option value="whatsapp">WhatsApp</option>
+<option value="indicacao">Indicação</option>
+<option value="site">Portal Bauru</option>
+<option value="outro">Outra</option>
+</select>
+</label>
+
+<label>Etapa do atendimento
+<select id="etapa">
+<option value="novo">Novo</option>
+<option value="em_atendimento">Em atendimento</option>
+<option value="qualificado">Qualificado</option>
+<option value="visita">Visita agendada</option>
+<option value="proposta">Proposta</option>
+<option value="negociacao">Negociação</option>
+<option value="concluido">Concluído</option>
+<option value="perdido">Perdido</option>
+</select>
+</label>
+</div>
+
+<label>Imóvel de interesse
+<input id="imovel_interesse" placeholder="Ex.: Apartamento Bela Grécia">
+</label>
+
+<div class="row">
+<label>Objetivo
+<select id="finalidade">
+<option value="">Não informado</option>
+<option value="moradia">Moradia</option>
+<option value="investimento">Investimento</option>
+<option value="locacao">Locação</option>
+</select>
+</label>
+
+<label>Forma de pagamento
+<select id="pagamento">
+<option value="">Não informado</option>
+<option value="financiamento">Financiamento</option>
+<option value="avista">À vista</option>
+<option value="avaliando">Ainda avaliando</option>
+</select>
+</label>
+</div>
+
+<div class="row">
+<label>Última interação
+<input id="ultima_interacao" type="datetime-local">
+</label>
+<label>Próximo contato
+<input id="proximo_contato" type="datetime-local">
+</label>
+</div>
+
+<label>Próxima ação
+<input id="proxima_acao" placeholder="Ex.: Retomar conversa e oferecer visita">
+</label>
+
+<label>Histórico e observações
+<textarea id="observacoes" placeholder="Registre as informações importantes do atendimento."></textarea>
+</label>
+
+<div class="actions">
+<button id="save" type="submit">Salvar cliente</button>
+<button id="cancel" type="button" class="ghost">Cancelar</button>
+<button id="delete" type="button" class="danger hidden">Excluir cliente</button>
+</div>
+</form>
+</section>
+
+<p id="message" role="status"></p>
+</main>
+
+<script type="module">
+import {createClient} from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const supabase=createClient(
+'https://dtkszimtovtqdojjpqsy.supabase.co',
+'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
+);
+
+const $=id=>document.getElementById(id);
+
+const fields=[
+'nome','telefone','origem','imovel_interesse',
+'finalidade','pagamento','etapa',
+'ultima_interacao','proxima_acao',
+'proximo_contato','observacoes'
+];
+
+const labels={
+novo:'Novo',
+em_atendimento:'Em atendimento',
+qualificado:'Qualificado',
+visita:'Visita',
+proposta:'Proposta',
+negociacao:'Negociação',
+concluido:'Concluído',
+perdido:'Perdido'
+};
+
+let leads=[];
+let editing=null;
+
+function message(text){
+$('message').textContent=text;
+}
+
+function dateInput(value){
+if(!value)return '';
+const d=new Date(value);
+if(Number.isNaN(d.getTime()))return '';
+const local=new Date(d.getTime()-d.getTimezoneOffset()*60000);
+return local.toISOString().slice(0,16);
+}
+
+function dayKey(value){
+if(!value)return '';
+const d=new Date(value);
+if(Number.isNaN(d.getTime()))return '';
+return dateInput(d).slice(0,10);
+}
+
+function todayKey(){
+return dateInput(new Date().toISOString()).slice(0,10);
+}
+
+function isClosed(r){
+return ['concluido','perdido'].includes(r.etapa);
+}
+
+function isLate(r){
+return !isClosed(r)&&r.proximo_contato&&
+dayKey(r.proximo_contato)<todayKey();
+}
+
+function isToday(r){
+return !isClosed(r)&&r.proximo_contato&&
+dayKey(r.proximo_contato)===todayKey();
+}
+
+function normalize(value){
+return String(value??'')
+.normalize('NFD')
+.replace(/[\u0300-\u036f]/g,'')
+.toLowerCase();
+}
+
+function formatDate(value){
+if(!value)return 'Não informado';
+const d=new Date(value);
+return Number.isNaN(d.getTime())
+?'Não informado'
+:d.toLocaleString('pt-BR',{
+dateStyle:'short',timeStyle:'short'
+});
+}
+
+function el(tag,cls,text){
+const n=document.createElement(tag);
+if(cls)n.className=cls;
+if(text!==undefined)n.textContent=text;
+return n;
+}
+
+async function checkAccess(){
+const {data:{user}}=await supabase.auth.getUser();
+
+if(!user){
+$('loading').textContent=
+'Entre primeiro pelo painel administrativo.';
+const a=el('a','',' Abrir painel');
+a.href='admin.html';
+$('loading').append(a);
+return;
+}
+
+const {data,error}=await supabase.rpc('portal_eh_admin');
+
+if(error||data!==true){
+$('loading').textContent='Acesso não autorizado.';
+return;
+}
+
+$('loading').classList.add('hidden');
+$('app').classList.remove('hidden');
+await load();
+}
+
+async function load(){
+const {data,error}=await supabase
+.from('portal_leads')
+.select('*')
+.order('criado_em',{ascending:false})
+.limit(1000);
+
+if(error){
+message('Erro ao carregar clientes: '+error.message);
+return;
+}
+
+leads=data||[];
+render();
+}
+
+function render(){
+$('total').textContent=leads.length;
+$('active').textContent=leads.filter(r=>!isClosed(r)).length;
+$('late').textContent=leads.filter(isLate).length;
+$('today').textContent=leads.filter(isToday).length;
+
+const search=normalize($('search').value.trim());
+const stage=$('filter').value;
+const due=$('dueFilter').value;
+
+const filtered=leads.filter(r=>{
+const text=normalize([
+r.nome,r.telefone,r.imovel_interesse,
+r.observacoes,r.proxima_acao
+].join(' '));
+
+if(search&&!text.includes(search))return false;
+if(stage&&r.etapa!==stage)return false;
+if(due==='late'&&!isLate(r))return false;
+if(due==='today'&&!isToday(r))return false;
+if(due==='upcoming'&&(
+isClosed(r)||!r.proximo_contato||
+dayKey(r.proximo_contato)<=todayKey()
+))return false;
+
+return true;
+});
+
+filtered.sort((a,b)=>{
+const aa=isLate(a)?0:isToday(a)?1:2;
+const bb=isLate(b)?0:isToday(b)?1:2;
+if(aa!==bb)return aa-bb;
+return String(a.proximo_contato||'9999')
+.localeCompare(String(b.proximo_contato||'9999'));
+});
+
+$('leadList').replaceChildren();
+
+if(!filtered.length){
+$('leadList').append(
+el('p','muted','Nenhum cliente encontrado.')
+);
+return;
+}
+
+for(const r of filtered){
+const item=el('div','lead');
+const info=el('div');
+
+info.append(
+el('strong','',r.nome),
+document.createTextNode(' '),
+el('span','tag',labels[r.etapa]||r.etapa)
+);
+
+info.append(
+el('p','',[
+r.origem?.replaceAll('_',' '),
+r.imovel_interesse
+].filter(Boolean).join(' · '))
+);
+
+if(r.proximo_contato){
+const line=el(
+'p',
+isLate(r)?'overdue':isToday(r)?'today':'',
+'Próximo contato: '+formatDate(r.proximo_contato)
+);
+info.append(line);
+}
+
+if(r.proxima_acao){
+info.append(el('p','','Próxima ação: '+r.proxima_acao));
+}
+
+const actions=el('div','lead-actions');
+
+const edit=el('button','secondary','Editar');
+edit.type='button';
+edit.onclick=()=>openEditor(r);
+actions.append(edit);
+
+const digits=String(r.telefone||'').replace(/\D/g,'');
+if(digits.length>=10&&digits.length<=13){
+const phone=digits.startsWith('55')?digits:'55'+digits;
+const link=el('a','','WhatsApp');
+link.href='https://wa.me/'+phone;
+link.target='_blank';
+link.rel='noopener noreferrer';
+actions.append(link);
+}
+
+item.append(info,actions);
+$('leadList').append(item);
+}
+}
+
+function openEditor(r=null){
+editing=r?.id||null;
+$('leadForm').reset();
+$('editorTitle').textContent=r?'Editar cliente':'Novo cliente';
+
+if(r){
+for(const field of fields){
+const input=$(field);
+if(!input)continue;
+input.value=field==='ultima_interacao'||field==='proximo_contato'
+?dateInput(r[field])
+:r[field]??'';
+}
+}else{
+$('ultima_interacao').value=dateInput(new Date().toISOString());
+}
+
+$('delete').classList.toggle('hidden',!editing);
+$('editor').classList.remove('hidden');
+$('editor').scrollIntoView({behavior:'smooth'});
+}
+
+$('newLead').onclick=()=>openEditor();
+$('cancel').onclick=()=>{
+$('editor').classList.add('hidden');
+};
+
+$('search').oninput=render;
+$('filter').onchange=render;
+$('dueFilter').onchange=render;
+
+$('leadForm').onsubmit=async e=>{
+e.preventDefault();
+
+const payload={};
+
+for(const field of fields){
+const value=$(field).value.trim();
+
+if(['ultima_interacao','proximo_contato'].includes(field)){
+payload[field]=value?new Date(value).toISOString():null;
+}else{
+payload[field]=value||null;
+}
+}
+
+if(!payload.nome){
+message('Informe o nome do cliente.');
+return;
+}
+
+const btn=$('save');
+btn.disabled=true;
+message('Salvando cliente...');
+
+try{
+const result=editing
+?await supabase.from('portal_leads')
+.update(payload).eq('id',editing)
+:await supabase.from('portal_leads').insert(payload);
+
+if(result.error)throw result.error;
+
+$('editor').classList.add('hidden');
+message('Cliente salvo com sucesso.');
+await load();
+
+}catch(error){
+message('Erro ao salvar: '+error.message);
+}finally{
+btn.disabled=false;
+}
+};
+
+$('delete').onclick=async()=>{
+if(!editing)return;
+if(!confirm('Excluir permanentemente este cliente?'))return;
+
+const {error}=await supabase
+.from('portal_leads')
+.delete()
+.eq('id',editing);
+
+if(error){
+message('Erro ao excluir: '+error.message);
+return;
+}
+
+$('editor').classList.add('hidden');
+editing=null;
+message('Cliente excluído.');
+await load();
+};
+
+checkAccess();
+</script>
+</body>
+</html>
