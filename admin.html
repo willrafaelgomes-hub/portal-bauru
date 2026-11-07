@@ -7,33 +7,34 @@
 <title>Portal Bauru | Administração</title>
 <style>
 :root{
-font-family:Inter,system-ui,sans-serif;
-color:#14253D;background:#F6F1EA
+  font-family:Inter,system-ui,sans-serif;
+  color:#14253D;background:#F6F1EA
 }
 *{box-sizing:border-box}
 body{margin:0}
 header{
-background:#14253D;color:white;padding:20px 5%;
-display:flex;align-items:center;justify-content:space-between;gap:10px
+  background:#14253D;color:white;padding:20px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px
 }
 header strong{font-size:22px}
-main{max-width:1100px;margin:30px auto;padding:0 16px}
+main{max-width:1100px;margin:28px auto;padding:0 16px}
 .card{
-background:white;border-radius:18px;padding:25px;
-box-shadow:0 6px 30px #14253d12;margin-bottom:20px
+  background:white;border-radius:18px;padding:24px;
+  box-shadow:0 6px 30px #14253d12;margin-bottom:20px
 }
 h1{font-size:25px}
 h2{font-size:21px}
 h3{font-size:17px;margin:0 0 12px}
 input,select,textarea{
-width:100%;padding:12px;border:1px solid #d5d8dd;
-border-radius:9px;font:inherit;margin:7px 0 16px;
-background:white;color:#14253D
+  width:100%;padding:12px;border:1px solid #d5d8dd;
+  border-radius:9px;font:inherit;margin:7px 0 16px;
+  background:white;color:#14253D
 }
 textarea{min-height:95px}
 button{
-border:0;border-radius:10px;background:#F85F08;
-color:white;padding:12px 18px;font-weight:700;cursor:pointer
+  border:0;border-radius:10px;background:#F85F08;
+  color:white;padding:12px 18px;font-weight:700;cursor:pointer
 }
 button.secondary{background:#14253D}
 button.ghost{background:#e9edf2;color:#14253D}
@@ -48,25 +49,24 @@ label{font-size:14px;font-weight:600}
 .success{color:#176d3b}
 #status{min-height:22px}
 .section{
-border:1px solid #e2e6ea;border-radius:14px;
-padding:20px;margin:18px 0;background:#fafbfd
+  border:1px solid #e2e6ea;border-radius:14px;
+  padding:20px;margin:18px 0;background:#fafbfd
 }
 .section-description{
-font-size:13px;color:#697386;line-height:1.5;
-margin:0 0 18px
+  font-size:13px;color:#697386;line-height:1.5;
+  margin:0 0 18px
 }
 .group-title{
-font-size:14px;font-weight:700;
-margin:18px 0 10px;color:#14253D
+  font-size:14px;font-weight:700;margin:16px 0 9px
 }
 .options{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-gap:7px 14px;margin:8px 0 18px
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:7px 14px;margin:8px 0 18px
 }
 .options label{
-display:flex;align-items:flex-start;gap:9px;
-font-weight:400;line-height:1.4;padding:4px 0
+  display:flex;align-items:flex-start;gap:9px;
+  font-weight:400;line-height:1.4;padding:4px 0
 }
 .options input{width:auto;margin:2px 0 0;flex-shrink:0}
 .check{display:flex;gap:8px;align-items:center;margin:12px 0}
@@ -74,89 +74,87 @@ font-weight:400;line-height:1.4;padding:4px 0
 .cep-actions{display:flex;gap:10px;align-items:flex-start}
 .cep-actions input{flex:1;min-width:0}
 .cep-actions button{margin-top:7px;white-space:nowrap}
-.address-feedback{
-min-height:18px;margin:0 0 12px;font-size:13px
-}
+.address-feedback{min-height:18px;margin:0 0 12px;font-size:13px}
 .item{
-border-top:1px solid #eee;padding:16px 0;
-display:flex;justify-content:space-between;
-gap:14px;align-items:center
+  border-top:1px solid #eee;padding:16px 0;
+  display:flex;justify-content:space-between;
+  gap:14px;align-items:center
 }
 .item-details{min-width:0;overflow-wrap:anywhere}
 .item-actions{
-display:flex;gap:7px;flex-wrap:wrap;
-justify-content:flex-end
+  display:flex;gap:7px;flex-wrap:wrap;
+  justify-content:flex-end
 }
 .item-actions button{font-size:12px;padding:10px 12px}
 .search-info{font-size:13px;color:#697386;margin:0 0 8px}
 .copy-feedback{font-size:12px;color:#176d3b;margin-top:5px}
 .photos{
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(125px,1fr));
-gap:12px;margin:15px 0
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(125px,1fr));
+  gap:12px;margin:15px 0
 }
 .photo{
-border:1px solid #ddd;border-radius:12px;
-overflow:hidden;padding:8px;background:#fafafa
+  border:1px solid #ddd;border-radius:12px;
+  overflow:hidden;padding:8px;background:#fafafa
 }
 .photo img{
-width:100%;aspect-ratio:4/3;
-object-fit:cover;border-radius:7px
+  width:100%;aspect-ratio:4/3;
+  object-fit:cover;border-radius:7px
 }
 .photo button{
-width:100%;font-size:12px;
-padding:9px 5px;margin-top:5px
+  width:100%;font-size:12px;
+  padding:9px 5px;margin-top:5px
 }
 .photo small{display:block;margin:5px 0}
 .photo .drag-handle{
-touch-action:none;cursor:grab;
-background:#14253D;color:white;user-select:none
+  touch-action:none;cursor:grab;
+  background:#14253D;color:white;user-select:none
 }
 .photo.dragging{opacity:.45;outline:3px solid #F85F08}
 .photo.drop-target{outline:3px dashed #F85F08}
 .photos.busy{pointer-events:none;opacity:.65}
 .uploadbar{
-border:1px dashed #b9c0c8;
-border-radius:12px;padding:15px;margin-top:12px
+  border:1px dashed #b9c0c8;
+  border-radius:12px;padding:15px;margin-top:12px
 }
 .notice{
-background:#fff6ed;border-left:4px solid #F85F08;
-padding:13px;border-radius:8px;
-font-size:13px;line-height:1.5;margin:16px 0
+  background:#fff6ed;border-left:4px solid #F85F08;
+  padding:13px;border-radius:8px;
+  font-size:13px;line-height:1.5;margin:16px 0
 }
 .actions-bottom{
-display:flex;gap:10px;flex-wrap:wrap;
-position:sticky;bottom:0;background:white;
-padding:14px 0;border-top:1px solid #eee;z-index:5
+  display:flex;gap:10px;flex-wrap:wrap;
+  position:sticky;bottom:0;background:white;
+  padding:14px 0;border-top:1px solid #eee;z-index:5
 }
 details.advanced{
-border:1px solid #e2e6ea;border-radius:14px;
-margin:14px 0;background:#fafbfd;overflow:hidden
+  border:1px solid #e2e6ea;border-radius:14px;
+  margin:14px 0;background:#fafbfd;overflow:hidden
 }
 details.advanced summary{
-padding:17px 19px;cursor:pointer;
-font-weight:700;list-style-position:inside
+  padding:17px 19px;cursor:pointer;font-weight:700
 }
 details.advanced[open] summary{
-border-bottom:1px solid #e2e6ea
+  border-bottom:1px solid #e2e6ea
 }
 .details-body{padding:18px}
 @media(max-width:550px){
-.card{padding:17px}
-.section{padding:15px}
-.item{display:block}
-.item button{margin:8px 6px 0 0}
-.cep-actions{flex-wrap:wrap}
-.cep-actions button{margin-top:0}
-.options{grid-template-columns:1fr 1fr}
-header strong{font-size:19px}
+  .card{padding:17px}
+  .section{padding:15px}
+  .item{display:block}
+  .item button{margin:8px 6px 0 0}
+  .cep-actions{flex-wrap:wrap}
+  .cep-actions button{margin-top:0}
+  .options{grid-template-columns:1fr 1fr}
+  header strong{font-size:19px}
 }
 @media(max-width:380px){
-.options{grid-template-columns:1fr}
+  .options{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
+
 <header>
 <strong>Portal Bauru</strong>
 <span>Administração de imóveis</span>
@@ -199,8 +197,8 @@ aria-label="Buscar imóveis">
 <section id="editor" class="card hidden">
 <h2 id="editorTitle">Novo imóvel</h2>
 <p class="hint">
-Preencha as informações disponíveis. As características avançadas
-são opcionais e os cadastros podem ser salvos como rascunho.
+Cadastro simplificado. Preencha somente as informações disponíveis.
+Os dados avançados antigos continuam preservados.
 </p>
 
 <form id="propertyForm">
@@ -238,26 +236,16 @@ são opcionais e os cadastros podem ser salvos como rascunho.
 
 <div class="row">
 <label>Empreendimento / Condomínio
-<input id="empreendimento"
-placeholder="Ex.: Residencial Parque Bonardi">
+<input id="empreendimento">
 </label>
 <label>Bairro
 <input id="bairro">
 </label>
 </div>
-
-<label>Pontos de referência
-<textarea data-detail="referencias_localizacao"
-placeholder="Ex.: próximo à UNESP, Confiança Flex, Rodoviária..."></textarea>
-</label>
 </section>
 
 <section class="section">
-<h3>2. Endereço</h3>
-<p class="section-description">
-Digite o CEP para preencher o endereço automaticamente.
-Confira quadra e número conforme o padrão de Bauru.
-</p>
+<h3>2. Localização</h3>
 
 <label for="cep">CEP</label>
 <div class="cep-actions">
@@ -274,42 +262,35 @@ Buscar CEP
 </label>
 
 <div class="row">
-<label>Quadra
-<input id="quadra">
+<label>Quadra e número
+<input id="quadraNumero" placeholder="Ex.: quadra 12, nº 5">
 </label>
-<label>Número
-<input id="numero">
+<label>Complemento
+<input id="complemento" placeholder="Bloco, apartamento, lote...">
 </label>
 </div>
-
-<label>Complemento
-<input id="complemento"
-placeholder="Apartamento, bloco, lote etc.">
-</label>
 
 <div class="row">
 <label>Cidade
 <input id="cidade" value="Bauru" autocomplete="address-level2">
 </label>
 <label>Estado (UF)
-<input id="estado" value="SP" maxlength="2"
-autocomplete="address-level1">
+<input id="estado" value="SP" maxlength="2" autocomplete="address-level1">
 </label>
 </div>
+
+<p class="hint">
+Endereços antigos são apresentados juntos neste campo,
+sem exigir alteração na estrutura do banco.
+</p>
 </section>
 
 <section class="section">
-<h3>3. Valores e despesas</h3>
+<h3>3. Valores</h3>
 <div class="row">
 <label>Preço (R$)
 <input id="preco" type="number" min="0" step="0.01">
 </label>
-<label>Preço anterior (R$)
-<input id="preco_anterior" type="number" min="0" step="0.01">
-</label>
-</div>
-
-<div class="row">
 <label>Condomínio mensal (R$)
 <input id="condominio" type="number" min="0" step="0.01">
 </label>
@@ -318,7 +299,12 @@ autocomplete="address-level1">
 </label>
 </div>
 
-<div class="row">
+<details class="advanced">
+<summary>Preço anterior e outros custos (opcional)</summary>
+<div class="details-body">
+<label>Preço anterior (R$)
+<input id="preco_anterior" type="number" min="0" step="0.01">
+</label>
 <label>Periodicidade do IPTU
 <select data-detail="iptu_periodicidade">
 <option value="">Não informado</option>
@@ -326,19 +312,12 @@ autocomplete="address-level1">
 <option value="mensal">Mensal</option>
 </select>
 </label>
-<label>Taxa extraordinária (R$)
-<input data-detail="taxa_extraordinaria"
-type="number" min="0" step="0.01">
-</label>
 </div>
-<div data-group="custos_inclusos"></div>
+</details>
 </section>
 
 <section class="section">
-<h3>4. Metragens</h3>
-<p class="section-description">
-Os campos variam conforme o tipo de imóvel.
-</p>
+<h3>4. Características principais</h3>
 
 <div class="row">
 <label data-types="apartamento casa sobrado chacara comercial outro">
@@ -348,54 +327,17 @@ Os campos variam conforme o tipo de imóvel.
 <label>Área total (m²)
 <input id="area_total" type="number" min="0" step="0.01">
 </label>
-</div>
-
-<div class="row">
-<label data-types="casa sobrado chacara comercial outro">
-Área construída (m²)
-<input id="area_construida" type="number" min="0" step="0.01">
-</label>
 <label data-types="casa sobrado terreno chacara comercial outro">
 Área do terreno (m²)
 <input id="area_terreno" type="number" min="0" step="0.01">
 </label>
-</div>
-
-<div class="row">
-<label data-types="apartamento casa sobrado chacara">
-Área do quintal privativo (m²)
-<input id="area_quintal" type="number" min="0" step="0.01">
+<label data-types="casa sobrado chacara comercial outro">
+Área construída (m²)
+<input id="area_construida" type="number" min="0" step="0.01">
 </label>
 </div>
 
-<div data-types="terreno casa sobrado chacara">
-<h4 class="group-title">Dimensões do terreno</h4>
-<div class="row">
-<label>Frente (m)
-<input type="number" min="0" step="0.01"
-data-detail="terreno_frente">
-</label>
-<label>Fundos (m)
-<input type="number" min="0" step="0.01"
-data-detail="terreno_fundos">
-</label>
-</div>
-<div class="row">
-<label>Lateral direita (m)
-<input type="number" min="0" step="0.01"
-data-detail="terreno_lateral_direita">
-</label>
-<label>Lateral esquerda (m)
-<input type="number" min="0" step="0.01"
-data-detail="terreno_lateral_esquerda">
-</label>
-</div>
-</div>
-</section>
-
-<section class="section" data-types="apartamento casa sobrado chacara comercial outro">
-<h3>5. Ambientes</h3>
-<div class="row">
+<div class="row" data-types="apartamento casa sobrado chacara comercial outro">
 <label>Quartos
 <input id="quartos" type="number" min="0" step="1">
 </label>
@@ -405,192 +347,103 @@ data-detail="terreno_lateral_esquerda">
 <label>Banheiros
 <input id="banheiros" type="number" min="0" step="1">
 </label>
-<label>Vagas
+<label>Vagas de garagem
 <input id="vagas" type="number" min="0" step="1">
 </label>
 </div>
 
-<div class="row">
-<label>Lavabos
-<input data-detail="lavabos" type="number" min="0" step="1">
-</label>
-<label>Escritórios
-<input data-detail="escritorios" type="number" min="0" step="1">
-</label>
-<label>Pavimentos
-<input data-detail="pavimentos" type="number" min="0" step="1">
-</label>
-</div>
-
-<div data-group="ambientes"></div>
-<div data-group="cozinha_tipo"></div>
-<div data-group="area_servico"></div>
-<div data-group="pe_direito"></div>
-</section>
-
-<section class="section" data-types="apartamento">
-<h3>6. Características do apartamento</h3>
-
-<div data-group="apartamento_posicao"></div>
-
-<div class="row">
+<div class="row" data-types="apartamento">
 <label>Andar
-<input id="andar" placeholder="Ex.: 12">
+<input id="andar" placeholder="Ex.: 12 ou térreo">
 </label>
 <label>Bloco / Torre
 <input data-detail="bloco_torre">
 </label>
 </div>
 
-<div class="row">
-<label>Apartamentos por andar
-<input data-detail="apartamentos_por_andar"
-type="number" min="0">
-</label>
-<label>Quantidade de torres
-<input data-detail="quantidade_torres"
-type="number" min="0">
-</label>
-</div>
+<div data-group="apartamento_posicao"
+data-types="apartamento"></div>
 
-<div class="row">
-<label>Pavimentos do edifício
-<input data-detail="pavimentos_edificio"
-type="number" min="0">
-</label>
-<label>Elevadores
-<input data-detail="quantidade_elevadores"
-type="number" min="0">
-</label>
-</div>
+<div data-group="casa_construcao"
+data-types="casa sobrado chacara"></div>
 
-<div data-group="acesso_apartamento"></div>
-<div data-group="posicao_unidade"></div>
-<div data-group="sol"></div>
-<div data-group="vista"></div>
-<div data-group="varanda_tipo"></div>
-<div data-group="varanda_caracteristicas"></div>
-<div data-group="apartamento_extras"></div>
-
-<label>Observações sobre a vista
-<textarea data-detail="vista_observacoes"
-placeholder="Ex.: vista livre nos quartos e cozinha; sacada com vista parcial."></textarea>
-</label>
+<div data-group="vagas_caracteristicas"
+data-types="apartamento casa sobrado chacara comercial outro"></div>
 </section>
 
-<section class="section" data-types="casa sobrado chacara">
-<h3>7. Características da casa</h3>
-
-<div data-group="casa_localizacao"></div>
-<div data-group="casa_construcao"></div>
-<div data-group="casa_extras"></div>
-<div data-group="area_externa"></div>
-<div data-group="sol"></div>
-<div data-group="vista"></div>
-</section>
-
-<section class="section" data-types="terreno">
-<h3>8. Características do terreno</h3>
-
-<div data-group="topografia"></div>
-<div data-group="formato_terreno"></div>
-<div data-group="terreno_caracteristicas"></div>
-<div data-group="infraestrutura_terreno"></div>
-<div data-group="terreno_projetos"></div>
-
-<label>Restrições ou condições para construir
-<textarea data-detail="restricoes_construcao"
-placeholder="Ex.: recuos obrigatórios, regras do condomínio, exigências conhecidas."></textarea>
-</label>
-</section>
-
-<details class="advanced"
+<section class="section"
 data-types="apartamento casa sobrado chacara comercial outro">
-<summary>9. Acabamentos, móveis e conservação</summary>
-<div class="details-body">
-
-<div data-group="estado_conservacao"></div>
-<div data-group="pisos"></div>
-
-<label>Tipo de piso principal (campo antigo)
-<input id="piso">
-</label>
+<h3>5. Diferenciais do imóvel</h3>
+<p class="section-description">
+Selecione somente as características que realmente valorizam o imóvel.
+</p>
 
 <div data-group="planejados"></div>
-<div data-group="mobilia"></div>
-
-<label>O que permanece no imóvel?
-<textarea data-detail="mobilia_permanencia"
-placeholder="Descreva os móveis, eletrodomésticos e itens incluídos na venda."></textarea>
-</label>
-
-<div data-group="acabamentos"></div>
-<div data-group="esquadrias"></div>
-<div data-group="vidros"></div>
-<div data-group="janelas_extras"></div>
-</div>
-</details>
-
-<details class="advanced"
-data-types="apartamento casa sobrado chacara comercial outro">
-<summary>10. Climatização, água e tecnologia</summary>
-<div class="details-body">
-
+<div data-group="varanda_tipo"
+data-types="apartamento casa sobrado chacara"></div>
+<div data-group="vista"></div>
 <div data-group="climatizacao"></div>
-<div data-group="ar_condicionado_comodos"></div>
+<div data-group="acabamentos"></div>
+<div data-group="area_externa"
+data-types="casa sobrado chacara"></div>
+<div data-group="estado_conservacao"></div>
+</section>
 
-<label>Quantidade de aparelhos de ar-condicionado
-<input data-detail="quantidade_ar_condicionado"
-type="number" min="0">
-</label>
-
-<div data-group="ventiladores_comodos"></div>
-<div data-group="aquecimento_agua"></div>
-<div data-group="automacao"></div>
-<div data-group="agua_abastecimento"></div>
-<div data-group="agua_reservatorio"></div>
-
-<label>Capacidade da caixa-d'água (litros)
-<input data-detail="caixa_agua_litros"
-type="number" min="0">
-</label>
-
-<div data-group="sustentabilidade"></div>
-</div>
-</details>
-
-<details class="advanced"
-data-types="apartamento casa sobrado terreno chacara comercial outro">
-<summary>11. Segurança e estacionamento</summary>
-<div class="details-body">
-
-<div data-group="seguranca_privativa"></div>
-<div data-group="portao_tipo"></div>
-<div data-group="vagas_caracteristicas"></div>
-<div data-group="vagas_disposicao"></div>
-</div>
-</details>
-
-<details class="advanced"
-data-types="apartamento casa sobrado terreno chacara comercial outro">
-<summary>12. Condomínio e áreas compartilhadas</summary>
-<div class="details-body">
-
-<div data-group="condominio_tipo"></div>
+<section class="section"
+data-types="apartamento casa sobrado chacara comercial outro">
+<h3>6. Condomínio e lazer</h3>
+<p class="section-description">
+Marque somente o que está disponível e confirmado.
+</p>
 <div data-group="condominio_lazer"></div>
 <div data-group="condominio_seguranca"></div>
 <div data-group="condominio_servicos"></div>
+</section>
 
-<label>Observações sobre o condomínio
-<textarea data-detail="condominio_observacoes"
-placeholder="Ex.: lavanderia em implantação, regras de uso, estrutura disponível."></textarea>
+<section class="section" data-types="terreno">
+<h3>6. Características do terreno</h3>
+<div data-group="topografia"></div>
+<div data-group="terreno_caracteristicas"></div>
+</section>
+
+<details class="advanced">
+<summary>7. Informações adicionais (opcional)</summary>
+<div class="details-body">
+
+<div class="row">
+<label data-types="apartamento casa sobrado chacara">
+Área do quintal (m²)
+<input id="area_quintal" type="number" min="0" step="0.01">
 </label>
+<label data-types="apartamento casa sobrado chacara comercial outro">
+Tipo de piso
+<input id="piso" placeholder="Ex.: laminado">
+</label>
+</div>
+
+<label>Pontos de referência
+<textarea data-detail="referencias_localizacao"
+placeholder="Ex.: próximo à UNESP, Confiança Flex..."></textarea>
+</label>
+
+<label>Outras características
+<textarea data-detail="outras_caracteristicas"
+placeholder="Informações que não aparecem nas opções anteriores."></textarea>
+</label>
+
+<label>Observações do condomínio
+<textarea data-detail="condominio_observacoes"></textarea>
+</label>
+
+<label>Observações sobre a vista
+<textarea data-detail="vista_observacoes"></textarea>
+</label>
+
 </div>
 </details>
 
-<details class="advanced" open>
-<summary>13. Documentação e condições de negociação</summary>
-<div class="details-body">
+<section class="section">
+<h3>8. Negociação</h3>
 
 <div class="row">
 <label>Financiamento bancário
@@ -612,37 +465,26 @@ placeholder="Ex.: lavanderia em implantação, regras de uso, estrutura disponí
 </label>
 </div>
 
-<div data-group="documentacao"></div>
 <div data-group="permuta_status"></div>
-<div data-group="permuta_tipos"></div>
-
-<label>Condições de permuta
-<textarea data-detail="permuta_condicoes"
-placeholder="Ex.: estuda apartamento de menor valor como parte do pagamento."></textarea>
-</label>
-
-<div data-group="negociacao"></div>
 <div data-group="ocupacao"></div>
-<div data-group="entrega_chaves"></div>
-</div>
-</details>
+</section>
 
 <section class="section">
-<h3>14. Descrição e diferenciais</h3>
+<h3>9. Descrição</h3>
 
 <label>Descrição do imóvel
 <textarea id="descricao"
 placeholder="Apresente o imóvel de forma clara e comercial."></textarea>
 </label>
 
-<label>Diferenciais do imóvel
+<label>Outros diferenciais
 <textarea id="diferenciais"
-placeholder="Ex.: planta diferenciada, localização privilegiada, projeto arquitetônico exclusivo."></textarea>
+placeholder="Ex.: planta diferenciada, excelente localização..."></textarea>
 </label>
 </section>
 
 <section class="section">
-<h3>15. Publicação e disponibilidade</h3>
+<h3>10. Publicação</h3>
 
 <div class="row">
 <label>Situação
@@ -654,24 +496,23 @@ placeholder="Ex.: planta diferenciada, localização privilegiada, projeto arqui
 </select>
 </label>
 
-<label>Selo
+<label>Selo comercial
 <select id="selo">
-<option value="nenhum">Nenhum</option>
+<option value="nenhum">Sem selo</option>
+<option value="destaque">Destaque</option>
+<option value="exclusivo">Exclusivo</option>
 <option value="novidade">Novidade</option>
-<option value="oportunidade">Oportunidade</option>
-<option value="preco_reduzido">Preço reduzido</option>
 </select>
 </label>
 </div>
 
 <label>Última confirmação de disponibilidade
-<input id="disponibilidade_confirmada_em"
-type="date">
+<input id="disponibilidade_confirmada_em" type="date">
 </label>
 
 <label class="check">
 <input id="destaque" type="checkbox">
-Destacar na página inicial
+Exibir na página inicial
 </label>
 
 <label class="check">
@@ -680,11 +521,10 @@ Publicar anúncio
 </label>
 
 <div class="notice">
-As características cadastradas ficam no banco de dados.
-A página pública do imóvel será atualizada na próxima etapa
-para apresentar as novas informações de maneira organizada.
-Não coloque contatos de proprietários, comissões ou valores
-confidenciais nos campos públicos.
+Use o selo Exclusivo apenas quando houver exclusividade
+de comercialização. Os dados antigos continuam preservados
+no banco. Não inclua informações confidenciais de
+proprietários nos campos públicos.
 </div>
 </section>
 
@@ -699,7 +539,7 @@ confidenciais nos campos públicos.
 <p class="hint">
 Selecione fotografias reais em JPG, PNG ou WebP.
 A primeira fotografia será a capa. Segure o botão
-"Arrastar" para reorganizar, ou utilize as setas.
+"Arrastar" para reorganizar ou utilize as setas.
 </p>
 
 <div class="uploadbar">
@@ -714,6 +554,7 @@ Enviar fotografias
 
 <div id="photoGrid" class="photos"></div>
 </section>
+
 </section>
 </section>
 
@@ -739,7 +580,7 @@ const fields=[
 'area_quintal','quartos','suites','banheiros',
 'vagas','andar','piso','situacao','selo',
 'destaque','publicado','cep','logradouro',
-'quadra','numero','complemento','cidade','estado',
+'complemento','cidade','estado',
 'diferenciais','disponibilidade_confirmada_em'
 ];
 
@@ -751,559 +592,123 @@ const numberFields=[
 ];
 
 const groupDefinitions={
-
-custos_inclusos:{
-title:'Despesas incluídas no condomínio',
-multi:true,
-options:[
-'Água incluída','Gás incluído',
-'Internet incluída','Outros serviços incluídos'
-]},
-
-ambientes:{
-title:'Ambientes e dependências',
-multi:true,
-options:[
-'Sala de estar','Sala de jantar',
-'Sala de TV','Sala integrada',
-'Closet','Despensa','Escritório',
-'Lavabo','Lavanderia','Área de serviço',
-'Dependência de serviço','Edícula',
-'Depósito privativo'
-]},
-
-cozinha_tipo:{
-title:'Tipo de cozinha',
-options:[
-'Americana','Integrada','Independente',
-'Com ilha','Cozinha gourmet'
-]},
-
-area_servico:{
-title:'Área de serviço',
-options:[
-'Separada','Integrada','Externa',
-'Coberta','Descoberta'
-]},
-
-pe_direito:{
-title:'Pé-direito',
-options:['Padrão','Alto','Duplo']
-},
-
 apartamento_posicao:{
 title:'Tipo de apartamento',
 options:[
-'Térreo comum',
-'Térreo garden (quintal privativo)',
-'Andar superior',
-'Cobertura'
+'Térreo','Térreo com quintal',
+'Andar superior','Cobertura'
 ]},
-
-acesso_apartamento:{
-title:'Acesso ao apartamento',
-multi:true,
-options:[
-'Acesso direto pelo térreo',
-'Escadas','Elevador',
-'Acessibilidade'
-]},
-
-posicao_unidade:{
-title:'Posição da unidade',
-options:[
-'Frente','Fundos','Lateral','Esquina'
-]},
-
-sol:{
-title:'Incidência solar',
-multi:true,
-options:[
-'Sol da manhã','Sol da tarde',
-'Boa iluminação natural'
-]},
-
-vista:{
-title:'Características da vista',
-multi:true,
-options:[
-'Vista livre','Vista parcialmente livre',
-'Vista interna','Vista para área verde',
-'Vista para piscina','Vista panorâmica'
-]},
-
-varanda_tipo:{
-title:'Tipo de varanda',
-options:[
-'Sem varanda','Sacada',
-'Varanda','Varanda gourmet'
-]},
-
-varanda_caracteristicas:{
-title:'Características da varanda',
-multi:true,
-options:[
-'Fechamento em vidro',
-'Rede de proteção',
-'Churrasqueira privativa',
-'Pia de apoio','Persiana'
-]},
-
-apartamento_extras:{
-title:'Outras características',
-multi:true,
-options:[
-'Hall privativo',
-'Depósito privativo',
-'Medição individual de água',
-'Medição individual de gás',
-'Gás encanado',
-'Gerador no condomínio',
-'Planta modificada',
-'Acessível para pessoas com mobilidade reduzida'
-]},
-
-casa_localizacao:{
-title:'Localização da casa',
-options:[
-'Casa de rua',
-'Casa em condomínio'
-]},
-
 casa_construcao:{
-title:'Tipo de construção',
+title:'Tipo de casa',
+options:['Térrea','Sobrado','Geminada','Isolada']
+},
+vagas_caracteristicas:{
+title:'Garagem',
 multi:true,
 options:[
-'Térrea','Sobrado',
-'Isolada','Geminada',
-'Construção independente'
+'Garagem','Garagem coberta','Garagem descoberta',
+'Vaga fixa','Vaga rotativa'
 ]},
-
-casa_extras:{
-title:'Características da casa',
-multi:true,
-options:[
-'Corredor lateral',
-'Entrada independente',
-'Entrada de serviço',
-'Edícula',
-'Dependência de serviço',
-'Lavanderia coberta',
-'Lavanderia descoberta',
-'Espaço para ampliação',
-'Jardim de inverno',
-'Quintal privativo'
-]},
-
-area_externa:{
-title:'Área externa privativa',
-multi:true,
-options:[
-'Quintal coberto',
-'Quintal descoberto',
-'Piscina privativa',
-'Piscina aquecida',
-'Jardim',
-'Área gourmet privativa',
-'Churrasqueira privativa',
-'Forno de pizza',
-'Pergolado',
-'Varanda',
-'Deck',
-'Corredor lateral'
-]},
-
-topografia:{
-title:'Topografia',
-options:[
-'Plano',
-'Aclive (subida)',
-'Declive (descida)',
-'Irregular / misto'
-]},
-
-formato_terreno:{
-title:'Formato do terreno',
-options:[
-'Regular','Irregular'
-]},
-
-terreno_caracteristicas:{
-title:'Condições do terreno',
-multi:true,
-options:[
-'Murado','Cercado',
-'Possui muro de arrimo',
-'Limpo','Terraplanagem realizada',
-'Pronto para construir (confirmado)',
-'De esquina',
-'Em condomínio',
-'Possui construção existente',
-'Possui árvores'
-]},
-
-infraestrutura_terreno:{
-title:'Infraestrutura disponível',
-multi:true,
-options:[
-'Rede de água',
-'Rede de esgoto',
-'Energia elétrica',
-'Iluminação pública',
-'Rua asfaltada',
-'Calçada',
-'Guia e sarjeta',
-'Internet disponível na região'
-]},
-
-terreno_projetos:{
-title:'Projetos e possibilidades',
-multi:true,
-options:[
-'Projeto arquitetônico disponível',
-'Projeto aprovado',
-'Possibilidade de desmembramento confirmada',
-'Possui restrições construtivas conhecidas',
-'Exigências específicas do condomínio'
-]},
-
-estado_conservacao:{
-title:'Estado de conservação',
-options:[
-'Novo','Excelente',
-'Bom','Regular',
-'Reformado',
-'Parcialmente reformado',
-'Necessita reforma'
-]},
-
-pisos:{
-title:'Tipos de piso',
-multi:true,
-options:[
-'Porcelanato','Cerâmico',
-'Laminado','Vinílico',
-'Madeira','Cimento queimado',
-'Mármore','Granito'
-]},
-
 planejados:{
-title:'Móveis planejados por ambiente',
+title:'Armários e planejados',
 multi:true,
 options:[
-'Cozinha planejada',
-'Quarto(s) com planejados',
-'Banheiro(s) com planejados',
-'Sala com planejados',
-'Lavanderia planejada',
-'Área gourmet planejada',
-'Escritório planejado',
-'Closet planejado'
+'Armários','Armários planejados',
+'Cozinha planejada','Quartos com planejados',
+'Banheiros com planejados','Closet'
 ]},
-
-mobilia:{
-title:'Mobília',
+varanda_tipo:{
+title:'Varanda',
 options:[
-'Não mobiliado',
-'Parcialmente mobiliado',
-'Mobiliado'
+'Sem varanda','Varanda','Varanda gourmet','Sacada'
 ]},
-
-acabamentos:{
-title:'Acabamentos e detalhes',
+vista:{
+title:'Vista e iluminação natural',
 multi:true,
 options:[
-'Box nos banheiros',
-'Bancadas em granito',
-'Bancadas em mármore',
-'Iluminação em LED',
-'Iluminação embutida',
-'Projeto luminotécnico',
-'Forro de gesso',
-'Sanca de gesso',
-'Pintura recente',
-'Portas de madeira'
+'Vista livre','Vista panorâmica',
+'Vista para área verde',
+'Sol da manhã','Sol da tarde'
 ]},
-
-esquadrias:{
-title:'Esquadrias',
-multi:true,
-options:[
-'Alumínio','PVC','Madeira','Ferro'
-]},
-
-vidros:{
-title:'Tipos de vidro',
-multi:true,
-options:[
-'Temperado','Laminado',
-'Duplo','Comum'
-]},
-
-janelas_extras:{
-title:'Janelas e proteção',
-multi:true,
-options:[
-'Tela mosquiteira',
-'Rede de proteção',
-'Persiana',
-'Persiana motorizada',
-'Janela antirruído'
-]},
-
 climatizacao:{
 title:'Climatização',
 multi:true,
 options:[
 'Ar-condicionado instalado',
-'Infraestrutura para ar-condicionado',
-'Ventilação natural',
-'Ventilador de teto',
-'Ventilador de parede'
+'Preparado para ar-condicionado',
+'Ventilador de teto'
 ]},
-
-ar_condicionado_comodos:{
-title:'Ar-condicionado por ambiente',
+acabamentos:{
+title:'Acabamentos e detalhes',
 multi:true,
 options:[
-'Sala','Suíte',
-'Quarto 1','Quarto 2',
-'Quarto 3','Escritório',
-'Área gourmet'
+'Pé-direito alto','Pé-direito duplo',
+'Projeto de iluminação','Iluminação em LED',
+'Piso laminado','Piso vinílico',
+'Porcelanato','Box nos banheiros'
 ]},
-
-ventiladores_comodos:{
-title:'Ventiladores por ambiente',
+area_externa:{
+title:'Área externa privativa',
 multi:true,
 options:[
-'Sala','Suíte',
-'Quarto 1','Quarto 2',
-'Quarto 3','Escritório',
-'Área gourmet'
+'Quintal','Quintal privativo',
+'Área gourmet','Churrasqueira privativa',
+'Piscina privativa','Jardim','Edícula'
 ]},
-
-aquecimento_agua:{
-title:'Aquecimento de água',
-multi:true,
+estado_conservacao:{
+title:'Conservação',
 options:[
-'Chuveiro elétrico',
-'Aquecimento a gás',
-'Aquecimento solar',
-'Aquecimento central',
-'Preparação para aquecimento a gás',
-'Água quente nas torneiras',
-'Pressurizador'
+'Novo','Excelente','Bom','Reformado',
+'Necessita reforma'
 ]},
-
-automacao:{
-title:'Automação residencial',
-multi:true,
-options:[
-'Automação instalada',
-'Preparação para automação',
-'Alexa',
-'Google Assistente',
-'Iluminação inteligente',
-'Fechadura inteligente',
-'Cortinas motorizadas',
-'Persianas motorizadas'
-]},
-
-agua_abastecimento:{
-title:'Abastecimento de água',
-options:['DAE','Poço']
-},
-
-agua_reservatorio:{
-title:'Reservatório de água',
-options:[
-'Caixa-d’água individual',
-'Reservatório coletivo do condomínio',
-'Não possui'
-]},
-
-sustentabilidade:{
-title:'Sustentabilidade e recursos',
-multi:true,
-options:[
-'Energia solar fotovoltaica',
-'Captação de água da chuva',
-'Cisterna',
-'Reuso de água',
-'Aquecimento solar'
-]},
-
-seguranca_privativa:{
-title:'Segurança do imóvel',
-multi:true,
-options:[
-'Câmeras de segurança',
-'Alarme',
-'Cerca elétrica',
-'Concertina',
-'Interfone',
-'Videoporteiro',
-'Fechadura eletrônica',
-'Fechadura digital',
-'Grades',
-'Muro',
-'Portão eletrônico'
-]},
-
-portao_tipo:{
-title:'Tipo de portão',
-multi:true,
-options:[
-'Basculante',
-'Deslizante',
-'Automático',
-'Manual'
-]},
-
-vagas_caracteristicas:{
-title:'Características das vagas',
-multi:true,
-options:[
-'Garagem coberta',
-'Garagem descoberta',
-'Vaga fixa',
-'Vaga rotativa',
-'Vaga para moto',
-'Carregamento para veículo elétrico'
-]},
-
-vagas_disposicao:{
-title:'Disposição das vagas',
-options:[
-'Lado a lado',
-'Em linha / gaveta',
-'Independentes'
-]},
-
-condominio_tipo:{
-title:'Tipo de condomínio',
-options:[
-'Condomínio de apartamentos',
-'Condomínio de casas',
-'Condomínio de terrenos',
-'Condomínio comercial'
-]},
-
 condominio_lazer:{
-title:'Lazer compartilhado',
+title:'Lazer e estrutura',
 multi:true,
 options:[
-'Piscina',
-'Piscina infantil',
-'Piscina aquecida',
-'Academia',
-'Salão de festas',
-'Churrasqueira',
-'Quadra esportiva',
-'Quadra de tênis',
-'Beach tennis',
-'Playground',
-'Brinquedoteca',
-'Salão de jogos',
-'Sauna',
-'Coworking',
-'Espaço gourmet',
-'Pet place',
-'Bicicletário',
-'Área verde',
-'Pista de caminhada'
+'Piscina','Academia','Salão de festas',
+'Churrasqueira','Quadra esportiva',
+'Playground','Brinquedoteca','Coworking',
+'Espaço gourmet','Pet place','Bicicletário'
 ]},
-
 condominio_seguranca:{
-title:'Segurança do condomínio',
+title:'Portaria e segurança',
 multi:true,
 options:[
-'Portaria 24 horas',
-'Portaria virtual',
-'Controle de acesso',
-'Reconhecimento facial',
-'Acesso por tag',
-'Câmeras de segurança',
-'Ronda',
-'Cerca elétrica',
+'Portaria 24 horas','Portaria remota',
+'Controle de acesso','Câmeras de segurança',
 'Condomínio murado'
 ]},
-
 condominio_servicos:{
-title:'Serviços e infraestrutura do condomínio',
+title:'Serviços e comodidades',
 multi:true,
 options:[
-'Elevador',
-'Gerador',
-'Lavanderia compartilhada',
-'Lavanderia em implantação',
-'Mini mercado',
-'Água individualizada',
-'Gás individualizado',
-'Água incluída no condomínio',
-'Gás incluído no condomínio',
-'Acessibilidade',
+'Elevador','Lavanderia compartilhada',
+'Mini mercado','Acessibilidade',
 'Vagas para visitantes'
 ]},
-
-documentacao:{
-title:'Documentação',
+topografia:{
+title:'Topografia',
+options:['Plano','Aclive','Declive','Irregular']
+},
+terreno_caracteristicas:{
+title:'Terreno',
 multi:true,
 options:[
-'Matrícula individualizada',
-'Escritura registrada',
-'Construção averbada',
-'Documentação em regularização',
-'Imóvel em inventário',
-'Imóvel quitado',
-'Imóvel atualmente financiado'
+'Murado','Cercado','De esquina',
+'Em condomínio','Pronto para construir'
 ]},
-
 permuta_status:{
-title:'Aceita permuta?',
+title:'Permuta',
 options:[
-'Não aceita',
-'Aceita permuta',
+'Não aceita','Aceita permuta',
 'Estuda permuta / sob análise'
 ]},
-
-permuta_tipos:{
-title:'Tipos de permuta considerados',
-multi:true,
-options:[
-'Apartamento','Casa','Terreno',
-'Carro','Moto','Chácara',
-'Imóvel comercial','Outros'
-]},
-
-negociacao:{
-title:'Condições de negociação',
-multi:true,
-options:[
-'Aceita proposta',
-'Pagamento à vista',
-'Aceita financiamento',
-'Possibilidade de uso do FGTS'
-]},
-
 ocupacao:{
 title:'Ocupação atual',
 options:[
-'Desocupado',
-'Ocupado pelo proprietário',
-'Alugado',
-'Ocupado por terceiros'
-]},
-
-entrega_chaves:{
-title:'Disponibilidade das chaves',
-options:[
-'Imediata',
-'Após a venda',
-'Prazo a combinar',
-'Sujeita à desocupação'
+'Desocupado','Ocupado pelo proprietário',
+'Alugado','Ocupado por terceiros'
 ]}
-
 };
 
 const optionGroups=Object.keys(groupDefinitions);
@@ -1313,6 +718,7 @@ let editing=null;
 let photoRecords=[];
 let currentDetails={};
 let currentProperty=null;
+let originalAddress={quadra:null,numero:null};
 let orderBusy=false;
 let cepRequest=0;
 
@@ -1377,7 +783,6 @@ target.append(select);
 
 function updateType(){
 const type=$('tipo').value;
-
 document.querySelectorAll('[data-types]').forEach(el=>{
 const allowed=el.dataset.types.split(/\s+/);
 el.classList.toggle('hidden',!allowed.includes(type));
@@ -1389,17 +794,11 @@ const details={...currentDetails};
 
 document.querySelectorAll('[data-detail]').forEach(el=>{
 if(el.closest('.hidden'))return;
-
 const key=el.dataset.detail;
 const raw=el.value.trim();
-
-if(!raw){
-delete details[key];
-}else if(el.type==='number'){
-details[key]=Number(raw);
-}else{
-details[key]=raw;
-}
+if(!raw)delete details[key];
+else if(el.type==='number')details[key]=Number(raw);
+else details[key]=raw;
 });
 
 for(const key of optionGroups){
@@ -1409,12 +808,10 @@ const target=document.querySelector(
 if(!target||target.closest('.hidden'))continue;
 
 const def=groupDefinitions[key];
-
 if(def.multi){
 const values=[...target.querySelectorAll(
 'input[type="checkbox"]:checked'
 )].map(el=>el.value);
-
 if(values.length)details[key]=values;
 else delete details[key];
 }else{
@@ -1423,14 +820,12 @@ if(value)details[key]=value;
 else delete details[key];
 }
 }
-
 return details;
 }
 
 function fillDetails(details){
 document.querySelectorAll('[data-detail]').forEach(el=>{
-const value=details[el.dataset.detail];
-el.value=value??'';
+el.value=details[el.dataset.detail]??'';
 });
 
 for(const key of optionGroups){
@@ -1528,12 +923,11 @@ feedback.textContent='Link de '+
 
 }catch(error){
 feedback.textContent=
-'Não foi possível copiar automaticamente. Selecione o endereço abaixo:';
+'Não foi possível copiar automaticamente. Copie o endereço:';
 
 const field=document.createElement('input');
 field.value=url;
 field.readOnly=true;
-field.setAttribute('aria-label','Link para copiar');
 field.onclick=()=>field.select();
 feedback.append(field);
 field.focus();
@@ -1553,7 +947,6 @@ JSON.stringify(r.detalhes||{}),
 ...(Array.isArray(r.caracteristicas)?
 r.caracteristicas:[])
 ].join(' '));
-
 return words.every(word=>searchable.includes(word));
 });
 
@@ -1567,8 +960,7 @@ matches.length+' imóvel(is) encontrado(s)'+
 if(!matches.length){
 const p=document.createElement('p');
 p.className='muted';
-p.textContent=
-'Nenhum imóvel encontrado. Tente condomínio, bairro, código ou característica.';
+p.textContent='Nenhum imóvel encontrado.';
 root.append(p);
 }
 
@@ -1612,11 +1004,9 @@ button.type='button';
 button.className='ghost';
 button.textContent='Copiar link '+
 (broker==='rafael'?'Rafael':'Débora');
-
 button.onclick=()=>copyBrokerLink(
 r.id,broker,feedback
 );
-
 actions.append(button);
 }
 }
@@ -1633,9 +1023,23 @@ if(Number.isNaN(date.getTime()))return '';
 return date.toISOString().slice(0,10);
 }
 
+function joinAddress(r){
+if(!r)return '';
+const q=String(r.quadra??'').trim();
+const n=String(r.numero??'').trim();
+if(q&&n)return 'Quadra '+q+', nº '+n;
+if(q)return q;
+return n;
+}
+
 async function openEditor(r=null){
 editing=r?.id||null;
 currentProperty=r;
+originalAddress={
+quadra:r?.quadra??null,
+numero:r?.numero??null
+};
+
 currentDetails=
 r?.detalhes&&typeof r.detalhes==='object'
 &&!Array.isArray(r.detalhes)
@@ -1660,6 +1064,8 @@ el.value=r[f]??'';
 }
 }
 
+$('quadraNumero').value=joinAddress(r);
+
 $('financiamento_status').value=
 currentDetails.financiamento_status||
 (r.aceita_financiamento===true?'sim':
@@ -1675,6 +1081,7 @@ $('cidade').value='Bauru';
 $('estado').value='SP';
 $('financiamento_status').value='';
 $('fgts_status').value='';
+$('selo').value='nenhum';
 }
 
 fillDetails(currentDetails);
@@ -1726,7 +1133,6 @@ await check();
 function formatCep(value){
 const digits=String(value||'')
 .replace(/\D/g,'').slice(0,8);
-
 return digits.length>5?
 digits.slice(0,5)+'-'+digits.slice(5):digits;
 }
@@ -1764,14 +1170,12 @@ return;
 const request=++cepRequest;
 const btn=$('buscarCep');
 btn.disabled=true;
-
 $('cepStatus').textContent='Consultando CEP...';
 $('cepStatus').className='address-feedback';
 
 try{
 const controller=new AbortController();
 const timeout=setTimeout(()=>controller.abort(),10000);
-
 let response;
 
 try{
@@ -1784,7 +1188,6 @@ clearTimeout(timeout);
 }
 
 if(!response.ok)throw new Error('Serviço indisponível');
-
 const data=await response.json();
 if(request!==cepRequest)return;
 
@@ -1795,31 +1198,55 @@ $('cepStatus').className='address-feedback error';
 return;
 }
 
-const mapping={
+for(const [field,value] of Object.entries({
 logradouro:data.logradouro,
 bairro:data.bairro,
 cidade:data.localidade,
 estado:data.uf
-};
-
-for(const [field,value] of Object.entries(mapping)){
+})){
 if(value)$(field).value=value;
 }
 
 $('cep').value=formatCep(digits);
 $('cepStatus').textContent=
-'Endereço encontrado! Confira quadra, número e complemento.';
+'Endereço encontrado! Confira quadra/número e complemento.';
 $('cepStatus').className='address-feedback success';
 
 }catch(error){
 if(request===cepRequest){
 $('cepStatus').textContent=
-'Não foi possível consultar agora. Preencha o endereço manualmente.';
+'Não foi possível consultar agora. Preencha manualmente.';
 $('cepStatus').className='address-feedback error';
 }
 }finally{
 if(request===cepRequest)btn.disabled=false;
 }
+}
+
+function parseAddress(value){
+const v=value.trim();
+if(!v)return {quadra:null,numero:null};
+
+const match=v.match(
+/^\s*(?:quadra|qd\.?|q\.?)[\s.:]*([^,;]+)[,;\s]+(?:n[º°o.]?|número|numero)?\s*[:.]?\s*(.+)$/i
+);
+
+if(match){
+return {
+quadra:match[1].trim(),
+numero:match[2].trim()
+};
+}
+
+const pieces=v.split(/\s*[,;]\s*/);
+if(pieces.length===2){
+return {
+quadra:pieces[0]||null,
+numero:pieces[1]||null
+};
+}
+
+return {quadra:v,numero:null};
 }
 
 $('propertyForm').onsubmit=async e=>{
@@ -1830,7 +1257,6 @@ const payload={};
 for(const f of fields){
 const el=$(f);
 if(!el)continue;
-
 payload[f]=el.type==='checkbox'
 ?el.checked
 :el.value.trim()||null;
@@ -1859,8 +1285,16 @@ payload.disponibilidade_confirmada_em=
 payload.disponibilidade_confirmada_em+'T12:00:00-03:00';
 }
 
-const details=readDetails();
+const addressValue=$('quadraNumero').value.trim();
 
+if(editing&&addressValue===joinAddress(currentProperty)){
+payload.quadra=originalAddress.quadra;
+payload.numero=originalAddress.numero;
+}else{
+Object.assign(payload,parseAddress(addressValue));
+}
+
+const details=readDetails();
 const financiamento=$('financiamento_status').value;
 const fgts=$('fgts_status').value;
 
@@ -1876,16 +1310,8 @@ details.fgts_status=fgts;
 delete details.fgts_status;
 }
 
-/*
-Os campos booleanos antigos são mantidos
-para compatibilidade com o site público.
-
-"Não informado" e "Em análise" ficam
-representados no campo detalhes.
-*/
 payload.aceita_financiamento=financiamento==='sim';
 payload.aceita_fgts=fgts==='sim';
-
 payload.detalhes=details;
 
 const btn=$('saveProperty');
@@ -2032,7 +1458,6 @@ clearTargets();
 
 if(under&&under.parentElement===$('photoGrid')){
 target=Number(under.dataset.photoIndex);
-
 if(under!==card){
 under.classList.add('drop-target');
 }
@@ -2049,9 +1474,7 @@ clearTargets();
 
 const finish=async()=>{
 cleanup();
-
 if(target===from||orderBusy)return;
-
 const arr=[...photoRecords];
 arr.splice(target,0,arr.splice(from,1)[0]);
 await saveOrder(arr);
