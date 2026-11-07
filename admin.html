@@ -152,10 +152,22 @@ summary{padding:14px;cursor:pointer;font-weight:700}
   line-height:1.5
 }
 .money{font-variant-numeric:tabular-nums}
+.crm-link{
+  display:inline-block;
+  background:#f85f08;
+  color:white;
+  padding:11px 16px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:700;
+  margin-right:8px
+}
+.crm-link:hover{background:#df5204}
 @media(max-width:550px){
   .card{padding:15px}
   .section{padding:13px}
   .options{grid-template-columns:1fr 1fr}
+  .crm-link{margin-bottom:8px}
 }
 </style>
 </head>
@@ -186,6 +198,7 @@ summary{padding:14px;cursor:pointer;font-weight:700}
 <div class="row">
 <h1>Gerenciar imóveis</h1>
 <div style="text-align:right">
+<a href="crm.html" class="crm-link">CRM · Clientes</a>
 <button id="logout" class="ghost">Sair</button>
 </div>
 </div>
