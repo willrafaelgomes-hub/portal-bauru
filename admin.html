@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Portal Bauru | Administração</title>
 <style>
-:root{font-family:Inter,Arial,sans-serif;color:#14253D;background:#F6F1EA}
+:root{font-family:Arial,sans-serif;color:#14253D;background:#F6F1EA}
 *{box-sizing:border-box}
 body{margin:0}
 header{background:#14253D;color:white;padding:20px 5%;display:flex;justify-content:space-between;gap:12px}
@@ -295,7 +295,7 @@ summary{padding:14px;cursor:pointer;font-weight:700}
 </select>
 </label>
 <label>Selo
-<select id="selo">
+<select id="selo" required>
 <option value="nenhum">Nenhum</option>
 <option value="destaque">Destaque</option>
 <option value="exclusivo">Exclusivo</option>
@@ -741,6 +741,12 @@ $('financiamento_status').value='';
 $('fgts_status').value='';
 }
 
+// CORREÇÃO: nunca deixar o selo vazio.
+const selosValidos=['nenhum','destaque','exclusivo','novidade'];
+if(!selosValidos.includes($('selo').value)){
+$('selo').value='nenhum';
+}
+
 fillDetails(currentDetails);
 updateType();
 $('editor').classList.remove('hidden');
@@ -807,16 +813,32 @@ $('cepStatus').textContent=error.message;
 $('propertyForm').onsubmit=async e=>{
 e.preventDefault();
 const payload={};
+
 for(const field of fields){
 const el=$(field);
 if(!el)continue;
 payload[field]=el.type==='checkbox'
 ?el.checked:el.value.trim()||null;
 }
+
 for(const field of numberFields){
 if(payload[field]!=null)payload[field]=Number(payload[field]);
 }
+
 payload.descricao??='';
+
+// CORREÇÃO DEFINITIVA DO ERRO DE SELO NULO.
+const selosValidos=['nenhum','destaque','exclusivo','novidade'];
+if(!selosValidos.includes(payload.selo)){
+payload.selo='nenhum';
+$('selo').value='nenhum';
+}
+
+// Preserva a situação anterior quando não houver alteração.
+if(!payload.situacao){
+payload.situacao=currentProperty?.situacao||'disponivel';
+}
+
 if(payload.estado)payload.estado=payload.estado.toUpperCase();
 
 if(payload.disponibilidade_confirmada_em){
@@ -842,19 +864,28 @@ else delete details.financiamento_status;
 if(fgts)details.fgts_status=fgts;
 else delete details.fgts_status;
 
-payload.aceita_financiamento=fin==='sim';
-payload.aceita_fgts=fgts==='sim';
+// Não transformar "não informado" em "não".
+if(fin==='sim')payload.aceita_financiamento=true;
+else if(fin==='nao')payload.aceita_financiamento=false;
+else if(!editing)payload.aceita_financiamento=false;
+
+if(fgts==='sim')payload.aceita_fgts=true;
+else if(fgts==='nao')payload.aceita_fgts=false;
+else if(!editing)payload.aceita_fgts=false;
+
 payload.detalhes=details;
 
 const button=$('saveProperty');
 button.disabled=true;
 message('Salvando...');
+
 try{
 const {error}=editing
 ?await supabase.from('imoveis').update(payload).eq('id',editing)
 :await supabase.from('imoveis').insert(payload);
 
 if(error)throw error;
+
 message('Imóvel salvo.');
 $('editor').classList.add('hidden');
 await load();
@@ -1016,7 +1047,6 @@ return;
 
 const paths=[r.caminho];
 
-// Também procura o original dos novos envios.
 if(r.caminho.endsWith('-portal.jpg')){
 const name=r.caminho.split('/').pop().replace('-portal.jpg','');
 const folder=String(editing)+'/originais';
@@ -1036,8 +1066,8 @@ await loadPhotos();
 }
 
 // MARCA-D'ÁGUA AUTOMÁTICA
-// Símbolo vetorial provisório do Portal Bauru.
-// A foto original não é modificada.
+// Símbolo provisório.
+// A fotografia original é preservada.
 
 async function gerarFotoComMarca(file){
 const bitmap=await createImageBitmap(file);
@@ -1110,11 +1140,7 @@ ctx.fillRect(cx-r*.12,cy+r*.12,r*.24,r*.31);
 
 ctx.fillStyle='#fff';
 ctx.textBaseline='middle';
-ctx.fillText(
-text,
-x+padX+iconSize+gap,
-y+boxH/2
-);
+ctx.fillText(text,x+padX+iconSize+gap,y+boxH/2);
 
 return await new Promise((resolve,reject)=>{
 canvas.toBlob(blob=>{
@@ -1190,7 +1216,6 @@ errors.push(file.name+': '+error.message);
 continue;
 }
 
-// Salva a fotografia original.
 const {error:originalError}=await supabase.storage
 .from(bucket).upload(originalPath,file,{
 contentType:file.type,
@@ -1202,7 +1227,6 @@ errors.push(file.name+': '+originalError.message);
 continue;
 }
 
-// Salva a versão com marca-d'água.
 const {error:uploadError}=await supabase.storage
 .from(bucket).upload(publicPath,marked,{
 contentType:'image/jpeg',
@@ -1215,7 +1239,6 @@ errors.push(file.name+': '+uploadError.message);
 continue;
 }
 
-// Apenas a versão marcada entra no anúncio.
 const ordemEnvio=Math.min(
 30,Math.max(1,Math.trunc(Number(nextOrder)||1))
 );
