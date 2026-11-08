@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -63,7 +62,8 @@
 
 <style>
 :root{
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:Inter,system-ui,-apple-system,
+    "Segoe UI",sans-serif;
   color:#14253D;
   background:#F7F5F1;
   font-synthesis:none
@@ -74,8 +74,8 @@ body{margin:0}
 a{text-decoration:none;color:inherit}
 button,input,select{font:inherit}
 button{cursor:pointer}
-button:focus-visible,
 a:focus-visible,
+button:focus-visible,
 input:focus-visible,
 select:focus-visible{
   outline:3px solid #F85F08;
@@ -86,145 +86,136 @@ select:focus-visible{
   margin:auto
 }
 
-/* CABECALHO */
+/* MENU */
 .top{
   background:#14253D;
-  color:white;
+  color:#fff;
   border-bottom:1px solid #ffffff16
 }
 .nav{
-  min-height:78px;
+  min-height:77px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px
+  gap:18px
 }
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  min-width:0
-}
-.brand-icon{
-  width:34px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  flex-shrink:0
-}
-.brand-icon svg{width:100%;height:100%}
-.brand-copy{min-width:0}
+.brand{min-width:0}
 .brand-name{
-  display:block;
   font-size:1.13rem;
   font-weight:850;
-  letter-spacing:.025em;
-  line-height:1.12;
+  letter-spacing:.02em;
   white-space:nowrap
 }
-.brand-name span{color:#FF873E}
+.brand-name span{color:#FF8C47}
 .brand-name small{
   font-size:.79em;
-  color:#F6F1EA;
-  font-weight:600
+  font-weight:650
 }
 .brand-slogan{
   display:block;
-  color:#C5D0DC;
-  font-size:.64rem;
   margin-top:5px;
-  line-height:1.35
+  font-size:.64rem;
+  color:#C4D0DB
+}
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px
 }
 .nav-link{
-  font-size:.86rem;
   font-weight:750;
-  padding:11px 15px;
-  border-radius:10px;
-  border:1px solid #ffffff4f;
-  white-space:nowrap
+  font-size:.85rem;
+  white-space:nowrap;
+  padding:11px 13px;
+  border-radius:10px
 }
-.nav-link:hover{background:#ffffff12}
+.nav-link:hover{
+  background:#ffffff13
+}
+.nav-announce{
+  border:1px solid #FF945D80;
+  color:#FFE2CE
+}
+.nav-announce:hover{
+  background:#FF945D16
+}
+.mobile-label{display:none}
 
-/* HERO E BUSCA */
+/* INTRO E BUSCA */
 .hero{
   background:
     radial-gradient(
-      ellipse at 91% 10%,
-      #2A4A66 0,
-      transparent 49%
+      ellipse at 93% 7%,
+      #294865 0,
+      transparent 52%
     ),
-    linear-gradient(130deg,#14253D,#1A334D);
-  color:white
+    linear-gradient(130deg,#14253D,#1A344F);
+  color:#fff
 }
-.hero-inner{
-  padding:45px 0 52px
-}
+.hero-inner{padding:42px 0 50px}
 .eyebrow{
-  text-transform:uppercase;
-  letter-spacing:.15em;
+  font-size:.69rem;
   font-weight:850;
-  font-size:.68rem;
-  color:#FFAD7E
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:#FFAE7D
 }
 .hero h1{
-  font-size:clamp(2.25rem,5.2vw,4.05rem);
-  letter-spacing:-.055em;
-  line-height:1.08;
-  max-width:790px;
-  margin:12px 0 15px;
-  font-weight:850
+  font-size:clamp(2.25rem,5.1vw,4rem);
+  letter-spacing:-.052em;
+  line-height:1.09;
+  margin:12px 0 14px;
+  max-width:830px
 }
 .hero h1 em{
   font-style:normal;
-  color:#FF975D
+  color:#FF995E
 }
 .hero-copy{
-  max-width:670px;
-  color:#DFE7EF;
-  font-size:1rem;
+  font-size:.95rem;
   line-height:1.6;
+  color:#DFE7F0;
+  max-width:670px;
   margin:0
 }
 .search-box{
-  margin-top:27px;
-  padding:20px 22px 18px;
-  background:white;
+  background:#fff;
   color:#14253D;
   border-radius:18px;
-  box-shadow:0 18px 40px #07101b3d
+  padding:20px 22px 17px;
+  margin-top:25px;
+  box-shadow:0 18px 40px #06132235
 }
 .search-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:14px;
   margin-bottom:16px
 }
 .search-tabs{
   display:inline-flex;
-  align-items:center;
   gap:3px;
-  padding:4px;
-  background:#F1F2F2;
-  border-radius:11px
+  background:#F0F2F3;
+  border-radius:11px;
+  padding:4px
 }
 .search-tab{
   border:0;
-  border-radius:8px;
   background:transparent;
-  color:#627287;
-  font-size:.89rem;
-  font-weight:800;
+  border-radius:8px;
+  color:#667688;
+  font-weight:850;
+  font-size:.88rem;
   padding:10px 22px
 }
 .search-tab.active{
   background:#14253D;
-  color:white;
-  box-shadow:0 2px 6px #14253D18
+  color:#fff
 }
-.search-top-note{
+.search-note{
   font-size:.78rem;
-  color:#778390
+  color:#718092
 }
 .search{
   display:grid;
@@ -238,91 +229,79 @@ select:focus-visible{
 }
 .field{min-width:0}
 .field label{
-  display:block;
-  font-size:.75rem;
   font-weight:800;
-  color:#506174;
+  font-size:.74rem;
+  color:#4E6073;
+  display:block;
   margin:0 0 7px
 }
 .field input,
 .field select{
+  height:49px;
   width:100%;
-  height:49px;
-  border:1px solid #DFE4E9;
   border-radius:10px;
-  background:#F9FAFB;
-  color:#14253D;
+  border:1px solid #DCE3E8;
+  background:#FAFBFC;
   padding:0 12px;
-  font-size:.91rem;
-  outline-color:#F85F08
+  color:#14253D;
+  font-size:.88rem
 }
-.field input::placeholder{color:#8895A2}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:0;
-  border-radius:10px;
-  font-weight:800;
-  cursor:pointer;
-  text-align:center
-}
-.btn-primary{
+.field input::placeholder{color:#929CA7}
+.search-btn{
   height:49px;
-  padding:0 22px;
+  min-width:150px;
+  border:0;
   background:#F85F08;
   color:#fff;
-  white-space:nowrap;
-  font-size:.89rem
+  border-radius:10px;
+  font-weight:850;
+  font-size:.86rem;
+  padding:0 20px
 }
-.btn-primary:hover{background:#DD5105}
+.search-btn:hover{background:#DD5005}
 .search-more{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:12px
+  text-align:right;
+  padding-top:11px
 }
 .advanced{
-  color:#B54A0B;
-  font-size:.79rem;
   font-weight:800;
-  padding:4px 0
+  font-size:.79rem;
+  color:#B84C0D
 }
 .advanced:hover{text-decoration:underline}
 
-/* LISTAGEM */
-.section{padding:54px 0}
+/* ANUNCIOS */
+.section{padding:52px 0}
 .section-head{
   display:flex;
-  align-items:end;
   justify-content:space-between;
+  align-items:end;
   gap:15px;
-  margin-bottom:24px
+  margin-bottom:22px
 }
-.section-kicker{
-  font-size:.69rem;
-  text-transform:uppercase;
-  letter-spacing:.13em;
+.kicker{
+  color:#C54D11;
+  font-size:.68rem;
   font-weight:850;
-  color:#C95110
+  letter-spacing:.13em;
+  text-transform:uppercase
 }
-.section h2,
-.discover h2{
-  font-size:clamp(1.7rem,3vw,2.25rem);
-  letter-spacing:-.04em;
+.section h2{
+  font-size:clamp(1.65rem,3vw,2.2rem);
   line-height:1.18;
-  margin:6px 0 0
+  letter-spacing:-.04em;
+  margin:5px 0
 }
-.section-intro{
-  color:#657487;
-  font-size:.91rem;
+.section-desc{
+  font-size:.88rem;
   line-height:1.5;
-  margin:8px 0 0
+  color:#69778A;
+  margin:7px 0 0
 }
 .text-link{
-  font-size:.85rem;
-  font-weight:800;
   color:#B94A0B;
+  font-size:.85rem;
+  font-weight:850;
   white-space:nowrap
 }
 .text-link:hover{text-decoration:underline}
@@ -332,132 +311,113 @@ select:focus-visible{
   gap:19px
 }
 .property{
-  display:flex;
-  flex-direction:column;
-  background:white;
-  border:1px solid #E7E5E1;
+  background:#fff;
+  border:1px solid #E7E6E1;
   border-radius:16px;
   overflow:hidden;
-  box-shadow:0 7px 24px #14253D0B;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 7px 24px #14253D0C;
   transition:transform .2s,box-shadow .2s
 }
 .property:hover{
   transform:translateY(-3px);
-  box-shadow:0 16px 30px #14253D17
+  box-shadow:0 16px 32px #14253D16
 }
 .photo-link{
   display:block;
   position:relative;
+  aspect-ratio:1.42;
   overflow:hidden;
-  aspect-ratio:1.4;
-  background:#E3E8EC
+  background:#E2E7EA
 }
 .photo{
   width:100%;
   height:100%;
   display:grid;
   place-items:center;
-  color:#657483;
-  font-size:.82rem;
-  text-align:center
+  text-align:center;
+  color:#657586;
+  font-size:.84rem
 }
 .photo img{
   width:100%;
   height:100%;
-  object-fit:cover;
   display:block;
-  transition:transform .35s
+  object-fit:cover;
+  transition:transform .3s
 }
 .property:hover .photo img{
-  transform:scale(1.035)
+  transform:scale(1.03)
 }
 .tag{
   position:absolute;
-  left:12px;
-  top:12px;
+  top:11px;
+  left:11px;
   background:#F85F08;
-  color:white;
-  padding:7px 9px;
-  border-radius:7px;
+  color:#fff;
+  border-radius:8px;
   font-size:.66rem;
   font-weight:850;
-  z-index:1
+  padding:7px 10px
 }
 .property-content{
-  padding:18px 18px 12px;
+  padding:17px;
   display:flex;
   flex-direction:column;
   gap:8px;
   flex:1
 }
 .location{
-  color:#68798A;
-  font-size:.78rem
+  font-size:.78rem;
+  color:#6B798A
 }
 .property-content h3{
-  font-size:1.02rem;
-  line-height:1.38;
-  font-weight:800;
-  margin:0;
-  letter-spacing:-.015em
+  font-size:1.03rem;
+  line-height:1.35;
+  margin:0
 }
-.property-content h3 a:hover{color:#BE4A0B}
+.property-content h3 a:hover{
+  color:#B84C0D
+}
 .price{
-  font-size:1.32rem;
-  font-weight:850;
-  letter-spacing:-.035em;
-  margin:3px 0 0
+  font-size:1.36rem;
+  font-weight:900;
+  letter-spacing:-.03em;
+  margin:3px 0
 }
 .specs{
-  font-size:.78rem;
-  color:#728092;
-  padding-top:9px;
-  border-top:1px solid #EEF0F2;
+  border-top:1px solid #EDF0F1;
+  padding-top:10px;
+  font-size:.79rem;
+  color:#69798A;
   line-height:1.55
 }
 .view{
   display:block;
-  margin:0 18px 17px;
-  padding-top:13px;
-  color:#C44A06;
-  border-top:1px solid #F0F0EE;
+  border-top:1px solid #F1EFEC;
+  margin:0 17px 17px;
+  padding-top:12px;
+  color:#B94B0A;
   font-size:.84rem;
   font-weight:850
 }
 .view:hover{text-decoration:underline}
 .empty{
   grid-column:1/-1;
-  padding:28px;
-  background:white;
-  border:1px solid #E7E5E1;
+  padding:27px;
+  background:#fff;
+  border:1px solid #E9E5E0;
   border-radius:14px;
-  color:#627282;
-  line-height:1.6
+  color:#667587
 }
 .status{
-  font-size:.81rem;
-  color:#687788;
-  margin-top:10px
-}
-.section-bottom{
-  display:flex;
-  justify-content:center;
-  margin-top:24px
-}
-.all-link{
-  border:1px solid #CED4DA;
-  border-radius:11px;
-  padding:13px 20px;
-  font-weight:800;
-  font-size:.88rem;
-  background:white
-}
-.all-link:hover{
-  border-color:#F85F08;
-  color:#C34D0A
+  font-size:.82rem;
+  color:#677788;
+  margin-top:11px
 }
 
-/* DESTAQUES */
+/* SELECAO ADICIONAL */
 .featured{padding-top:0}
 .featured[hidden]{display:none!important}
 .weekly-grid{
@@ -467,69 +427,104 @@ select:focus-visible{
 }
 .weekly-card{
   display:flex;
-  min-height:155px;
-  background:#fff;
+  min-height:145px;
   border:1px solid #E7E5E1;
+  background:#fff;
   border-radius:15px;
-  overflow:hidden;
-  transition:transform .2s
+  overflow:hidden
 }
-.weekly-card:hover{transform:translateY(-2px)}
+.weekly-card:hover{
+  box-shadow:0 9px 24px #14253D13
+}
 .weekly-photo{
   width:41%;
   flex-shrink:0;
   display:grid;
   place-items:center;
-  background:#E4E8EC;
-  color:#69798A;
-  font-size:.79rem;
-  text-align:center
+  background:#E4E9ED;
+  color:#6B7A89;
+  text-align:center;
+  font-size:.79rem
 }
 .weekly-photo img{
   width:100%;
   height:100%;
-  object-fit:cover;
-  display:block
+  object-fit:cover
 }
 .weekly-content{
+  min-width:0;
   padding:16px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:8px;
-  min-width:0
+  gap:8px
 }
 .weekly-title{
-  font-size:.96rem;
   font-weight:850;
+  font-size:.97rem;
   line-height:1.35
 }
 .weekly-price{
-  font-size:1.22rem;
-  font-weight:850;
-  color:#C44A0A
+  font-size:1.21rem;
+  color:#B94B0A;
+  font-weight:900
 }
 .weekly-link{
-  font-size:.8rem;
-  color:#B7480A;
-  font-weight:850
+  font-size:.82rem;
+  color:#B94B0A;
+  font-weight:800
 }
 
-/* NAVEGACAO POR TIPO E BAIRRO */
+/* CONVITE PARA PROPRIETARIOS */
+.owner-strip{
+  padding:0 0 39px
+}
+.owner-inner{
+  border-radius:17px;
+  background:#EDEAE5;
+  padding:25px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:19px
+}
+.owner-inner strong{
+  font-size:1.14rem;
+  letter-spacing:-.025em
+}
+.owner-inner p{
+  color:#627083;
+  font-size:.87rem;
+  line-height:1.5;
+  margin:6px 0 0
+}
+.owner-link{
+  border-radius:10px;
+  background:#14253D;
+  color:#fff;
+  font-size:.85rem;
+  font-weight:850;
+  padding:13px 18px;
+  white-space:nowrap
+}
+.owner-link:hover{background:#27435F}
+
+/* CATEGORIAS E BAIRROS */
 .discover{
-  background:#F0ECE5;
-  border-top:1px solid #E8E2D9;
-  padding:33px 0 38px
+  background:#F1EDE7;
+  border-top:1px solid #E6E1DA;
+  padding:30px 0 34px
 }
 .discover h2{
-  font-size:1.45rem;
+  font-size:1.4rem;
+  letter-spacing:-.035em;
   margin:0 0 7px
 }
 .discover p{
-  font-size:.86rem;
-  line-height:1.6;
-  color:#687486;
-  margin:0 0 16px
+  font-size:.85rem;
+  color:#697787;
+  line-height:1.5;
+  margin:0 0 15px
 }
 .local-links{
   display:flex;
@@ -537,227 +532,182 @@ select:focus-visible{
   gap:9px
 }
 .local-link{
-  display:inline-flex;
-  align-items:center;
-  padding:11px 14px;
-  border-radius:9px;
   border:1px solid #D8DFE4;
-  background:white;
+  background:#fff;
+  color:#14253D;
   font-size:.83rem;
   font-weight:750;
-  color:#14253D
+  border-radius:10px;
+  padding:11px 14px
 }
 .local-link:hover{
   border-color:#F85F08;
-  color:#BB4D0B
+  color:#C84E09
 }
 .bairros-seo{
-  margin-top:24px!important;
-  border-top:1px solid #E2DAD0;
-  padding-top:20px
+  margin-top:23px!important;
+  padding-top:19px;
+  border-top:1px solid #DED7CD
 }
 .bairros-seo h3{
   font-size:1rem!important;
-  margin:0 0 5px!important
+  margin:0 0 6px!important
 }
-.bairros-seo p{
-  font-size:.81rem!important;
-  margin:0 0 12px!important
-}
+.bairros-seo p{font-size:.8rem!important}
 .bairros-seo>div{
   display:flex!important;
   flex-wrap:nowrap!important;
   overflow-x:auto;
   gap:8px!important;
-  padding-bottom:7px;
-  scrollbar-width:thin
+  padding-bottom:7px
 }
-.bairros-seo>div>a{flex-shrink:0}
-.bairros-seo>a{
-  font-size:.81rem!important;
-  margin-top:9px!important
+.bairros-seo>div>a{
+  flex-shrink:0
 }
 
-/* EQUIPE E RODAPE */
-.team{
-  background:#fff;
-  padding:26px 0
+/* RODAPE */
+.footer{
+  background:#0E1D30;
+  color:#CFDAE5;
+  padding:29px 0;
+  font-size:.79rem
 }
-.team-inner{
+.footer-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:20px
 }
-.team-message{
-  font-size:.9rem;
-  font-weight:750
-}
-.team-note{
-  font-size:.76rem;
-  line-height:1.7;
-  color:#687586;
-  text-align:right
-}
-.footer{
-  background:#0F1E31;
-  color:#D5DEE7;
-  padding:31px 0;
-  font-size:.79rem
-}
-.footer-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px
-}
 .footer-brand{
-  font-weight:850;
-  color:white;
-  font-size:.95rem;
-  letter-spacing:.02em
+  font-weight:900;
+  color:#fff;
+  font-size:.98rem
 }
 .footer-brand span{color:#FF8C46}
 .footer-slogan{
-  font-size:.78rem;
-  color:#C7D3DE;
+  color:#BDC9D6;
   margin-top:6px
 }
 .footer-info{
+  color:#A9B9C8;
   margin-top:8px;
-  color:#A9BAC9;
   line-height:1.5
 }
-.footer a{
+.footer-links{
+  display:flex;
+  gap:17px;
+  flex-wrap:wrap
+}
+.footer-links a{
   color:white;
-  font-weight:750
+  font-weight:800
 }
 
-/* RESPONSIVIDADE */
+/* TABLET */
 @media(max-width:900px){
   .search{
     grid-template-columns:repeat(2,minmax(0,1fr))
   }
-  .search .field:first-of-type{
+  .search .field:first-child{
     grid-column:1/-1
   }
-  .search .btn-primary{
-    grid-column:1/-1;
-    width:100%
+  .search-btn{
+    grid-column:1/-1
   }
   .grid{
     grid-template-columns:repeat(2,minmax(0,1fr))
   }
 }
+
+/* CELULAR */
 @media(max-width:640px){
-  .wrap{width:calc(100% - 30px)}
-  .nav{min-height:69px}
-  .brand{gap:8px}
-  .brand-icon{
-    width:29px;
-    height:36px
+  .wrap{width:calc(100% - 28px)}
+  .nav{
+    min-height:72px;
+    gap:8px
   }
-  .brand-name{
-    font-size:.9rem;
-    letter-spacing:0
-  }
-  .brand-slogan{
-    font-size:.52rem;
-    margin-top:4px
-  }
+  .brand-name{font-size:.96rem}
+  .brand-slogan{font-size:.53rem}
   .nav-link{
-    font-size:.72rem;
-    padding:10px 12px
+    font-size:.74rem;
+    padding:10px 11px
   }
-  .hero-inner{padding:29px 0 32px}
+  .nav-actions .nav-link:first-child{
+    display:none
+  }
+  .desktop-label{display:none}
+  .mobile-label{display:inline}
+  .hero-inner{padding:28px 0 33px}
   .eyebrow{font-size:.61rem}
   .hero h1{
-    font-size:clamp(1.98rem,8.1vw,2.65rem);
-    margin:9px 0 10px;
-    letter-spacing:-.048em
+    font-size:clamp(1.96rem,8vw,2.55rem);
+    margin:9px 0 11px
   }
   .hero-copy{
-    font-size:.83rem;
-    line-height:1.46
+    font-size:.85rem;
+    line-height:1.5
   }
   .search-box{
-    margin-top:20px;
+    margin-top:21px;
     padding:14px;
     border-radius:15px
   }
-  .search-top{margin-bottom:12px}
   .search-tabs{width:100%}
   .search-tab{
     flex:1;
-    font-size:.85rem;
     padding:10px 12px
   }
-  .search-top-note{display:none}
-  .search{gap:11px}
-  .search .field:first-of-type{
-    grid-column:1/-1
-  }
+  .search-note{display:none}
+  .search-top{margin-bottom:12px}
+  .search{gap:10px}
   .field label{
-    font-size:.7rem;
+    font-size:.71rem;
     margin-bottom:5px
   }
   .field input,
   .field select{
-    height:46px;
-    font-size:.82rem;
-    padding:0 10px
-  }
-  .field select{
-    font-size:.78rem;
-    padding:0 6px
-  }
-  .field input::placeholder{
-    font-size:.8rem
-  }
-  .search .btn-primary{
     height:47px;
-    font-size:.88rem
+    font-size:.82rem;
+    padding:0 9px
   }
-  .search-more{margin-top:8px}
-  .advanced{font-size:.76rem}
-  .section{padding:36px 0}
-  .section-head{
-    margin-bottom:17px;
-    align-items:center
-  }
+  .search-btn{height:47px}
+  .section{padding:34px 0}
   .section h2{font-size:1.55rem}
-  .section-intro{
-    font-size:.81rem;
-    margin-top:5px
-  }
+  .section-desc{font-size:.8rem}
+  .section-head{margin-bottom:17px}
   .text-link{font-size:.76rem}
   .grid{
     grid-template-columns:1fr;
     gap:15px
   }
-  .photo-link{aspect-ratio:1.6}
-  .property-content{
-    padding:15px 16px 11px;
-    gap:7px
+  .photo-link{aspect-ratio:1.58}
+  .property-content{padding:15px}
+  .owner-strip{padding:0 0 28px}
+  .owner-inner{
+    display:block;
+    padding:21px
   }
-  .property-content h3{font-size:1rem}
-  .price{font-size:1.24rem}
-  .view{margin:0 16px 14px}
-  .weekly-grid{grid-template-columns:1fr}
-  .weekly-card{min-height:135px}
-  .weekly-content{padding:12px}
-  .discover{padding:29px 0 32px}
-  .discover h2{font-size:1.25rem}
-  .team-inner{display:block}
-  .team-note{
-    text-align:left;
-    margin-top:8px
-  }
-  .footer-inner{display:block}
-  .footer-inner>a{
+  .owner-inner strong{font-size:1.07rem}
+  .owner-link{
     display:inline-block;
     margin-top:15px
   }
+  .weekly-grid{grid-template-columns:1fr}
+  .weekly-card{min-height:130px}
+  .weekly-content{padding:12px}
+  .discover{padding:27px 0}
+  .discover h2{font-size:1.24rem}
+  .footer-inner{display:block}
+  .footer-links{margin-top:17px}
+}
+@media(max-width:350px){
+  .brand-name{font-size:.85rem}
+  .brand-slogan{font-size:.49rem}
+  .nav-link{
+    font-size:.68rem;
+    padding:9px
+  }
+  .field select{font-size:.77rem}
 }
 </style>
 </head>
@@ -766,31 +716,41 @@ select:focus-visible{
 
 <header class="top">
 <div class="wrap nav">
-<a class="brand" id="homeLink" href="index.html"
-aria-label="Portal Bauru Imóveis — início">
 
-<span class="brand-icon" aria-hidden="true">
-<svg viewBox="0 0 48 58" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 3C12 3 3 12 3 24c0 17 21 31 21 31s21-14 21-31C45 12 36 3 24 3Z" fill="#F85F08"/>
-<path d="M13 24 24 15l11 9v13H13V24Z" fill="#fff"/>
-<path d="M10 25 24 13l14 12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="21" y="27" width="6" height="10" rx="1" fill="#F85F08"/>
-</svg>
-</span>
+<a
+class="brand"
+id="homeLink"
+href="index.html"
+aria-label="Portal Bauru Imóveis - início">
 
-<span class="brand-copy">
 <span class="brand-name">
-PORTAL <span>BAURU</span> <small>IMÓVEIS</small>
+PORTAL <span>BAURU</span>
+<small>IMÓVEIS</small>
 </span>
+
 <span class="brand-slogan">
 Conectando pessoas às oportunidades certas.
 </span>
-</span>
 </a>
 
-<a class="nav-link" id="menuProperties" href="imoveis.html">
+<nav class="nav-actions" aria-label="Menu principal">
+
+<a
+class="nav-link"
+id="menuProperties"
+href="imoveis.html">
 Ver imóveis
 </a>
+
+<a
+class="nav-link nav-announce"
+id="menuAdvertise"
+href="anuncie.html">
+<span class="desktop-label">Anuncie conosco</span>
+<span class="mobile-label">Anuncie</span>
+</a>
+
+</nav>
 </div>
 </header>
 
@@ -816,18 +776,21 @@ Conheça os imóveis e fale com corretores locais.
 
 <div class="search-top">
 
-<div class="search-tabs"
+<div
+class="search-tabs"
 role="group"
 aria-label="Finalidade da busca">
 
-<button type="button"
+<button
+type="button"
 class="search-tab active"
 data-purpose="venda"
 aria-pressed="true">
 Comprar
 </button>
 
-<button type="button"
+<button
+type="button"
 class="search-tab"
 data-purpose="locacao"
 aria-pressed="false">
@@ -836,18 +799,20 @@ Alugar
 
 </div>
 
-<span class="search-top-note">
+<span class="search-note">
 Encontre sua próxima oportunidade
 </span>
 
 </div>
 
-<form id="searchForm"
+<form
+id="searchForm"
 class="search"
 action="imoveis.html"
 method="get">
 
-<input type="hidden"
+<input
+type="hidden"
 id="finalidade"
 name="finalidade"
 value="venda">
@@ -893,14 +858,15 @@ autocomplete="off">
 </select>
 </div>
 
-<button class="btn btn-primary" type="submit">
+<button class="search-btn" type="submit">
 Buscar imóveis →
 </button>
 
 </form>
 
 <div class="search-more">
-<a id="advancedFilters"
+<a
+id="advancedFilters"
 class="advanced"
 href="imoveis.html">
 Mais filtros →
@@ -911,33 +877,27 @@ Mais filtros →
 </div>
 </section>
 
-<section class="section"
-id="oportunidades"
-aria-labelledby="titulo-imoveis">
-
+<section class="section" id="oportunidades">
 <div class="wrap">
 
 <div class="section-head">
 <div>
-<div class="section-kicker">
+<div class="kicker">
 Novas oportunidades
 </div>
-<h2 id="titulo-imoveis">
-Imóveis para conhecer
-</h2>
-<p class="section-intro">
+<h2>Imóveis para conhecer</h2>
+<p class="section-desc">
 Confira os anúncios mais recentes em Bauru.
 </p>
 </div>
 
-<a class="text-link"
-id="allLink"
-href="imoveis.html">
+<a class="text-link" id="allLink" href="imoveis.html">
 Ver todos →
 </a>
 </div>
 
-<div id="properties"
+<div
+id="properties"
 class="grid"
 aria-live="polite">
 <div class="empty">
@@ -945,69 +905,100 @@ Carregando imóveis...
 </div>
 </div>
 
-<div class="status"
+<div
+class="status"
 id="status"
 aria-live="polite"></div>
 
 </div>
 </section>
 
-<section class="section featured"
+<section
+class="section featured"
 id="featuredSection"
-hidden
-aria-labelledby="featuredTitle">
+hidden>
 
 <div class="wrap">
 <div class="section-head">
 <div>
-<div class="section-kicker">
-Seleção especial
-</div>
-<h2 id="featuredTitle">
-Escolhas da semana
-</h2>
+<div class="kicker">Seleção especial</div>
+<h2>Escolhas da semana</h2>
 </div>
 </div>
 
-<div id="weeklyProperties"
+<div
+id="weeklyProperties"
 class="weekly-grid"></div>
 
 </div>
 </section>
 
-<section class="discover"
+<section
+class="owner-strip"
+aria-labelledby="ownerTitle">
+
+<div class="wrap">
+<div class="owner-inner">
+
+<div>
+<strong id="ownerTitle">
+Tem um imóvel para vender?
+</strong>
+<p>
+Apresente sua propriedade à nossa equipe
+e conheça nossas possibilidades de divulgação.
+</p>
+</div>
+
+<a
+class="owner-link"
+id="ownerCta"
+href="anuncie.html">
+Anuncie conosco →
+</a>
+
+</div>
+</div>
+</section>
+
+<section
+class="discover"
 aria-labelledby="tipos-imoveis">
 
 <div class="wrap">
 
 <h2 id="tipos-imoveis">
-Explore imóveis à venda em Bauru
+Apartamentos, casas e terrenos à venda em Bauru
 </h2>
 
 <p>
-Encontre apartamentos, casas e terrenos
-com os filtros certos para você.
+Explore oportunidades por tipo de imóvel
+ou descubra opções nos bairros da cidade.
 </p>
 
-<div class="local-links"
+<div
+class="local-links"
 aria-label="Pesquisar por tipo de imóvel">
 
-<a class="local-link"
+<a
+class="local-link"
 id="catApartamento"
 href="imoveis.html?finalidade=venda&amp;tipo=apartamento">
-Apartamentos à venda
+Apartamentos à venda em Bauru
 </a>
 
-<a class="local-link"
+<a
+class="local-link"
 id="catCasa"
 href="imoveis.html?finalidade=venda&amp;tipo=casa">
-Casas à venda
+Casas à venda em Bauru
 </a>
 
-<a class="local-link"
+<a
+class="local-link"
 id="catTerreno"
 href="imoveis.html?finalidade=venda&amp;tipo=terreno">
-Terrenos à venda
+Terrenos à venda em Bauru
 </a>
 
 </div>
@@ -1034,9 +1025,14 @@ W. Rafael Gomes · CRECI 196.907-F
 </div>
 </div>
 
+<div class="footer-links">
 <a id="footerProperties" href="imoveis.html">
 Ver imóveis
 </a>
+<a id="footerAdvertise" href="anuncie.html">
+Anuncie conosco
+</a>
+</div>
 
 </div>
 </footer>
@@ -1051,29 +1047,41 @@ const supabase=createClient(
 );
 
 const params=new URLSearchParams(location.search);
-const ref=params.get('ref');
 
-const validRef=
-['rafael','debora'].includes(ref)?ref:null;
+const validRef=['rafael','debora'].includes(
+ params.get('ref')
+)
+ ?params.get('ref')
+ :null;
 
 function linked(file,extra={}){
- const u=new URL(file,location.href);
+ const url=new URL(file,location.href);
 
  if(validRef){
-  u.searchParams.set('ref',validRef);
+  url.searchParams.set('ref',validRef);
  }
 
  for(const [k,v] of Object.entries(extra)){
   if(v!==''&&v!=null){
-   u.searchParams.set(k,String(v));
+   url.searchParams.set(k,v);
   }
  }
 
- return u.href;
+ return url.href;
 }
 
 for(const id of ['homeLink']){
- document.getElementById(id).href=linked('index.html');
+ document.getElementById(id).href=
+  linked('index.html');
+}
+
+for(const id of [
+ 'menuAdvertise',
+ 'ownerCta',
+ 'footerAdvertise'
+]){
+ document.getElementById(id).href=
+  linked('anuncie.html');
 }
 
 for(const id of [
@@ -1082,29 +1090,26 @@ for(const id of [
  'footerProperties'
 ]){
  document.getElementById(id).href=
- linked('imoveis.html',{finalidade:'venda'});
+  linked('imoveis.html',{finalidade:'venda'});
 }
 
-/*
- A integracao existente de SEO
- atualiza estes links de categoria
- e preserva a identificacao do corretor.
-*/
+/* Compatibilidade com SEO de bairros e categorias. */
+
 for(const [id,tipo] of [
  ['catApartamento','apartamento'],
  ['catCasa','casa'],
  ['catTerreno','terreno']
 ]){
- document.getElementById(id).href=linked(
-  'imoveis.html',
-  {finalidade:'venda',tipo}
- );
+ document.getElementById(id).href=
+  linked('imoveis.html',{
+   finalidade:'venda',
+   tipo
+  });
 }
 
-/* BUSCA PRINCIPAL */
 document.getElementById('searchForm')
-.addEventListener('submit',e=>{
- e.preventDefault();
+.addEventListener('submit',event=>{
+ event.preventDefault();
 
  const extra={};
 
@@ -1114,20 +1119,24 @@ document.getElementById('searchForm')
   'busca',
   'preco'
  ]){
-  const v=document.getElementById(id).value.trim();
+  const value=document
+   .getElementById(id)
+   .value
+   .trim();
 
-  if(v){
-   extra[id]=v;
+  if(value){
+   extra[id]=value;
   }
  }
 
  location.href=linked('imoveis.html',extra);
 });
 
-/* COMPRAR E ALUGAR */
-const purposeInput=document.getElementById('finalidade');
+const purposeInput=
+ document.getElementById('finalidade');
 
-document.querySelectorAll('.search-tab').forEach(tab=>{
+document.querySelectorAll('.search-tab')
+.forEach(tab=>{
  tab.addEventListener('click',()=>{
   purposeInput.value=tab.dataset.purpose;
 
@@ -1135,7 +1144,10 @@ document.querySelectorAll('.search-tab').forEach(tab=>{
   .forEach(other=>{
    const selected=other===tab;
 
-   other.classList.toggle('active',selected);
+   other.classList.toggle(
+    'active',
+    selected
+   );
 
    other.setAttribute(
     'aria-pressed',
@@ -1145,10 +1157,9 @@ document.querySelectorAll('.search-tab').forEach(tab=>{
  });
 });
 
-/* FILTROS AVANCADOS */
 document.getElementById('advancedFilters')
-.addEventListener('click',e=>{
- e.preventDefault();
+.addEventListener('click',event=>{
+ event.preventDefault();
 
  const extra={};
 
@@ -1158,44 +1169,55 @@ document.getElementById('advancedFilters')
   'busca',
   'preco'
  ]){
-  const v=document.getElementById(id).value.trim();
+  const value=document
+   .getElementById(id)
+   .value
+   .trim();
 
-  if(v){
-   extra[id]=v;
+  if(value){
+   extra[id]=value;
   }
  }
 
  location.href=linked('imoveis.html',extra);
 });
 
-/* ELEMENTOS DOS ANUNCIOS */
 const root=document.getElementById('properties');
-const weeklyRoot=document.getElementById('weeklyProperties');
-const featuredSection=document.getElementById('featuredSection');
+
+const weeklyRoot=
+ document.getElementById('weeklyProperties');
+
+const featuredSection=
+ document.getElementById('featuredSection');
+
 const status=document.getElementById('status');
 
-const money=v=>
- v===null||
- v===undefined||
- v===''||
- !Number.isFinite(Number(v))||
- Number(v)<=0
- ?'Valor sob consulta'
- :new Intl.NumberFormat('pt-BR',{
+function money(v){
+ if(
+  v==null ||
+  v==='' ||
+  !Number.isFinite(Number(v)) ||
+  Number(v)<=0
+ ){
+  return 'Valor sob consulta';
+ }
+
+ return new Intl.NumberFormat('pt-BR',{
   style:'currency',
   currency:'BRL',
   maximumFractionDigits:0
  }).format(Number(v));
+}
 
-function el(tag,cls,text){
+function el(tag,cls,txt){
  const n=document.createElement(tag);
 
  if(cls){
   n.className=cls;
  }
 
- if(text!==undefined){
-  n.textContent=text;
+ if(txt!==undefined){
+  n.textContent=txt;
  }
 
  return n;
@@ -1203,52 +1225,55 @@ function el(tag,cls,text){
 
 function photoElement(p,photos){
  const photo=el('div','photo');
+
  const cover=photos.get(p.id);
 
- if(cover){
-  const img=el('img');
-
-  img.src=supabase.storage
-   .from('portal-imoveis')
-   .getPublicUrl(cover).data.publicUrl;
-
-  img.alt='Fotografia do imóvel '+
-   (p.titulo||'em Bauru');
-
-  img.loading='lazy';
-
-  img.onerror=()=>{
-   img.remove();
-
-   photo.append(
-    el('span','','Fotografia indisponível')
-   );
-  };
-
-  photo.append(img);
- }else{
+ if(!cover){
   photo.append(
    el('span','','Fotografias em breve')
   );
+  return photo;
  }
+
+ const img=el('img');
+
+ img.src=supabase.storage
+  .from('portal-imoveis')
+  .getPublicUrl(cover).data.publicUrl;
+
+ img.alt='Fotografia cadastrada do imóvel '+
+  (p.titulo||'em Bauru');
+
+ img.loading='lazy';
+
+ img.onerror=()=>{
+  img.remove();
+
+  photo.append(
+   el('span','','Fotografia indisponível')
+  );
+ };
+
+ photo.append(img);
 
  return photo;
 }
 
-/* CARTAO PRINCIPAL DO IMOVEL */
 function card(p,photos){
  const article=el('article','property');
+
  const url=linked('imovel.html',{id:p.id});
 
- const cover=el('a','photo-link');
- cover.href=url;
+ const link=el('a','photo-link');
 
- cover.setAttribute(
+ link.href=url;
+
+ link.setAttribute(
   'aria-label',
   'Ver '+(p.titulo||'imóvel em Bauru')
  );
 
- cover.append(photoElement(p,photos));
+ link.append(photoElement(p,photos));
 
  const seals={
   novidade:'Novidade',
@@ -1259,12 +1284,12 @@ function card(p,photos){
  };
 
  if(seals[p.selo]){
-  cover.append(
+  link.append(
    el('span','tag',seals[p.selo])
   );
  }
 
- article.append(cover);
+ article.append(link);
 
  const content=el('div','property-content');
 
@@ -1278,18 +1303,20 @@ function card(p,photos){
   )
  );
 
- const h3=el('h3');
+ const title=el('h3');
 
  const titleLink=el(
   'a',
   '',
-  p.titulo||p.empreendimento||'Imóvel em Bauru'
+  p.titulo||
+  p.empreendimento||
+  'Imóvel em Bauru'
  );
 
  titleLink.href=url;
 
- h3.append(titleLink);
- content.append(h3);
+ title.append(titleLink);
+ content.append(title);
 
  content.append(
   el('div','price',money(p.preco))
@@ -1321,27 +1348,33 @@ function card(p,photos){
 
  article.append(content);
 
- const a=el('a','view','Ver detalhes →');
- a.href=url;
+ const view=el(
+  'a',
+  'view',
+  'Ver detalhes →'
+ );
 
- article.append(a);
+ view.href=url;
+
+ article.append(view);
 
  return article;
 }
 
-/* SELECAO DA SEMANA */
 function weeklyCard(p,photos){
- const a=el('a','weekly-card');
+ const link=el('a','weekly-card');
 
- a.href=linked('imovel.html',{id:p.id});
+ link.href=linked('imovel.html',{id:p.id});
 
- a.append(photoElement(p,photos));
+ const cover=photoElement(p,photos);
 
- a.firstChild.className='weekly-photo';
+ cover.className='weekly-photo';
 
- const content=el('div','weekly-content');
+ link.append(cover);
 
- content.append(
+ const body=el('div','weekly-content');
+
+ body.append(
   el(
    'div',
    'location',
@@ -1351,28 +1384,29 @@ function weeklyCard(p,photos){
   )
  );
 
- content.append(
+ body.append(
   el(
    'div',
    'weekly-title',
-   p.titulo||p.empreendimento||'Imóvel em Bauru'
+   p.titulo||
+   p.empreendimento||
+   'Imóvel em Bauru'
   )
  );
 
- content.append(
+ body.append(
   el('div','weekly-price',money(p.preco))
  );
 
- content.append(
+ body.append(
   el('div','weekly-link','Conhecer imóvel →')
  );
 
- a.append(content);
+ link.append(body);
 
- return a;
+ return link;
 }
 
-/* RODIZIO SEMANAL DOS DESTAQUES */
 function weeklySelection(items,count=2){
  if(!items.length){
   return [];
@@ -1382,23 +1416,20 @@ function weeklySelection(items,count=2){
   Date.now()/(7*24*60*60*1000)
  );
 
- const sorted=[...items].sort((a,b)=>
+ const ordered=[...items].sort((a,b)=>
   String(a.id).localeCompare(String(b.id))
  );
 
- const start=(week*count)%sorted.length;
- const result=[];
+ const start=(week*count)%ordered.length;
 
- for(let i=0;i<Math.min(count,sorted.length);i++){
-  result.push(
-   sorted[(start+i)%sorted.length]
-  );
- }
-
- return result;
+ return Array.from(
+  {
+   length:Math.min(count,ordered.length)
+  },
+  (_,i)=>ordered[(start+i)%ordered.length]
+ );
 }
 
-/* CARREGAR IMOVEIS DO SUPABASE */
 async function load(){
  try{
   const {data,error}=await supabase
@@ -1407,8 +1438,10 @@ async function load(){
     'id,codigo,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,selo,destaque,publicado,situacao,finalidade,atualizado_em'
    )
    .eq('publicado',true)
-   .order('atualizado_em',{ascending:false})
-   .limit(1000);
+   .order('atualizado_em',{
+    ascending:false
+   })
+   .limit(100);
 
   if(error){
    throw error;
@@ -1426,16 +1459,10 @@ async function load(){
     .toLowerCase()==='venda'
   );
 
-  /* Três imóveis na página inicial */
   const recent=sales.slice(0,3);
 
-  /*
-   Destaques exclusivos:
-   não repetem imóveis já mostrados
-   na primeira seção.
-  */
   const featured=sales.filter(p=>
-   p.destaque===true&&
+   p.destaque===true &&
    !recent.some(r=>r.id===p.id)
   );
 
@@ -1453,19 +1480,21 @@ async function load(){
     .from('imovel_fotos')
     .select('imovel_id,caminho,ordem')
     .in('imovel_id',ids)
-    .order('ordem',{ascending:true});
+    .order('ordem',{
+     ascending:true
+    });
 
    if(r.error){
     console.warn('Capas:',r.error);
    }else{
-    for(const p of r.data||[]){
+    for(const item of r.data||[]){
      if(
-      !photos.has(p.imovel_id)&&
-      p.caminho
+      item.caminho &&
+      !photos.has(item.imovel_id)
      ){
       photos.set(
-       p.imovel_id,
-       p.caminho
+       item.imovel_id,
+       item.caminho
       );
      }
     }
@@ -1479,7 +1508,7 @@ async function load(){
     el(
      'div',
      'empty',
-     'Nenhum imóvel à venda publicado disponível no momento.'
+     'Nenhum imóvel à venda publicado no momento.'
     )
    );
   }else{
