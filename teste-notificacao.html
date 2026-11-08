@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste de Notificações | Portal Bauru</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      background: #F6F1EA;
+      color: #14253D;
+      font-family: Arial, sans-serif;
+    }
+    main {
+      max-width: 480px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 18px;
+      padding: 28px 22px;
+      box-shadow: 0 8px 30px #14253D12;
+    }
+    h1 { font-size: 25px; }
+    p { line-height: 1.6; }
+    button {
+      width: 100%;
+      padding: 17px;
+      border: 0;
+      border-radius: 10px;
+      background: #F85F08;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 22px;
+      padding: 15px;
+      background: #F6F1EA;
+      border-radius: 10px;
+      font-size: 14px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Portal Bauru</h1>
+    <p>Teste de notificações do celular</p>
+    <p>
+      Este teste verifica se o Chrome consegue
+      mostrar uma notificação diretamente,
+      sem depender do Supabase.
+    </p>
+
+    <button id="testar">
+      Testar notificação
+    </button>
+
+    <div id="resultado">
+      Aguardando teste.
+    </div>
+  </main>
+
+  <script>
+    const resultado = document.getElementById('resultado');
+    const botao = document.getElementById('testar');
+
+    botao.addEventListener('click', async () => {
+      botao.disabled = true;
+      resultado.textContent = 'Iniciando teste...';
+
+      try {
+        if (!('serviceWorker' in navigator)) {
+          throw new Error('Service Worker não disponível.');
+        }
+
+        if (!('Notification' in window)) {
+          throw new Error('Notificações não disponíveis.');
+        }
+
+        const registro = await navigator.serviceWorker.register(
+          '/sw.js',
+          { scope: '/' }
+        );
+
+        await navigator.serviceWorker.ready;
+
+        let permissao = Notification.permission;
+
+        if (permissao === 'default') {
+          permissao = await Notification.requestPermission();
+        }
+
+        if (permissao !== 'granted') {
+          throw new Error(
+            'Permissão de notificações: ' + permissao
+          );
+        }
+
+        await registro.showNotification(
+          'Portal Bauru - Teste Local',
+          {
+            body: 'O Chrome conseguiu exibir uma notificação!',
+            tag: 'teste-local-' + Date.now(),
+            data: {
+              url: '/crm.html'
+            }
+          }
+        );
+
+        resultado.textContent =
+          'Permissão: ' + permissao +
+          '\nService Worker: ' + registro.active?.state +
+          '\nNotificação solicitada com sucesso.' +
+          '\n\nVerifique a barra de notificações do Samsung.';
+
+      } catch (erro) {
+        resultado.textContent =
+          'ERRO: ' + erro.message;
+      } finally {
+        botao.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
