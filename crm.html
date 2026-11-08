@@ -24,34 +24,22 @@ body{
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
-header{
-  background:var(--navy);
-  color:white;
-  padding:17px 0;
-}
+header{background:var(--navy);color:white;padding:17px 0}
 .wrap{width:min(1160px,94%);margin:auto}
-.head{
+.head,.hero,.section-head,.lead-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  flex-wrap:wrap;
 }
+.head,.hero{flex-wrap:wrap}
 .brand{font-weight:850;letter-spacing:.04em}
 .sub{color:#cbd5e1;font-size:12px}
-.top-actions{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-a.nav{
-  color:white;
-  text-decoration:none;
-  font-size:13px;
-}
+.top-actions{display:flex;align-items:center;gap:9px}
+a.nav{color:white;text-decoration:none;font-size:13px}
 .btn{
   background:var(--orange);
-  color:#fff;
+  color:white;
   border:0;
   border-radius:10px;
   padding:11px 15px;
@@ -64,6 +52,7 @@ a.nav{
   color:var(--navy);
 }
 .btn.small{padding:7px 10px;font-size:12px}
+.btn:disabled{opacity:.55;cursor:wait}
 .bell{
   position:relative;
   background:#273b55;
@@ -82,16 +71,9 @@ a.nav{
   padding:1px 6px;
   font-size:11px;
 }
-.hero{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:25px 0 16px;
-}
+.hero{margin:25px 0 16px}
 h1{font-size:27px;margin:0}
-p.muted,.muted{color:var(--muted)}
+.muted{color:var(--muted)}
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -103,15 +85,8 @@ p.muted,.muted{color:var(--muted)}
   border-radius:15px;
   padding:17px;
 }
-.stat span{
-  color:var(--muted);
-  font-size:12px;
-}
-.stat strong{
-  display:block;
-  font-size:29px;
-  margin-top:7px;
-}
+.stat span{color:var(--muted);font-size:12px}
+.stat strong{display:block;font-size:29px;margin-top:7px}
 .grid{
   display:grid;
   grid-template-columns:1.4fr 1fr;
@@ -119,12 +94,7 @@ p.muted,.muted{color:var(--muted)}
   margin:16px 0;
 }
 .panel h2{font-size:18px;margin:0 0 13px}
-.filters{
-  display:flex;
-  gap:9px;
-  flex-wrap:wrap;
-  margin-bottom:13px;
-}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:13px}
 input,select,textarea{
   width:100%;
   border:1px solid #d5dce5;
@@ -136,17 +106,8 @@ input,select,textarea{
 textarea{min-height:80px;resize:vertical}
 .filters input{flex:2;min-width:170px}
 .filters select{flex:1;min-width:145px}
-.lead{
-  border-top:1px solid var(--line);
-  padding:13px 0;
-}
+.lead{border-top:1px solid var(--line);padding:13px 0}
 .lead:first-of-type{border-top:0}
-.lead-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-}
 .lead-name{font-weight:750}
 .tag{
   font-size:11px;
@@ -159,9 +120,9 @@ textarea{min-height:80px;resize:vertical}
   color:var(--muted);
   margin:5px 0;
 }
-.lead-actions{
+.lead-actions,.alert-actions{
   display:flex;
-  gap:6px;
+  gap:7px;
   flex-wrap:wrap;
   margin-top:9px;
 }
@@ -179,11 +140,7 @@ textarea{min-height:80px;resize:vertical}
   color:var(--muted);
   display:block;
   margin-top:3px;
-}
-.alert-actions{
-  display:flex;
-  gap:7px;
-  margin-top:7px;
+  overflow-wrap:anywhere;
 }
 .notification-panel{
   position:absolute;
@@ -201,19 +158,16 @@ textarea{min-height:80px;resize:vertical}
   padding:16px;
 }
 .hidden{display:none!important}
-.status{
-  font-size:13px;
-  color:var(--muted);
-  margin:10px 0;
-}
+.status{font-size:13px;color:var(--muted);margin:10px 0}
 .notice{
   background:#fff5ed;
   border:1px solid #ffd8c0;
   border-radius:10px;
-  padding:12px;
+  padding:14px;
   font-size:13px;
   margin:14px 0;
 }
+.notice p{margin:7px 0}
 .form-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -232,24 +186,10 @@ textarea{min-height:80px;resize:vertical}
   justify-content:flex-end;
   margin-top:14px;
 }
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
 .due{color:#b45309}
 .late{color:#b91c1c}
-.empty{
-  color:var(--muted);
-  font-size:13px;
-  padding:12px 0;
-}
-.hint{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:8px;
-}
+.empty{color:var(--muted);font-size:13px;padding:12px 0}
+.hint{font-size:12px;color:var(--muted);margin-top:8px}
 @media(max-width:800px){
   .stats{grid-template-columns:repeat(2,1fr)}
   .grid{grid-template-columns:1fr}
@@ -274,9 +214,7 @@ textarea{min-height:80px;resize:vertical}
   </div>
   <div class="top-actions">
     <a class="nav" href="admin.html">← Imóveis</a>
-    <button class="bell" id="bell"
-      title="Central de notificações"
-      aria-label="Abrir notificações">
+    <button class="bell" id="bell" title="Central de notificações">
       🔔
       <span id="bellCount" class="count hidden">0</span>
     </button>
@@ -300,7 +238,6 @@ textarea{min-height:80px;resize:vertical}
 </div>
 
 <main class="wrap">
-
 <div class="hero">
   <div>
     <h1>Clientes e acompanhamento</h1>
@@ -335,17 +272,16 @@ textarea{min-height:80px;resize:vertical}
 </div>
 
 <div class="notice">
-  <strong>Alertas do navegador:</strong>
-  <span id="permissionLabel">não ativados</span>
-  <button class="btn small secondary"
-    id="enableNotifications">
-    Ativar notificações
+  <strong>Notificações no celular</strong>
+  <p id="permissionLabel">
+    Verificando disponibilidade...
+  </p>
+  <button class="btn small secondary" id="enableNotifications">
+    Ativar notificações no celular
   </button>
-  <div class="hint">
-    Os alertas do navegador funcionam enquanto o CRM
-    está aberto. Para receber com o site fechado,
-    será necessária a implementação de notificações push.
-    As mensagens externas exigem integração oficial.
+  <div class="hint" id="pushStatus">
+    O celular precisa autorizar as notificações.
+    O envio automático depende da rotina agendada no Supabase.
   </div>
 </div>
 
@@ -354,14 +290,10 @@ textarea{min-height:80px;resize:vertical}
 <section class="panel">
   <div class="section-head">
     <h2>Clientes</h2>
-    <button class="btn small light" id="refresh">
-      Atualizar
-    </button>
+    <button class="btn small light" id="refresh">Atualizar</button>
   </div>
-
   <div class="filters">
-    <input id="search"
-      placeholder="Buscar nome, telefone ou imóvel">
+    <input id="search" placeholder="Buscar nome, telefone ou imóvel">
     <select id="stageFilter">
       <option value="">Todas as etapas</option>
       <option value="novo">Novo</option>
@@ -374,7 +306,6 @@ textarea{min-height:80px;resize:vertical}
       <option value="perdido">Perdido</option>
     </select>
   </div>
-
   <div id="leads"></div>
 </section>
 
@@ -388,132 +319,121 @@ textarea{min-height:80px;resize:vertical}
 </div>
 </section>
 
-<section id="editor" class="panel hidden"
-  style="margin:18px 0">
+<section id="editor" class="panel hidden" style="margin:18px 0">
+  <div class="section-head">
+    <h2 id="editorTitle">Novo cliente</h2>
+    <button class="btn small light" id="cancelEdit">Cancelar</button>
+  </div>
 
-<div class="section-head">
-  <h2 id="editorTitle">Novo cliente</h2>
-  <button class="btn small light" id="cancelEdit">
-    Cancelar
-  </button>
-</div>
-
-<form id="leadForm">
-<div class="form-grid">
-
-<div class="field">
-  <label>Nome *</label>
-  <input name="nome" required maxlength="160">
-</div>
-
-<div class="field">
-  <label>WhatsApp</label>
-  <input name="telefone" inputmode="tel" maxlength="35">
-</div>
-
-<div class="field">
-  <label>Origem</label>
-  <select name="origem">
-    <option value="Não informado">Não informado</option>
-    <option>Facebook Marketplace</option>
-    <option>Facebook Página</option>
-    <option>Instagram</option>
-    <option>WhatsApp</option>
-    <option>Portal Bauru</option>
-    <option>Indicação</option>
-    <option>Outro</option>
-  </select>
-</div>
-
-<div class="field">
-  <label>Etapa</label>
-  <select name="etapa">
-    <option value="novo">Novo</option>
-    <option value="em_atendimento">Em atendimento</option>
-    <option value="qualificado">Qualificado</option>
-    <option value="visita">Visita</option>
-    <option value="proposta">Proposta</option>
-    <option value="negociacao">Negociação</option>
-    <option value="concluido">Concluído</option>
-    <option value="perdido">Perdido</option>
-  </select>
-</div>
-
-<div class="field">
-  <label>Imóvel de interesse</label>
-  <input name="imovel_interesse">
-</div>
-
-<div class="field">
-  <label>Finalidade</label>
-  <select name="finalidade">
-    <option value="">Não informado</option>
-    <option value="moradia">Moradia</option>
-    <option value="investimento">Investimento</option>
-    <option value="outro">Outro</option>
-  </select>
-</div>
-
-<div class="field">
-  <label>Pagamento</label>
-  <select name="pagamento">
-    <option value="">Não informado</option>
-    <option value="financiamento">Financiamento</option>
-    <option value="a_vista">À vista</option>
-    <option value="nao_definido">Ainda não definido</option>
-  </select>
-</div>
-
-<div class="field">
-  <label>Próximo contato (data e hora)</label>
-  <input name="proximo_contato" type="datetime-local">
-</div>
-
-<div class="field full">
-  <label>Próxima ação</label>
-  <input name="proxima_acao"
-    placeholder="Ex.: perguntar se deseja agendar visita">
-</div>
-
-<div class="field full">
-  <label>Histórico e observações</label>
-  <textarea name="observacoes"
-    placeholder="Registre informações úteis sobre o atendimento"></textarea>
-</div>
-
-</div>
-
-<div class="form-actions">
-  <button type="button" class="btn light" id="cancelEdit2">
-    Cancelar
-  </button>
-  <button class="btn" type="submit" id="saveLead">
-    Salvar cliente
-  </button>
-</div>
-</form>
+  <form id="leadForm">
+    <div class="form-grid">
+      <div class="field">
+        <label>Nome *</label>
+        <input name="nome" required maxlength="160">
+      </div>
+      <div class="field">
+        <label>WhatsApp</label>
+        <input name="telefone" inputmode="tel" maxlength="35">
+      </div>
+      <div class="field">
+        <label>Origem</label>
+        <select name="origem">
+          <option value="Não informado">Não informado</option>
+          <option>Facebook Marketplace</option>
+          <option>Facebook Página</option>
+          <option>Instagram</option>
+          <option>WhatsApp</option>
+          <option>Portal Bauru</option>
+          <option>Indicação</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Etapa</label>
+        <select name="etapa">
+          <option value="novo">Novo</option>
+          <option value="em_atendimento">Em atendimento</option>
+          <option value="qualificado">Qualificado</option>
+          <option value="visita">Visita</option>
+          <option value="proposta">Proposta</option>
+          <option value="negociacao">Negociação</option>
+          <option value="concluido">Concluído</option>
+          <option value="perdido">Perdido</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Imóvel de interesse</label>
+        <input name="imovel_interesse">
+      </div>
+      <div class="field">
+        <label>Finalidade</label>
+        <select name="finalidade">
+          <option value="">Não informado</option>
+          <option value="moradia">Moradia</option>
+          <option value="investimento">Investimento</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Pagamento</label>
+        <select name="pagamento">
+          <option value="">Não informado</option>
+          <option value="financiamento">Financiamento</option>
+          <option value="a_vista">À vista</option>
+          <option value="nao_definido">Ainda não definido</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Próximo contato (data e hora)</label>
+        <input name="proximo_contato" type="datetime-local">
+      </div>
+      <div class="field full">
+        <label>Próxima ação</label>
+        <input name="proxima_acao"
+          placeholder="Ex.: perguntar se deseja agendar visita">
+      </div>
+      <div class="field full">
+        <label>Histórico e observações</label>
+        <textarea name="observacoes"
+          placeholder="Registre informações úteis sobre o atendimento"></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn light" id="cancelEdit2">
+        Cancelar
+      </button>
+      <button class="btn" type="submit" id="saveLead">
+        Salvar cliente
+      </button>
+    </div>
+  </form>
 </section>
 </main>
 
 <script type="module">
-import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import { createClient } from
+  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-const db=createClient(
+const db = createClient(
   'https://dtkszimtovtqdojjpqsy.supabase.co',
   'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
 );
 
-const $=id=>document.getElementById(id);
+const VAPID_PUBLIC_KEY =
+  'BKtFluPjnccnvJ7NRUb0aj0hrdPsyZcEbeAhGVA9B0-Ti3vdol639fzRaaav_2YPmgEYLeDzG71dlYkOJG4rg-U';
 
-let leads=[];
-let alerts=[];
-let editing=null;
-let knownIds=new Set();
-let initialized=false;
+const $ = id => document.getElementById(id);
 
-const closed=new Set(['concluido','perdido']);
+let leads = [];
+let alerts = [];
+let editing = null;
+let knownIds = new Set();
+let initialized = false;
+let currentUser = null;
 
-const stages={
+const closed = new Set(['concluido','perdido']);
+
+const stages = {
   novo:'Novo',
   em_atendimento:'Em atendimento',
   qualificado:'Qualificado',
@@ -524,9 +444,9 @@ const stages={
   perdido:'Perdido'
 };
 
-const esc=s=>String(s??'').replace(
+const esc = s => String(s ?? '').replace(
   /[&<>"']/g,
-  c=>({
+  c => ({
     '&':'&amp;',
     '<':'&lt;',
     '>':'&gt;',
@@ -535,82 +455,299 @@ const esc=s=>String(s??'').replace(
   }[c])
 );
 
-const when=s=>s
-  ?new Date(s).toLocaleString('pt-BR',{
-    dateStyle:'short',
-    timeStyle:'short'
-  })
-  :'Não agendado';
+const when = s => s
+  ? new Date(s).toLocaleString('pt-BR',{
+      dateStyle:'short',
+      timeStyle:'short'
+    })
+  : 'Não agendado';
 
-const startDay=d=>new Date(
-  d.getFullYear(),
-  d.getMonth(),
-  d.getDate()
+const startDay = d => new Date(
+  d.getFullYear(),d.getMonth(),d.getDate()
 ).getTime();
 
-const dayStatus=l=>{
-  if(!l.proximo_contato||closed.has(l.etapa))return '';
+function dayStatus(l) {
+  if (!l.proximo_contato || closed.has(l.etapa)) return '';
 
-  let d=new Date(l.proximo_contato);
-  if(isNaN(d))return '';
+  const d = new Date(l.proximo_contato);
+  if (isNaN(d)) return '';
 
-  let today=startDay(new Date());
-  let target=startDay(d);
+  const today = startDay(new Date());
+  const target = startDay(d);
 
-  return target<today?'late':target===today?'due':'';
-};
+  return target < today ? 'late'
+    : target === today ? 'due' : '';
+}
 
-const notify=(title,body)=>{
-  if(
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/-/g,'+')
+    .replace(/_/g,'/');
+
+  const rawData = atob(base64);
+  const output = new Uint8Array(rawData.length);
+
+  for (let i = 0; i < rawData.length; i++) {
+    output[i] = rawData.charCodeAt(i);
+  }
+
+  return output;
+}
+
+function pushSupported() {
+  return (
+    'serviceWorker' in navigator &&
+    'PushManager' in window &&
     'Notification' in window &&
-    Notification.permission==='granted'
-  ){
-    try{
-      new Notification(title,{
-        body,
-        tag:'portal-bauru-'+Date.now()
-      });
-    }catch(e){
-      console.warn(e);
+    window.isSecureContext
+  );
+}
+
+function permission() {
+  const label = $('permissionLabel');
+
+  if (!pushSupported()) {
+    label.textContent =
+      'Este navegador não oferece todos os recursos necessários para notificações push.';
+    return;
+  }
+
+  if (Notification.permission === 'granted') {
+    label.textContent =
+      'Permissão concedida. Verifique abaixo a conexão deste celular.';
+  } else if (Notification.permission === 'denied') {
+    label.textContent =
+      'Notificações bloqueadas. Libere a permissão nas configurações do Chrome.';
+  } else {
+    label.textContent =
+      'Toque no botão para autorizar as notificações.';
+  }
+}
+
+async function registerWorker() {
+  if (!pushSupported()) {
+    throw new Error(
+      'Notificações push indisponíveis neste navegador.'
+    );
+  }
+
+  const registration = await navigator.serviceWorker.register(
+    '/sw.js',
+    { scope:'/' }
+  );
+
+  await navigator.serviceWorker.ready;
+  return registration;
+}
+
+async function enablePush() {
+  if (!currentUser) {
+    throw new Error('Faça login no CRM primeiro.');
+  }
+
+  if (!pushSupported()) {
+    throw new Error(
+      'Abra o CRM no Chrome do Android, usando o endereço HTTPS do Portal Bauru.'
+    );
+  }
+
+  const registration = await registerWorker();
+
+  let permissionState = Notification.permission;
+
+  if (permissionState === 'default') {
+    permissionState = await Notification.requestPermission();
+  }
+
+  permission();
+
+  if (permissionState !== 'granted') {
+    throw new Error(
+      'O celular ainda não autorizou as notificações.'
+    );
+  }
+
+  let subscription =
+    await registration.pushManager.getSubscription();
+
+  if (subscription) {
+    const currentKey = subscription.options?.applicationServerKey;
+    const expectedKey = urlBase64ToUint8Array(VAPID_PUBLIC_KEY);
+
+    const existing = currentKey
+      ? new Uint8Array(currentKey)
+      : null;
+
+    const sameKey = existing &&
+      existing.length === expectedKey.length &&
+      existing.every((v,i) => v === expectedKey[i]);
+
+    if (!sameKey) {
+      await subscription.unsubscribe();
+      subscription = null;
     }
+  }
+
+  if (!subscription) {
+    subscription = await registration.pushManager.subscribe({
+      userVisibleOnly:true,
+      applicationServerKey:
+        urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+    });
+  }
+
+  const json = subscription.toJSON();
+
+  if (!json.endpoint || !json.keys?.p256dh || !json.keys?.auth) {
+    throw new Error(
+      'O navegador não forneceu uma inscrição push válida.'
+    );
+  }
+
+  const { error } = await db
+    .from('portal_push_subscriptions')
+    .upsert({
+      user_id:currentUser.id,
+      endpoint:json.endpoint,
+      p256dh:json.keys.p256dh,
+      auth:json.keys.auth
+    },{
+      onConflict:'endpoint'
+    });
+
+  if (error) {
+    throw new Error(
+      'Não foi possível registrar o celular: ' + error.message
+    );
+  }
+
+  $('pushStatus').textContent =
+    'Celular conectado! A inscrição push foi salva no Supabase. ' +
+    'O envio automático começará após a configuração da rotina do servidor.';
+
+  $('enableNotifications').textContent =
+    'Atualizar conexão do celular';
+
+  return registration;
+}
+
+async function checkPush() {
+  permission();
+
+  if (!pushSupported() ||
+      Notification.permission !== 'granted') {
+    return;
+  }
+
+  try {
+    const registration =
+      await navigator.serviceWorker.getRegistration('/');
+
+    if (!registration) return;
+
+    const subscription =
+      await registration.pushManager.getSubscription();
+
+    if (!subscription) return;
+
+    const { data, error } = await db
+      .from('portal_push_subscriptions')
+      .select('id')
+      .eq('user_id',currentUser.id)
+      .eq('endpoint',subscription.endpoint)
+      .maybeSingle();
+
+    if (!error && data) {
+      $('pushStatus').textContent =
+        'Este celular já está registrado para receber notificações push. ' +
+        'O envio depende da rotina automática do servidor.';
+
+      $('enableNotifications').textContent =
+        'Atualizar conexão do celular';
+    }
+  } catch (e) {
+    console.warn('Verificação push:',e);
+  }
+}
+
+$('enableNotifications').onclick = async () => {
+  const button = $('enableNotifications');
+  button.disabled = true;
+
+  $('pushStatus').textContent =
+    'Conectando este celular...';
+
+  try {
+    await enablePush();
+    alert(
+      'Celular registrado com sucesso! ' +
+      'Agora falta ativar o envio automático no servidor.'
+    );
+  } catch (e) {
+    $('pushStatus').textContent = e.message;
+    alert(e.message);
+  } finally {
+    button.disabled = false;
+    permission();
   }
 };
 
-function render(){
+function notifyWhileOpen(title,body) {
+  if (
+    'Notification' in window &&
+    Notification.permission === 'granted'
+  ) {
+    try {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.ready.then(reg => {
+          reg.showNotification(title,{
+            body,
+            tag:'portal-bauru-painel',
+            data:{url:'/crm.html'}
+          });
+        }).catch(console.warn);
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+}
 
-  const q=$('search').value.trim().toLowerCase();
-  const st=$('stageFilter').value;
+function render() {
+  const q = $('search').value.trim().toLowerCase();
+  const st = $('stageFilter').value;
 
-  let active=leads.filter(l=>!closed.has(l.etapa));
+  const active = leads.filter(l => !closed.has(l.etapa));
 
-  $('total').textContent=leads.length;
-  $('active').textContent=active.length;
+  $('total').textContent = leads.length;
+  $('active').textContent = active.length;
 
-  $('today').textContent=leads.filter(
-    l=>dayStatus(l)==='due'
+  $('today').textContent = leads.filter(
+    l => dayStatus(l) === 'due'
   ).length;
 
-  $('overdue').textContent=leads.filter(
-    l=>dayStatus(l)==='late'
+  $('overdue').textContent = leads.filter(
+    l => dayStatus(l) === 'late'
   ).length;
 
-  const selected=leads.filter(l=>
-    (!st||l.etapa===st) &&
+  const selected = leads.filter(l =>
+    (!st || l.etapa === st) &&
     [l.nome,l.telefone,l.imovel_interesse].some(
-      v=>String(v||'').toLowerCase().includes(q)
+      v => String(v || '').toLowerCase().includes(q)
     )
   );
 
-  $('leads').innerHTML=selected.length
-    ?selected.map(l=>`
+  $('leads').innerHTML = selected.length
+    ? selected.map(l => `
       <article class="lead">
         <div class="lead-top">
           <span class="lead-name">${esc(l.nome)}</span>
-          <span class="tag">${esc(stages[l.etapa]||l.etapa)}</span>
+          <span class="tag">${esc(stages[l.etapa] || l.etapa)}</span>
         </div>
         <small>
-          ${esc(l.origem||'Origem não informada')}
-          · ${esc(l.imovel_interesse||'Imóvel não informado')}
+          ${esc(l.origem || 'Origem não informada')}
+          · ${esc(l.imovel_interesse || 'Imóvel não informado')}
         </small>
         <small class="${dayStatus(l)}">
           Próximo contato: ${when(l.proximo_contato)}
@@ -618,87 +755,94 @@ function render(){
         <div class="lead-actions">
           <button class="btn small secondary"
             data-edit="${l.id}">Editar</button>
-          ${l.telefone?`
+          ${l.telefone ? `
             <a class="btn small light"
               target="_blank"
               rel="noopener"
               href="https://wa.me/${String(l.telefone).replace(/\D/g,'')}">
               WhatsApp
             </a>
-          `:''}
+          ` : ''}
           <button class="btn small light"
             data-delete="${l.id}">Excluir</button>
         </div>
       </article>
     `).join('')
-    :'<div class="empty">Nenhum cliente encontrado.</div>';
+    : '<div class="empty">Nenhum cliente encontrado.</div>';
 
-  const due=leads.filter(
-    l=>['due','late'].includes(dayStatus(l))
+  const due = leads.filter(
+    l => ['due','late'].includes(dayStatus(l))
   ).sort(
-    (a,b)=>new Date(a.proximo_contato)-new Date(b.proximo_contato)
+    (a,b) =>
+      new Date(a.proximo_contato) - new Date(b.proximo_contato)
   );
 
-  $('followups').innerHTML=due.length
-    ?due.map(l=>`
+  $('followups').innerHTML = due.length
+    ? due.map(l => `
       <div class="alert">
         <div class="alert-title">
           ${esc(l.nome)}
           <span class="${dayStatus(l)}">
-            ${dayStatus(l)==='late'?'· Atrasado':'· Hoje'}
+            ${dayStatus(l) === 'late' ? '· Atrasado' : '· Hoje'}
           </span>
         </div>
         <small>${when(l.proximo_contato)}</small>
-        <small>${esc(l.proxima_acao||'Retomar atendimento')}</small>
+        <small>${esc(l.proxima_acao || 'Retomar atendimento')}</small>
         <div class="alert-actions">
           <button class="btn small light"
-            data-edit="${l.id}">
-            Abrir cliente
-          </button>
+            data-edit="${l.id}">Abrir cliente</button>
         </div>
       </div>
     `).join('')
-    :'<div class="empty">Nenhum retorno vencendo hoje ou atrasado.</div>';
+    : '<div class="empty">Nenhum retorno vencendo hoje ou atrasado.</div>';
 
-  const unread=alerts.filter(a=>!a.lida_em).length;
+  const unread = alerts.filter(a => !a.lida_em).length;
 
-  $('bellCount').textContent=unread;
+  $('bellCount').textContent = unread;
   $('bellCount').classList.toggle('hidden',!unread);
 
-  const alertHtml=a=>`
-    <div class="alert ${a.lida_em?'':'unread'}">
-      <div class="alert-title">${esc(a.titulo)}</div>
-      <small>${esc(a.descricao||'')}</small>
-      <small>${when(a.criado_em)}</small>
-      <div class="alert-actions">
-        ${a.lead_id?`
-          <button class="btn small light"
-            data-edit="${a.lead_id}">
-            Abrir cliente
-          </button>
-        `:''}
-        ${a.lida_em?'':`
-          <button class="btn small light"
-            data-read="${a.id}">
-            Marcar como lido
-          </button>
-        `}
+  const alertHtml = a => {
+    const lead = leads.find(l => l.id === a.lead_id);
+
+    const description =
+      a.tipo === 'retorno_pendente'
+        ? (lead?.proxima_acao || 'Retomar atendimento')
+        : (a.descricao || '');
+
+    return `
+      <div class="alert ${a.lida_em ? '' : 'unread'}">
+        <div class="alert-title">${esc(a.titulo)}</div>
+        <small>${esc(description)}</small>
+        <small>${when(a.criado_em)}</small>
+        <div class="alert-actions">
+          ${a.lead_id ? `
+            <button class="btn small light"
+              data-edit="${a.lead_id}">
+              Abrir cliente
+            </button>
+          ` : ''}
+          ${a.lida_em ? '' : `
+            <button class="btn small light"
+              data-read="${a.id}">
+              Marcar como lido
+            </button>
+          `}
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  };
 
-  $('notificationItems').innerHTML=alerts.length
-    ?alerts.map(alertHtml).join('')
-    :'<div class="empty">Nenhuma notificação ainda.</div>';
+  $('notificationItems').innerHTML = alerts.length
+    ? alerts.map(alertHtml).join('')
+    : '<div class="empty">Nenhuma notificação ainda.</div>';
 
-  $('recentAlerts').innerHTML=alerts.length
-    ?alerts.slice(0,5).map(alertHtml).join('')
-    :'<div class="empty">Sem alertas recentes.</div>';
+  $('recentAlerts').innerHTML = alerts.length
+    ? alerts.slice(0,5).map(alertHtml).join('')
+    : '<div class="empty">Sem alertas recentes.</div>';
 }
 
-async function load(){
-
-  const [lr,ar]=await Promise.all([
+async function load() {
+  const [lr,ar] = await Promise.all([
     db.from('portal_leads')
       .select('*')
       .order('criado_em',{ascending:false})
@@ -710,65 +854,67 @@ async function load(){
       .limit(150)
   ]);
 
-  if(lr.error||ar.error){
-    $('status').textContent=
-      'Erro ao carregar: '+
-      (lr.error?.message||ar.error?.message)+
-      ' — confira se executou o SQL.';
+  if (lr.error || ar.error) {
+    $('status').textContent =
+      'Erro ao carregar: ' +
+      (lr.error?.message || ar.error?.message);
     return;
   }
 
-  leads=lr.data||[];
-  alerts=ar.data||[];
+  leads = lr.data || [];
+  alerts = ar.data || [];
 
-  if(initialized){
-    for(const a of alerts){
-      if(!knownIds.has(a.id)&&!a.lida_em){
-        notify(
+  if (initialized) {
+    for (const a of alerts) {
+      if (!knownIds.has(a.id) && !a.lida_em) {
+        notifyWhileOpen(
           a.titulo,
-          a.descricao||'Abra o CRM para acompanhar.'
+          a.tipo === 'retorno_pendente'
+            ? 'Você tem um cliente aguardando retorno.'
+            : (a.descricao || 'Abra o CRM para acompanhar.')
         );
       }
     }
   }
 
-  knownIds=new Set(alerts.map(a=>a.id));
-  initialized=true;
+  knownIds = new Set(alerts.map(a => a.id));
+  initialized = true;
 
   render();
 
-  $('status').textContent=
-    'Atualizado em '+new Date().toLocaleTimeString('pt-BR');
+  $('status').textContent =
+    'Atualizado em ' +
+    new Date().toLocaleTimeString('pt-BR');
 }
 
-function showEditor(l){
+function showEditor(l) {
+  editing = l?.id || null;
 
-  editing=l?.id||null;
+  $('editorTitle').textContent =
+    l ? 'Editar cliente' : 'Novo cliente';
 
-  $('editorTitle').textContent=
-    l?'Editar cliente':'Novo cliente';
-
-  const form=$('leadForm');
+  const form = $('leadForm');
   form.reset();
 
-  for(const key of [
+  for (const key of [
     'nome','telefone','origem','etapa',
     'imovel_interesse','finalidade','pagamento',
     'proxima_acao','observacoes'
-  ]){
-    if(l&&form.elements[key]){
-      form.elements[key].value=l[key]??'';
+  ]) {
+    if (l && form.elements[key]) {
+      form.elements[key].value = l[key] ?? '';
     }
   }
 
-  if(l?.proximo_contato){
-    const d=new Date(l.proximo_contato);
+  if (l?.proximo_contato) {
+    const d = new Date(l.proximo_contato);
 
-    if(!isNaN(d)){
-      const local=new Date(
-        d.getTime()-d.getTimezoneOffset()*60000
+    if (!isNaN(d)) {
+      const local = new Date(
+        d.getTime() - d.getTimezoneOffset() * 60000
       );
-      form.elements.proximo_contato.value=
+
+      form.elements.proximo_contato.value =
         local.toISOString().slice(0,16);
     }
   }
@@ -780,52 +926,52 @@ function showEditor(l){
   });
 }
 
-function hideEditor(){
+function hideEditor() {
   $('editor').classList.add('hidden');
-  editing=null;
+  editing = null;
 }
 
-$('leadForm').addEventListener('submit',async e=>{
-
+$('leadForm').addEventListener('submit',async e => {
   e.preventDefault();
 
-  const f=e.currentTarget;
-  const fd=new FormData(f);
-  const payload={};
+  const f = e.currentTarget;
+  const fd = new FormData(f);
+  const payload = {};
 
-  for(const key of [
+  for (const key of [
     'nome','telefone','origem','etapa',
     'imovel_interesse','finalidade','pagamento',
     'proxima_acao','observacoes'
-  ]){
-    payload[key]=String(fd.get(key)||'').trim()||null;
+  ]) {
+    payload[key] =
+      String(fd.get(key) || '').trim() || null;
   }
 
-  payload.proximo_contato=fd.get('proximo_contato')
-    ?new Date(fd.get('proximo_contato')).toISOString()
-    :null;
+  payload.proximo_contato = fd.get('proximo_contato')
+    ? new Date(fd.get('proximo_contato')).toISOString()
+    : null;
 
-  if(!payload.nome){
+  if (!payload.nome) {
     alert('Informe o nome.');
     return;
   }
 
-  const b=$('saveLead');
-  b.disabled=true;
+  const b = $('saveLead');
+  b.disabled = true;
 
-  const res=editing
-    ?await db.from('portal_leads')
+  const res = editing
+    ? await db.from('portal_leads')
       .update({
         ...payload,
         atualizado_em:new Date().toISOString()
       })
       .eq('id',editing)
-    :await db.from('portal_leads').insert(payload);
+    : await db.from('portal_leads').insert(payload);
 
-  b.disabled=false;
+  b.disabled = false;
 
-  if(res.error){
-    alert('Não foi possível salvar: '+res.error.message);
+  if (res.error) {
+    alert('Não foi possível salvar: ' + res.error.message);
     return;
   }
 
@@ -833,43 +979,42 @@ $('leadForm').addEventListener('submit',async e=>{
   await load();
 });
 
-async function onAction(e){
+async function onAction(e) {
+  const b = e.target.closest('button');
+  if (!b) return;
 
-  const b=e.target.closest('button');
-  if(!b)return;
+  if (b.dataset.edit) {
+    const l = leads.find(x => x.id === b.dataset.edit);
 
-  if(b.dataset.edit){
-    const l=leads.find(x=>x.id===b.dataset.edit);
-
-    if(l){
+    if (l) {
       showEditor(l);
-    }else{
+    } else {
       alert('Cliente não encontrado. Atualize o painel.');
     }
   }
 
-  if(b.dataset.delete){
-    if(!confirm('Excluir este cliente e seus alertas?'))return;
+  if (b.dataset.delete) {
+    if (!confirm('Excluir este cliente e seus alertas?')) return;
 
-    const r=await db.from('portal_leads')
+    const r = await db.from('portal_leads')
       .delete()
       .eq('id',b.dataset.delete);
 
-    if(r.error){
+    if (r.error) {
       alert(r.error.message);
-    }else{
+    } else {
       await load();
     }
   }
 
-  if(b.dataset.read){
-    const r=await db.from('portal_notificacoes')
+  if (b.dataset.read) {
+    const r = await db.from('portal_notificacoes')
       .update({lida_em:new Date().toISOString()})
       .eq('id',b.dataset.read);
 
-    if(r.error){
+    if (r.error) {
       alert(r.error.message);
-    }else{
+    } else {
       await load();
     }
   }
@@ -880,116 +1025,81 @@ $('followups').addEventListener('click',onAction);
 $('recentAlerts').addEventListener('click',onAction);
 $('notificationItems').addEventListener('click',onAction);
 
-$('readAll').onclick=async()=>{
+$('readAll').onclick = async () => {
+  const ids = alerts.filter(a => !a.lida_em).map(a => a.id);
+  if (!ids.length) return;
 
-  const ids=alerts.filter(a=>!a.lida_em).map(a=>a.id);
-
-  if(!ids.length)return;
-
-  const r=await db.from('portal_notificacoes')
+  const r = await db.from('portal_notificacoes')
     .update({lida_em:new Date().toISOString()})
     .in('id',ids);
 
-  if(r.error){
+  if (r.error) {
     alert(r.error.message);
-  }else{
+  } else {
     await load();
   }
 };
 
-$('bell').onclick=()=>{
+$('bell').onclick = () => {
   $('notificationPanel').classList.toggle('hidden');
 };
 
-$('closeNotifications').onclick=()=>{
+$('closeNotifications').onclick = () => {
   $('notificationPanel').classList.add('hidden');
 };
 
-$('newLead').onclick=()=>showEditor(null);
-$('cancelEdit').onclick=hideEditor;
-$('cancelEdit2').onclick=hideEditor;
-$('refresh').onclick=load;
-$('search').oninput=render;
-$('stageFilter').onchange=render;
+$('newLead').onclick = () => showEditor(null);
+$('cancelEdit').onclick = hideEditor;
+$('cancelEdit2').onclick = hideEditor;
+$('refresh').onclick = load;
+$('search').oninput = render;
+$('stageFilter').onchange = render;
 
-$('logout').onclick=async()=>{
+$('logout').onclick = async () => {
   await db.auth.signOut();
-  location.href='admin.html';
+  location.href = 'admin.html';
 };
 
-function permission(){
+async function init() {
+  const {data:{user},error} = await db.auth.getUser();
 
-  const state=('Notification' in window)
-    ?Notification.permission
-    :'unsupported';
-
-  $('permissionLabel').textContent=
-    state==='granted'
-      ?'ativados neste navegador'
-      :state==='denied'
-      ?'bloqueados nas configurações do navegador'
-      :state==='unsupported'
-      ?'não disponíveis neste navegador'
-      :'aguardando sua autorização';
-}
-
-$('enableNotifications').onclick=async()=>{
-
-  if(!('Notification' in window)){
-    alert('Este navegador não suporta notificações.');
-    return;
-  }
-
-  try{
-    await Notification.requestPermission();
-  }catch(e){
-    alert(
-      'Não foi possível solicitar permissão: '+e.message
-    );
-  }
-
-  permission();
-};
-
-async function init(){
-
-  const {data:{user},error}=await db.auth.getUser();
-
-  if(error||!user){
-    $('status').textContent=
+  if (error || !user) {
+    $('status').textContent =
       'Faça login no painel administrativo antes de abrir o CRM.';
     return;
   }
 
-  const check=await db.rpc('portal_eh_admin');
+  const check = await db.rpc('portal_eh_admin');
 
-  if(check.error||check.data!==true){
-    $('status').textContent=
+  if (check.error || check.data !== true) {
+    $('status').textContent =
       'Acesso restrito aos administradores.';
     return;
   }
+
+  currentUser = user;
 
   $('dashboard').classList.remove('hidden');
 
   permission();
   await load();
+  await checkPush();
 
-  setInterval(()=>{
+  setInterval(() => {
     load().catch(console.error);
   },30000);
 
   setInterval(render,60000);
 
-  document.addEventListener('visibilitychange',()=>{
-    if(!document.hidden)load();
+  document.addEventListener('visibilitychange',() => {
+    if (!document.hidden) load().catch(console.error);
   });
 }
 
-init().catch(e=>{
-  $('status').textContent=
-    'Falha ao iniciar: '+e.message;
+init().catch(e => {
+  $('status').textContent =
+    'Falha ao iniciar: ' + e.message;
 });
 </script>
-
 </body>
 </html>
