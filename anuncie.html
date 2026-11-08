@@ -1,0 +1,750 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14253D">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="description" content="Quer vender seu imóvel em Bauru? Cadastre sua propriedade no Portal Bauru Imóveis e receba o contato de um de nossos corretores para conhecer as opções de divulgação.">
+<link rel="canonical" href="https://portalbauru.pages.dev/anuncie">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anuncie seu imóvel à venda em Bauru | Portal Bauru">
+<meta property="og:description" content="Tem um imóvel para vender? Faça seu cadastro inicial e fale com nossa equipe em Bauru/SP.">
+<meta property="og:url" content="https://portalbauru.pages.dev/anuncie">
+<title>Anuncie seu imóvel à venda em Bauru | Portal Bauru Imóveis</title>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Anuncie seu imóvel à venda em Bauru | Portal Bauru Imóveis",
+  "url":"https://portalbauru.pages.dev/anuncie",
+  "inLanguage":"pt-BR",
+  "about":{
+    "@type":"Service",
+    "name":"Divulgação de imóveis à venda em Bauru",
+    "areaServed":{
+      "@type":"City",
+      "name":"Bauru"
+    },
+    "provider":{
+      "@type":"Organization",
+      "name":"Portal Bauru Imóveis",
+      "url":"https://portalbauru.pages.dev/"
+    }
+  }
+}
+</script>
+
+<style>
+:root{
+  font-family:Inter,system-ui,-apple-system,
+    "Segoe UI",sans-serif;
+  color:#14253D;
+  background:#F7F5F1
+}
+*{box-sizing:border-box}
+body{margin:0}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:3px solid #F85F08;
+  outline-offset:3px
+}
+.wrap{
+  width:min(1080px,calc(100% - 34px));
+  margin:auto
+}
+
+/* CABECALHO */
+header{background:#14253D;color:#fff}
+.nav{
+  min-height:77px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px
+}
+.logo{
+  font-size:1.16rem;
+  font-weight:850;
+  letter-spacing:.02em;
+  white-space:nowrap
+}
+.logo span{color:#FF8D4D}
+.logo small{
+  display:block;
+  color:#BECAD6;
+  font-size:.63rem;
+  font-weight:400;
+  letter-spacing:0;
+  margin-top:4px
+}
+.back{
+  font-size:.83rem;
+  border:1px solid #ffffff44;
+  border-radius:10px;
+  padding:10px 13px;
+  white-space:nowrap
+}
+
+/* APRESENTACAO */
+.hero{
+  background:
+    radial-gradient(
+      ellipse at 100% 5%,
+      #2C4A66 0,
+      transparent 50%
+    ),
+    linear-gradient(130deg,#14253D,#1A344F);
+  color:white;
+  padding:43px 0 52px
+}
+.eyebrow{
+  font-size:.71rem;
+  font-weight:850;
+  letter-spacing:.13em;
+  color:#FFAD7E;
+  text-transform:uppercase
+}
+.hero h1{
+  font-size:clamp(2.1rem,5vw,3.6rem);
+  letter-spacing:-.05em;
+  line-height:1.1;
+  max-width:790px;
+  margin:12px 0
+}
+.hero h1 em{
+  font-style:normal;
+  color:#FF9A60
+}
+.hero p{
+  line-height:1.65;
+  max-width:660px;
+  color:#DFE7EF;
+  margin:12px 0 0;
+  font-size:1rem
+}
+
+/* CONTEUDO */
+.main{
+  display:grid;
+  grid-template-columns:
+    minmax(0,.85fr)
+    minmax(0,1.15fr);
+  gap:34px;
+  align-items:start;
+  margin-top:-24px;
+  padding-bottom:60px;
+  position:relative
+}
+.message{
+  padding:54px 12px 20px 0
+}
+.message h2{
+  font-size:1.65rem;
+  letter-spacing:-.035em;
+  margin:0 0 16px
+}
+.message p{
+  line-height:1.75;
+  color:#5C6B7C;
+  font-size:.96rem
+}
+.step{
+  display:flex;
+  align-items:start;
+  gap:13px;
+  margin-top:22px
+}
+.num{
+  width:31px;
+  height:31px;
+  border-radius:50%;
+  background:#FBE5D5;
+  color:#B4490E;
+  display:grid;
+  place-items:center;
+  font-size:.83rem;
+  font-weight:900;
+  flex-shrink:0
+}
+.step strong{
+  display:block;
+  margin:1px 0 4px
+}
+.step small{
+  color:#697788;
+  line-height:1.6;
+  display:block
+}
+
+/* FORMULARIO */
+.form-card{
+  background:#fff;
+  border:1px solid #E6E3DE;
+  border-radius:19px;
+  padding:28px;
+  box-shadow:0 15px 42px #14253D13
+}
+.form-card h2{
+  font-size:1.4rem;
+  letter-spacing:-.035em;
+  margin:0 0 7px
+}
+.form-intro{
+  font-size:.84rem;
+  line-height:1.5;
+  color:#6A7987;
+  margin:0 0 20px
+}
+.fields{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px
+}
+.field{min-width:0}
+.field.full{grid-column:1/-1}
+.field label{
+  display:block;
+  font-size:.8rem;
+  font-weight:750;
+  margin-bottom:7px
+}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  border:1px solid #DBE1E6;
+  border-radius:10px;
+  padding:12px;
+  background:#FBFCFD;
+  color:#14253D;
+  min-width:0
+}
+.field input,
+.field select{
+  height:49px
+}
+.field textarea{
+  min-height:96px;
+  resize:vertical;
+  line-height:1.5
+}
+.field input::placeholder,
+.field textarea::placeholder{
+  color:#96A0AC
+}
+.check{
+  display:flex;
+  align-items:start;
+  gap:9px;
+  font-size:.79rem;
+  line-height:1.55;
+  color:#536376;
+  margin-top:17px
+}
+.check input{
+  width:17px;
+  height:17px;
+  flex-shrink:0;
+  accent-color:#F85F08;
+  margin-top:2px
+}
+.submit{
+  width:100%;
+  min-height:52px;
+  margin-top:17px;
+  background:#F85F08;
+  color:#fff;
+  font-weight:850;
+  border:0;
+  border-radius:11px
+}
+.submit:hover{background:#DC5005}
+.submit:disabled{
+  opacity:.65;
+  cursor:wait
+}
+.feedback{
+  margin-top:16px;
+  border-radius:11px;
+  padding:14px;
+  font-size:.87rem;
+  line-height:1.6;
+  background:#F4F6F7;
+  color:#405367
+}
+.feedback[hidden]{display:none}
+.feedback.success{
+  background:#EEF7F1;
+  color:#1B5833
+}
+.feedback.error{
+  background:#FFF4EC;
+  color:#874010
+}
+.wa{
+  display:inline-block;
+  margin-top:11px;
+  font-weight:850;
+  color:#116B3A;
+  text-decoration:underline
+}
+.policy{
+  font-size:.74rem;
+  line-height:1.6;
+  color:#738192;
+  margin-top:14px
+}
+.honeypot{
+  position:absolute;
+  left:-9999px;
+  opacity:0;
+  pointer-events:none
+}
+
+/* RODAPE */
+footer{
+  background:#0E1C2E;
+  color:#CED8E2;
+  padding:26px 0;
+  font-size:.8rem
+}
+footer strong{color:#fff}
+footer span{color:#FF8C46}
+footer p{
+  margin:7px 0 0;
+  color:#B4C1D0
+}
+
+/* CELULAR */
+@media(max-width:760px){
+  .main{
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-top:-19px
+  }
+  .message{
+    order:2;
+    padding:12px 3px 8px
+  }
+  .form-card{
+    order:1;
+    padding:21px
+  }
+  .hero{
+    padding:30px 0 39px
+  }
+  .hero h1{
+    font-size:clamp(2rem,7.6vw,2.8rem)
+  }
+  .hero p{font-size:.87rem}
+  .step{margin-top:14px}
+}
+@media(max-width:420px){
+  .logo{font-size:.91rem}
+  .logo small{font-size:.56rem}
+  .back{
+    font-size:.72rem;
+    padding:9px
+  }
+  .fields{
+    grid-template-columns:1fr
+  }
+  .field.full{grid-column:1}
+  .form-card{padding:18px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap nav">
+<a class="logo" id="home" href="/">
+PORTAL <span>BAURU</span> IMÓVEIS
+<small>Conectando pessoas às oportunidades certas.</small>
+</a>
+<a class="back" id="browse" href="/imoveis">
+Ver imóveis
+</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<div class="eyebrow">
+Para proprietários em Bauru/SP
+</div>
+<h1>
+Seu imóvel merece <em>ser visto.</em>
+</h1>
+<p>
+Tem um imóvel para vender? Anuncie conosco
+e descubra como nossa equipe pode ajudar
+a apresentar sua propriedade a potenciais compradores.
+</p>
+</div>
+</section>
+
+<main class="wrap main">
+
+<section class="message">
+<h2>Mais visibilidade para sua venda.</h2>
+<p>
+Além do Portal Bauru Imóveis, a divulgação poderá incluir
+outros portais imobiliários e canais digitais,
+conforme as características do imóvel e a estratégia
+combinada com o proprietário.
+</p>
+
+<div class="step">
+<span class="num">1</span>
+<div>
+<strong>Faça seu cadastro</strong>
+<small>
+Informe os dados básicos do imóvel.
+Não precisa enviar fotografias agora.
+</small>
+</div>
+</div>
+
+<div class="step">
+<span class="num">2</span>
+<div>
+<strong>Vamos conversar</strong>
+<small>
+Um de nossos corretores entrará em contato
+para conhecer a propriedade.
+</small>
+</div>
+</div>
+
+<div class="step">
+<span class="num">3</span>
+<div>
+<strong>Planejamos a divulgação</strong>
+<small>
+Explicamos os próximos passos e os canais
+adequados para anunciar.
+</small>
+</div>
+</div>
+</section>
+
+<section class="form-card" aria-labelledby="form-title">
+<h2 id="form-title">
+Conte um pouco sobre seu imóvel
+</h2>
+<p class="form-intro">
+Leva apenas um instante.
+Os campos com * são obrigatórios.
+</p>
+
+<form id="ownerForm">
+
+<div class="fields">
+
+<div class="field full">
+<label for="nome">Seu nome *</label>
+<input
+id="nome"
+name="nome"
+autocomplete="name"
+maxlength="160"
+placeholder="Como podemos chamar você?"
+required>
+</div>
+
+<div class="field full">
+<label for="telefone">WhatsApp com DDD *</label>
+<input
+id="telefone"
+name="telefone"
+type="tel"
+inputmode="tel"
+autocomplete="tel"
+maxlength="22"
+placeholder="(14) 99999-9999"
+required>
+</div>
+
+<div class="field">
+<label for="tipo">Tipo de imóvel *</label>
+<select id="tipo" name="tipo" required>
+<option value="">Selecione</option>
+<option>Apartamento</option>
+<option>Casa</option>
+<option>Sobrado</option>
+<option>Terreno</option>
+<option>Chácara</option>
+<option>Comercial</option>
+<option>Outro</option>
+</select>
+</div>
+
+<div class="field">
+<label for="bairro">Bairro *</label>
+<input
+id="bairro"
+name="bairro"
+maxlength="100"
+placeholder="Bairro em Bauru"
+required>
+</div>
+
+<div class="field full">
+<label for="valor">Valor pretendido (opcional)</label>
+<input
+id="valor"
+name="valor"
+type="number"
+inputmode="numeric"
+min="1"
+max="999999999"
+step="1000"
+placeholder="Ex.: 350000">
+</div>
+
+<div class="field full">
+<label for="detalhes">
+Informações adicionais (opcional)
+</label>
+<textarea
+id="detalhes"
+name="detalhes"
+maxlength="900"
+placeholder="Quartos, metragem, condomínio ou outro detalhe importante"></textarea>
+</div>
+
+</div>
+
+<div class="honeypot" aria-hidden="true">
+<label for="site">Site pessoal</label>
+<input
+id="site"
+name="site"
+tabindex="-1"
+autocomplete="off">
+</div>
+
+<label class="check">
+<input id="consentiu" type="checkbox" required>
+<span>
+Autorizo que os dados informados sejam usados
+pela equipe do Portal Bauru Imóveis para entrar
+em contato sobre a venda do meu imóvel.
+</span>
+</label>
+
+<button class="submit" id="submit" type="submit">
+Enviar meu imóvel para avaliação →
+</button>
+
+<div
+class="feedback"
+id="feedback"
+role="status"
+aria-live="polite"
+hidden></div>
+
+<p class="policy">
+O cadastro é uma solicitação de contato,
+não a publicação automática do imóvel.
+A divulgação será combinada posteriormente
+com nossa equipe.
+</p>
+
+</form>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<strong>
+PORTAL <span>BAURU</span> IMÓVEIS
+</strong>
+<p>
+W. Rafael Gomes · CRECI 196.907-F
+&amp; Débora Navas · CRECI 196.899-F · Bauru/SP
+</p>
+</div>
+</footer>
+
+<script type="module">
+import {createClient} from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const db=createClient(
+ 'https://dtkszimtovtqdojjpqsy.supabase.co',
+ 'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
+);
+
+const $=id=>document.getElementById(id);
+
+const params=new URLSearchParams(location.search);
+
+const ref=['rafael','debora'].includes(params.get('ref'))
+ ?params.get('ref')
+ :'';
+
+for(const [id,path] of [
+ ['home','/'],
+ ['browse','/imoveis']
+]){
+ const u=new URL(path,location.origin);
+
+ if(ref){
+  u.searchParams.set('ref',ref);
+ }
+
+ $(id).href=u.href;
+}
+
+const brokers={
+ rafael:'5514982329929',
+ debora:'5514981306115'
+};
+
+let started=Date.now();
+
+function fallbackLink(fields){
+ const msg=[
+  'Olá! Quero anunciar meu imóvel para venda no Portal Bauru Imóveis.',
+  `Nome: ${fields.nome||''}`,
+  `WhatsApp: ${fields.telefone}`,
+  `Tipo: ${fields.tipo}`,
+  `Bairro: ${fields.bairro} - Bauru/SP`,
+  fields.valor
+   ?`Valor pretendido: R$ ${Number(fields.valor).toLocaleString('pt-BR')}`
+   :'',
+  fields.detalhes
+   ?`Detalhes: ${fields.detalhes}`
+   :''
+ ].filter(Boolean).join('\n');
+
+ const broker=ref||'rafael';
+
+ return `https://wa.me/${brokers[broker]}?text=${encodeURIComponent(msg)}`;
+}
+
+function showMessage(kind,text,link){
+ const box=$('feedback');
+
+ box.hidden=false;
+ box.className=`feedback ${kind}`;
+
+ box.replaceChildren(
+  document.createTextNode(text)
+ );
+
+ if(link){
+  const a=document.createElement('a');
+
+  a.href=link;
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.className='wa';
+  a.textContent='Enviar os dados pelo WhatsApp →';
+
+  box.append(a);
+ }
+}
+
+$('ownerForm').addEventListener(
+ 'submit',
+ async event=>{
+  event.preventDefault();
+
+  const form=event.currentTarget;
+
+  if(!form.reportValidity()){
+   return;
+  }
+
+  const data=Object.fromEntries(
+   new FormData(form)
+  );
+
+  const phoneDigits=(data.telefone||'')
+   .replace(/\D/g,'');
+
+  if(
+   phoneDigits.length<10 ||
+   phoneDigits.length>13
+  ){
+   showMessage(
+    'error',
+    'Informe um WhatsApp válido, incluindo o DDD.'
+   );
+   return;
+  }
+
+  if(Date.now()-started<1500){
+   showMessage(
+    'error',
+    'Confira os dados e tente novamente.'
+   );
+   return;
+  }
+
+  const btn=$('submit');
+
+  btn.disabled=true;
+  btn.textContent='Enviando cadastro...';
+
+  try{
+   const {data:result,error}=await db.rpc(
+    'portal_receber_proprietario',
+    {
+     p_nome:data.nome.trim(),
+     p_telefone:data.telefone.trim(),
+     p_tipo:data.tipo,
+     p_bairro:data.bairro.trim(),
+     p_valor:data.valor||'',
+     p_detalhes:(data.detalhes||'').trim(),
+     p_referencia:ref,
+     p_consentiu:$('consentiu').checked,
+     p_site:data.site||''
+    }
+   );
+
+   if(error||!result?.ok){
+    throw error||new Error('Falha no envio');
+   }
+
+   form.reset();
+   started=Date.now();
+
+   showMessage(
+    'success',
+    'Cadastro recebido! Um de nossos corretores entrará em contato pelo WhatsApp informado.'
+   );
+
+  }catch(e){
+   console.error('Captação:',e);
+
+   showMessage(
+    'error',
+    'Não foi possível registrar seu cadastro automaticamente. Para não perder o contato, envie seus dados diretamente pelo WhatsApp.',
+    fallbackLink(data)
+   );
+
+  }finally{
+   btn.disabled=false;
+   btn.textContent=
+    'Enviar meu imóvel para avaliação →';
+  }
+ }
+);
+</script>
+
+</body>
+</html>
