@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -183,7 +184,6 @@ button{cursor:pointer}
   margin:0;
   max-width:700px
 }
-
 .hero-search{
   background:#fff;
   color:#14253D;
@@ -229,10 +229,11 @@ button{cursor:pointer}
 }
 .search{
   display:grid;
-  grid-template-columns:1fr 1.5fr auto;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr) auto;
   gap:12px;
   align-items:end
 }
+.search .field{min-width:0}
 .field label{
   display:block;
   font-size:.78rem;
@@ -633,7 +634,8 @@ select:focus-visible{
     grid-template-columns:1fr 1fr
   }
   .search .btn{
-    grid-column:1/-1
+    grid-column:auto;
+    width:100%
   }
   .weekly-grid{
     grid-template-columns:1fr
@@ -863,6 +865,21 @@ name="busca"
 type="search"
 placeholder="Onde você quer encontrar seu imóvel?"
 autocomplete="off">
+</div>
+
+<div class="field">
+<label for="preco">Valor máximo</label>
+<select id="preco" name="preco">
+<option value="">Qualquer valor</option>
+<option value="150000">Até R$ 150 mil</option>
+<option value="200000">Até R$ 200 mil</option>
+<option value="250000">Até R$ 250 mil</option>
+<option value="300000">Até R$ 300 mil</option>
+<option value="400000">Até R$ 400 mil</option>
+<option value="500000">Até R$ 500 mil</option>
+<option value="750000">Até R$ 750 mil</option>
+<option value="1000000">Até R$ 1 milhão</option>
+</select>
 </div>
 
 <button class="btn primary" type="submit">
@@ -1173,7 +1190,7 @@ document.getElementById('searchForm')
 
  const extra={};
 
- for(const id of ['finalidade','tipo','busca']){
+ for(const id of ['finalidade','tipo','busca','preco']){
   const v=document.getElementById(id).value.trim();
 
   if(v){
@@ -1206,7 +1223,7 @@ document.getElementById('advancedFilters')
 
  const extra={};
 
- for(const id of ['finalidade','tipo','busca']){
+ for(const id of ['finalidade','tipo','busca','preco']){
   const v=document.getElementById(id).value.trim();
   if(v)extra[id]=v;
  }
