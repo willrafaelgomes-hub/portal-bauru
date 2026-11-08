@@ -1,87 +1,131 @@
-const SUPABASE_URL = "https://dtkszimtovtqdojjpqsy.supabase.co";
-const SUPABASE_KEY = "sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi";
-const SITE_URL = "https://portalbauru.pages.dev";
 
-function escapeXml(value) {
-  return String(value).replace(/[<>&"']/g, (char) => ({
-    "<": "&lt;",
-    ">": "&gt;",
-    "&": "&amp;",
-    '"': "&quot;",
-    "'": "&apos;"
-  })[char]);
+/*
+  Portal Bauru Imoveis
+  Sitemap automatico atualizado
+  functions/sitemap.xml.js
+*/
+
+const SITE = 'https://portalbauru.pages.dev';
+const API = 'https://dtkszimtovtqdojjpqsy.supabase.co';
+const KEY = 'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi';
+
+function urlTag(url, lastmod) {
+  const ultima = lastmod &&
+    !Number.isNaN(new Date(lastmod).getTime())
+      ? `<lastmod>${new Date(lastmod).toISOString().slice(0, 10)}</lastmod>`
+      : '';
+
+  return `<url><loc>${url.replace(/&/g, '&amp;')}</loc>${ultima}</url>`;
 }
 
-export async function onRequestGet() {
-  const urls = [
-    `${SITE_URL}/`,
-    `${SITE_URL}/imoveis.html`
-  ];
-
+export async function onRequestGet(context) {
   try {
-    const endpoint = new URL(`${SUPABASE_URL}/rest/v1/imoveis`);
+    const links = [
+      urlTag(`${SITE}/`),
+      urlTag(`${SITE}/imoveis`)
+    ];
 
-    endpoint.searchParams.set("select", "id");
-    endpoint.searchParams.set("publicado", "eq.true");
-    endpoint.searchParams.set(
-      "situacao",
-      "not.in.(vendido,alugado)"
-    );
-    endpoint.searchParams.set("limit", "1000");
+    const categorias = new Set();
+    const limite = 500;
 
-    const response = await fetch(endpoint.toString(), {
+    for (let pagina = 0; pagina < 40; pagina++) {
+      const endpoint = new URL(`${API}/rest/v1/imoveis`);
+
+      endpoint.searchParams.set(
+        'select',
+        'id,tipo,finalidade,situacao,atualizado_em'
+      );
+
+      endpoint.searchParams.set('publicado', 'eq.true');
+      endpoint.searchParams.set('order', 'id.asc');
+      endpoint.searchParams.set('limit', String(limite));
+      endpoint.searchParams.set(
+        'offset',
+        String(pagina * limite)
+      );
+
+      const resposta = await fetch(endpoint, {
+        headers: {
+          apikey: KEY,
+          Authorization: `Bearer ${KEY}`,
+          Accept: 'application/json'
+        }
+      });
+
+      if (!resposta.ok) {
+        throw new Error(`Supabase: ${resposta.status}`);
+      }
+
+      const anuncios = await resposta.json();
+
+      if (!Array.isArray(anuncios)) {
+        throw new Error('Resposta inesperada');
+      }
+
+      for (const p of anuncios) {
+        if (
+          ['vendido', 'alugado'].includes(
+            String(p.situacao || '').toLowerCase()
+          )
+        ) {
+          continue;
+        }
+
+        const id = String(p.id || '');
+
+        if (
+          !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)
+        ) {
+          continue;
+        }
+
+        links.push(
+          urlTag(
+            `${SITE}/imovel?id=${encodeURIComponent(id)}`,
+            p.atualizado_em
+          )
+        );
+
+        if (p.finalidade === 'venda') {
+          const slug = {
+            apartamento: 'apartamentos-a-venda-em-bauru',
+            casa: 'casas-a-venda-em-bauru',
+            terreno: 'terrenos-a-venda-em-bauru'
+          }[p.tipo];
+
+          if (slug) {
+            categorias.add(slug);
+          }
+        }
+      }
+
+      if (anuncios.length < limite) {
+        break;
+      }
+    }
+
+    for (const slug of categorias) {
+      links.push(
+        urlTag(`${SITE}/imoveis/${slug}`)
+      );
+    }
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${links.join('\n')}
+</urlset>`;
+
+    return new Response(xml, {
+      status: 200,
       headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-        Accept: "application/json"
+        'Content-Type': 'application/xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=0, s-maxage=300'
       }
     });
 
-    if (!response.ok) {
-      throw new Error(`Erro ao consultar imóveis: ${response.status}`);
-    }
+  } catch (erro) {
+    console.error('Sitemap:', erro);
 
-    const properties = await response.json();
-
-    for (const property of properties) {
-      if (
-        property.id &&
-        /^[0-9a-f-]{36}$/i.test(property.id)
-      ) {
-        const url = new URL(`${SITE_URL}/imovel.html`);
-        url.searchParams.set("id", property.id);
-        urls.push(url.toString());
-      }
-    }
-  } catch (error) {
-    console.error("Erro ao gerar sitemap:", error);
-
-    return new Response(
-      "Não foi possível gerar o sitemap neste momento.",
-      {
-        status: 503,
-        headers: {
-          "Content-Type": "text/plain; charset=utf-8",
-          "Cache-Control": "no-store"
-        }
-      }
-    );
+    return context.next();
   }
-
-  const entries = urls.map((url) => (
-    `  <url><loc>${escapeXml(url)}</loc></url>`
-  )).join("\n");
-
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${entries}
-</urlset>`;
-
-  return new Response(xml, {
-    status: 200,
-    headers: {
-      "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": "public, max-age=300"
-    }
-  });
 }
