@@ -714,6 +714,38 @@ function notifyWhileOpen(title,body) {
   }
 }
 
+// Abre o formulario de um novo compromisso no Google Agenda.
+// A data ja vem do CRM em UTC; manter o Z preserva o horario correto.
+// O compromisso so e criado quando o usuario confirma no Google Agenda.
+function googleAgendaUrl(lead) {
+  if (!lead || !lead.proximo_contato) return '';
+
+  const inicio = new Date(lead.proximo_contato);
+  if (Number.isNaN(inicio.getTime())) return '';
+
+  const fim = new Date(inicio.getTime() + 30 * 60 * 1000);
+  const formatar = date => date.toISOString().replace(/[-:]|\.\d{3}/g,'');
+  const tipo = lead.etapa === 'visita' ? 'Visita' : 'Retorno';
+  const detalhes = [
+    'Portal Bauru Imoveis',
+    'Cliente: ' + (lead.nome || 'Nao informado'),
+    lead.telefone ? 'WhatsApp: ' + lead.telefone : '',
+    lead.imovel_interesse ? 'Imovel: ' + lead.imovel_interesse : '',
+    lead.proxima_acao ? 'Proxima acao: ' + lead.proxima_acao : ''
+  ].filter(Boolean).join('\n');
+
+  const parametros = new URLSearchParams({
+    action:'TEMPLATE',
+    text:tipo + ' | ' + (lead.nome || 'Cliente'),
+    dates:formatar(inicio) + '/' + formatar(fim),
+    ctz:'America/Sao_Paulo',
+    details:detalhes
+  });
+
+  return 'https://calendar.google.com/calendar/render?' +
+    parametros.toString();
+}
+
 function render() {
   const q = $('search').value.trim().toLowerCase();
   const st = $('stageFilter').value;
@@ -763,6 +795,14 @@ function render() {
               WhatsApp
             </a>
           ` : ''}
+          ${googleAgendaUrl(l) ? `
+            <a class="btn small light" style="text-decoration:none"
+              href="${esc(googleAgendaUrl(l))}"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Adicionar compromisso de ${esc(l.nome)} ao Google Agenda">
+              Google Agenda
+            </a>
+          ` : ''}
           <button class="btn small light"
             data-delete="${l.id}">Excluir</button>
         </div>
@@ -791,6 +831,14 @@ function render() {
         <div class="alert-actions">
           <button class="btn small light"
             data-edit="${l.id}">Abrir cliente</button>
+          ${googleAgendaUrl(l) ? `
+            <a class="btn small light" style="text-decoration:none"
+              href="${esc(googleAgendaUrl(l))}"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Adicionar retorno de ${esc(l.nome)} ao Google Agenda">
+              Google Agenda
+            </a>
+          ` : ''}
         </div>
       </div>
     `).join('')
