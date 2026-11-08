@@ -1,12 +1,68 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14253D">
-<meta name="description" content="Portal Bauru Imóveis. Conectando pessoas às oportunidades certas. Encontre casas, apartamentos e terrenos em Bauru/SP.">
-<title>Portal Bauru Imóveis | Imóveis em Bauru/SP</title>
+<meta name="description" content="Encontre casas, apartamentos e terrenos à venda em Bauru/SP no Portal Bauru Imóveis. Confira fotos reais, detalhes dos imóveis e fale com corretores locais.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://portalbauru.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Portal Bauru Imóveis">
+<meta property="og:title" content="Imóveis à venda em Bauru/SP | Portal Bauru Imóveis">
+<meta property="og:description" content="Casas, apartamentos e terrenos em Bauru/SP com fotos reais, informações claras e atendimento profissional.">
+<meta property="og:url" content="https://portalbauru.pages.dev/">
+<meta name="twitter:card" content="summary">
+<title>Imóveis à venda em Bauru/SP | Portal Bauru Imóveis</title>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://portalbauru.pages.dev/#organizacao",
+      "name": "Portal Bauru Imóveis",
+      "url": "https://portalbauru.pages.dev/",
+      "description": "Portal de imóveis com atendimento profissional em Bauru, São Paulo.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Bauru",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "São Paulo"
+        }
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://portalbauru.pages.dev/#site",
+      "url": "https://portalbauru.pages.dev/",
+      "name": "Portal Bauru Imóveis",
+      "alternateName": "Portal Bauru",
+      "inLanguage": "pt-BR",
+      "publisher": {
+        "@id": "https://portalbauru.pages.dev/#organizacao"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://portalbauru.pages.dev/#pagina-inicial",
+      "url": "https://portalbauru.pages.dev/",
+      "name": "Imóveis à venda em Bauru/SP | Portal Bauru Imóveis",
+      "isPartOf": {
+        "@id": "https://portalbauru.pages.dev/#site"
+      },
+      "about": {
+        "@type": "Place",
+        "name": "Bauru, São Paulo, Brasil"
+      },
+      "inLanguage": "pt-BR"
+    }
+  ]
+}
+</script>
 
 <style>
 :root{
@@ -277,6 +333,35 @@ button{cursor:pointer}
 .search .btn{
   min-height:49px;
   white-space:nowrap
+}
+
+/* NAVEGAÇÃO POR TIPO DE IMÓVEL */
+.local-section{background:#F6F1EA}
+.local-copy{
+  max-width:920px;
+  color:#536575;
+  line-height:1.7;
+  margin:12px 0 20px
+}
+.local-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px
+}
+.local-link{
+  display:inline-flex;
+  align-items:center;
+  padding:12px 16px;
+  border:1px solid #D8DEE3;
+  border-radius:10px;
+  background:white;
+  color:#14253D;
+  font-size:.9rem;
+  font-weight:750
+}
+.local-link:hover{
+  border-color:#F85F08;
+  color:#C84804
 }
 
 /* ESCOLHAS DA SEMANA */
@@ -701,6 +786,26 @@ Buscar imóveis
 </div>
 </section>
 
+<section class="section local-section" aria-labelledby="tipos-imoveis">
+<div class="wrap">
+<div class="eyebrow" style="color:#D34D00">Encontre oportunidades em Bauru</div>
+<h2 id="tipos-imoveis">Casas, apartamentos e terrenos à venda em Bauru</h2>
+<p class="local-copy">
+O Portal Bauru Imóveis reúne anúncios de imóveis em Bauru, no interior de
+São Paulo. Você pode pesquisar casas, apartamentos, terrenos e outros tipos
+de imóveis, filtrar por bairro ou condomínio e consultar as características
+de cada oportunidade. Os anúncios apresentam as informações disponíveis
+no cadastro, fotografias e opções de contato para esclarecer dúvidas ou
+agendar uma visita com nossa equipe.
+</p>
+<div class="local-links" aria-label="Pesquisar por tipo de imóvel">
+<a class="local-link" id="catApartamento" href="imoveis.html?finalidade=venda&amp;tipo=apartamento">Apartamentos à venda em Bauru</a>
+<a class="local-link" id="catCasa" href="imoveis.html?finalidade=venda&amp;tipo=casa">Casas à venda em Bauru</a>
+<a class="local-link" id="catTerreno" href="imoveis.html?finalidade=venda&amp;tipo=terreno">Terrenos à venda em Bauru</a>
+</div>
+</div>
+</section>
+
 <section class="section weekly-section">
 <div class="wrap">
 
@@ -892,6 +997,16 @@ for(const id of [
 ]){
  document.getElementById(id).href=
  linked('imoveis.html',{finalidade:'venda'});
+}
+
+for(const [id,tipo] of [
+ ['catApartamento','apartamento'],
+ ['catCasa','casa'],
+ ['catTerreno','terreno']
+]){
+ document.getElementById(id).href=linked('imoveis.html',{
+  finalidade:'venda',tipo
+ });
 }
 
 document.getElementById('searchForm')
