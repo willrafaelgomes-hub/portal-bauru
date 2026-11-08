@@ -78,7 +78,7 @@ button,input,select{font:inherit}
 button{cursor:pointer}
 .wrap{width:min(1160px,calc(100% - 32px));margin:auto}
 
-/* IDENTIDADE */
+/* CABEÇALHO */
 .top{background:#14253D;color:#fff}
 .nav{
   min-height:83px;
@@ -150,12 +150,14 @@ button{cursor:pointer}
   color:#fff
 }
 
-/* HERO */
+/* TOPO COM BUSCA */
 .hero{
-  background:linear-gradient(120deg,#14253D,#203E5C);
+  background:linear-gradient(125deg,#14253D 0%,#1B3552 65%,#23415C 100%);
   color:#fff
 }
-.hero-inner{padding:25px 0 27px}
+.hero-inner{
+  padding:42px 0 45px
+}
 .eyebrow{
   text-transform:uppercase;
   letter-spacing:.13em;
@@ -164,19 +166,124 @@ button{cursor:pointer}
   color:#FFAA80
 }
 .hero h1{
-  font-size:clamp(1.95rem,4.5vw,3.2rem);
+  font-size:clamp(2.1rem,4.5vw,3.45rem);
   letter-spacing:-.045em;
-  line-height:1.12;
-  margin:9px 0;
-  max-width:850px
+  line-height:1.1;
+  margin:12px 0;
+  max-width:900px
 }
-.hero h1 em{font-style:normal;color:#FF995F}
+.hero h1 em{
+  font-style:normal;
+  color:#FF995F
+}
 .hero p{
   color:#DCE5ED;
-  line-height:1.5;
-  font-size:.94rem;
+  line-height:1.55;
+  font-size:.97rem;
   margin:0;
-  max-width:690px
+  max-width:700px
+}
+
+.hero-search{
+  background:#fff;
+  color:#14253D;
+  border-radius:18px;
+  padding:21px;
+  margin-top:27px;
+  box-shadow:0 18px 38px #07142533
+}
+.search-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:18px
+}
+.search-tabs{
+  display:inline-flex;
+  padding:4px;
+  gap:4px;
+  border-radius:12px;
+  background:#F2F2F0
+}
+.search-tab{
+  border:0;
+  border-radius:9px;
+  background:transparent;
+  color:#637080;
+  padding:11px 24px;
+  font-weight:800;
+  font-size:.9rem;
+  transition:background .15s,color .15s
+}
+.search-tab.active{
+  background:#14253D;
+  color:#fff;
+  box-shadow:0 3px 9px #14253D1A
+}
+.search-label{
+  font-size:.81rem;
+  color:#667588;
+  font-weight:650
+}
+.search{
+  display:grid;
+  grid-template-columns:1fr 1.5fr auto;
+  gap:12px;
+  align-items:end
+}
+.field label{
+  display:block;
+  font-size:.78rem;
+  font-weight:800;
+  color:#506174;
+  margin-bottom:8px
+}
+.field input,.field select{
+  width:100%;
+  height:52px;
+  border:1px solid #DDE3E9;
+  background:#FAFAFA;
+  border-radius:10px;
+  color:#14253D;
+  padding:0 14px;
+  outline-color:#F85F08
+}
+.field input::placeholder{
+  color:#84909D
+}
+.search .btn{
+  min-height:52px;
+  min-width:164px;
+  white-space:nowrap
+}
+.search-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding-top:15px;
+  margin-top:16px;
+  border-top:1px solid #EDEBE7
+}
+.search-note{
+  font-size:.78rem;
+  color:#687789
+}
+.advanced{
+  font-size:.83rem;
+  font-weight:800;
+  color:#B84B0B;
+  white-space:nowrap
+}
+.advanced:hover{text-decoration:underline}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:3px solid #F85F08;
+  outline-offset:3px
 }
 
 /* SEÇÕES */
@@ -300,42 +407,7 @@ button{cursor:pointer}
   margin-top:23px
 }
 
-/* BUSCA */
-.search-section{
-  background:#fff;
-  border-top:1px solid #E8E6E1;
-  border-bottom:1px solid #E8E6E1
-}
-.search{
-  display:grid;
-  grid-template-columns:1fr 1fr 1.35fr auto;
-  gap:12px;
-  align-items:end;
-  margin-top:20px
-}
-.field label{
-  display:block;
-  font-size:.76rem;
-  font-weight:800;
-  color:#506174;
-  margin-bottom:7px
-}
-.field input,.field select{
-  width:100%;
-  height:49px;
-  border:1px solid #DDE3E9;
-  background:#F9FAFB;
-  border-radius:9px;
-  color:#14253D;
-  padding:0 11px;
-  outline-color:#F85F08
-}
-.search .btn{
-  min-height:49px;
-  white-space:nowrap
-}
-
-/* NAVEGAÇÃO POR TIPO DE IMÓVEL */
+/* NAVEGAÇÃO POR TIPO */
 .local-section{background:#F6F1EA}
 .local-copy{
   max-width:920px;
@@ -354,7 +426,7 @@ button{cursor:pointer}
   padding:12px 16px;
   border:1px solid #D8DEE3;
   border-radius:10px;
-  background:white;
+  background:#fff;
   color:#14253D;
   font-size:.9rem;
   font-weight:750
@@ -557,9 +629,15 @@ button{cursor:pointer}
   .grid{
     grid-template-columns:repeat(2,minmax(0,1fr))
   }
-  .search{grid-template-columns:1fr 1fr}
-  .search .btn{grid-column:1/-1}
-  .weekly-grid{grid-template-columns:1fr}
+  .search{
+    grid-template-columns:1fr 1fr
+  }
+  .search .btn{
+    grid-column:1/-1
+  }
+  .weekly-grid{
+    grid-template-columns:1fr
+  }
   .nav-cta{display:none}
 }
 @media(max-width:580px){
@@ -579,17 +657,53 @@ button{cursor:pointer}
   }
   .links{font-size:.77rem;gap:10px}
   .links a:first-child{display:none}
-  .hero-inner{padding:17px 0 20px}
+
+  .hero-inner{padding:24px 0 29px}
   .hero h1{
-    font-size:clamp(1.7rem,7.6vw,2.25rem);
-    margin:7px 0
+    font-size:clamp(1.85rem,8vw,2.45rem);
+    margin:9px 0
   }
   .hero p{
-    font-size:.82rem;
-    line-height:1.4;
-    max-width:355px
+    font-size:.86rem;
+    line-height:1.45
   }
   .eyebrow{font-size:.62rem}
+  .hero-search{
+    padding:14px;
+    border-radius:15px;
+    margin-top:21px
+  }
+  .search-heading{margin-bottom:14px}
+  .search-tabs{width:100%}
+  .search-tab{
+    flex:1;
+    padding:11px 13px
+  }
+  .search-label{display:none}
+  .search{
+    grid-template-columns:1fr;
+    gap:13px
+  }
+  .search .btn{
+    grid-column:auto;
+    width:100%;
+    margin-top:1px
+  }
+  .field label{font-size:.75rem}
+  .field input,.field select{
+    height:50px;
+    font-size:.9rem
+  }
+  .search-bottom{
+    margin-top:12px;
+    padding-top:13px
+  }
+  .search-note{
+    max-width:165px;
+    font-size:.7rem
+  }
+  .advanced{font-size:.78rem}
+
   .section{padding:28px 0}
   .section-head{margin-bottom:13px;gap:7px}
   .section h2{
@@ -622,16 +736,6 @@ button{cursor:pointer}
     padding:5px 7px
   }
   .section-actions{margin-top:18px}
-  .search{
-    grid-template-columns:1fr 1fr;
-    gap:11px
-  }
-  .search .field:last-of-type{grid-column:1/-1}
-  .field label{font-size:.71rem}
-  .field select{
-    font-size:.85rem;
-    padding:0 7px
-  }
   .weekly-card{min-height:145px}
   .weekly-photo{width:39%}
   .weekly-content{padding:13px;gap:7px}
@@ -655,9 +759,9 @@ button{cursor:pointer}
 <header class="top">
 <div class="wrap nav">
 
-<a class="brand" id="homeLink" href="index.html" aria-label="Portal Bauru Imóveis — Página inicial">
+<a class="brand" id="homeLink" href="index.html"
+aria-label="Portal Bauru Imóveis — Página inicial">
 
-<!-- Símbolo vetorial provisório, até inclusão da logo oficial -->
 <span class="brand-icon" aria-hidden="true">
 <svg viewBox="0 0 48 58" xmlns="http://www.w3.org/2000/svg">
 <path d="M24 3C12 3 3 12 3 24c0 17 21 31 21 31s21-14 21-31C45 12 36 3 24 3Z" fill="#F85F08"/>
@@ -691,15 +795,95 @@ Explorar oportunidades
 
 <main>
 
-<section class="hero">
+<section class="hero" aria-labelledby="titulo-principal">
 <div class="wrap hero-inner">
-<div class="eyebrow">Imóveis à venda em Bauru/SP</div>
-<h1>Seu próximo imóvel <em>está aqui.</em></h1>
+
+<div class="eyebrow">Seu portal imobiliário em Bauru/SP</div>
+
+<h1 id="titulo-principal">
+Encontre seu próximo <em>imóvel em Bauru.</em>
+</h1>
+
 <p>
-Oportunidades reais em Bauru, com informações claras
-e atendimento profissional para ajudar você a encontrar
-o imóvel certo.
+Apartamentos, casas, terrenos e outras oportunidades.
+Pesquise com facilidade e encontre o imóvel certo para você.
 </p>
+
+<div class="hero-search">
+
+<div class="search-heading">
+
+<div class="search-tabs" role="group"
+aria-label="Escolha se deseja comprar ou alugar">
+<button
+type="button"
+class="search-tab active"
+data-purpose="venda"
+aria-pressed="true">
+Comprar
+</button>
+<button
+type="button"
+class="search-tab"
+data-purpose="locacao"
+aria-pressed="false">
+Alugar
+</button>
+</div>
+
+<span class="search-label">Encontre sua próxima oportunidade</span>
+
+</div>
+
+<form id="searchForm" class="search"
+action="imoveis.html" method="get">
+
+<input type="hidden" id="finalidade"
+name="finalidade" value="venda">
+
+<div class="field">
+<label for="tipo">Tipo de imóvel</label>
+<select id="tipo" name="tipo">
+<option value="">Todos os tipos</option>
+<option value="apartamento">Apartamento</option>
+<option value="casa">Casa</option>
+<option value="sobrado">Sobrado</option>
+<option value="terreno">Terreno</option>
+<option value="chacara">Chácara</option>
+<option value="comercial">Comercial</option>
+<option value="outro">Outros</option>
+</select>
+</div>
+
+<div class="field">
+<label for="busca">Bairro, condomínio ou código</label>
+<input
+id="busca"
+name="busca"
+type="search"
+placeholder="Onde você quer encontrar seu imóvel?"
+autocomplete="off">
+</div>
+
+<button class="btn primary" type="submit">
+Buscar imóveis
+</button>
+
+</form>
+
+<div class="search-bottom">
+<span class="search-note">
+Pesquise imóveis disponíveis em Bauru.
+</span>
+
+<a id="advancedFilters"
+class="advanced"
+href="imoveis.html">
+Mais filtros →
+</a>
+</div>
+
+</div>
 </div>
 </section>
 
@@ -716,6 +900,7 @@ Oportunidades disponíveis
 Conheça os anúncios mais recentes do Portal Bauru.
 </p>
 </div>
+
 <a class="text-link" id="allLink" href="imoveis.html">
 Ver todos →
 </a>
@@ -736,73 +921,45 @@ Explorar todos os imóveis à venda
 </div>
 </section>
 
-<section class="section search-section" id="buscar">
+<section class="section local-section" aria-labelledby="tipos-imoveis">
 <div class="wrap">
 
 <div class="eyebrow" style="color:#D34D00">
-Encontre o que procura
-</div>
-<h2>Busque seu imóvel ideal</h2>
-<p class="intro">
-Pesquise por tipo, bairro ou condomínio.
-</p>
-
-<form id="searchForm" class="search">
-
-<div class="field">
-<label for="finalidade">O que procura?</label>
-<select id="finalidade">
-<option value="venda" selected>Comprar</option>
-<option value="locacao">Alugar</option>
-</select>
+Encontre oportunidades em Bauru
 </div>
 
-<div class="field">
-<label for="tipo">Tipo de imóvel</label>
-<select id="tipo">
-<option value="">Todos os tipos</option>
-<option value="apartamento">Apartamento</option>
-<option value="casa">Casa</option>
-<option value="sobrado">Sobrado</option>
-<option value="terreno">Terreno</option>
-<option value="chacara">Chácara</option>
-<option value="comercial">Comercial</option>
-<option value="outro">Outros</option>
-</select>
-</div>
+<h2 id="tipos-imoveis">
+Casas, apartamentos e terrenos à venda em Bauru
+</h2>
 
-<div class="field">
-<label for="busca">Bairro, condomínio ou código</label>
-<input id="busca"
-placeholder="Onde você quer morar?"
-autocomplete="off">
-</div>
-
-<button class="btn primary" type="submit">
-Buscar imóveis
-</button>
-
-</form>
-</div>
-</section>
-
-<section class="section local-section" aria-labelledby="tipos-imoveis">
-<div class="wrap">
-<div class="eyebrow" style="color:#D34D00">Encontre oportunidades em Bauru</div>
-<h2 id="tipos-imoveis">Casas, apartamentos e terrenos à venda em Bauru</h2>
 <p class="local-copy">
-O Portal Bauru Imóveis reúne anúncios de imóveis em Bauru, no interior de
-São Paulo. Você pode pesquisar casas, apartamentos, terrenos e outros tipos
-de imóveis, filtrar por bairro ou condomínio e consultar as características
-de cada oportunidade. Os anúncios apresentam as informações disponíveis
-no cadastro, fotografias e opções de contato para esclarecer dúvidas ou
-agendar uma visita com nossa equipe.
+O Portal Bauru Imóveis reúne anúncios de imóveis em Bauru,
+no interior de São Paulo. Você pode pesquisar casas,
+apartamentos, terrenos e outros tipos de imóveis,
+filtrar por bairro ou condomínio e consultar as características
+de cada oportunidade. Os anúncios apresentam as informações
+disponíveis no cadastro, fotografias e opções de contato
+para esclarecer dúvidas ou agendar uma visita com nossa equipe.
 </p>
+
 <div class="local-links" aria-label="Pesquisar por tipo de imóvel">
-<a class="local-link" id="catApartamento" href="imoveis.html?finalidade=venda&amp;tipo=apartamento">Apartamentos à venda em Bauru</a>
-<a class="local-link" id="catCasa" href="imoveis.html?finalidade=venda&amp;tipo=casa">Casas à venda em Bauru</a>
-<a class="local-link" id="catTerreno" href="imoveis.html?finalidade=venda&amp;tipo=terreno">Terrenos à venda em Bauru</a>
+<a class="local-link"
+id="catApartamento"
+href="imoveis.html?finalidade=venda&amp;tipo=apartamento">
+Apartamentos à venda em Bauru
+</a>
+<a class="local-link"
+id="catCasa"
+href="imoveis.html?finalidade=venda&amp;tipo=casa">
+Casas à venda em Bauru
+</a>
+<a class="local-link"
+id="catTerreno"
+href="imoveis.html?finalidade=venda&amp;tipo=terreno">
+Terrenos à venda em Bauru
+</a>
 </div>
+
 </div>
 </section>
 
@@ -1009,6 +1166,7 @@ for(const [id,tipo] of [
  });
 }
 
+/* BUSCA PRINCIPAL */
 document.getElementById('searchForm')
 .addEventListener('submit',e=>{
  e.preventDefault();
@@ -1026,6 +1184,37 @@ document.getElementById('searchForm')
  location.href=linked('imoveis.html',extra);
 });
 
+/* ABAS COMPRAR / ALUGAR */
+const purposeInput=document.getElementById('finalidade');
+
+document.querySelectorAll('.search-tab').forEach(tab=>{
+ tab.addEventListener('click',()=>{
+  purposeInput.value=tab.dataset.purpose;
+
+  document.querySelectorAll('.search-tab').forEach(other=>{
+   const selected=other===tab;
+   other.classList.toggle('active',selected);
+   other.setAttribute('aria-pressed',String(selected));
+  });
+ });
+});
+
+/* FILTROS AVANÇADOS COM OS CAMPOS JÁ SELECIONADOS */
+document.getElementById('advancedFilters')
+.addEventListener('click',e=>{
+ e.preventDefault();
+
+ const extra={};
+
+ for(const id of ['finalidade','tipo','busca']){
+  const v=document.getElementById(id).value.trim();
+  if(v)extra[id]=v;
+ }
+
+ location.href=linked('imoveis.html',extra);
+});
+
+/* CARREGAMENTO DOS ANÚNCIOS */
 const root=document.getElementById('properties');
 const weeklyRoot=document.getElementById('weeklyProperties');
 const status=document.getElementById('status');
