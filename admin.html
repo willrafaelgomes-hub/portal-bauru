@@ -4,61 +4,67 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14253D">
 <title>Portal Bauru Imóveis | Administração</title>
+
 <style>
 :root{
-  font-family:Arial,sans-serif;
-  color:#14253d;
-  background:#f6f1ea
+font-family:Arial,sans-serif;
+color:#14253d;
+background:#f6f1ea
 }
 *{box-sizing:border-box}
 body{margin:0}
 header{
-  background:#14253d;
-  color:white;
-  padding:20px 5%;
-  display:flex;
-  justify-content:space-between;
-  gap:12px
+background:#14253d;
+color:white;
+padding:20px 5%;
+display:flex;
+justify-content:space-between;
+gap:12px
 }
-main{max-width:1100px;margin:25px auto;padding:0 15px}
+main{
+max-width:1100px;
+margin:25px auto;
+padding:0 15px
+}
 .card{
-  background:white;
-  border-radius:16px;
-  padding:22px;
-  margin-bottom:20px;
-  box-shadow:0 5px 25px #14253d12
+background:white;
+border-radius:16px;
+padding:22px;
+margin-bottom:20px;
+box-shadow:0 5px 25px #14253d12
 }
 .section{
-  background:#fafbfd;
-  border:1px solid #e1e5ea;
-  border-radius:13px;
-  padding:18px;
-  margin:17px 0
+background:#fafbfd;
+border:1px solid #e1e5ea;
+border-radius:13px;
+padding:18px;
+margin:17px 0
 }
 h1{font-size:25px}
 h2{font-size:21px}
 h3{font-size:17px}
 label{font-size:14px;font-weight:600}
 input,select,textarea{
-  width:100%;
-  padding:11px;
-  margin:7px 0 15px;
-  border:1px solid #cfd5dc;
-  border-radius:9px;
-  font:inherit;
-  color:#14253d;
-  background:white
+width:100%;
+padding:11px;
+margin:7px 0 15px;
+border:1px solid #cfd5dc;
+border-radius:9px;
+font:inherit;
+color:#14253d;
+background:white
 }
 textarea{min-height:95px}
 button{
-  background:#f85f08;
-  color:white;
-  border:0;
-  border-radius:9px;
-  padding:11px 16px;
-  font-weight:700;
-  cursor:pointer
+background:#f85f08;
+color:white;
+border:0;
+border-radius:9px;
+padding:11px 16px;
+font-weight:700;
+cursor:pointer
 }
 button.secondary{background:#14253d}
 button.ghost{background:#e9edf2;color:#14253d}
@@ -68,109 +74,110 @@ button:disabled{opacity:.5}
 .row>*{flex:1;min-width:160px}
 .hidden{display:none!important}
 .hint,.muted{
-  color:#697386;
-  font-size:13px;
-  line-height:1.5
+color:#697386;
+font-size:13px;
+line-height:1.5
 }
 .error{color:#a12820}
 .success{color:#176d3b}
 .options{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:8px;
-  margin:12px 0
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:8px;
+margin:12px 0
 }
 .options label,.check{
-  display:flex;
-  gap:8px;
-  align-items:center;
-  font-weight:400
+display:flex;
+gap:8px;
+align-items:center;
+font-weight:400
 }
 .options input,.check input{width:auto;margin:0}
 .group-title{font-size:14px;margin:18px 0 8px}
 .item{
-  padding:16px 0;
-  border-bottom:1px solid #eee;
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap
+padding:16px 0;
+border-bottom:1px solid #eee;
+display:flex;
+justify-content:space-between;
+gap:12px;
+flex-wrap:wrap
 }
 .item-actions{display:flex;flex-wrap:wrap;gap:6px}
 .item-actions button{font-size:12px}
 .photos{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(135px,1fr));
-  gap:12px;
-  margin:15px 0
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(135px,1fr));
+gap:12px;
+margin:15px 0
 }
 .photo{
-  padding:8px;
-  border:1px solid #ddd;
-  border-radius:10px
+padding:8px;
+border:1px solid #ddd;
+border-radius:10px
 }
 .photo img{
-  width:100%;
-  aspect-ratio:4/3;
-  object-fit:cover
+width:100%;
+aspect-ratio:4/3;
+object-fit:cover
 }
 .photo button{
-  display:block;
-  width:100%;
-  margin-top:5px;
-  font-size:12px
+display:block;
+width:100%;
+margin-top:5px;
+font-size:12px
 }
 .photo.dragging{opacity:.5}
 .photo.drop-target{outline:3px dashed #f85f08}
 .uploadbar{
-  padding:15px;
-  border:1px dashed #aeb7c1;
-  border-radius:12px
+padding:15px;
+border:1px dashed #aeb7c1;
+border-radius:12px
 }
 .actions-bottom{
-  position:sticky;
-  bottom:0;
-  background:white;
-  padding:12px 0;
-  border-top:1px solid #eee;
-  display:flex;
-  gap:10px;
-  z-index:5
+position:sticky;
+bottom:0;
+background:white;
+padding:12px 0;
+border-top:1px solid #eee;
+display:flex;
+gap:10px;
+z-index:5
 }
 details{
-  border:1px solid #e1e5ea;
-  border-radius:10px;
-  margin:12px 0
+border:1px solid #e1e5ea;
+border-radius:10px;
+margin:12px 0
 }
 summary{padding:14px;cursor:pointer;font-weight:700}
 .details-body{padding:15px}
 .notice{
-  background:#fff6ed;
-  border-left:4px solid #f85f08;
-  padding:12px;
-  font-size:13px;
-  line-height:1.5
+background:#fff6ed;
+border-left:4px solid #f85f08;
+padding:12px;
+font-size:13px;
+line-height:1.5
 }
 .money{font-variant-numeric:tabular-nums}
 .crm-link{
-  display:inline-block;
-  background:#f85f08;
-  color:white;
-  padding:11px 16px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:700;
-  margin-right:8px
+display:inline-block;
+background:#f85f08;
+color:white;
+padding:11px 16px;
+border-radius:9px;
+text-decoration:none;
+font-weight:700;
+margin-right:8px
 }
 .crm-link:hover{background:#df5204}
 @media(max-width:550px){
-  .card{padding:15px}
-  .section{padding:13px}
-  .options{grid-template-columns:1fr 1fr}
-  .crm-link{margin-bottom:8px}
+.card{padding:15px}
+.section{padding:13px}
+.options{grid-template-columns:1fr 1fr}
+.crm-link{margin-bottom:8px}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -232,6 +239,7 @@ Você pode ocultá-los pela lista de imóveis.
 <input id="titulo" required>
 </label>
 </div>
+
 <div class="row">
 <label>Finalidade
 <select id="finalidade">
@@ -251,6 +259,7 @@ Você pode ocultá-los pela lista de imóveis.
 </select>
 </label>
 </div>
+
 <div class="row">
 <label>Condomínio / Empreendimento
 <input id="empreendimento">
@@ -315,6 +324,7 @@ placeholder="R$ 0,00">
 placeholder="R$ 0,00">
 </label>
 </div>
+
 <details>
 <summary>Valores adicionais</summary>
 <div class="details-body">
@@ -522,16 +532,26 @@ Cancelar
 
 <section id="photoSection" class="hidden">
 <h2>Fotografias</h2>
+
 <p class="hint">
-Novas fotografias recebem a marca-d’água.
+As novas fotografias recebem automaticamente
+a logo original do Portal Bauru Imóveis,
+centralizada, discreta e translúcida.
 A primeira fotografia será a capa.
 </p>
 
 <div class="notice">
-A marca-d’água ainda utiliza o símbolo provisório.
-A fotografia original é guardada separadamente,
-mas não fica privada enquanto o bucket permitir
-acesso público.
+<strong>Marca-d’água oficial</strong>
+<p>
+Logo incorporada ao próprio sistema.
+Não é necessário enviar outro arquivo.
+A transparência é de 17%.
+</p>
+<p>
+Os originais são armazenados separadamente,
+mas permanecem acessíveis por URL enquanto
+o bucket for público.
+</p>
 </div>
 
 <div class="uploadbar">
@@ -1313,16 +1333,12 @@ else if(!editing)payload.aceita_fgts=false;
 
 payload.detalhes=details;
 
-// NOVO IMÓVEL: PUBLICADO AUTOMATICAMENTE.
-// EDIÇÃO: PRESERVA O ESTADO ATUAL.
-
 if(!editing){
 payload.publicado=true;
 }
 
 const button=$('saveProperty');
 button.disabled=true;
-
 message('Salvando...');
 
 try{
@@ -1336,7 +1352,6 @@ const {error}=editing
 if(error)throw error;
 
 message('Imóvel salvo com sucesso.');
-
 $('editor').classList.add('hidden');
 
 await load();
@@ -1547,9 +1562,6 @@ return;
 
 const paths=[r.caminho];
 
-// Procura o original quando a foto foi criada
-// pelo sistema de marca-d'água.
-
 if(r.caminho.endsWith('-portal.jpg')){
 const name=r.caminho
 .split('/')
@@ -1582,12 +1594,47 @@ $('photoStatus').textContent=storageError
 await loadPhotos();
 }
 
-// MARCA-D'ÁGUA PROVISÓRIA
+// MARCA-D'ÁGUA ORIGINAL INCORPORADA AO CÓDIGO
+
+const MARCA_OPACIDADE=0.17;
+
+// A logo abaixo já está embutida.
+// Nenhum arquivo externo é necessário.
+const MARCA_BASE64=
+'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';
+
+let logoMarcaPromise=null;
+
+function carregarLogoMarca(){
+if(!logoMarcaPromise){
+logoMarcaPromise=new Promise((resolve,reject)=>{
+const logo=new Image();
+
+logo.onload=()=>{
+if(!logo.naturalWidth||!logo.naturalHeight){
+reject(new Error('Logo incorporada inválida.'));
+return;
+}
+resolve(logo);
+};
+
+logo.onerror=()=>{
+logoMarcaPromise=null;
+reject(new Error('Falha ao carregar a logo incorporada.'));
+};
+
+logo.src='data:image/png;base64,'+MARCA_BASE64;
+});
+}
+return logoMarcaPromise;
+}
 
 async function gerarFotoComMarca(file){
 const bitmap=await createImageBitmap(file);
 
 try{
+const logo=await carregarLogoMarca();
+
 const canvas=document.createElement('canvas');
 canvas.width=bitmap.width;
 canvas.height=bitmap.height;
@@ -1602,89 +1649,37 @@ ctx.drawImage(bitmap,0,0);
 
 const w=canvas.width;
 const h=canvas.height;
+const paisagem=w>=h;
 
-const scale=Math.max(
-.65,
-Math.min(w/1400,h/950)
+const limiteW=w*(paisagem?0.42:0.68);
+const limiteH=h*(paisagem?0.20:0.12);
+
+const fator=Math.min(
+limiteW/logo.naturalWidth,
+limiteH/logo.naturalHeight
 );
 
-const margin=22*scale;
-const fontSize=19*scale;
-const iconSize=37*scale;
-const gap=10*scale;
-const padX=13*scale;
-const padY=11*scale;
+const largura=logo.naturalWidth*fator;
+const altura=logo.naturalHeight*fator;
 
-const text='Portal Bauru Imóveis';
+ctx.save();
+ctx.globalAlpha=MARCA_OPACIDADE;
 
-ctx.font=`700 ${fontSize}px Arial, sans-serif`;
-
-const textWidth=ctx.measureText(text).width;
-const boxW=padX*2+iconSize+gap+textWidth;
-const boxH=Math.max(iconSize,fontSize)+padY*2;
-
-const x=w-margin-boxW;
-const y=h-margin-boxH;
-
-// Fundo translúcido.
-ctx.fillStyle='rgba(20,37,61,.64)';
-ctx.beginPath();
-ctx.roundRect(x,y,boxW,boxH,9*scale);
-ctx.fill();
-
-// Marcador laranja.
-const cx=x+padX+iconSize/2;
-const cy=y+padY+iconSize*.45;
-const r=iconSize*.36;
-
-ctx.fillStyle='#F85F08';
-ctx.beginPath();
-ctx.arc(cx,cy-r*.12,r,0,Math.PI*2);
-ctx.fill();
-
-ctx.beginPath();
-ctx.moveTo(cx-r*.74,cy+r*.32);
-ctx.lineTo(cx,cy+r*1.35);
-ctx.lineTo(cx+r*.74,cy+r*.32);
-ctx.closePath();
-ctx.fill();
-
-// Casa branca.
-ctx.fillStyle='#fff';
-ctx.beginPath();
-ctx.moveTo(cx-r*.58,cy-r*.02);
-ctx.lineTo(cx,cy-r*.48);
-ctx.lineTo(cx+r*.58,cy-r*.02);
-ctx.lineTo(cx+r*.42,cy-r*.02);
-ctx.lineTo(cx+r*.42,cy+r*.43);
-ctx.lineTo(cx-r*.42,cy+r*.43);
-ctx.lineTo(cx-r*.42,cy-r*.02);
-ctx.closePath();
-ctx.fill();
-
-ctx.fillStyle='#F85F08';
-ctx.fillRect(
-cx-r*.12,
-cy+r*.12,
-r*.24,
-r*.31
+ctx.drawImage(
+logo,
+(w-largura)/2,
+(h-altura)/2,
+largura,
+altura
 );
 
-// Nome.
-ctx.fillStyle='#fff';
-ctx.textBaseline='middle';
-
-ctx.fillText(
-text,
-x+padX+iconSize+gap,
-y+boxH/2
-);
+ctx.restore();
 
 return await new Promise((resolve,reject)=>{
 canvas.toBlob(blob=>{
 if(blob)resolve(blob);
 else reject(new Error('Falha ao gerar imagem'));
-},'image/jpeg',.93);
+},'image/jpeg',0.93);
 });
 
 }finally{
@@ -1769,7 +1764,6 @@ errors.push(file.name+': '+error.message);
 continue;
 }
 
-// Guarda o original.
 const {error:originalError}=
 await supabase.storage
 .from(bucket)
@@ -1783,7 +1777,6 @@ errors.push(file.name+': '+originalError.message);
 continue;
 }
 
-// Guarda a versão publicada.
 const {error:uploadError}=
 await supabase.storage
 .from(bucket)
@@ -1801,7 +1794,6 @@ errors.push(file.name+': '+uploadError.message);
 continue;
 }
 
-// Registra somente a imagem com marca.
 const ordemEnvio=Math.min(
 30,
 Math.max(1,Math.trunc(Number(nextOrder)||1))
