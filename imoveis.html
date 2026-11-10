@@ -5,8 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14253D">
-<meta name="description" content="Encontre apartamentos, casas e terrenos à venda ou para locação em Bauru. Fotografias reais e atendimento próximo.">
-<title>Imóveis disponíveis | Portal Bauru</title>
+<meta name="description" content="Encontre apartamentos, casas e terrenos à venda ou para locação em Bauru. Pesquise por bairro, condomínio, preço, suíte, piscina e financiamento. Fotos reais e atendimento personalizado.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://portalbauru.pages.dev/imoveis">
+<title>Imóveis disponíveis em Bauru | Portal Bauru Imóveis</title>
 <style>
 :root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#14253D;background:#F6F1EA;font-synthesis:none}
 *{box-sizing:border-box}
@@ -36,6 +38,12 @@ button{cursor:pointer}
 .more summary::after{content:'+';font-size:1.3rem;color:#F85F08}
 .more[open] summary::after{content:'−'}
 .extra{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;padding-top:14px}
+.filter-title{font-size:.76rem;font-weight:800;margin:17px 0 10px}
+.features{display:flex;flex-wrap:wrap;gap:9px}
+.feature{position:relative;display:inline-flex;align-items:center;gap:8px;border:1px solid #dfe5e8;border-radius:10px;background:#f9fafb;padding:11px 13px;font-size:.81rem;font-weight:700;cursor:pointer;user-select:none}
+.feature input{width:16px;height:16px;margin:0;accent-color:#F85F08}
+.feature:has(input:checked){background:#fff4ec;border-color:#F85F08;color:#9d3b00}
+.filter-hint{font-size:.74rem;color:#70808b;line-height:1.5;margin:11px 0 0}
 .actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:17px;flex-wrap:wrap}
 .count{font-size:.84rem;color:#64717e}
 .buttons{display:flex;gap:9px}
@@ -65,18 +73,18 @@ button{cursor:pointer}
 .price small{font-size:.75rem;display:block;font-weight:600;color:#6c7782;margin-bottom:4px;letter-spacing:0}
 .detail{display:block;background:#F85F08;color:white;text-align:center;padding:15px;border-radius:11px;font-size:.92rem;font-weight:850;margin-top:16px;transition:background .15s}
 .detail:hover{background:#dc4d00}
-.detail:focus-visible,.photo:focus-visible,.btn:focus-visible{outline:3px solid #F85F08;outline-offset:3px}
+.detail:focus-visible,.photo:focus-visible,.btn:focus-visible,.feature:focus-within,.navlink:focus-visible{outline:3px solid #F85F08;outline-offset:3px}
 .empty{background:#fff;border:1px solid #e7e7e5;border-radius:16px;padding:32px;text-align:center;color:#5c6872}
-.empty strong{display:block;color:#14253D;margin-bottom:8px}
+.empty strong{display:block;color:#14253D;margin-bottom:8px;font-size:1.08rem}
+.empty p{max-width:560px;margin:6px auto 20px;line-height:1.6}
+.empty button{max-width:100%;white-space:normal}
+.empty-note{font-size:.73rem;color:#697783;margin-top:12px!important;margin-bottom:0!important}
 .hidden{display:none!important}
 .footer{background:#101f33;color:#f6f1ea;padding:36px 0}
 .footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .footer small{display:block;color:#c3cbd4;margin-top:8px;line-height:1.6}
 .footer a{color:#f6f1ea;text-decoration:underline;text-underline-offset:3px}
-@media(max-width:850px){
-.grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-.fields{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){
 .wrap{width:min(100% - 28px,460px)}
 .nav{min-height:67px}
@@ -98,6 +106,7 @@ button{cursor:pointer}
 .sectionhead{display:block}
 .footer .wrap{display:block}
 .footer .links{margin-top:17px}
+.empty{padding:25px 18px}
 }
 </style>
 </head>
@@ -112,7 +121,7 @@ button{cursor:pointer}
 <div class="wrap">
 <div class="eyebrow">Seu próximo endereço começa aqui</div>
 <h1>Encontre seu próximo <em>imóvel em Bauru.</em></h1>
-<p>Explore oportunidades com fotografias reais, informações claras e atendimento próximo.</p>
+<p>Explore oportunidades com fotografias reais, informações claras e atendimento personalizado.</p>
 </div>
 </section>
 <main>
@@ -121,28 +130,15 @@ button{cursor:pointer}
 <div class="fields">
 <div class="field">
 <label for="busca">Bairro, condomínio ou código</label>
-<input id="busca" placeholder="Onde você quer morar?">
+<input id="busca" type="search" placeholder="Ex.: Bonardi, Camélias, Centro">
 </div>
 <div class="field">
 <label for="finalidade">Finalidade</label>
-<select id="finalidade">
-<option value="">Comprar ou alugar</option>
-<option value="venda">Comprar</option>
-<option value="locacao">Alugar</option>
-</select>
+<select id="finalidade"><option value="">Comprar ou alugar</option><option value="venda">Comprar</option><option value="locacao">Alugar</option></select>
 </div>
 <div class="field">
 <label for="tipo">Tipo de imóvel</label>
-<select id="tipo">
-<option value="">Todos os tipos</option>
-<option value="apartamento">Apartamento</option>
-<option value="casa">Casa</option>
-<option value="sobrado">Sobrado</option>
-<option value="terreno">Terreno</option>
-<option value="chacara">Chácara</option>
-<option value="comercial">Comercial</option>
-<option value="outro">Outro</option>
-</select>
+<select id="tipo"><option value="">Todos os tipos</option><option value="apartamento">Apartamento</option><option value="casa">Casa</option><option value="sobrado">Sobrado</option><option value="terreno">Terreno</option><option value="chacara">Chácara</option><option value="comercial">Comercial</option><option value="outro">Outro</option></select>
 </div>
 </div>
 <details class="more" id="mais">
@@ -150,38 +146,30 @@ button{cursor:pointer}
 <div class="extra">
 <div class="field">
 <label for="preco">Valor máximo</label>
-<select id="preco">
-<option value="">Qualquer valor</option>
-<option value="150000">Até R$ 150 mil</option>
-<option value="200000">Até R$ 200 mil</option>
-<option value="250000">Até R$ 250 mil</option>
-<option value="300000">Até R$ 300 mil</option>
-<option value="400000">Até R$ 400 mil</option>
-<option value="500000">Até R$ 500 mil</option>
-<option value="750000">Até R$ 750 mil</option>
-<option value="1000000">Até R$ 1 milhão</option>
-</select>
+<select id="preco"><option value="">Qualquer valor</option><option value="150000">Até R$ 150 mil</option><option value="200000">Até R$ 200 mil</option><option value="250000">Até R$ 250 mil</option><option value="300000">Até R$ 300 mil</option><option value="400000">Até R$ 400 mil</option><option value="500000">Até R$ 500 mil</option><option value="750000">Até R$ 750 mil</option><option value="1000000">Até R$ 1 milhão</option></select>
 </div>
 <div class="field">
 <label for="quartos">Quartos (mínimo)</label>
-<select id="quartos">
-<option value="">Qualquer</option>
-<option value="1">1+</option>
-<option value="2">2+</option>
-<option value="3">3+</option>
-<option value="4">4+</option>
-</select>
+<select id="quartos"><option value="">Qualquer</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
 </div>
 <div class="field">
 <label for="vagas">Vagas (mínimo)</label>
-<select id="vagas">
-<option value="">Qualquer</option>
-<option value="1">1+</option>
-<option value="2">2+</option>
-<option value="3">3+</option>
-</select>
+<select id="vagas"><option value="">Qualquer</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select>
+</div>
+<div class="field">
+<label for="suites">Suítes (mínimo)</label>
+<select id="suites"><option value="">Qualquer</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option></select>
 </div>
 </div>
+<div class="filter-title">Diferenciais desejados</div>
+<div class="features">
+<label class="feature"><input type="checkbox" id="piscina">Piscina</label>
+<label class="feature"><input type="checkbox" id="terreo">Apartamento térreo</label>
+<label class="feature"><input type="checkbox" id="elevador">Elevador</label>
+<label class="feature"><input type="checkbox" id="financiamento">Aceita financiamento</label>
+<label class="feature"><input type="checkbox" id="fgts">Aceita FGTS</label>
+</div>
+<p class="filter-hint">Os diferenciais só aparecem nos resultados quando estão confirmados no cadastro do imóvel.</p>
 </details>
 <div class="actions">
 <span class="count" id="count" aria-live="polite">Buscando imóveis...</span>
@@ -222,138 +210,242 @@ const supabase=createClient('https://dtkszimtovtqdojjpqsy.supabase.co','sb_publi
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
 const ref=['rafael','debora'].includes(params.get('ref'))?params.get('ref'):null;
+const filtros=['busca','finalidade','tipo','preco','quartos','vagas','suites','piscina','terreo','elevador','financiamento','fgts'];
+const booleanos=new Set(['piscina','terreo','elevador','financiamento','fgts']);
+const brokerPhone={rafael:'5514982329929',debora:'5514981306115'};
 function urlFor(file,extra={}){
-const u=new URL(file,location.href);
-if(ref)u.searchParams.set('ref',ref);
-for(const [k,v] of Object.entries(extra))
-if(v!==undefined&&v!==null)u.searchParams.set(k,String(v));
-return u.href
+  const u=new URL(file,location.href);
+  if(ref)u.searchParams.set('ref',ref);
+  for(const [k,v] of Object.entries(extra))if(v!==undefined&&v!==null)u.searchParams.set(k,String(v));
+  return u.href;
 }
 $('home').href=urlFor('index.html');
 $('inicio').href=urlFor('index.html');
 $('footerHome').href=urlFor('index.html');
-for(const key of ['busca','finalidade','tipo','preco','quartos','vagas']){
-const val=params.get(key);
-if(val!==null)$(key).value=val
+for(const id of filtros){
+  const input=$(id),val=params.get(id);
+  if(val===null)continue;
+  if(booleanos.has(id))input.checked=val==='1'||val==='true';
+  else input.value=val;
 }
-if(['preco','quartos','vagas'].some(k=>params.has(k)))$('mais').open=true;
+if(filtros.slice(3).some(id=>params.has(id)))$('mais').open=true;
 const labels={apartamento:'Apartamento',casa:'Casa',sobrado:'Sobrado',terreno:'Terreno',chacara:'Chácara',comercial:'Comercial',outro:'Imóvel'};
-const seals={novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido'};
+const seals={novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido',destaque:'Destaque',exclusivo:'Exclusivo'};
 const money=v=>v===null||v===undefined||v===''?'Consulte o valor':new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(Number(v));
-const el=(tag,cls,txt)=>{
-const n=document.createElement(tag);
-if(cls)n.className=cls;
-if(txt!==undefined)n.textContent=txt;
-return n
-};
-let properties=[];
-let photoMap=new Map();
+const el=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
+const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR').replace(/\s+/g,' ').trim();
+let properties=[],photoMap=new Map(),loaded=false,loadingFailed=false,preparingContact=false;
+function detalhes(p){return p.detalhes&&typeof p.detalhes==='object'&&!Array.isArray(p.detalhes)?p.detalhes:{}}
+function itensDaCaracteristica(p,campo){
+  const valor=detalhes(p)[campo];
+  return Array.isArray(valor)?valor:(typeof valor==='string'?[valor]:[]);
+}
+function marcado(p,campos,nomes){
+  const termos=nomes.map(norm);
+  const valores=campos.flatMap(c=>itensDaCaracteristica(p,c));
+  if(Array.isArray(p.caracteristicas))valores.push(...p.caracteristicas);
+  return valores.some(v=>{
+    const item=norm(v);
+    if(!item||/^(sem |nao |não )/.test(item))return false;
+    return termos.some(termo=>item===termo||item.startsWith(termo+' '));
+  });
+}
+function temPiscina(p){return marcado(p,['condominio_lazer','area_externa'],['Piscina','Piscina privativa'])}
+function temElevador(p){return marcado(p,['condominio_servicos'],['Elevador'])}
+function ehTerreo(p){
+  if(p.tipo!=='apartamento')return false;
+  const posicao=norm(detalhes(p).apartamento_posicao);
+  const andar=norm(p.andar);
+  return posicao.startsWith('terreo')||posicao.includes('garden')||andar==='terreo'||andar==='0';
+}
+function aceita(p,qual){
+  const chave=qual==='financiamento'?'financiamento_status':'fgts_status';
+  const dado=norm(detalhes(p)[chave]);
+  if(dado)return dado==='sim';
+  const antigo=qual==='financiamento'?p.aceita_financiamento:p.aceita_fgts;
+  return antigo===true||antigo==='true';
+}
 function card(p){
-const article=el('article','property');
-const link=el('a','photo');
-link.href=urlFor('imovel.html',{id:p.id});
-const photos=photoMap.get(p.id)||[];
-if(photos.length){
-const img=el('img');
-img.loading='lazy';
-img.alt='Fotografia do imóvel '+(p.titulo||'');
-img.src=supabase.storage.from('portal-imoveis').getPublicUrl(photos[0].caminho).data.publicUrl;
-img.onerror=()=>{
-img.remove();
-link.append(el('div','no-photo','Fotografia indisponível'))
-};
-link.append(img)
-}else link.append(el('div','no-photo','Fotografias em breve'));
-const tags=el('div','tags');
-if(p.finalidade)tags.append(el('span','tag',p.finalidade==='locacao'?'Para alugar':'À venda'));
-if(seals[p.selo])tags.append(el('span','tag hot',seals[p.selo]));
-link.append(tags);
-article.append(link);
-const body=el('div','content');
-body.append(el('div','location',[labels[p.tipo]||'Imóvel',p.bairro||'Bauru/SP'].join(' · ')));
-const title=el('h3');
-const titleLink=el('a','',p.titulo||p.empreendimento||'Imóvel em Bauru');
-titleLink.href=urlFor('imovel.html',{id:p.id});
-title.append(titleLink);
-body.append(title);
-const specs=el('div','specs');
-if(p.quartos!==null&&p.quartos!==undefined)specs.append(el('span','',p.quartos+' quarto(s)'));
-if(p.suites)specs.append(el('span','',p.suites+' suíte(s)'));
-if(p.vagas!==null&&p.vagas!==undefined)specs.append(el('span','',p.vagas+' vaga(s)'));
-if(p.area_privativa)specs.append(el('span','',p.area_privativa+' m²'));
-body.append(specs);
-const price=el('div','price');
-price.append(el('small','',p.finalidade==='locacao'?'Valor da locação':'Valor de venda'));
-price.append(el('span','',money(p.preco)));
-body.append(price);
-const detail=el('a','detail','Conhecer este imóvel');
-detail.href=urlFor('imovel.html',{id:p.id});
-body.append(detail);
-article.append(body);
-return article
+  const article=el('article','property');
+  const link=el('a','photo');
+  link.href=urlFor('imovel.html',{id:p.id});
+  const photos=photoMap.get(p.id)||[];
+  if(photos.length){
+    const img=el('img');
+    img.loading='lazy';
+    img.alt='Fotografia do imóvel '+(p.titulo||'');
+    img.src=supabase.storage.from('portal-imoveis').getPublicUrl(photos[0].caminho).data.publicUrl;
+    img.onerror=()=>{img.remove();link.append(el('div','no-photo','Fotografia indisponível'))};
+    link.append(img);
+  }else link.append(el('div','no-photo','Fotografias em breve'));
+  const tags=el('div','tags');
+  if(p.finalidade)tags.append(el('span','tag',p.finalidade==='locacao'?'Para alugar':'À venda'));
+  if(seals[p.selo])tags.append(el('span','tag hot',seals[p.selo]));
+  link.append(tags);
+  article.append(link);
+  const body=el('div','content');
+  body.append(el('div','location',[labels[p.tipo]||'Imóvel',p.bairro||'Bauru/SP'].join(' · ')));
+  const title=el('h3');
+  const titleLink=el('a','',p.titulo||p.empreendimento||'Imóvel em Bauru');
+  titleLink.href=urlFor('imovel.html',{id:p.id});
+  title.append(titleLink);
+  body.append(title);
+  const specs=el('div','specs');
+  if(p.quartos!==null&&p.quartos!==undefined)specs.append(el('span','',p.quartos+' quarto(s)'));
+  if(p.suites)specs.append(el('span','',p.suites+' suíte(s)'));
+  if(p.vagas!==null&&p.vagas!==undefined)specs.append(el('span','',p.vagas+' vaga(s)'));
+  if(p.area_privativa)specs.append(el('span','',p.area_privativa+' m²'));
+  body.append(specs);
+  const price=el('div','price');
+  price.append(el('small','',p.finalidade==='locacao'?'Valor da locação':'Valor de venda'));
+  price.append(el('span','',money(p.preco)));
+  body.append(price);
+  const detail=el('a','detail','Conhecer este imóvel');
+  detail.href=urlFor('imovel.html',{id:p.id});
+  body.append(detail);
+  article.append(body);
+  return article;
+}
+function valores(){
+  const objeto={};
+  for(const id of filtros)objeto[id]=booleanos.has(id)?$(id).checked:$(id).value.trim();
+  return objeto;
+}
+function atualizaEndereco(){
+  const dados=valores(),url=new URL(location.href);
+  for(const id of filtros){
+    const value=booleanos.has(id)?(dados[id]?'1':''):dados[id];
+    if(value)url.searchParams.set(id,value);
+    else url.searchParams.delete(id);
+  }
+  history.replaceState(null,'',url);
+}
+function textoDaBusca(){
+  const dados=valores(),parts=[];
+  if(dados.busca)parts.push('Busca: '+dados.busca);
+  if(dados.finalidade)parts.push('Finalidade: '+(dados.finalidade==='locacao'?'locação':'compra'));
+  if(dados.tipo)parts.push('Tipo: '+(labels[dados.tipo]||dados.tipo));
+  if(dados.preco)parts.push('Até '+money(dados.preco));
+  if(dados.quartos)parts.push(dados.quartos+'+ quartos');
+  if(dados.vagas)parts.push(dados.vagas+'+ vagas');
+  if(dados.suites)parts.push(dados.suites+'+ suítes');
+  for(const [id,descricao] of [['piscina','piscina'],['terreo','apartamento térreo'],['elevador','elevador'],['financiamento','financiamento'],['fgts','FGTS']]){
+    if(dados[id])parts.push(descricao);
+  }
+  return parts.length?parts.join('; '):'Gostaria de receber opções de imóveis em Bauru';
+}
+async function solicitarAtendimento(botao){
+  if(preparingContact)return;
+  preparingContact=true;
+  botao.disabled=true;
+  botao.textContent='Preparando atendimento...';
+  try{
+    let corretor=ref;
+    if(!corretor){
+      const {data,error}=await supabase.rpc('portal_proximo_corretor');
+      if(error)throw error;
+      if(!Object.prototype.hasOwnProperty.call(brokerPhone,data))throw new Error('Corretor indisponível');
+      corretor=data;
+    }
+    const url=new URL(location.href);
+    atualizaEndereco();
+    url.search=location.search;
+    url.searchParams.set('ref',corretor);
+    const msg='Olá! Pesquisei imóveis no Portal Bauru Imóveis, mas não encontrei uma opção com estas características: '+textoDaBusca()+'. Você pode me ajudar? '+url.href;
+    location.assign('https://wa.me/'+brokerPhone[corretor]+'?text='+encodeURIComponent(msg));
+  }catch(error){
+    console.error('Atendimento não disponível:',error);
+    alert('Não foi possível abrir o atendimento agora. Tente novamente em instantes.');
+  }finally{
+    preparingContact=false;
+    botao.disabled=false;
+    botao.textContent='Pedir ajuda para encontrar um imóvel';
+  }
+}
+function mostrarVazio(){
+  const root=$('status');
+  root.replaceChildren();
+  root.classList.remove('hidden');
+  const heading=el('strong','',properties.length?'Não encontramos imóveis com esses filtros.':'Novas oportunidades em breve.');
+  const p=el('p','',properties.length?'Podemos ajudar você a encontrar uma alternativa. Envie suas preferências ao corretor, sem compromisso.':'Não há imóveis publicados neste momento. Você pode informar o que procura para receber atendimento personalizado.');
+  const btn=el('button','btn primary','Pedir ajuda para encontrar um imóvel');
+  btn.type='button';
+  btn.onclick=()=>solicitarAtendimento(btn);
+  const note=el('p','empty-note','O botão abre o WhatsApp com sua busca preenchida. O envio da mensagem depende da sua confirmação.');
+  root.append(heading,p,btn,note);
 }
 function render(){
-const term=$('busca').value.trim().toLocaleLowerCase('pt-BR');
-const finalidade=$('finalidade').value;
-const tipo=$('tipo').value;
-const max=$('preco').value;
-const quartos=$('quartos').value;
-const vagas=$('vagas').value;
-const found=properties.filter(p=>{
-const hay=[p.codigo,p.titulo,p.descricao,p.bairro,p.empreendimento].filter(Boolean).join(' ').toLocaleLowerCase('pt-BR');
-return(!term||hay.includes(term))&&
-(!finalidade||p.finalidade===finalidade)&&
-(!tipo||p.tipo===tipo)&&
-(!max||(p.preco!==null&&Number(p.preco)<=Number(max)))&&
-(!quartos||Number(p.quartos||0)>=Number(quartos))&&
-(!vagas||Number(p.vagas||0)>=Number(vagas))
-});
-$('count').textContent=found.length+' imóvel(is) encontrado(s)';
-$('grid').replaceChildren(...found.map(card));
-$('status').classList.toggle('hidden',found.length>0);
-if(!found.length)$('status').textContent='Nenhum imóvel encontrado com esses filtros. Tente ampliar sua busca.'
+  if(!loaded||loadingFailed)return;
+  const f=valores(),termos=norm(f.busca).split(' ').filter(Boolean);
+  const encontrados=properties.filter(p=>{
+    const hay=norm([p.codigo,p.titulo,p.descricao,p.bairro,p.empreendimento].filter(Boolean).join(' '));
+    return termos.every(t=>hay.includes(t))&&
+      (!f.finalidade||p.finalidade===f.finalidade)&&
+      (!f.tipo||p.tipo===f.tipo)&&
+      (!f.preco||(p.preco!==null&&p.preco!==undefined&&p.preco!==''&&Number(p.preco)<=Number(f.preco)))&&
+      (!f.quartos||Number(p.quartos||0)>=Number(f.quartos))&&
+      (!f.vagas||Number(p.vagas||0)>=Number(f.vagas))&&
+      (!f.suites||Number(p.suites||0)>=Number(f.suites))&&
+      (!f.piscina||temPiscina(p))&&
+      (!f.terreo||ehTerreo(p))&&
+      (!f.elevador||temElevador(p))&&
+      (!f.financiamento||aceita(p,'financiamento'))&&
+      (!f.fgts||aceita(p,'fgts'));
+  });
+  $('count').textContent=encontrados.length+' imóvel(is) encontrado(s)';
+  $('grid').replaceChildren(...encontrados.map(card));
+  if(encontrados.length){$('status').classList.add('hidden');$('status').replaceChildren()}
+  else mostrarVazio();
 }
 $('form').addEventListener('submit',e=>{
-e.preventDefault();
-render();
-const u=new URL(location.href);
-for(const k of ['busca','finalidade','tipo','preco','quartos','vagas']){
-const v=$(k).value;
-if(v)u.searchParams.set(k,v);
-else u.searchParams.delete(k)
-}
-history.replaceState(null,'',u);
-$('grid').scrollIntoView({behavior:'smooth',block:'start'})
+  e.preventDefault();
+  atualizaEndereco();
+  render();
+  $('grid').scrollIntoView({behavior:'smooth',block:'start'});
 });
 $('limpar').onclick=()=>{
-for(const k of ['busca','finalidade','tipo','preco','quartos','vagas'])$(k).value='';
-$('mais').open=false;
-const u=new URL(location.href);
-for(const k of ['busca','finalidade','tipo','preco','quartos','vagas'])u.searchParams.delete(k);
-history.replaceState(null,'',u);
-render()
+  for(const id of filtros){if(booleanos.has(id))$(id).checked=false;else $(id).value=''}
+  $('mais').open=false;
+  atualizaEndereco();
+  render();
 };
+async function buscarImoveis(){
+  const base='id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,vagas,situacao,selo,publicado';
+  const opcoes=[base+',detalhes,caracteristicas,aceita_financiamento,aceita_fgts,andar',base+',detalhes,aceita_financiamento,aceita_fgts,andar',base];
+  let ultimoErro;
+  for(const campos of opcoes){
+    const {data,error}=await supabase.from('imoveis').select(campos).eq('publicado',true);
+    if(!error)return data||[];
+    ultimoErro=error;
+    if(!['42703','PGRST204'].includes(error.code)&&!String(error.message).includes('does not exist'))break;
+  }
+  throw ultimoErro||new Error('Consulta indisponível');
+}
 async function load(){
-try{
-const {data,error}=await supabase.from('imoveis').select('id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,vagas,situacao,selo,publicado').eq('publicado',true);
-if(error)throw error;
-properties=(data||[]).filter(p=>!['vendido','alugado'].includes(p.situacao));
-const ids=properties.map(p=>p.id);
-if(ids.length){
-const {data:photos,error:photoError}=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',ids).order('ordem',{ascending:true});
-if(photoError)console.warn('Não foi possível carregar as fotos',photoError);
-for(const photo of photos||[]){
-if(!photoMap.has(photo.imovel_id))photoMap.set(photo.imovel_id,[]);
-photoMap.get(photo.imovel_id).push(photo)
-}
-}
-render()
-}catch(error){
-console.error(error);
-$('count').textContent='Não foi possível carregar os imóveis';
-$('status').classList.remove('hidden');
-$('status').textContent='Não foi possível carregar os anúncios agora. Atualize a página e tente novamente.'
-}
+  try{
+    const data=await buscarImoveis();
+    properties=data.filter(p=>!['vendido','alugado'].includes(norm(p.situacao)));
+    photoMap=new Map();
+    const ids=properties.map(p=>p.id);
+    for(let i=0;i<ids.length;i+=75){
+      const lote=ids.slice(i,i+75);
+      const {data:photos,error}=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',lote).order('ordem',{ascending:true});
+      if(error){console.warn('Não foi possível carregar as fotos:',error);continue}
+      for(const photo of photos||[]){
+        if(!photoMap.has(photo.imovel_id))photoMap.set(photo.imovel_id,[]);
+        photoMap.get(photo.imovel_id).push(photo);
+      }
+    }
+    loaded=true;
+    render();
+  }catch(error){
+    loadingFailed=true;
+    console.error(error);
+    $('count').textContent='Não foi possível carregar os imóveis';
+    $('grid').replaceChildren();
+    $('status').classList.remove('hidden');
+    $('status').replaceChildren(el('strong','','Ocorreu um problema ao carregar os anúncios.'),el('p','','Atualize a página para tentar novamente.'));
+  }
 }
 load();
 </script>
