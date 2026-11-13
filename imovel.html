@@ -1,1980 +1,404 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14253D">
-<meta name="robots" content="index,follow">
-<meta name="description" id="seo-description" content="Conheça imóveis em Bauru/SP no Portal Bauru Imóveis.">
+<meta name="robots" content="index,follow" id="robots-meta">
+<meta name="description" content="Conheça imóveis em Bauru/SP no Portal Bauru Imóveis. Fotografias reais, informações e atendimento profissional." id="seo-description">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Portal Bauru Imóveis">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" id="og-title" content="Imóvel | Portal Bauru Imóveis">
-<meta property="og:description" id="og-description" content="Conheça este imóvel.">
-<meta property="og:url" id="og-url" content="https://portalbauru.pages.dev/imovel.html">
+<meta property="og:title" content="Imóvel | Portal Bauru Imóveis" id="og-title">
+<meta property="og:description" content="Conheça este imóvel no Portal Bauru Imóveis." id="og-description">
+<meta property="og:url" content="https://portalbauru.pages.dev/imovel.html" id="og-url">
 <meta name="twitter:card" content="summary_large_image">
 <title>Detalhes do imóvel | Portal Bauru Imóveis</title>
-
 <style>
-:root{
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
-  color:#14253D;
-  background:#F6F1EA
-}
-*{box-sizing:border-box}
-body{margin:0}
-a{color:inherit}
-button,input,select{font:inherit}
-button{cursor:pointer}
-button:disabled{opacity:.65;cursor:wait}
-.wrap{max-width:1160px;margin:auto;padding:0 20px}
-header{background:#14253D;color:#fff}
-.top{
-  min-height:83px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px
-}
-.brand{text-decoration:none;min-width:0}
-.brand-name{
-  display:block;
-  font-size:20px;
-  font-weight:850;
-  letter-spacing:.035em;
-  line-height:1.15
-}
-.brand-name span{color:#F85F08}
-.brand-name small{font-size:.78em;color:#F6F1EA}
-.brand-slogan{
-  display:block;
-  color:#D4DCE5;
-  font-size:11px;
-  margin-top:5px
-}
-.nav{
-  font-size:14px;
-  text-decoration:none;
-  color:#F6F1EA;
-  white-space:nowrap
-}
-.back{
-  display:inline-block;
-  margin:24px 0 18px;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:750;
-  color:#B34A0B
-}
-h1{
-  font-size:clamp(27px,4vw,42px);
-  line-height:1.13;
-  margin:10px 0;
-  letter-spacing:-.04em
-}
-.subtitle{
-  color:#637082;
-  font-size:15px;
-  margin-bottom:22px;
-  line-height:1.5
-}
-.tag{
-  display:inline-block;
-  padding:7px 12px;
-  background:#F85F08;
-  color:#fff;
-  border-radius:50px;
-  font-size:11px;
-  font-weight:850;
-  text-transform:uppercase
-}
-.gallery{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:8px;
-  height:470px;
-  overflow:hidden;
-  border-radius:18px;
-  background:#DFE2E3;
-  position:relative;
-  box-shadow:0 12px 34px #14253D16
-}
-.main-photo,.thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block
-}
-.main-photo{cursor:pointer;min-width:0}
-.thumbs{
-  display:grid;
-  grid-template-rows:1fr 1fr;
-  gap:8px;
-  min-height:0
-}
-.thumb{
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  border:0;
-  padding:0;
-  background:#DFE2E3;
-  min-height:0
-}
-.thumb img{transition:transform .25s}
-.thumb:hover img{transform:scale(1.025)}
-.more{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  background:#14253d99;
-  color:#fff;
-  font-weight:850;
-  font-size:18px
-}
-.no-photo{
-  display:grid;
-  place-items:center;
-  background:#E2E4E3;
-  color:#657181;
-  text-align:center;
-  padding:24px;
-  grid-column:1/-1
-}
-.gallery-caption{
-  position:absolute;
-  left:14px;
-  bottom:14px;
-  background:#14253DD9;
-  color:#fff;
-  padding:9px 12px;
-  border-radius:9px;
-  font-size:12px;
-  font-weight:700;
-  pointer-events:none
-}
-.gallery-view{
-  position:absolute;
-  right:14px;
-  bottom:14px;
-  background:#fff;
-  color:#14253D;
-  border:0;
-  border-radius:9px;
-  padding:11px 14px;
-  font-weight:850
-}
-.layout{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 345px;
-  gap:24px;
-  margin:26px 0 60px;
-  align-items:start
-}
-.panel{
-  background:#fff;
-  border:1px solid #E6E2DB;
-  border-radius:16px;
-  padding:24px;
-  margin-bottom:18px
-}
-.panel h2{margin:0 0 18px;font-size:21px}
-.features{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:11px
-}
-.feature{
-  background:#F6F1EA;
-  border-radius:11px;
-  padding:15px;
-  min-height:79px
-}
-.feature strong{display:block;font-size:20px}
-.feature small{
-  color:#637082;
-  display:block;
-  margin-top:5px
-}
-.desc{
-  white-space:pre-wrap;
-  line-height:1.75;
-  color:#425066;
-  overflow-wrap:anywhere;
-  font-size:15px
-}
-.extras{display:flex;flex-wrap:wrap;gap:9px}
-.extra-item{
-  background:#F6F1EA;
-  color:#31445A;
-  padding:10px 12px;
-  border-radius:9px;
-  font-size:13px;
-  font-weight:650
-}
-.price{
-  font-size:34px;
-  font-weight:850;
-  letter-spacing:-.04em;
-  margin:8px 0
-}
-.muted{color:#657181;font-size:13px}
-.btn{
-  display:block;
-  text-align:center;
-  width:100%;
-  background:#F85F08;
-  color:#fff;
-  border:0;
-  border-radius:11px;
-  padding:15px;
-  text-decoration:none;
-  font-weight:850;
-  margin-top:12px
-}
-.btn.secondary{
-  background:#F6F1EA;
-  color:#14253D;
-  border:1px solid #DDE2E7
-}
-.btn:focus-visible,
-.thumb:focus-visible,
-.gallery-view:focus-visible,
-.main-photo:focus-visible{
-  outline:3px solid #F85F08;
-  outline-offset:3px
-}
-.contact{
-  position:sticky;
-  top:20px;
-  box-shadow:0 8px 30px #14253D0B
-}
-.contact-title{
-  font-size:18px;
-  font-weight:850;
-  line-height:1.35;
-  margin:20px 0 6px
-}
-.contact-copy{
-  font-size:13px;
-  color:#637082;
-  line-height:1.6;
-  margin:0 0 14px
-}
-.btn.whatsapp{background:#168A4D;color:#fff}
-.btn.whatsapp:hover{background:#10733E}
-.broker-share{
-  border-top:1px solid #E6E2DB;
-  margin-top:18px;
-  padding-top:15px
-}
-.broker-share summary{
-  font-size:13px;
-  font-weight:800;
-  cursor:pointer;
-  color:#516174
-}
-.broker-share .btn{
-  font-size:12px;
-  padding:11px;
-  margin-top:8px
-}
-.broker-share .rafael{background:#14253D}
-.broker-share .debora{background:#344D66}
-.share-feedback{
-  min-height:18px;
-  margin:8px 0 0;
-  font-size:12px;
-  color:#345B48
-}
-.note{
-  font-size:12px;
-  line-height:1.55;
-  color:#687385
-}
-.status{
-  background:#fff;
-  border-radius:16px;
-  padding:28px;
-  margin:20px 0 50px
-}
-.hidden{display:none!important}
-footer{
-  background:#14253D;
-  color:#F6F1EA;
-  padding:28px 0;
-  font-size:13px
-}
-.footer-row{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  flex-wrap:wrap
-}
-.footer-brand{font-size:15px;letter-spacing:.03em}
-.footer-brand span{color:#F85F08}
-.footer-slogan{
-  margin-top:6px;
-  color:#D4DCE5;
-  font-size:12px
-}
-.lightbox{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:#07101DF2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:58px 16px 48px
-}
-.lightbox img{
-  max-width:100%;
-  max-height:85vh;
-  object-fit:contain
-}
-.lightbox button{
-  position:absolute;
-  top:14px;
-  right:16px;
-  border:0;
-  background:#fff;
-  color:#14253D;
-  border-radius:9px;
-  padding:10px 14px;
-  font-weight:800
-}
-.lightbox .previous{
-  left:12px;
-  right:auto;
-  top:50%;
-  transform:translateY(-50%)
-}
-.lightbox .next{
-  top:50%;
-  transform:translateY(-50%)
-}
-.counter{
-  position:absolute;
-  bottom:15px;
-  color:#fff;
-  font-size:13px
-}
-.mobile-cta{display:none}
+:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#14253D;background:#F6F1EA}
+*{box-sizing:border-box}body{margin:0}a{color:inherit}button{font:inherit;cursor:pointer}button:disabled{opacity:.65;cursor:wait}
+header{background:#14253D;color:#fff}.wrap{max-width:1160px;margin:auto;padding:0 20px}
+.top{min-height:83px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{text-decoration:none;display:block;min-width:0}.brand-name{font-size:20px;font-weight:850;letter-spacing:.035em;line-height:1.15}.brand-name span{color:#F85F08}.brand-name small{font-size:.78em;color:#F6F1EA}.brand-slogan{display:block;color:#D4DCE5;font-size:11px;letter-spacing:0;margin-top:5px}.nav{font-size:14px;text-decoration:none;color:#F6F1EA;white-space:nowrap}
+.back{display:inline-block;margin:24px 0 18px;text-decoration:none;font-size:13px;font-weight:750;color:#B34A0B}.intro-row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+h1{font-size:clamp(27px,4vw,42px);line-height:1.13;margin:10px 0;letter-spacing:-.04em}.subtitle{color:#637082;font-size:15px;margin-bottom:22px;line-height:1.5}.tag{display:inline-block;padding:7px 12px;background:#F85F08;color:white;border-radius:50px;font-size:11px;font-weight:850;letter-spacing:.04em;text-transform:uppercase}
+.gallery{display:grid;grid-template-columns:2fr 1fr;gap:8px;height:470px;overflow:hidden;border-radius:18px;background:#DFE2E3;position:relative;box-shadow:0 12px 34px #14253D16}
+.main-photo,.thumb img{width:100%;height:100%;object-fit:cover;display:block}.main-photo{cursor:pointer;min-width:0}.thumbs{display:grid;grid-template-rows:1fr 1fr;gap:8px;min-height:0}.thumb{position:relative;overflow:hidden;cursor:pointer;border:0;padding:0;background:#DFE2E3;min-height:0}.thumb img{transition:transform .25s}.thumb:hover img{transform:scale(1.025)}.more{position:absolute;inset:0;display:grid;place-items:center;background:#14253d99;color:#fff;font-weight:850;font-size:18px}.no-photo{display:grid;place-items:center;background:#E2E4E3;color:#657181;text-align:center;padding:24px;grid-column:1/-1}.gallery-caption{position:absolute;left:14px;bottom:14px;background:#14253DD9;color:white;padding:9px 12px;border-radius:9px;font-size:12px;font-weight:700;pointer-events:none}.gallery-view{position:absolute;right:14px;bottom:14px;background:white;color:#14253D;border:0;border-radius:9px;padding:11px 14px;font-weight:850;box-shadow:0 3px 12px #0002}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 345px;gap:24px;margin:26px 0 60px;align-items:start}.panel{background:white;border:1px solid #E6E2DB;border-radius:16px;padding:24px;margin-bottom:18px}.panel h2{margin:0 0 18px;font-size:21px;letter-spacing:-.02em}.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.feature{background:#F6F1EA;border-radius:11px;padding:15px;min-height:79px}.feature strong{display:block;font-size:20px;line-height:1.2}.feature small{color:#637082;display:block;margin-top:5px}.desc{white-space:pre-wrap;line-height:1.75;color:#425066;overflow-wrap:anywhere;font-size:15px}.extras{display:flex;flex-wrap:wrap;gap:9px}.extra-item{background:#F6F1EA;color:#31445A;padding:10px 12px;border-radius:9px;font-size:13px;font-weight:650}
+.price{font-size:34px;font-weight:850;letter-spacing:-.04em;margin:8px 0}.muted{color:#657181;font-size:13px}.btn{display:block;text-align:center;width:100%;background:#F85F08;color:white;border:0;border-radius:11px;padding:15px;text-decoration:none;font-weight:850;margin-top:12px}.btn.secondary{background:#F6F1EA;color:#14253D;border:1px solid #DDE2E7}.btn:focus-visible,.thumb:focus-visible,.gallery-view:focus-visible,.main-photo:focus-visible{outline:3px solid #F85F08;outline-offset:3px}
+.contact{position:sticky;top:20px;box-shadow:0 8px 30px #14253D0B}.contact-title{font-size:18px;font-weight:850;line-height:1.35;margin:20px 0 6px}.contact-copy{font-size:13px;color:#637082;line-height:1.6;margin:0 0 14px}.btn.whatsapp{background:#168A4D;color:#fff}.btn.whatsapp:hover{background:#10733E}.contact .price{color:#14253D}.broker-share{border-top:1px solid #E6E2DB;margin-top:18px;padding-top:15px}.broker-share summary{font-size:13px;font-weight:800;cursor:pointer;color:#516174}.broker-share strong{display:block;font-size:13px}.broker-share .btn{font-size:12px;padding:11px;margin-top:8px}.broker-share .btn.rafael{background:#14253D}.broker-share .btn.debora{background:#344D66}.share-feedback{min-height:18px;margin:8px 0 0;font-size:12px;color:#345B48}.note{font-size:12px;line-height:1.55;color:#687385}.status{background:white;border-radius:16px;padding:28px;margin:20px 0 50px}.hidden{display:none!important}
+footer{background:#14253D;color:#F6F1EA;padding:28px 0;font-size:13px}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer-brand{font-size:15px;letter-spacing:.03em}.footer-brand span{color:#F85F08}.footer-slogan{margin-top:6px;color:#D4DCE5;font-size:12px}
+.lightbox{position:fixed;inset:0;z-index:100;background:#07101DF2;display:flex;align-items:center;justify-content:center;padding:58px 16px 48px}.lightbox img{max-width:100%;max-height:85vh;object-fit:contain}.lightbox button{position:absolute;top:14px;right:16px;border:0;background:white;color:#14253D;border-radius:9px;padding:10px 14px;font-weight:800}.lightbox .previous{left:12px;right:auto;top:50%;transform:translateY(-50%)}.lightbox .next{top:50%;transform:translateY(-50%)}.counter{position:absolute;bottom:15px;color:white;font-size:13px}.mobile-cta{display:none}
+@media(max-width:800px){.layout{grid-template-columns:minmax(0,1fr) 295px;gap:16px}.features{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:19px}.gallery{height:390px}}
+@media(max-width:760px){.top{min-height:74px}.brand-name{font-size:16px}.brand-slogan{font-size:9px;max-width:240px}.nav{font-size:12px}.back{margin:18px 0 12px}.subtitle{margin-bottom:15px;font-size:13px}.gallery{grid-template-columns:1fr;grid-template-rows:330px 86px;height:auto;gap:6px;border-radius:14px}.main-photo{height:330px}.thumbs{grid-template-columns:1fr 1fr;grid-template-rows:86px}.gallery-caption{bottom:101px;left:10px}.gallery-view{bottom:100px;right:10px}.gallery:has(.main-photo):not(:has(.thumbs)){grid-template-rows:330px}.gallery:has(.no-photo){grid-template-rows:260px}.layout{display:flex;flex-direction:column;gap:0;margin:18px 0 34px}.layout>div{width:100%;order:1}.contact{order:-1;position:static;width:100%;margin-bottom:18px;border-color:#E4D6C9;box-shadow:0 6px 25px #14253D0B}.contact-title{margin-top:14px}.panel{padding:19px}.price{font-size:31px}.mobile-cta{display:block;position:fixed;bottom:0;left:0;right:0;z-index:40;background:#fff;border-top:1px solid #E6E2DB;padding:9px 16px calc(9px + env(safe-area-inset-bottom));box-shadow:0 -5px 20px #14253D16}.mobile-cta button{width:100%;margin:0;background:#168A4D;color:#fff;border:0;border-radius:11px;padding:14px;font-weight:850;font-size:15px}body:has(.mobile-cta:not(.hidden)){padding-bottom:80px}}
+@media(max-width:390px){.wrap{padding:0 14px}.brand-name{font-size:14px}.brand-slogan{font-size:8px;max-width:205px}.nav{font-size:11px}.gallery{grid-template-rows:290px 78px}.main-photo{height:290px}.thumbs{grid-template-rows:78px}.gallery-caption{bottom:93px;font-size:11px}.gallery-view{bottom:92px;font-size:12px;padding:9px}.gallery:has(.main-photo):not(:has(.thumbs)){grid-template-rows:290px}}
 
-/* Simulação de financiamento */
-.sim-overlay{
-  position:fixed;
-  inset:0;
-  z-index:200;
-  background:#07101DD9;
-  display:grid;
-  place-items:center;
-  padding:16px;
-  overflow-y:auto
-}
-.sim-overlay[hidden],
-.sim-form[hidden],
-.sim-result[hidden]{
-  display:none!important
-}
-.sim-dialog{
-  position:relative;
-  width:min(100%,490px);
-  max-height:calc(100dvh - 32px);
-  overflow-y:auto;
-  background:#fff;
-  padding:26px;
-  border-radius:18px;
-  box-shadow:0 18px 65px #07101D4D
-}
-.sim-dialog h2{
-  margin:0 34px 10px 0;
-  font-size:23px;
-  line-height:1.25
-}
-.sim-dialog p{
-  color:#607085;
-  font-size:13px;
-  line-height:1.6
-}
-.sim-close{
-  position:absolute;
-  top:14px;
-  right:14px;
-  width:36px;
-  height:36px;
-  border:0;
-  border-radius:50%;
-  background:#EDF0F3;
-  color:#14253D;
-  font-size:22px
-}
-.sim-form label:not(.sim-consent){
-  display:block;
-  margin:15px 0 6px;
-  font-size:13px;
-  font-weight:750
-}
-.sim-form input:not([type="checkbox"]),
-.sim-form select{
-  display:block;
-  width:100%;
-  min-height:46px;
-  border:1px solid #CFD8DF;
-  border-radius:9px;
-  padding:11px 12px;
-  color:#14253D;
-  background:#fff
-}
-.sim-consent{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  margin-top:18px;
-  font-size:12px;
-  line-height:1.55;
-  color:#53647A
-}
-.sim-consent input{
-  margin-top:3px;
-  accent-color:#F85F08
-}
-.sim-submit{
-  width:100%;
-  margin-top:20px;
-  padding:15px;
-  border:0;
-  border-radius:10px;
-  background:#F85F08;
-  color:#fff;
-  font-weight:850
-}
-.sim-feedback{
-  margin-top:12px;
-  font-size:13px;
-  color:#A12E24;
-  line-height:1.5
-}
-.sim-result strong{
-  display:block;
-  font-size:19px;
-  color:#14253D
-}
-.sim-whatsapp{
-  display:block;
-  background:#168A4D;
-  color:#fff;
-  text-align:center;
-  border-radius:10px;
-  padding:14px;
-  margin-top:14px;
-  font-weight:800;
-  text-decoration:none
-}
-.sim-honeypot{
-  position:absolute!important;
-  left:-9999px!important;
-  width:1px!important;
-  height:1px!important;
-  overflow:hidden
-}
-.sim-hint{
-  display:block;
-  margin:10px 0 0;
-  color:#657181;
-  font-size:11px;
-  line-height:1.5
-}
-@media(max-width:800px){
-  .layout{
-    grid-template-columns:minmax(0,1fr) 295px;
-    gap:16px
-  }
-  .features{
-    grid-template-columns:repeat(2,minmax(0,1fr))
-  }
-  .panel{padding:19px}
-  .gallery{height:390px}
-}
-@media(max-width:760px){
-  .top{min-height:74px}
-  .brand-name{font-size:16px}
-  .brand-slogan{
-    font-size:9px;
-    max-width:240px
-  }
-  .nav{font-size:12px}
-  .back{margin:18px 0 12px}
-  .subtitle{margin-bottom:15px;font-size:13px}
-  .gallery{
-    grid-template-columns:1fr;
-    grid-template-rows:330px 86px;
-    height:auto;
-    gap:6px;
-    border-radius:14px
-  }
-  .main-photo{height:330px}
-  .thumbs{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:86px
-  }
-  .gallery-caption{
-    bottom:101px;
-    left:10px
-  }
-  .gallery-view{
-    bottom:100px;
-    right:10px
-  }
-  .gallery:has(.main-photo):not(:has(.thumbs)){
-    grid-template-rows:330px
-  }
-  .gallery:has(.no-photo){
-    grid-template-rows:260px
-  }
-  .layout{
-    display:flex;
-    flex-direction:column;
-    gap:0;
-    margin:18px 0 34px
-  }
-  .layout>div{
-    width:100%;
-    order:1
-  }
-  .contact{
-    order:-1;
-    position:static;
-    width:100%;
-    margin-bottom:18px;
-    border-color:#E4D6C9
-  }
-  .contact-title{margin-top:14px}
-  .panel{padding:19px}
-  .price{font-size:31px}
-  .mobile-cta{
-    display:block;
-    position:fixed;
-    bottom:0;
-    left:0;
-    right:0;
-    z-index:40;
-    background:#fff;
-    border-top:1px solid #E6E2DB;
-    padding:9px 16px calc(9px + env(safe-area-inset-bottom));
-    box-shadow:0 -5px 20px #14253D16
-  }
-  .mobile-cta button{
-    width:100%;
-    margin:0;
-    background:#168A4D;
-    color:#fff;
-    border:0;
-    border-radius:11px;
-    padding:14px;
-    font-weight:850;
-    font-size:15px
-  }
-  body:has(.mobile-cta:not(.hidden)){
-    padding-bottom:80px
-  }
-}
-@media(max-width:390px){
-  .wrap{padding:0 14px}
-  .brand-name{font-size:14px}
-  .brand-slogan{
-    font-size:8px;
-    max-width:205px
-  }
-  .nav{font-size:11px}
-  .gallery{
-    grid-template-rows:290px 78px
-  }
-  .main-photo{height:290px}
-  .thumbs{grid-template-rows:78px}
-  .gallery-caption{
-    bottom:93px;
-    font-size:11px
-  }
-  .gallery-view{
-    bottom:92px;
-    font-size:12px;
-    padding:9px
-  }
-  .gallery:has(.main-photo):not(:has(.thumbs)){
-    grid-template-rows:290px
-  }
-  .sim-dialog{padding:22px 18px}
-}
+/* Pré-análise de financiamento */
+.sim-overlay{position:fixed;inset:0;z-index:200;background:#07101DD9;display:grid;place-items:center;padding:15px;overflow-y:auto}
+.sim-overlay[hidden],.sim-step[hidden],.sim-result[hidden],.sim-conditional[hidden]{display:none!important}
+.sim-dialog{position:relative;width:min(100%,520px);max-height:calc(100dvh - 30px);overflow-y:auto;background:#fff;padding:25px;border-radius:18px;box-shadow:0 18px 65px #07101D4D}
+.sim-dialog h2{margin:0 36px 7px 0;font-size:23px;line-height:1.25}
+.sim-intro,.sim-note{color:#647386;font-size:12px;line-height:1.55}
+.sim-close{position:absolute;right:15px;top:15px;width:36px;height:36px;border:0;border-radius:50%;background:#EEF0F3;color:#14253D;font-size:23px}
+.sim-progress{display:flex;gap:6px;margin:16px 0 18px}
+.sim-progress span{height:5px;flex:1;border-radius:12px;background:#E4E8EC}
+.sim-progress span.active{background:#F85F08}
+.sim-step-title{font-weight:850;margin:0 0 7px;font-size:16px}
+.sim-form label:not(.sim-consent){display:block;margin:14px 0 6px;font-size:13px;font-weight:750}
+.sim-form input:not([type=checkbox]),.sim-form select{display:block;width:100%;min-height:45px;padding:10px 11px;border:1px solid #CFD8DF;border-radius:9px;background:#fff;color:#14253D;font:inherit}
+.sim-form input:focus-visible,.sim-form select:focus-visible,.sim-close:focus-visible{outline:2px solid #F85F08;outline-offset:2px}
+.sim-conditional{margin-top:11px;border-left:3px solid #F85F08;padding-left:13px}
+.sim-note{display:block;margin:6px 0 0}
+.sim-actions{display:flex;gap:9px;margin-top:22px}
+.sim-actions button{flex:1;border-radius:10px;padding:13px 9px;font-weight:800;border:0}
+.sim-next,.sim-send{background:#F85F08;color:#fff}
+.sim-back{background:#EDF0F3;color:#14253D}
+.sim-consent{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:12px;line-height:1.55;color:#566578}
+.sim-consent input{margin-top:3px;accent-color:#F85F08}
+.sim-feedback{font-size:12px;color:#A12E24;line-height:1.4;min-height:16px;margin-top:9px}
+.sim-result strong{font-size:19px;display:block}
+.sim-result p{line-height:1.7;color:#53647A}
+.sim-whatsapp{display:block;padding:13px;background:#168A4D;color:#fff;border-radius:10px;text-align:center;text-decoration:none;font-weight:800;margin-top:15px}
+.sim-honeypot{position:absolute!important;left:-9999px!important;height:1px!important;width:1px!important;overflow:hidden}
+@media(max-width:600px){.sim-dialog{padding:22px 18px}}
 </style>
 </head>
-
 <body>
-<header>
-  <div class="wrap top">
-    <a class="brand" id="home" href="imoveis.html">
-      <span class="brand-name">
-        PORTAL <span>BAURU</span> <small>IMÓVEIS</small>
-      </span>
-      <span class="brand-slogan">
-        Conectando pessoas às oportunidades certas.
-      </span>
-    </a>
-    <a class="nav" id="all" href="imoveis.html">
-      Ver imóveis
-    </a>
-  </div>
-</header>
-
+<header><div class="wrap top">
+<a class="brand" id="home" href="imoveis.html" aria-label="Portal Bauru Imóveis">
+<span class="brand-name">PORTAL <span>BAURU</span> <small>IMÓVEIS</small></span>
+<span class="brand-slogan">Conectando pessoas às oportunidades certas.</span>
+</a>
+<a class="nav" id="all" href="imoveis.html">Ver imóveis</a>
+</div></header>
 <main class="wrap">
-  <a class="back" id="back" href="imoveis.html">
-    ← Voltar aos imóveis
-  </a>
-
-  <div id="status" class="status" role="status">
-    Carregando informações do imóvel...
-  </div>
-
-  <div id="content" class="hidden">
-    <div id="badge"></div>
-    <h1 id="title"></h1>
-    <div class="subtitle" id="location"></div>
-    <div class="gallery" id="gallery"></div>
-
-    <div class="layout">
-      <div>
-        <section class="panel">
-          <h2>Características do imóvel</h2>
-          <div class="features" id="features"></div>
-        </section>
-
-        <section class="panel" id="description-panel">
-          <h2>Sobre este imóvel</h2>
-          <div id="description" class="desc"></div>
-        </section>
-
-        <section class="panel">
-          <h2>Informações adicionais</h2>
-          <div id="extra" class="extras"></div>
-        </section>
-      </div>
-
-      <aside class="panel contact">
-        <div class="muted" id="deal"></div>
-        <div class="price" id="price"></div>
-
-        <div class="muted">
-          Código do imóvel:
-          <span id="code"></span>
-        </div>
-
-        <div class="contact-title">
-          Gostou deste imóvel? Vamos agendar uma visita?
-        </div>
-
-        <p class="contact-copy">
-          Fale diretamente com um corretor, esclareça
-          suas dúvidas e consulte os horários disponíveis.
-        </p>
-
-        <a class="btn whatsapp"
-           id="contact"
-           href="#contato">
-          Conversar pelo WhatsApp
-        </a>
-
-        <button class="btn secondary hidden"
-                id="simulation"
-                type="button">
-          Quero simular meu financiamento
-        </button>
-
-        <button class="btn secondary"
-                id="share"
-                type="button">
-          Compartilhar imóvel
-        </button>
-
-        <details class="broker-share">
-          <summary>Compartilhamento dos corretores</summary>
-
-          <p class="note">
-            Links individuais para identificar quem está
-            atendendo o cliente.
-          </p>
-
-          <button class="btn rafael"
-                  id="copy-rafael"
-                  type="button">
-            Copiar link do Rafael
-          </button>
-
-          <button class="btn debora"
-                  id="copy-debora"
-                  type="button">
-            Copiar link da Débora
-          </button>
-
-          <p id="share-feedback"
-             class="share-feedback"
-             role="status"
-             aria-live="polite"></p>
-        </details>
-
-        <p class="note">
-          Atendimento: W. Rafael Gomes e Débora Navas.
-          Valores e disponibilidade sujeitos a confirmação.
-        </p>
-      </aside>
-    </div>
-  </div>
+<a class="back" id="back" href="imoveis.html">← Voltar aos imóveis</a>
+<div id="status" class="status" role="status">Carregando informações do imóvel...</div>
+<div id="content" class="hidden">
+<div id="badge"></div><h1 id="title"></h1><div class="subtitle" id="location"></div>
+<div class="gallery" id="gallery"></div>
+<div class="layout">
+<div>
+<section class="panel"><h2>Características do imóvel</h2><div class="features" id="features"></div></section>
+<section class="panel" id="description-panel"><h2>Sobre este imóvel</h2><div id="description" class="desc"></div></section>
+<section class="panel"><h2>Informações adicionais</h2><div id="extra" class="extras"></div></section>
+</div>
+<aside class="panel contact">
+<div class="muted" id="deal"></div><div class="price" id="price"></div>
+<div class="muted">Código do imóvel: <span id="code"></span></div>
+<div class="contact-title">Gostou deste imóvel? Vamos agendar uma visita?</div>
+<p class="contact-copy">Fale diretamente com um corretor, esclareça suas dúvidas e consulte os horários disponíveis.</p>
+<a class="btn whatsapp" id="contact" href="#contato">Conversar pelo WhatsApp</a>
+<button class="btn secondary hidden" id="simulation" type="button">Quero simular meu financiamento</button>
+<button class="btn secondary" id="share" type="button">Compartilhar este imóvel</button>
+<details class="broker-share">
+<summary>Links de compartilhamento dos corretores</summary>
+<p class="note">Copie o link correspondente a quem está atendendo o cliente.</p>
+<button class="btn rafael" id="copy-rafael" type="button">Copiar link do Rafael</button>
+<button class="btn debora" id="copy-debora" type="button">Copiar link da Débora</button>
+<p id="share-feedback" class="share-feedback" role="status" aria-live="polite"></p>
+</details>
+<p class="note">Atendimento: W. Rafael Gomes e Débora Navas. Valores e disponibilidade sujeitos a confirmação.</p>
+</aside>
+</div></div>
 </main>
+<footer><div class="wrap footer-row"><div><strong class="footer-brand">PORTAL <span>BAURU</span> IMÓVEIS</strong><div class="footer-slogan">Conectando pessoas às oportunidades certas.</div></div><span>W. Rafael Gomes · CRECI 196.907-F &amp; Débora Navas · CRECI 196.899-F · Bauru/SP</span></div></footer>
+<div id="mobile-cta" class="mobile-cta hidden"><button id="mobile-contact" type="button">Agendar visita pelo WhatsApp</button></div>
+<div id="lightbox" class="lightbox hidden" role="dialog" aria-label="Galeria de fotos" aria-modal="true">
+<button id="close" type="button" aria-label="Fechar galeria">Fechar ✕</button>
+<button id="prev" class="previous" type="button" aria-label="Foto anterior">❮</button>
+<img id="large" alt="Fotografia do imóvel">
+<button id="next" class="next" type="button" aria-label="Próxima foto">❯</button>
+<div id="counter" class="counter"></div>
+</div>
 
-<footer>
-  <div class="wrap footer-row">
-    <div>
-      <strong class="footer-brand">
-        PORTAL <span>BAURU</span> IMÓVEIS
-      </strong>
-      <div class="footer-slogan">
-        Conectando pessoas às oportunidades certas.
-      </div>
+<div class="sim-overlay" id="sim-overlay" hidden>
+  <section class="sim-dialog" role="dialog" aria-modal="true" aria-labelledby="sim-title">
+    <button type="button" class="sim-close" id="sim-close" aria-label="Fechar">×</button>
+    <h2 id="sim-title">Pré-análise de financiamento</h2>
+    <p class="sim-intro">Responda algumas perguntas para prepararmos sua simulação. Não é necessário enviar documentos agora.</p>
+    <div class="sim-progress" aria-label="Progresso do formulário">
+      <span id="sim-bar-0" class="active"></span><span id="sim-bar-1"></span><span id="sim-bar-2"></span>
     </div>
-    <span>
-      W. Rafael Gomes · CRECI 196.907-F &amp;
-      Débora Navas · CRECI 196.899-F · Bauru/SP
-    </span>
-  </div>
-</footer>
-
-<div id="mobile-cta" class="mobile-cta hidden">
-  <button id="mobile-contact" type="button">
-    Agendar visita pelo WhatsApp
-  </button>
-</div>
-
-<div id="lightbox"
-     class="lightbox hidden"
-     role="dialog"
-     aria-modal="true"
-     aria-label="Galeria de fotos">
-
-  <button id="close" type="button">
-    Fechar ✕
-  </button>
-  <button id="prev"
-          class="previous"
-          type="button"
-          aria-label="Foto anterior">
-    ❮
-  </button>
-  <img id="large" alt="Fotografia do imóvel">
-  <button id="next"
-          class="next"
-          type="button"
-          aria-label="Próxima foto">
-    ❯
-  </button>
-  <div id="counter" class="counter"></div>
-</div>
-
-<div id="sim-overlay"
-     class="sim-overlay"
-     hidden>
-
-  <section class="sim-dialog"
-           role="dialog"
-           aria-modal="true"
-           aria-labelledby="sim-title">
-
-    <button id="sim-close"
-            class="sim-close"
-            type="button"
-            aria-label="Fechar">
-      ×
-    </button>
-
-    <h2 id="sim-title">
-      Solicite uma simulação de financiamento
-    </h2>
-
-    <p>
-      Informe seus dados para que nossa equipe possa
-      orientar sobre as possibilidades de financiamento.
-      A possibilidade de financiar este imóvel está
-      sujeita à verificação.
-    </p>
-
-    <form id="sim-form" class="sim-form">
-
-      <label for="sim-name">Seu nome *</label>
-      <input id="sim-name"
-             name="nome"
-             type="text"
-             autocomplete="name"
-             maxlength="160"
-             required>
-
-      <label for="sim-phone">WhatsApp com DDD *</label>
-      <input id="sim-phone"
-             name="telefone"
-             type="tel"
-             autocomplete="tel"
-             inputmode="tel"
-             maxlength="22"
-             placeholder="(14) 99999-9999"
-             required>
-
-      <label for="sim-entry">
-        Você possui entrada disponível?
-      </label>
-      <select id="sim-entry">
-        <option value="Não informado">
-          Ainda não sei
-        </option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-
-      <label for="sim-fgts">
-        Pretende utilizar FGTS?
-      </label>
-      <select id="sim-fgts">
-        <option value="Não informado">
-          Ainda não sei
-        </option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-
-      <div class="sim-honeypot"
-           aria-hidden="true">
-        <label for="sim-site">Site</label>
-        <input id="sim-site"
-               type="text"
-               autocomplete="off"
-               tabindex="-1">
-      </div>
-
-      <label class="sim-consent">
-        <input id="sim-consent"
-               type="checkbox"
-               required>
-        <span>
-          Autorizo o contato da equipe do Portal
-          Bauru Imóveis pelo WhatsApp para tratar
-          desta solicitação de financiamento.
-        </span>
-      </label>
-
-      <button id="sim-submit"
-              class="sim-submit"
-              type="submit">
-        Solicitar atendimento
-      </button>
-
-      <div id="sim-feedback"
-           class="sim-feedback"
-           role="status"
-           aria-live="polite"></div>
-
-      <small class="sim-hint">
-        A solicitação não representa aprovação de crédito.
-        As condições dependem da análise bancária e da
-        elegibilidade do imóvel.
-      </small>
+    <form id="sim-form" class="sim-form" novalidate>
+      <section class="sim-step" id="sim-step-0">
+        <h3 class="sim-step-title">1. Seus dados</h3>
+        <label for="sim-name">Nome completo *</label>
+        <input id="sim-name" type="text" autocomplete="name" maxlength="100" required>
+        <label for="sim-phone">WhatsApp com DDD *</label>
+        <input id="sim-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(14) 99999-9999" maxlength="22" required>
+        <label for="sim-first">Será seu primeiro imóvel? *</label>
+        <select id="sim-first" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <label for="sim-civil">Estado civil *</label>
+        <select id="sim-civil" required>
+          <option value="">Selecione</option><option>Solteiro(a)</option><option>Casado(a)</option><option>União estável</option><option>Divorciado(a)</option><option>Viúvo(a)</option>
+        </select>
+        <div id="sim-spouse-name-box" class="sim-conditional" hidden>
+          <label for="sim-spouse-name">Nome completo do cônjuge/companheiro(a) *</label>
+          <input id="sim-spouse-name" type="text" maxlength="100" autocomplete="off">
+          <small class="sim-note">As informações do cônjuge serão consideradas na pré-análise.</small>
+        </div>
+      </section>
+      <section class="sim-step" id="sim-step-1" hidden>
+        <h3 class="sim-step-title">2. Renda e carteira de trabalho</h3>
+        <label for="sim-income-kind">Como você comprova sua renda? *</label>
+        <select id="sim-income-kind" required>
+          <option value="">Selecione</option>
+          <option value="Formal">Formal — CLT, declaração de Imposto de Renda ou pró-labore</option>
+          <option value="Informal">Informal — movimentação bancária</option>
+          <option value="Mista">Formal e informal (mista)</option>
+          <option value="Sem renda">Não possuo renda atualmente</option>
+        </select>
+        <div id="sim-income-value-box">
+          <label for="sim-income">Qual sua renda bruta mensal total? (R$) *</label>
+          <input id="sim-income" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 3500" required>
+          <small class="sim-note">Informe o valor bruto, antes de descontos.</small>
+        </div>
+        <label for="sim-work">Você possui pelo menos 3 anos de registro em carteira? *</label>
+        <select id="sim-work" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div id="sim-spouse-income-box" class="sim-conditional" hidden>
+          <strong>Dados de renda do cônjuge/companheiro(a)</strong>
+          <label for="sim-spouse-kind">Como o cônjuge comprova a renda? *</label>
+          <select id="sim-spouse-kind">
+            <option value="">Selecione</option><option value="Formal">Formal — CLT, IR ou pró-labore</option><option value="Informal">Informal — movimentação bancária</option><option value="Mista">Formal e informal (mista)</option><option value="Sem renda">Não possui renda atualmente</option>
+          </select>
+          <div id="sim-spouse-income-value-box">
+            <label for="sim-spouse-income">Renda bruta mensal do cônjuge (R$) *</label>
+            <input id="sim-spouse-income" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 2500">
+            <small class="sim-note">Valor bruto, antes dos descontos.</small>
+          </div>
+          <label for="sim-spouse-work">Cônjuge possui 3 anos de registro em carteira? *</label>
+          <select id="sim-spouse-work"><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        </div>
+      </section>
+      <section class="sim-step" id="sim-step-2" hidden>
+        <h3 class="sim-step-title">3. FGTS, entrada e documentação</h3>
+        <label for="sim-fgts">Você possui saldo de FGTS? *</label>
+        <select id="sim-fgts" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div id="sim-fgts-value-box" class="sim-conditional" hidden>
+          <label for="sim-fgts-value">Valor aproximado do seu FGTS (R$) *</label>
+          <input id="sim-fgts-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 12000">
+        </div>
+        <div id="sim-spouse-fgts-box" class="sim-conditional" hidden>
+          <label for="sim-spouse-fgts">O cônjuge possui saldo de FGTS? *</label>
+          <select id="sim-spouse-fgts"><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+          <div id="sim-spouse-fgts-value-box" hidden>
+            <label for="sim-spouse-fgts-value">Valor aproximado do FGTS do cônjuge (R$) *</label>
+            <input id="sim-spouse-fgts-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 8000">
+          </div>
+        </div>
+        <label for="sim-entry">Possui dinheiro disponível para entrada? *</label>
+        <select id="sim-entry" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div id="sim-entry-value-box" class="sim-conditional" hidden>
+          <label for="sim-entry-value">Quanto possui para entrada? (R$) *</label>
+          <input id="sim-entry-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 15000">
+        </div>
+        <label for="sim-docs">Possui recursos para pagar a documentação? *</label>
+        <select id="sim-docs" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div class="sim-honeypot" aria-hidden="true"><label for="sim-site">Site</label><input id="sim-site" tabindex="-1" autocomplete="off"></div>
+        <label class="sim-consent"><input id="sim-consent" type="checkbox" required><span>Autorizo o Portal Bauru Imóveis a usar as informações fornecidas para avaliar as possibilidades de financiamento e entrar em contato pelo WhatsApp. Se informei dados do cônjuge, confirmo que tenho sua autorização.</span></label>
+        <small class="sim-note">O resultado depende da análise bancária e da elegibilidade do imóvel. Não garantimos aprovação.</small>
+      </section>
+      <div class="sim-actions"><button class="sim-back" id="sim-back" type="button" hidden>Voltar</button><button class="sim-next" id="sim-next" type="button">Continuar</button><button class="sim-send" id="sim-send" type="submit" hidden>Solicitar simulação</button></div>
+      <p id="sim-feedback" class="sim-feedback" role="status" aria-live="polite"></p>
     </form>
-
-    <div id="sim-result"
-         class="sim-result"
-         hidden></div>
+    <div id="sim-result" class="sim-result" hidden></div>
   </section>
 </div>
 
 <script type="module">
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-const supabase=createClient(
-  'https://dtkszimtovtqdojjpqsy.supabase.co',
-  'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
-);
-
+const supabase=createClient('https://dtkszimtovtqdojjpqsy.supabase.co','sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi');
 const $=id=>document.getElementById(id);
-
 const params=new URLSearchParams(location.search);
 const id=params.get('id');
-
-const ref=['rafael','debora'].includes(
-  params.get('ref')
-)?params.get('ref'):null;
-
+const ref=['rafael','debora'].includes(params.get('ref'))?params.get('ref'):null;
 const listUrl=new URL('imoveis.html',location.href);
-
-if(ref){
-  listUrl.searchParams.set('ref',ref);
-}
-
-for(const x of ['home','all','back']){
-  $(x).href=listUrl.href;
-}
-
-const typeNames={
-  apartamento:'Apartamento',
-  casa:'Casa',
-  sobrado:'Sobrado',
-  terreno:'Terreno',
-  chacara:'Chácara',
-  comercial:'Comercial',
-  outro:'Imóvel'
-};
-
-const money=v=>
-  v===null||v===undefined||v===''?
-  'Valor sob consulta':
-  new Intl.NumberFormat('pt-BR',{
-    style:'currency',
-    currency:'BRL',
-    maximumFractionDigits:0
-  }).format(Number(v));
-
-function node(tag,cls,txt){
-  const n=document.createElement(tag);
-  if(cls)n.className=cls;
-  if(txt!==undefined)n.textContent=txt;
-  return n;
-}
-
-const photos=[];
-let active=0;
-let lastFocused=null;
-let property=null;
-
-/* Galeria */
-
-function changePhoto(i){
-  if(!photos.length)return;
-
-  active=(i+photos.length)%photos.length;
-  $('large').src=photos[active];
-  $('counter').textContent=
-    `${active+1} de ${photos.length}`;
-}
-
-function openPhoto(i){
-  lastFocused=document.activeElement;
-  changePhoto(i);
-  $('lightbox').classList.remove('hidden');
-  document.body.style.overflow='hidden';
-  $('close').focus();
-}
-
-function closePhoto(){
-  $('lightbox').classList.add('hidden');
-  document.body.style.overflow='';
-
-  if(lastFocused?.focus){
-    lastFocused.focus();
-  }
-}
-
-$('close').onclick=closePhoto;
-$('prev').onclick=()=>changePhoto(active-1);
-$('next').onclick=()=>changePhoto(active+1);
-
-$('lightbox').addEventListener('click',e=>{
-  if(e.target===$('lightbox')){
-    closePhoto();
-  }
-});
-
-document.addEventListener('keydown',e=>{
-  if($('lightbox').classList.contains('hidden')){
-    return;
-  }
-  if(e.key==='Escape')closePhoto();
-  if(e.key==='ArrowLeft')changePhoto(active-1);
-  if(e.key==='ArrowRight')changePhoto(active+1);
-});
-
-function addFeature(value,label){
-  if(
-    value===null||
-    value===undefined||
-    value===''
-  )return;
-
-  const d=node('div','feature');
-
-  d.append(
-    node('strong','',String(value)),
-    node('small','',label)
-  );
-
-  $('features').append(d);
-}
-
-function renderGallery(title){
-  const g=$('gallery');
-
-  if(!photos.length){
-    g.append(
-      node('div','no-photo','Fotografias em breve')
-    );
-    return;
-  }
-
-  const main=node('img','main-photo');
-
-  main.src=photos[0];
-  main.alt=`Fotografia principal: ${title}`;
-  main.tabIndex=0;
-  main.setAttribute('role','button');
-  main.setAttribute(
-    'aria-label',
-    'Ampliar fotografia principal'
-  );
-
-  main.onclick=()=>openPhoto(0);
-
-  main.onkeydown=e=>{
-    if(e.key==='Enter'||e.key===' '){
-      e.preventDefault();
-      openPhoto(0);
-    }
-  };
-
-  g.append(main);
-
-  if(photos.length>1){
-    const thumbs=node('div','thumbs');
-
-    for(let i=1;i<Math.min(3,photos.length);i++){
-      const b=node('button','thumb');
-      b.type='button';
-      b.setAttribute(
-        'aria-label',
-        `Abrir foto ${i+1}`
-      );
-
-      const img=node('img');
-
-      img.src=photos[i];
-      img.alt=`Fotografia ${i+1}: ${title}`;
-      img.loading='lazy';
-
-      b.append(img);
-
-      if(i===2&&photos.length>3){
-        b.append(
-          node(
-            'span',
-            'more',
-            `+ ${photos.length-3} fotos`
-          )
-        );
-      }
-
-      b.onclick=()=>openPhoto(i);
-      thumbs.append(b);
-    }
-
-    g.append(thumbs);
-  }
-
-  g.append(
-    node(
-      'span',
-      'gallery-caption',
-      photos.length===1?
-      '1 fotografia':
-      `${photos.length} fotografias`
-    )
-  );
-
-  const view=node(
-    'button',
-    'gallery-view',
-    'Ver todas as fotos'
-  );
-
-  view.type='button';
-  view.onclick=()=>openPhoto(0);
-  g.append(view);
-}
-
-/* Corretores */
-
-const brokerPhone={
-  rafael:'5514982329929',
-  debora:'5514981306115'
-};
-
-const brokerName={
-  rafael:'Rafael',
-  debora:'Débora'
-};
-
-function canonicalUrl(propertyId){
-  const url=new URL('imovel.html',location.href);
-  url.search='';
-  url.hash='';
-  url.searchParams.set('id',propertyId);
-  return url.href;
-}
-
-function brokerShareUrl(broker){
-  const url=new URL('imovel.html',location.href);
-  url.search='';
-  url.hash='';
-  url.searchParams.set('id',id);
-  url.searchParams.set('ref',broker);
-  return url.href;
-}
-
-function contactLink(p,broker){
-  const url=brokerShareUrl(broker);
-
-  const msg=
-    `Olá! Vi o imóvel ${p.codigo||p.titulo||''} `+
-    `no Portal Bauru Imóveis e gostaria de saber `+
-    `mais e agendar uma visita. ${url}`;
-
-  return 'https://wa.me/'+brokerPhone[broker]+
-    '?text='+encodeURIComponent(msg);
-}
-
+if(ref)listUrl.searchParams.set('ref',ref);
+for(const x of ['home','all','back'])$(x).href=listUrl.href;
+const typeNames={apartamento:'Apartamento',casa:'Casa',sobrado:'Sobrado',terreno:'Terreno',chacara:'Chácara',comercial:'Comercial',outro:'Imóvel'};
+const money=v=>v===null||v===undefined||v===''?'Valor sob consulta':new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(Number(v));
+const node=(tag,cls,txt)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n};
+const photos=[];let active=0;let lastFocus=null;
+function openPhoto(i){if(!photos.length)return;lastFocus=document.activeElement;active=(i+photos.length)%photos.length;$('large').src=photos[active];$('counter').textContent=`${active+1} de ${photos.length}`;$('lightbox').classList.remove('hidden');document.body.style.overflow='hidden';$('close').focus()}
+function changePhoto(i){if(!photos.length)return;active=(i+photos.length)%photos.length;$('large').src=photos[active];$('counter').textContent=`${active+1} de ${photos.length}`}
+function closePhoto(){$('lightbox').classList.add('hidden');document.body.style.overflow='';if(lastFocus?.focus)lastFocus.focus()}
+$('close').onclick=closePhoto;$('prev').onclick=()=>changePhoto(active-1);$('next').onclick=()=>changePhoto(active+1);
+$('lightbox').addEventListener('click',e=>{if(e.target===$('lightbox'))closePhoto()});
+document.addEventListener('keydown',e=>{if($('lightbox').classList.contains('hidden'))return;if(e.key==='Escape')closePhoto();if(e.key==='ArrowLeft')changePhoto(active-1);if(e.key==='ArrowRight')changePhoto(active+1)});
+function addFeature(value,label){if(value===null||value===undefined||value==='')return;const d=node('div','feature');d.append(node('strong','',String(value)),node('small','',label));$('features').append(d)}
+function renderGallery(title){const g=$('gallery');if(!photos.length){g.append(node('div','no-photo','Fotografias em breve'));return}const main=node('img','main-photo');main.src=photos[0];main.alt=`Fotografia principal: ${title}`;main.tabIndex=0;main.setAttribute('role','button');main.setAttribute('aria-label','Ampliar fotografia principal');main.onclick=()=>openPhoto(0);main.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPhoto(0)}};g.append(main);if(photos.length>1){const thumbs=node('div','thumbs');for(let i=1;i<Math.min(3,photos.length);i++){const b=node('button','thumb');b.type='button';b.setAttribute('aria-label',`Abrir foto ${i+1}`);const img=node('img');img.src=photos[i];img.alt=`Fotografia ${i+1}: ${title}`;img.loading='lazy';b.append(img);if(i===2&&photos.length>3)b.append(node('span','more',`+ ${photos.length-3} fotos`));b.onclick=()=>openPhoto(i);thumbs.append(b)}g.append(thumbs)}g.append(node('span','gallery-caption',photos.length===1?'1 fotografia':photos.length+' fotografias'));const view=node('button','gallery-view','Ver todas as fotos');view.type='button';view.onclick=()=>openPhoto(0);g.append(view)}
+const brokerPhone={rafael:'5514982329929',debora:'5514981306115'};
+function canonicalUrl(propertyId){const url=new URL('imovel.html',location.href);url.search='';url.hash='';url.searchParams.set('id',propertyId);return url.href}
+function brokerShareUrl(broker){const url=new URL('imovel.html',location.href);url.search='';url.hash='';url.searchParams.set('id',id);url.searchParams.set('ref',broker);return url.href}
+function contactLink(p,broker){const url=brokerShareUrl(broker);const msg=`Olá! Vi o imóvel ${p.codigo||p.titulo||''} no Portal Bauru Imóveis e gostaria de saber mais e agendar uma visita. ${url}`;return `https://wa.me/${brokerPhone[broker]}?text=${encodeURIComponent(msg)}`}
 let contacting=false;
+async function openContact(p){if(contacting)return;contacting=true;const btn=$('contact'),mobile=$('mobile-contact');btn.textContent='Preparando atendimento...';mobile.textContent='Preparando atendimento...';mobile.disabled=true;btn.setAttribute('aria-disabled','true');try{let broker=ref;if(!broker){const {data,error}=await supabase.rpc('portal_proximo_corretor');if(error)throw error;if(!Object.prototype.hasOwnProperty.call(brokerPhone,data))throw new Error('Resposta inesperada do rodízio');broker=data}window.location.assign(contactLink(p,broker))}catch(e){console.error('Contato WhatsApp:',e);alert('Não foi possível preparar o WhatsApp agora. Tente novamente em instantes.')}finally{contacting=false;btn.textContent='Conversar pelo WhatsApp';mobile.textContent='Agendar visita pelo WhatsApp';mobile.disabled=false;btn.removeAttribute('aria-disabled')}}
+function setMeta(selector,attribute,value){const element=document.querySelector(selector);if(element)element.setAttribute(attribute,value)}
+function cleanText(value){return String(value||'').replace(/\s+/g,' ').trim()}
+function prepareSEO(p){const type=typeNames[p.tipo]||'Imóvel';const purpose=p.finalidade==='locacao'?'para alugar':'à venda';const place=p.bairro?`no ${p.bairro}, em Bauru/SP`:'em Bauru/SP';const rawTitle=cleanText(p.titulo);const title=rawTitle?`${rawTitle} | Portal Bauru Imóveis`:`${type} ${purpose} ${place} | Portal Bauru Imóveis`;const characteristics=[p.quartos!=null?`${p.quartos} quarto(s)`:null,p.suites?`${p.suites} suíte(s)`:null,p.vagas!=null?`${p.vagas} vaga(s)`:null,p.area_privativa?`${Number(p.area_privativa).toLocaleString('pt-BR')} m²`:null].filter(Boolean).join(', ');const description=[`${type} ${purpose} ${place}.`,characteristics?`${characteristics}.`:null,p.preco!=null?`Valor: ${money(p.preco)}.`:null,p.descricao?cleanText(p.descricao):null].filter(Boolean).join(' ').slice(0,165).trim();const canonical=canonicalUrl(p.id);document.title=title;setMeta('#seo-description','content',description);setMeta('#og-title','content',title);setMeta('#og-description','content',description);setMeta('#og-url','content',canonical);let canonicalTag=document.querySelector('link[rel="canonical"]');if(!canonicalTag){canonicalTag=document.createElement('link');canonicalTag.rel='canonical';document.head.append(canonicalTag)}canonicalTag.href=canonical;if(photos.length){let image=document.querySelector('meta[property="og:image"]');if(!image){image=document.createElement('meta');image.setAttribute('property','og:image');document.head.append(image)}image.setAttribute('content',photos[0])}const realEstate={'@context':'https://schema.org','@type':'RealEstateListing','@id':canonical+'#anuncio',url:canonical,name:rawTitle||`${type} ${purpose} ${place}`,description:cleanText(p.descricao)||description,inLanguage:'pt-BR',mainEntity:{'@type':'Accommodation',name:rawTitle||`${type} em Bauru`,description:cleanText(p.descricao)||description,address:{'@type':'PostalAddress',addressLocality:'Bauru',addressRegion:'SP',addressCountry:'BR'},...(p.area_privativa?{floorSize:{'@type':'QuantitativeValue',value:Number(p.area_privativa),unitCode:'MTK'}}:{}),...(p.quartos!=null?{numberOfBedrooms:Number(p.quartos)}:{}),...(p.banheiros!=null?{numberOfBathroomsTotal:Number(p.banheiros)}:{}),...(photos.length?{image:photos}:{})},...(p.preco!=null?{offers:{'@type':'Offer',price:Number(p.preco),priceCurrency:'BRL',availability:p.situacao==='reservado'?'https://schema.org/LimitedAvailability':'https://schema.org/InStock',url:canonical}}:{}),publisher:{'@type':'Organization',name:'Portal Bauru Imóveis',url:'https://portalbauru.pages.dev/'}};if(p.bairro)realEstate.mainEntity.address.addressSubregion=p.bairro;const script=document.createElement('script');script.type='application/ld+json';script.id='property-structured-data';script.textContent=JSON.stringify(realEstate).replace(/</g,'\\u003c');document.head.append(script)}
 
-async function openContact(p){
-  if(contacting)return;
-  contacting=true;
-
-  const btn=$('contact');
-  const mobile=$('mobile-contact');
-
-  btn.textContent='Preparando atendimento...';
-  mobile.textContent='Preparando atendimento...';
-  mobile.disabled=true;
-  btn.setAttribute('aria-disabled','true');
-
-  try{
-    let broker=ref;
-
-    if(!broker){
-      const {data,error}=await supabase.rpc(
-        'portal_proximo_corretor'
-      );
-
-      if(error)throw error;
-
-      if(
-        !Object.prototype.hasOwnProperty.call(
-          brokerPhone,data
-        )
-      ){
-        throw new Error(
-          'Resposta inesperada do rodízio'
-        );
-      }
-
-      broker=data;
+/* Pré-análise em três etapas, integrada ao CRM */
+let simProperty=null,simStep=0,simSending=false,simFocus=null,simOverflow='';
+const simYes=id=>$(id).value==='Sim';
+const simPartner=()=>['Casado(a)','União estável'].includes($('sim-civil').value);
+const simVal=id=>$(id).value.trim();
+function simToggle(boxId,on,requiredIds=[]){
+  const box=$(boxId);box.hidden=!on;
+  box.querySelectorAll('input,select').forEach(el=>{
+    el.disabled=!on;
+    el.required=on&&requiredIds.includes(el.id);
+  });
+}
+function simDependencies(){
+  const partner=simPartner();
+  simToggle('sim-spouse-name-box',partner,['sim-spouse-name']);
+  simToggle('sim-spouse-income-box',partner,['sim-spouse-kind','sim-spouse-work']);
+  simToggle('sim-spouse-fgts-box',partner,['sim-spouse-fgts']);
+  simToggle('sim-income-value-box',simVal('sim-income-kind')!=='Sem renda',['sim-income']);
+  simToggle('sim-spouse-income-value-box',partner&&simVal('sim-spouse-kind')!=='Sem renda',['sim-spouse-income']);
+  simToggle('sim-fgts-value-box',simYes('sim-fgts'),['sim-fgts-value']);
+  simToggle('sim-spouse-fgts-value-box',partner&&simYes('sim-spouse-fgts'),['sim-spouse-fgts-value']);
+  simToggle('sim-entry-value-box',simYes('sim-entry'),['sim-entry-value']);
+}
+['sim-civil','sim-income-kind','sim-spouse-kind','sim-fgts','sim-spouse-fgts','sim-entry'].forEach(id=>$(id).addEventListener('change',simDependencies));
+function simShowStep(n){
+  simStep=n;
+  for(let i=0;i<3;i++){
+    $('sim-step-'+i).hidden=i!==n;
+    $('sim-bar-'+i).classList.toggle('active',i<=n);
+  }
+  $('sim-back').hidden=n===0;
+  $('sim-next').hidden=n===2;
+  $('sim-send').hidden=n!==2;
+  $('sim-feedback').textContent='';
+  $('sim-dialog')?.scrollTo?.(0,0);
+}
+function simStepValid(n){
+  const step=$('sim-step-'+n);
+  for(const input of step.querySelectorAll('input,select')){
+    if(input.disabled||input.closest('[hidden]'))continue;
+    if(!input.checkValidity()){
+      input.reportValidity();input.focus();return false;
     }
-
-    window.location.assign(
-      contactLink(p,broker)
-    );
-
-  }catch(e){
-    console.error('Contato WhatsApp:',e);
-
-    alert(
-      'Não foi possível preparar o WhatsApp agora. '+
-      'Tente novamente em instantes.'
-    );
-
-  }finally{
-    contacting=false;
-    btn.textContent='Conversar pelo WhatsApp';
-    mobile.textContent='Agendar visita pelo WhatsApp';
-    mobile.disabled=false;
-    btn.removeAttribute('aria-disabled');
   }
-}
-
-/* SEO */
-
-function setMeta(selector,attribute,value){
-  const element=document.querySelector(selector);
-  if(element){
-    element.setAttribute(attribute,value);
-  }
-}
-
-function cleanText(value){
-  return String(value||'')
-    .replace(/\s+/g,' ')
-    .trim();
-}
-
-function prepareSEO(p){
-  const type=typeNames[p.tipo]||'Imóvel';
-
-  const purpose=
-    p.finalidade==='locacao'?
-    'para alugar':
-    'à venda';
-
-  const place=p.bairro?
-    `no ${p.bairro}, em Bauru/SP`:
-    'em Bauru/SP';
-
-  const rawTitle=cleanText(p.titulo);
-
-  const title=rawTitle?
-    `${rawTitle} | Portal Bauru Imóveis`:
-    `${type} ${purpose} ${place} | Portal Bauru Imóveis`;
-
-  const characteristics=[
-    p.quartos!=null?
-      `${p.quartos} quarto(s)`:null,
-
-    p.suites?
-      `${p.suites} suíte(s)`:null,
-
-    p.vagas!=null?
-      `${p.vagas} vaga(s)`:null,
-
-    p.area_privativa?
-      `${Number(p.area_privativa).toLocaleString('pt-BR')} m²`:
-      null
-  ].filter(Boolean).join(', ');
-
-  const description=[
-    `${type} ${purpose} ${place}.`,
-
-    characteristics?
-      `${characteristics}.`:null,
-
-    p.preco!=null?
-      `Valor: ${money(p.preco)}.`:null,
-
-    p.descricao?
-      cleanText(p.descricao):null
-  ]
-    .filter(Boolean)
-    .join(' ')
-    .slice(0,165)
-    .trim();
-
-  const canonical=canonicalUrl(p.id);
-
-  document.title=title;
-
-  setMeta(
-    '#seo-description',
-    'content',
-    description
-  );
-
-  setMeta('#og-title','content',title);
-  setMeta('#og-description','content',description);
-  setMeta('#og-url','content',canonical);
-
-  let canonicalTag=document.querySelector(
-    'link[rel="canonical"]'
-  );
-
-  if(!canonicalTag){
-    canonicalTag=document.createElement('link');
-    canonicalTag.rel='canonical';
-    document.head.append(canonicalTag);
-  }
-
-  canonicalTag.href=canonical;
-
-  if(photos.length){
-    let image=document.querySelector(
-      'meta[property="og:image"]'
-    );
-
-    if(!image){
-      image=document.createElement('meta');
-      image.setAttribute(
-        'property',
-        'og:image'
-      );
-      document.head.append(image);
+  if(n===0){
+    const telefone=simVal('sim-phone').replace(/\D/g,'');
+    const valido=([10,11].includes(telefone.length)||([12,13].includes(telefone.length)&&telefone.startsWith('55')));
+    if(simVal('sim-name').length<2||!valido){
+      $('sim-feedback').textContent='Confira seu nome e WhatsApp com DDD.';return false;
     }
-
-    image.setAttribute('content',photos[0]);
-  }
-
-  const realEstate={
-    '@context':'https://schema.org',
-    '@type':'RealEstateListing',
-    '@id':canonical+'#anuncio',
-    url:canonical,
-
-    name:rawTitle||
-      `${type} ${purpose} ${place}`,
-
-    description:
-      cleanText(p.descricao)||description,
-
-    inLanguage:'pt-BR',
-
-    mainEntity:{
-      '@type':'Accommodation',
-
-      name:rawTitle||
-        `${type} em Bauru`,
-
-      description:
-        cleanText(p.descricao)||description,
-
-      address:{
-        '@type':'PostalAddress',
-        addressLocality:'Bauru',
-        addressRegion:'SP',
-        addressCountry:'BR'
-      },
-
-      ...(p.area_privativa?{
-        floorSize:{
-          '@type':'QuantitativeValue',
-          value:Number(p.area_privativa),
-          unitCode:'MTK'
-        }
-      }:{}),
-
-      ...(p.quartos!=null?{
-        numberOfBedrooms:Number(p.quartos)
-      }:{}),
-
-      ...(p.banheiros!=null?{
-        numberOfBathroomsTotal:Number(p.banheiros)
-      }:{}),
-
-      ...(photos.length?{
-        image:photos
-      }:{})
-    },
-
-    ...(p.preco!=null?{
-      offers:{
-        '@type':'Offer',
-        price:Number(p.preco),
-        priceCurrency:'BRL',
-
-        availability:p.situacao==='reservado'?
-          'https://schema.org/LimitedAvailability':
-          'https://schema.org/InStock',
-
-        url:canonical
-      }
-    }:{}),
-
-    publisher:{
-      '@type':'Organization',
-      name:'Portal Bauru Imóveis',
-      url:'https://portalbauru.pages.dev/'
+    if(simPartner()&&simVal('sim-spouse-name').length<2){
+      $('sim-feedback').textContent='Informe o nome completo do cônjuge.';return false;
     }
-  };
-
-  if(p.bairro){
-    realEstate.mainEntity.address.addressSubregion=
-      p.bairro;
   }
-
-  const old=document.getElementById(
-    'property-structured-data'
-  );
-
-  if(old)old.remove();
-
-  const script=document.createElement('script');
-  script.type='application/ld+json';
-  script.id='property-structured-data';
-
-  script.textContent=JSON.stringify(realEstate)
-    .replace(/</g,'\\u003c');
-
-  document.head.append(script);
+  return true;
 }
-
-/* Formulário de simulação */
-
-let simulationSending=false;
-let simulationPreviousFocus=null;
-let simulationPreviousOverflow='';
-
-function simulationInterest(p){
-  const parts=[
-    'Solicitação de simulação de financiamento',
-
-    p.codigo?
-      'Código: '+p.codigo:
-      null,
-
-    p.titulo?
-      'Imóvel: '+p.titulo:
-      null,
-
-    p.empreendimento?
-      'Condomínio: '+p.empreendimento:
-      null,
-
-    p.bairro?
-      'Bairro: '+p.bairro:
-      null,
-
-    p.preco!=null?
-      'Preço anunciado: '+money(p.preco):
-      null,
-
-    'Entrada: '+$('sim-entry').value,
-    'FGTS: '+$('sim-fgts').value
-  ];
-
-  return parts
-    .filter(Boolean)
-    .join(' | ')
-    .slice(0,500);
-}
-
-function openSimulation(){
-  if(!property)return;
-
-  simulationPreviousFocus=document.activeElement;
-
-  simulationPreviousOverflow=
-    document.body.style.overflow;
-
+function simOpen(){
+  if(!simProperty)return;
+  simFocus=document.activeElement;
+  simOverflow=document.body.style.overflow;
   $('sim-form').reset();
   $('sim-form').hidden=false;
-
   $('sim-result').hidden=true;
   $('sim-result').replaceChildren();
-
+  $('sim-alternative')?.remove();
   $('sim-feedback').textContent='';
-
-  const alternative=$('sim-alternative');
-  if(alternative)alternative.remove();
-
+  simDependencies();
   $('sim-overlay').hidden=false;
   document.body.style.overflow='hidden';
-
-  $('sim-name').focus();
+  simShowStep(0);$('sim-name').focus();
 }
-
-function closeSimulation(){
-  if(simulationSending)return;
-
+function simClose(){
+  if(simSending)return;
   $('sim-overlay').hidden=true;
-
-  document.body.style.overflow=
-    simulationPreviousOverflow;
-
-  if(simulationPreviousFocus?.focus){
-    simulationPreviousFocus.focus();
-  }
+  document.body.style.overflow=simOverflow;
+  simFocus?.focus?.();
 }
-
-$('sim-close').onclick=closeSimulation;
-
-$('sim-overlay').addEventListener('click',e=>{
-  if(e.target===$('sim-overlay')){
-    closeSimulation();
-  }
-});
-
-document.addEventListener('keydown',e=>{
-  if(
-    e.key==='Escape'&&
-    !$('sim-overlay').hidden
-  ){
-    closeSimulation();
-  }
-});
-
-$('simulation').onclick=openSimulation;
-
-function simulationWhatsApp(
-  broker,
-  interest,
-  destination
-){
+$('simulation').onclick=simOpen;
+$('sim-close').onclick=simClose;
+$('sim-overlay').addEventListener('click',e=>{if(e.target===$('sim-overlay'))simClose()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('sim-overlay').hidden)simClose()});
+$('sim-back').onclick=()=>simShowStep(Math.max(0,simStep-1));
+$('sim-next').onclick=()=>{if(simStepValid(simStep))simShowStep(Math.min(2,simStep+1))};
+function simMoney(value){return money(value||0)}
+function simInterest(p){
+  const first=['Pré-análise de financiamento',
+    'Imóvel: '+String(p.codigo||p.titulo||p.empreendimento||'anúncio').slice(0,55),
+    'Preço: '+money(p.preco),
+    '1º imóvel: '+simVal('sim-first'),
+    'Civil: '+simVal('sim-civil'),
+    'Renda: '+simVal('sim-income-kind'),
+    'Bruta: '+(simVal('sim-income-kind')==='Sem renda'?'R$ 0':simMoney(simVal('sim-income'))),
+    '3 anos carteira: '+simVal('sim-work'),
+    'FGTS: '+(simYes('sim-fgts')?'Sim '+simMoney(simVal('sim-fgts-value')):'Não'),
+    'Entrada: '+(simYes('sim-entry')?'Sim '+simMoney(simVal('sim-entry-value')):'Não'),
+    'Documentação: '+simVal('sim-docs')];
+  if(simPartner())first.push(
+    'Cônjuge: '+simVal('sim-spouse-name').slice(0,55),
+    'Renda cônj.: '+simVal('sim-spouse-kind'),
+    'Bruta cônj.: '+(simVal('sim-spouse-kind')==='Sem renda'?'R$ 0':simMoney(simVal('sim-spouse-income'))),
+    '3 anos cônj.: '+simVal('sim-spouse-work'),
+    'FGTS cônj.: '+(simYes('sim-spouse-fgts')?'Sim '+simMoney(simVal('sim-spouse-fgts-value')):'Não')
+  );
+  return first.join(' | ').slice(0,500);
+}
+function simWhatsApp(broker,target){
   if(!brokerPhone[broker])return;
-
-  const link=document.createElement('a');
-
-  const url=brokerShareUrl(broker);
-
-  const message=[
-    'Olá! Solicitei uma simulação de financiamento',
-    'pelo Portal Bauru Imóveis.',
-    'Tenho interesse neste imóvel:',
-    interest+'.',
-    url
-  ].join(' ');
-
-  link.href=
-    'https://wa.me/'+brokerPhone[broker]+
-    '?text='+encodeURIComponent(message);
-
-  link.target='_blank';
-  link.rel='noopener noreferrer';
-
-  link.className='sim-whatsapp';
-  link.textContent='Continuar pelo WhatsApp';
-
-  destination.append(link);
+  const a=node('a','sim-whatsapp','Continuar pelo WhatsApp');
+  const msg='Olá! Solicitei uma pré-análise de financiamento pelo Portal Bauru Imóveis e gostaria de acompanhar minha simulação. '+brokerShareUrl(broker);
+  a.href='https://wa.me/'+brokerPhone[broker]+'?text='+encodeURIComponent(msg);
+  a.target='_blank';a.rel='noopener noreferrer';target.append(a);
 }
-
-$('sim-form').addEventListener(
-  'submit',
-  async e=>{
-    e.preventDefault();
-
-    if(simulationSending||!property)return;
-
-    const form=e.currentTarget;
-
-    if(!form.reportValidity())return;
-
-    const name=$('sim-name')
-      .value
-      .replace(/\s+/g,' ')
-      .trim();
-
-    const phone=$('sim-phone')
-      .value
-      .replace(/\D/g,'');
-
-    const validPhone=
-      [10,11].includes(phone.length)||
-      (
-        [12,13].includes(phone.length)&&
-        phone.startsWith('55')
-      );
-
-    const feedback=$('sim-feedback');
-
-    if(name.length<2||!validPhone){
-      feedback.textContent=
-        'Confira seu nome e WhatsApp com DDD.';
-      return;
-    }
-
-    const interest=simulationInterest(property);
-    const button=$('sim-submit');
-
-    simulationSending=true;
-    button.disabled=true;
-    button.textContent='Registrando solicitação...';
-    feedback.textContent='';
-
-    try{
-      const {data,error}=await supabase.rpc(
-        'portal_receber_interessado',
-        {
-          p_nome:name,
-          p_telefone:phone,
-          p_interesse:interest,
-          p_referencia:ref,
-          p_consentiu:$('sim-consent').checked,
-          p_site:$('sim-site').value
-        }
-      );
-
-      if(error||!data||data.ok!==true){
-        throw error||new Error(
-          'Cadastro não confirmado'
-        );
-      }
-
-      const result=$('sim-result');
-
-      result.replaceChildren();
-
-      result.append(
-        node(
-          'strong',
-          '',
-          'Solicitação recebida!'
-        )
-      );
-
-      result.append(
-        node(
-          'p',
-          '',
-          'Seu interesse foi registrado. '+
-          (brokerName[data.corretor]||
-            'Um dos nossos corretores')+
-          ' poderá entrar em contato para orientar '+
-          'sobre as possibilidades de financiamento.'
-        )
-      );
-
-      simulationWhatsApp(
-        data.corretor,
-        interest,
-        result
-      );
-
-      $('sim-form').hidden=true;
-      result.hidden=false;
-
-    }catch(error){
-      console.error(
-        'Simulação de financiamento:',
-        error
-      );
-
-      feedback.textContent=
-        'Não conseguimos confirmar o cadastro '+
-        'automaticamente. Você pode continuar '+
-        'o atendimento pelo WhatsApp.';
-
-      const existing=$('sim-alternative');
-
-      if(existing)existing.remove();
-
-      const alternative=node('div');
-      alternative.id='sim-alternative';
-      feedback.after(alternative);
-
-      let broker=ref;
-
-      if(!broker){
-        try{
-          const response=await supabase.rpc(
-            'portal_proximo_corretor'
-          );
-
-          if(
-            !response.error&&
-            brokerPhone[response.data]
-          ){
-            broker=response.data;
-          }
-        }catch(_){}
-      }
-
-      simulationWhatsApp(
-        broker,
-        interest,
-        alternative
-      );
-
-    }finally{
-      simulationSending=false;
-      button.disabled=false;
-      button.textContent='Solicitar atendimento';
-    }
+$('sim-form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(simSending||!simProperty)return;
+  for(let n=0;n<3;n++){
+    simShowStep(n);
+    if(!simStepValid(n))return;
   }
-);
-
-/* Carregamento do imóvel */
-
-async function load(){
+  const interesse=simInterest(simProperty);
+  simSending=true;
+  $('sim-send').disabled=true;
+  $('sim-send').textContent='Registrando...';
+  $('sim-feedback').textContent='';
   try{
-    if(
-      !id||
-      !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)
-    ){
-      throw new Error(
-        'Link do imóvel inválido. '+
-        'Volte à lista e escolha um imóvel.'
-      );
-    }
-
-    const {data:p,error}=await supabase
-      .from('imoveis')
-      .select(
-        'id,codigo,titulo,descricao,finalidade,tipo,'+
-        'empreendimento,preco,bairro,area_privativa,'+
-        'quartos,suites,banheiros,vagas,situacao,selo,'+
-        'aceita_financiamento,aceita_fgts,publicado'
-      )
-      .eq('id',id)
-      .eq('publicado',true)
-      .single();
-
-    if(error||!p){
-      throw new Error(
-        'Este imóvel não está disponível '+
-        'para consulta pública.'
-      );
-    }
-
-    if(
-      ['vendido','alugado'].includes(
-        String(p.situacao||'').toLowerCase()
-      )
-    ){
-      throw new Error(
-        'Este imóvel não está mais disponível.'
-      );
-    }
-
-    property=p;
-
-    const {
-      data:items,
-      error:photoError
-    }=await supabase
-      .from('imovel_fotos')
-      .select('caminho,ordem')
-      .eq('imovel_id',id)
-      .order('ordem',{ascending:true});
-
-    if(photoError){
-      console.warn(
-        'Fotos:',
-        photoError.message
-      );
-    }
-
-    for(const item of items||[]){
-      if(item.caminho){
-        photos.push(
-          supabase.storage
-            .from('portal-imoveis')
-            .getPublicUrl(item.caminho)
-            .data.publicUrl
-        );
-      }
-    }
-
-    const displayTitle=p.titulo||
-      [
-        typeNames[p.tipo]||'Imóvel',
-        p.empreendimento
-      ]
-      .filter(Boolean)
-      .join(' no ');
-
-    $('title').textContent=displayTitle;
-
-    $('location').textContent=[
-      p.empreendimento,
-      p.bairro,
-      'Bauru/SP'
-    ]
-      .filter(Boolean)
-      .join(' • ');
-
-    prepareSEO(p);
-
-    if(p.selo&&p.selo!=='nenhum'){
-      const labels={
-        novidade:'Novidade',
-        oportunidade:'Oportunidade',
-        preco_reduzido:'Preço reduzido',
-        destaque:'Destaque',
-        exclusivo:'Exclusivo'
-      };
-
-      $('badge').append(
-        node(
-          'span',
-          'tag',
-          labels[p.selo]||p.selo
-        )
-      );
-    }
-
-    renderGallery(displayTitle);
-
-    addFeature(
-      p.area_privativa?
-        Number(p.area_privativa)
-          .toLocaleString('pt-BR')+' m²':
-        null,
-      'Área privativa'
-    );
-
-    addFeature(p.quartos,'Quartos');
-    addFeature(p.suites,'Suítes');
-    addFeature(p.banheiros,'Banheiros');
-    addFeature(p.vagas,'Vagas');
-
-    addFeature(
-      typeNames[p.tipo]||p.tipo,
-      'Tipo'
-    );
-
-    if(p.descricao){
-      $('description').textContent=p.descricao;
-    }else{
-      $('description-panel')
-        .classList.add('hidden');
-    }
-
-    const extras=[];
-
-    if(p.aceita_financiamento===true){
-      extras.push('Aceita financiamento');
-    }
-
-    if(p.aceita_fgts===true){
-      extras.push('Aceita FGTS');
-    }
-
-    if(p.situacao==='reservado'){
-      extras.push(
-        'Imóvel reservado: consulte disponibilidade'
-      );
-    }
-
-    if(!extras.length){
-      extras.push(
-        'Consulte condições e disponibilidade '+
-        'com nossa equipe.'
-      );
-    }
-
-    for(const extra of extras){
-      $('extra').append(
-        node(
-          'span',
-          'extra-item',
-          extra
-        )
-      );
-    }
-
-    $('deal').textContent=
-      p.finalidade==='locacao'?
-      'Valor de locação':
-      'Valor de venda';
-
-    $('price').textContent=money(p.preco);
-
-    $('code').textContent=
-      p.codigo||'Não informado';
-
-    $('contact').addEventListener('click',e=>{
-      e.preventDefault();
-      openContact(p);
+    const {data,error}=await supabase.rpc('portal_receber_interessado',{
+      p_nome:simVal('sim-name').replace(/\s+/g,' '),
+      p_telefone:simVal('sim-phone').replace(/\D/g,''),
+      p_interesse:interesse,
+      p_referencia:ref,
+      p_consentiu:$('sim-consent').checked,
+      p_site:simVal('sim-site')
     });
-
-    $('mobile-cta')
-      .classList.remove('hidden');
-
-    $('mobile-contact')
-      .addEventListener('click',()=>{
-        openContact(p);
-      });
-
-    /*
-      CORREÇÃO:
-      Todos os imóveis à venda exibem o botão de
-      solicitação de análise de financiamento.
-      Não depende de aceita_financiamento,
-      pois esse campo pode não ter sido informado.
-      A análise da elegibilidade será feita
-      no atendimento.
-    */
-    if(p.finalidade==='venda'){
-      $('simulation')
-        .classList.remove('hidden');
-    }
-
-    async function copyBrokerLink(broker){
-      const url=brokerShareUrl(broker);
-      const feedback=$('share-feedback');
-
+    if(error||!data||data.ok!==true)throw error||new Error('Cadastro não confirmado');
+    const result=$('sim-result');result.replaceChildren();
+    result.append(node('strong','','Solicitação recebida!'));
+    result.append(node('p','','Recebemos suas informações. Nossa equipe fará a análise das possibilidades de financiamento e encaminhará a simulação para o WhatsApp informado. Se precisarmos de mais algum dado, entraremos em contato.'));
+    simWhatsApp(data.corretor,result);
+    $('sim-form').hidden=true;result.hidden=false;
+  }catch(error){
+    console.error('Pré-análise do Portal:',error);
+    $('sim-feedback').textContent='Não conseguimos confirmar seu cadastro automaticamente. Você pode continuar pelo WhatsApp.';
+    const alt=node('div');alt.id='sim-alternative';
+    $('sim-feedback').after(alt);
+    let broker=ref;
+    if(!broker){
       try{
-        if(
-          navigator.clipboard&&
-          window.isSecureContext
-        ){
-          await navigator.clipboard.writeText(url);
-
-          feedback.textContent=
-            'Link de '+
-            (
-              broker==='rafael'?
-              'Rafael':
-              'Débora'
-            )+
-            ' copiado!';
-        }else{
-          window.prompt(
-            'Copie o link:',
-            url
-          );
-
-          feedback.textContent=
-            'Confira o link para compartilhar.';
-        }
-
-      }catch(e){
-        window.prompt(
-          'Copie o link:',
-          url
-        );
-
-        feedback.textContent=
-          'Confira o link para compartilhar.';
-      }
+        const {data,error:e}=await supabase.rpc('portal_proximo_corretor');
+        if(!e&&brokerPhone[data])broker=data;
+      }catch(_){}
     }
-
-    $('copy-rafael').addEventListener(
-      'click',
-      ()=>copyBrokerLink('rafael')
-    );
-
-    $('copy-debora').addEventListener(
-      'click',
-      ()=>copyBrokerLink('debora')
-    );
-
-    $('share').onclick=async()=>{
-      const url=location.href;
-
-      try{
-        if(navigator.share){
-          await navigator.share({
-            title:document.title,
-            url
-          });
-
-        }else if(navigator.clipboard){
-          await navigator.clipboard.writeText(url);
-          $('share').textContent='Link copiado!';
-
-        }else{
-          prompt('Copie o link:',url);
-        }
-
-      }catch(e){
-        if(e.name!=='AbortError'){
-          prompt('Copie o link:',url);
-        }
-      }
-    };
-
-    $('status').classList.add('hidden');
-    $('content').classList.remove('hidden');
-
-  }catch(e){
-    $('status').textContent=
-      e.message||
-      'Não foi possível carregar o imóvel.';
-
-    console.error(e);
+    simWhatsApp(broker,alt);
+  }finally{
+    simSending=false;
+    $('sim-send').disabled=false;
+    $('sim-send').textContent='Solicitar simulação';
   }
-}
+});
 
+async function load(){try{if(!id||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id))throw new Error('Link do imóvel inválido. Volte à lista e escolha um imóvel.');const {data:p,error}=await supabase.from('imoveis').select('id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,banheiros,vagas,situacao,selo,aceita_financiamento,aceita_fgts,publicado').eq('id',id).eq('publicado',true).single();if(error||!p)throw new Error('Este imóvel não está disponível para consulta pública.');if(['vendido','alugado'].includes(String(p.situacao||'').toLowerCase()))throw new Error('Este imóvel não está mais disponível.');simProperty=p;const {data:items,error:photoError}=await supabase.from('imovel_fotos').select('caminho,ordem').eq('imovel_id',id).order('ordem',{ascending:true});if(photoError)console.warn('Fotos:',photoError.message);for(const item of items||[]){if(item.caminho)photos.push(supabase.storage.from('portal-imoveis').getPublicUrl(item.caminho).data.publicUrl)}const displayTitle=p.titulo||[typeNames[p.tipo]||'Imóvel',p.empreendimento].filter(Boolean).join(' no ');$('title').textContent=displayTitle;$('location').textContent=[p.empreendimento,p.bairro,'Bauru/SP'].filter(Boolean).join(' • ');prepareSEO(p);if(p.selo&&p.selo!=='nenhum')$('badge').append(node('span','tag',({novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido',destaque:'Destaque',exclusivo:'Exclusivo'})[p.selo]||p.selo));renderGallery(displayTitle);addFeature(p.area_privativa?Number(p.area_privativa).toLocaleString('pt-BR')+' m²':null,'Área privativa');addFeature(p.quartos,'Quartos');addFeature(p.suites,'Suítes');addFeature(p.banheiros,'Banheiros');addFeature(p.vagas,'Vagas');addFeature(typeNames[p.tipo]||p.tipo,'Tipo');if(p.descricao)$('description').textContent=p.descricao;else $('description-panel').classList.add('hidden');const extras=[];if(p.aceita_financiamento===true)extras.push('Aceita financiamento');if(p.aceita_fgts===true)extras.push('Aceita FGTS');if(p.situacao==='reservado')extras.push('Imóvel reservado: consulte disponibilidade');if(!extras.length)extras.push('Consulte condições e disponibilidade com nossa equipe.');for(const extra of extras)$('extra').append(node('span','extra-item',extra));$('deal').textContent=p.finalidade==='locacao'?'Valor de locação':'Valor de venda';$('price').textContent=money(p.preco);$('code').textContent=p.codigo||'Não informado';if(p.finalidade==='venda')$('simulation').classList.remove('hidden');$('contact').addEventListener('click',e=>{e.preventDefault();openContact(p)});$('mobile-cta').classList.remove('hidden');$('mobile-contact').addEventListener('click',()=>openContact(p));async function copyBrokerLink(broker){const url=brokerShareUrl(broker);const feedback=$('share-feedback');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(url);feedback.textContent='Link de '+(broker==='rafael'?'Rafael':'Débora')+' copiado!'}else{window.prompt('Copie o link:',url);feedback.textContent='Confira o link para compartilhar.'}}catch(e){window.prompt('Copie o link:',url);feedback.textContent='Confira o link para compartilhar.'}}$('copy-rafael').addEventListener('click',()=>copyBrokerLink('rafael'));$('copy-debora').addEventListener('click',()=>copyBrokerLink('debora'));$('share').onclick=async()=>{const url=location.href;try{if(navigator.share)await navigator.share({title:document.title,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);$('share').textContent='Link copiado!'}else prompt('Copie o link:',url)}catch(e){if(e.name!=='AbortError')prompt('Copie o link:',url)}};$('status').classList.add('hidden');$('content').classList.remove('hidden')}catch(e){$('status').textContent=e.message||'Não foi possível carregar o imóvel.';console.error(e)}}
 load();
 </script>
-
 </body>
 </html>
