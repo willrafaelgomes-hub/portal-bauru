@@ -320,8 +320,6 @@ footer{
   color:#D4DCE5;
   font-size:12px
 }
-
-/* Galeria ampliada */
 .lightbox{
   position:fixed;
   inset:0;
@@ -366,7 +364,7 @@ footer{
 }
 .mobile-cta{display:none}
 
-/* Solicitação de simulação */
+/* Simulação de financiamento */
 .sim-overlay{
   position:fixed;
   inset:0;
@@ -379,7 +377,9 @@ footer{
 }
 .sim-overlay[hidden],
 .sim-form[hidden],
-.sim-result[hidden]{display:none!important}
+.sim-result[hidden]{
+  display:none!important
+}
 .sim-dialog{
   position:relative;
   width:min(100%,490px);
@@ -488,20 +488,24 @@ footer{
   font-size:11px;
   line-height:1.5
 }
-
 @media(max-width:800px){
   .layout{
     grid-template-columns:minmax(0,1fr) 295px;
     gap:16px
   }
-  .features{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .features{
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
   .panel{padding:19px}
   .gallery{height:390px}
 }
 @media(max-width:760px){
   .top{min-height:74px}
   .brand-name{font-size:16px}
-  .brand-slogan{font-size:9px;max-width:240px}
+  .brand-slogan{
+    font-size:9px;
+    max-width:240px
+  }
   .nav{font-size:12px}
   .back{margin:18px 0 12px}
   .subtitle{margin-bottom:15px;font-size:13px}
@@ -517,19 +521,30 @@ footer{
     grid-template-columns:1fr 1fr;
     grid-template-rows:86px
   }
-  .gallery-caption{bottom:101px;left:10px}
-  .gallery-view{bottom:100px;right:10px}
+  .gallery-caption{
+    bottom:101px;
+    left:10px
+  }
+  .gallery-view{
+    bottom:100px;
+    right:10px
+  }
   .gallery:has(.main-photo):not(:has(.thumbs)){
     grid-template-rows:330px
   }
-  .gallery:has(.no-photo){grid-template-rows:260px}
+  .gallery:has(.no-photo){
+    grid-template-rows:260px
+  }
   .layout{
     display:flex;
     flex-direction:column;
     gap:0;
     margin:18px 0 34px
   }
-  .layout>div{width:100%;order:1}
+  .layout>div{
+    width:100%;
+    order:1
+  }
   .contact{
     order:-1;
     position:static;
@@ -570,12 +585,20 @@ footer{
 @media(max-width:390px){
   .wrap{padding:0 14px}
   .brand-name{font-size:14px}
-  .brand-slogan{font-size:8px;max-width:205px}
+  .brand-slogan{
+    font-size:8px;
+    max-width:205px
+  }
   .nav{font-size:11px}
-  .gallery{grid-template-rows:290px 78px}
+  .gallery{
+    grid-template-rows:290px 78px
+  }
   .main-photo{height:290px}
   .thumbs{grid-template-rows:78px}
-  .gallery-caption{bottom:93px;font-size:11px}
+  .gallery-caption{
+    bottom:93px;
+    font-size:11px
+  }
   .gallery-view{
     bottom:92px;
     font-size:12px;
@@ -590,7 +613,6 @@ footer{
 </head>
 
 <body>
-
 <header>
   <div class="wrap top">
     <a class="brand" id="home" href="imoveis.html">
@@ -645,7 +667,8 @@ footer{
         <div class="price" id="price"></div>
 
         <div class="muted">
-          Código do imóvel: <span id="code"></span>
+          Código do imóvel:
+          <span id="code"></span>
         </div>
 
         <div class="contact-title">
@@ -720,7 +743,6 @@ footer{
         Conectando pessoas às oportunidades certas.
       </div>
     </div>
-
     <span>
       W. Rafael Gomes · CRECI 196.907-F &amp;
       Débora Navas · CRECI 196.899-F · Bauru/SP
@@ -734,7 +756,6 @@ footer{
   </button>
 </div>
 
-<!-- Galeria ampliada -->
 <div id="lightbox"
      class="lightbox hidden"
      role="dialog"
@@ -744,27 +765,22 @@ footer{
   <button id="close" type="button">
     Fechar ✕
   </button>
-
   <button id="prev"
           class="previous"
           type="button"
           aria-label="Foto anterior">
     ❮
   </button>
-
   <img id="large" alt="Fotografia do imóvel">
-
   <button id="next"
           class="next"
           type="button"
           aria-label="Próxima foto">
     ❯
   </button>
-
   <div id="counter" class="counter"></div>
 </div>
 
-<!-- Formulário de financiamento -->
 <div id="sim-overlay"
      class="sim-overlay"
      hidden>
@@ -786,16 +802,15 @@ footer{
     </h2>
 
     <p>
-      Informe seus dados para que nossa equipe
-      possa orientar sobre as possibilidades de
-      financiamento deste imóvel.
+      Informe seus dados para que nossa equipe possa
+      orientar sobre as possibilidades de financiamento.
+      A possibilidade de financiar este imóvel está
+      sujeita à verificação.
     </p>
 
     <form id="sim-form" class="sim-form">
 
-      <label for="sim-name">
-        Seu nome *
-      </label>
+      <label for="sim-name">Seu nome *</label>
       <input id="sim-name"
              name="nome"
              type="text"
@@ -803,9 +818,7 @@ footer{
              maxlength="160"
              required>
 
-      <label for="sim-phone">
-        WhatsApp com DDD *
-      </label>
+      <label for="sim-phone">WhatsApp com DDD *</label>
       <input id="sim-phone"
              name="telefone"
              type="tel"
@@ -869,16 +882,15 @@ footer{
            aria-live="polite"></div>
 
       <small class="sim-hint">
-        A solicitação não representa aprovação
-        de crédito. As condições dependem da
-        análise da instituição financeira.
+        A solicitação não representa aprovação de crédito.
+        As condições dependem da análise bancária e da
+        elegibilidade do imóvel.
       </small>
     </form>
 
     <div id="sim-result"
          class="sim-result"
          hidden></div>
-
   </section>
 </div>
 
@@ -940,13 +952,12 @@ let active=0;
 let lastFocused=null;
 let property=null;
 
-/* Galeria de fotos */
+/* Galeria */
 
 function changePhoto(i){
   if(!photos.length)return;
 
   active=(i+photos.length)%photos.length;
-
   $('large').src=photos[active];
   $('counter').textContent=
     `${active+1} de ${photos.length}`;
@@ -954,12 +965,9 @@ function changePhoto(i){
 
 function openPhoto(i){
   lastFocused=document.activeElement;
-
   changePhoto(i);
-
   $('lightbox').classList.remove('hidden');
   document.body.style.overflow='hidden';
-
   $('close').focus();
 }
 
@@ -986,7 +994,6 @@ document.addEventListener('keydown',e=>{
   if($('lightbox').classList.contains('hidden')){
     return;
   }
-
   if(e.key==='Escape')closePhoto();
   if(e.key==='ArrowLeft')changePhoto(active-1);
   if(e.key==='ArrowRight')changePhoto(active+1);
@@ -1062,7 +1069,9 @@ function renderGallery(title){
 
       if(i===2&&photos.length>3){
         b.append(
-          node('span','more',
+          node(
+            'span',
+            'more',
             `+ ${photos.length-3} fotos`
           )
         );
@@ -1093,11 +1102,10 @@ function renderGallery(title){
 
   view.type='button';
   view.onclick=()=>openPhoto(0);
-
   g.append(view);
 }
 
-/* Corretores e WhatsApp */
+/* Corretores */
 
 const brokerPhone={
   rafael:'5514982329929',
@@ -1111,23 +1119,18 @@ const brokerName={
 
 function canonicalUrl(propertyId){
   const url=new URL('imovel.html',location.href);
-
   url.search='';
   url.hash='';
   url.searchParams.set('id',propertyId);
-
   return url.href;
 }
 
 function brokerShareUrl(broker){
   const url=new URL('imovel.html',location.href);
-
   url.search='';
   url.hash='';
-
   url.searchParams.set('id',id);
   url.searchParams.set('ref',broker);
-
   return url.href;
 }
 
@@ -1147,7 +1150,6 @@ let contacting=false;
 
 async function openContact(p){
   if(contacting)return;
-
   contacting=true;
 
   const btn=$('contact');
@@ -1156,7 +1158,6 @@ async function openContact(p){
   btn.textContent='Preparando atendimento...';
   mobile.textContent='Preparando atendimento...';
   mobile.disabled=true;
-
   btn.setAttribute('aria-disabled','true');
 
   try{
@@ -1196,10 +1197,8 @@ async function openContact(p){
 
   }finally{
     contacting=false;
-
     btn.textContent='Conversar pelo WhatsApp';
     mobile.textContent='Agendar visita pelo WhatsApp';
-
     mobile.disabled=false;
     btn.removeAttribute('aria-disabled');
   }
@@ -1209,7 +1208,6 @@ async function openContact(p){
 
 function setMeta(selector,attribute,value){
   const element=document.querySelector(selector);
-
   if(element){
     element.setAttribute(attribute,value);
   }
@@ -1256,6 +1254,7 @@ function prepareSEO(p){
 
   const description=[
     `${type} ${purpose} ${place}.`,
+
     characteristics?
       `${characteristics}.`:null,
 
@@ -1307,14 +1306,10 @@ function prepareSEO(p){
         'property',
         'og:image'
       );
-
       document.head.append(image);
     }
 
-    image.setAttribute(
-      'content',
-      photos[0]
-    );
+    image.setAttribute('content',photos[0]);
   }
 
   const realEstate={
@@ -1401,7 +1396,6 @@ function prepareSEO(p){
   if(old)old.remove();
 
   const script=document.createElement('script');
-
   script.type='application/ld+json';
   script.id='property-structured-data';
 
@@ -1411,7 +1405,7 @@ function prepareSEO(p){
   document.head.append(script);
 }
 
-/* Solicitação de simulação */
+/* Formulário de simulação */
 
 let simulationSending=false;
 let simulationPreviousFocus=null;
@@ -1467,6 +1461,9 @@ function openSimulation(){
 
   $('sim-feedback').textContent='';
 
+  const alternative=$('sim-alternative');
+  if(alternative)alternative.remove();
+
   $('sim-overlay').hidden=false;
   document.body.style.overflow='hidden';
 
@@ -1495,7 +1492,10 @@ $('sim-overlay').addEventListener('click',e=>{
 });
 
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'&&!$('sim-overlay').hidden){
+  if(
+    e.key==='Escape'&&
+    !$('sim-overlay').hidden
+  ){
     closeSimulation();
   }
 });
@@ -1570,12 +1570,10 @@ $('sim-form').addEventListener(
     }
 
     const interest=simulationInterest(property);
-
     const button=$('sim-submit');
 
     simulationSending=true;
     button.disabled=true;
-
     button.textContent='Registrando solicitação...';
     feedback.textContent='';
 
@@ -1648,7 +1646,6 @@ $('sim-form').addEventListener(
 
       const alternative=node('div');
       alternative.id='sim-alternative';
-
       feedback.after(alternative);
 
       let broker=ref;
@@ -1676,7 +1673,6 @@ $('sim-form').addEventListener(
 
     }finally{
       simulationSending=false;
-
       button.disabled=false;
       button.textContent='Solicitar atendimento';
     }
@@ -1863,7 +1859,6 @@ async function load(){
     $('code').textContent=
       p.codigo||'Não informado';
 
-    /* WhatsApp */
     $('contact').addEventListener('click',e=>{
       e.preventDefault();
       openContact(p);
@@ -1877,19 +1872,22 @@ async function load(){
         openContact(p);
       });
 
-    /* Simulação: imóveis à venda */
-    if(
-      p.finalidade==='venda'&&
-      p.aceita_financiamento!==false
-    ){
+    /*
+      CORREÇÃO:
+      Todos os imóveis à venda exibem o botão de
+      solicitação de análise de financiamento.
+      Não depende de aceita_financiamento,
+      pois esse campo pode não ter sido informado.
+      A análise da elegibilidade será feita
+      no atendimento.
+    */
+    if(p.finalidade==='venda'){
       $('simulation')
         .classList.remove('hidden');
     }
 
-    /* Links individuais dos corretores */
     async function copyBrokerLink(broker){
       const url=brokerShareUrl(broker);
-
       const feedback=$('share-feedback');
 
       try{
@@ -1938,7 +1936,6 @@ async function load(){
       ()=>copyBrokerLink('debora')
     );
 
-    /* Compartilhar anúncio */
     $('share').onclick=async()=>{
       const url=location.href;
 
@@ -1951,7 +1948,6 @@ async function load(){
 
         }else if(navigator.clipboard){
           await navigator.clipboard.writeText(url);
-
           $('share').textContent='Link copiado!';
 
         }else{
