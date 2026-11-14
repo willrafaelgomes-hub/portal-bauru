@@ -4,4 +4,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /admin-backup.html
 
-Sitemap: https://portalbauru.pages.dev/sitemap.xml
+Sitemap: https://portalbauruimoveis.com.br/sitemap.xml
