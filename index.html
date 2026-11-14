@@ -18,35 +18,35 @@
 <title>Imóveis à venda em Bauru/SP | Portal Bauru Imóveis</title>
 <script type="application/ld+json">
 {
- "@context":"https://schema.org",
- "@graph":[
-  {
-   "@type":"Organization",
-   "@id":"https://portalbauru.pages.dev/#organizacao",
-   "name":"Portal Bauru Imóveis",
-   "url":"https://portalbauru.pages.dev/",
-   "description":"Portal imobiliário com atendimento profissional em Bauru, São Paulo.",
-   "areaServed":{"@type":"City","name":"Bauru"}
-  },
-  {
-   "@type":"WebSite",
-   "@id":"https://portalbauru.pages.dev/#site",
-   "url":"https://portalbauru.pages.dev/",
-   "name":"Portal Bauru Imóveis",
-   "alternateName":"Portal Bauru",
-   "inLanguage":"pt-BR",
-   "publisher":{"@id":"https://portalbauru.pages.dev/#organizacao"}
-  },
-  {
-   "@type":"WebPage",
-   "@id":"https://portalbauru.pages.dev/#pagina-inicial",
-   "url":"https://portalbauru.pages.dev/",
-   "name":"Imóveis à venda em Bauru/SP | Portal Bauru Imóveis",
-   "isPartOf":{"@id":"https://portalbauru.pages.dev/#site"},
-   "about":{"@type":"Place","name":"Bauru, São Paulo, Brasil"},
-   "inLanguage":"pt-BR"
-  }
- ]
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://portalbauru.pages.dev/#organizacao",
+      "name":"Portal Bauru Imóveis",
+      "url":"https://portalbauru.pages.dev/",
+      "description":"Portal imobiliário com atendimento profissional em Bauru, São Paulo.",
+      "areaServed":{"@type":"City","name":"Bauru"}
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://portalbauru.pages.dev/#site",
+      "url":"https://portalbauru.pages.dev/",
+      "name":"Portal Bauru Imóveis",
+      "alternateName":"Portal Bauru",
+      "inLanguage":"pt-BR",
+      "publisher":{"@id":"https://portalbauru.pages.dev/#organizacao"}
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://portalbauru.pages.dev/#pagina-inicial",
+      "url":"https://portalbauru.pages.dev/",
+      "name":"Imóveis à venda em Bauru/SP | Portal Bauru Imóveis",
+      "isPartOf":{"@id":"https://portalbauru.pages.dev/#site"},
+      "about":{"@type":"Place","name":"Bauru, São Paulo, Brasil"},
+      "inLanguage":"pt-BR"
+    }
+  ]
 }
 </script>
 <style>
@@ -60,31 +60,33 @@ button{cursor:pointer}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #F85F08;outline-offset:3px}
 .wrap{width:min(1150px,calc(100% - 36px));margin:auto}
 
-/* CABEÇALHO */
+/* CABECALHO */
 .top{background:#14253D;color:white;border-bottom:1px solid #ffffff16}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:block;min-width:0;flex:0 1 auto}
-.brand-name{display:block;font-size:1.13rem;font-weight:850;letter-spacing:.025em;line-height:1.15;white-space:nowrap}
+.brand-icon{width:34px;height:42px;display:grid;place-items:center;flex-shrink:0}
+.brand-icon svg{width:100%;height:100%}
+.brand-copy{min-width:0}
+.brand-name{display:block;font-size:1.13rem;font-weight:850;letter-spacing:.025em;line-height:1.12;white-space:nowrap}
 .brand-name span{color:#FF873E}
 .brand-name small{font-size:.79em;color:#F6F1EA;font-weight:600}
-.brand-slogan{display:block;color:#C5D0DC;font-size:.64rem;margin-top:5px;line-height:1.4;max-width:360px}
-.nav-actions{display:flex;align-items:center;gap:9px}
+.brand-slogan{display:block;color:#C5D0DC;font-size:.64rem;margin-top:5px;line-height:1.35}
 .nav-link{font-size:.86rem;font-weight:750;padding:11px 15px;border-radius:10px;border:1px solid #ffffff4f;white-space:nowrap}
 .nav-link:hover{background:#ffffff12}
-.nav-announce{border-color:#FF945D80;color:#FFE2CE}
-.nav-announce:hover{background:#FF945D16}
-.mobile-label{display:none}
 
-/* INTRODUÇÃO */
+/* HERO E BUSCA */
 .hero{background:radial-gradient(ellipse at 91% 10%,#2A4A66 0,transparent 49%),linear-gradient(130deg,#14253D,#1A334D);color:white}
 .hero-inner{padding:45px 0 52px}
 .eyebrow{text-transform:uppercase;letter-spacing:.15em;font-weight:850;font-size:.68rem;color:#FFAD7E}
 .hero h1{font-size:clamp(2.25rem,5.2vw,4.05rem);letter-spacing:-.055em;line-height:1.08;max-width:790px;margin:12px 0 15px;font-weight:850}
 .hero h1 em{font-style:normal;color:#FF975D}
 .hero-copy{max-width:670px;color:#DFE7EF;font-size:1rem;line-height:1.6;margin:0}
-
-/* BUSCA DE IMÓVEIS */
-.search-box{margin-top:26px;padding:22px 22px 18px;background:white;color:#14253D;border-radius:18px;box-shadow:0 18px 40px #07101b3d}
+.search-box{margin-top:27px;padding:20px 22px 18px;background:white;color:#14253D;border-radius:18px;box-shadow:0 18px 40px #07101b3d}
+.search-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.search-tabs{display:inline-flex;align-items:center;gap:3px;padding:4px;background:#F1F2F2;border-radius:11px}
+.search-tab{border:0;border-radius:8px;background:transparent;color:#627287;font-size:.89rem;font-weight:800;padding:10px 22px}
+.search-tab.active{background:#14253D;color:white;box-shadow:0 2px 6px #14253D18}
+.search-top-note{font-size:.78rem;color:#778390}
 .search{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr) auto;gap:11px;align-items:end}
 .field{min-width:0}
 .field label{display:block;font-size:.75rem;font-weight:800;color:#506174;margin:0 0 7px}
@@ -97,7 +99,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .advanced{color:#B54A0B;font-size:.79rem;font-weight:800;padding:4px 0}
 .advanced:hover{text-decoration:underline}
 
-/* VITRINE NA PÁGINA INICIAL */
+/* LISTAGEM */
 .section{padding:54px 0}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:24px}
 .section-kicker{font-size:.69rem;text-transform:uppercase;letter-spacing:.13em;font-weight:850;color:#C95110}
@@ -123,8 +125,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .view:hover{text-decoration:underline}
 .empty{grid-column:1/-1;padding:28px;background:white;border:1px solid #E7E5E1;border-radius:14px;color:#627282;line-height:1.6}
 .status{font-size:.81rem;color:#687788;margin-top:10px}
+.section-bottom{display:flex;justify-content:center;margin-top:24px}
+.all-link{border:1px solid #CED4DA;border-radius:11px;padding:13px 20px;font-weight:800;font-size:.88rem;background:white}
+.all-link:hover{border-color:#F85F08;color:#C34D0A}
 
-/* ESCOLHAS DA SEMANA */
+/* DESTAQUES - SO APARECE SE HOUVER SELECAO */
 .featured{padding-top:0}
 .featured[hidden]{display:none!important}
 .weekly-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -137,49 +142,25 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .weekly-price{font-size:1.22rem;font-weight:850;color:#C44A0A}
 .weekly-link{font-size:.8rem;color:#B7480A;font-weight:850}
 
-/* BUSCA PERSONALIZADA */
-.personal-section{padding:26px 0 31px;background:#F7F5F1}
-.personal-card{background:linear-gradient(120deg,#14253D,#25435B);color:#fff;border-radius:20px;padding:35px 38px;display:flex;align-items:center;justify-content:space-between;gap:22px;box-shadow:0 9px 22px #14253D12}
-.personal-copy{flex:1;max-width:700px}
-.personal-kicker{color:#FFB385;text-transform:uppercase;letter-spacing:.15em;font-weight:850;font-size:.67rem;margin-bottom:12px}
-.personal-card h2{font-size:clamp(1.5rem,3.2vw,2.35rem);line-height:1.16;letter-spacing:-.045em;margin:0 0 14px;max-width:640px}
-.personal-card h2 em{color:#FFA36F;font-style:normal}
-.personal-card p{color:#DDE8F1;font-size:.91rem;line-height:1.7;margin:0;max-width:610px}
-.personal-action{min-width:227px;text-align:center}
-.personal-cta{display:block;background:#F85F08;color:white;padding:16px 20px;border-radius:11px;font-weight:850;font-size:.88rem;transition:background .2s,transform .2s}
-.personal-cta:hover{background:#DE5004;transform:translateY(-1px)}
-.personal-action small{display:block;margin-top:9px;color:#DAE3E9;font-size:.72rem;line-height:1.4}
-
-/* EQUIPE */
-.trust-section{background:#fff;border-top:1px solid #EAE6DF;padding:34px 0 37px}
-.trust-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);gap:28px;align-items:center}
-.trust-kicker{color:#BC531C;font-size:.68rem;font-weight:850;letter-spacing:.13em}
-.trust-main h2{font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-.04em;line-height:1.2;margin:10px 0}
-.trust-main p{color:#637181;font-size:.89rem;line-height:1.65;max-width:650px;margin:0}
-.trust-team{border-left:2px solid #E9D3BF;padding-left:27px}
-.trust-team strong{font-size:1.02rem;display:block;line-height:1.45}
-.trust-team strong span{color:#AAB3BE;font-weight:500}
-.trust-team p{font-size:.78rem;color:#637181;margin:6px 0 15px}
-.trust-team a{color:#C24D0B;font-weight:800;font-size:.84rem}
-.trust-team a:hover{text-decoration:underline}
-
-/* ANUNCIE CONOSCO */
-.owner-strip{padding:0 0 39px;background:#F7F5F1}
-.owner-inner{border-radius:17px;background:#EDEAE5;padding:25px 28px;display:flex;align-items:center;justify-content:space-between;gap:19px}
-.owner-inner strong{font-size:1.14rem;letter-spacing:-.025em}
-.owner-inner p{color:#627083;font-size:.87rem;line-height:1.5;margin:6px 0 0}
-.owner-link{border-radius:10px;background:#14253D;color:#fff;font-size:.85rem;font-weight:850;padding:13px 18px;white-space:nowrap}
-.owner-link:hover{background:#27435F}
-
-/* CATEGORIAS */
+/* NAVEGACAO POR TIPO E BAIRRO */
 .discover{background:#F0ECE5;border-top:1px solid #E8E2D9;padding:33px 0 38px}
 .discover h2{font-size:1.45rem;margin:0 0 7px}
 .discover p{font-size:.86rem;line-height:1.6;color:#687486;margin:0 0 16px}
 .local-links{display:flex;flex-wrap:wrap;gap:9px}
 .local-link{display:inline-flex;align-items:center;padding:11px 14px;border-radius:9px;border:1px solid #D8DFE4;background:white;font-size:.83rem;font-weight:750;color:#14253D}
 .local-link:hover{border-color:#F85F08;color:#BB4D0B}
+.bairros-seo{margin-top:24px!important;border-top:1px solid #E2DAD0;padding-top:20px}
+.bairros-seo h3{font-size:1rem!important;margin:0 0 5px!important}
+.bairros-seo p{font-size:.81rem!important;margin:0 0 12px!important}
+.bairros-seo>div{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;gap:8px!important;padding-bottom:7px;scrollbar-width:thin}
+.bairros-seo>div>a{flex-shrink:0}
+.bairros-seo>a{font-size:.81rem!important;margin-top:9px!important}
 
-/* RODAPÉ */
+/* EQUIPE E RODAPE */
+.team{background:#fff;padding:26px 0}
+.team-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.team-message{font-size:.9rem;font-weight:750}
+.team-note{font-size:.76rem;line-height:1.7;color:#687586;text-align:right}
 .footer{background:#0F1E31;color:#D5DEE7;padding:31px 0;font-size:.79rem}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .footer-brand{font-weight:850;color:white;font-size:.95rem;letter-spacing:.02em}
@@ -187,48 +168,44 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .footer-slogan{font-size:.78rem;color:#C7D3DE;margin-top:6px}
 .footer-info{margin-top:8px;color:#A9BAC9;line-height:1.5}
 .footer a{color:white;font-weight:750}
-.footer-links{display:flex;flex-wrap:wrap;gap:16px}
-.footer-links a{color:#fff;font-weight:800}
 
-/* TABLET */
 @media(max-width:900px){
  .search{grid-template-columns:repeat(2,minmax(0,1fr))}
  .search .field:first-of-type{grid-column:1/-1}
  .search .btn-primary{grid-column:1/-1;width:100%}
  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-
-/* CELULAR */
-@media(max-width:760px){
- .trust-layout{grid-template-columns:1fr;gap:18px}
- .trust-section{padding:30px 0}
- .trust-team{border-left:0;border-top:1px solid #EAE6DF;padding:16px 0 0}
- .personal-card{display:block;border-radius:17px;padding:25px 21px}
- .personal-card h2{font-size:1.7rem}
- .personal-card p{font-size:.86rem}
- .personal-action{margin-top:22px;min-width:0}
- .personal-cta{padding:16px}
- .owner-inner{display:block;padding:24px}
- .owner-link{display:inline-block;margin-top:18px}
-}
 @media(max-width:640px){
  .wrap{width:calc(100% - 30px)}
+ .nav{min-height:69px}
+ .brand{gap:8px}
+ .brand-icon{width:29px;height:36px}
+ .brand-name{font-size:.9rem;letter-spacing:0}
+ .brand-slogan{font-size:.52rem;margin-top:4px}
+ .nav-link{font-size:.72rem;padding:10px 12px}
  .hero-inner{padding:29px 0 32px}
  .eyebrow{font-size:.61rem}
  .hero h1{font-size:clamp(1.98rem,8.1vw,2.65rem);margin:9px 0 10px;letter-spacing:-.048em}
  .hero-copy{font-size:.83rem;line-height:1.46}
- .search-box{margin-top:18px;padding:17px 14px 15px;border-radius:15px}
- .search{gap:10px}
+ .search-box{margin-top:20px;padding:14px;border-radius:15px}
+ .search-top{margin-bottom:12px}
+ .search-tabs{width:100%}
+ .search-tab{flex:1;font-size:.85rem;padding:10px 12px}
+ .search-top-note{display:none}
+ .search{gap:11px}
+ .search .field:first-of-type{grid-column:1/-1}
  .field label{font-size:.7rem;margin-bottom:5px}
  .field input,.field select{height:46px;font-size:.82rem;padding:0 10px}
+ .field select{font-size:.78rem;padding:0 6px}
+ .field input::placeholder{font-size:.8rem}
  .search .btn-primary{height:47px;font-size:.88rem}
  .search-more{margin-top:8px}
  .advanced{font-size:.76rem}
  .section{padding:36px 0}
- .section-head{margin-bottom:17px;align-items:center;gap:8px}
+ .section-head{margin-bottom:17px;align-items:center}
  .section h2{font-size:1.55rem}
  .section-intro{font-size:.81rem;margin-top:5px}
- .text-link{font-size:.76rem;white-space:nowrap}
+ .text-link{font-size:.76rem}
  .grid{grid-template-columns:1fr;gap:15px}
  .photo-link{aspect-ratio:1.6}
  .property-content{padding:15px 16px 11px;gap:7px}
@@ -240,8 +217,72 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .weekly-content{padding:12px}
  .discover{padding:29px 0 32px}
  .discover h2{font-size:1.25rem}
+ .team-inner{display:block}
+ .team-note{text-align:left;margin-top:8px}
  .footer-inner{display:block}
- .footer-links{margin-top:12px}
+ .footer-inner>a{display:inline-block;margin-top:15px}
+}
+
+/* BUSCA PERSONALIZADA */
+.personal-section{padding:28px 0 38px;background:#F7F5F1}
+.personal-card{background:linear-gradient(120deg,#14253D,#25435B);color:#fff;border-radius:20px;padding:35px 38px;display:flex;align-items:center;justify-content:space-between;gap:32px;box-shadow:0 12px 30px #14253D17}
+.personal-copy{flex:1;max-width:700px}
+.personal-kicker{color:#FFB385;text-transform:uppercase;letter-spacing:.15em;font-weight:850;font-size:.67rem;margin-bottom:12px}
+.personal-card h2{font-size:clamp(1.5rem,3.2vw,2.35rem);line-height:1.16;letter-spacing:-.045em;margin:0 0 14px}
+.personal-card h2 em{color:#FFA36F;font-style:normal}
+.personal-card p{color:#DDE8F1;font-size:.91rem;line-height:1.7;margin:0}
+.personal-action{min-width:227px;text-align:center}
+.personal-cta{display:block;background:#F85F08;color:white;padding:16px 20px;border-radius:11px;font-weight:850;font-size:.88rem}
+.personal-cta:hover{background:#DE5004}
+.personal-action small{display:block;margin-top:9px;color:#DAE3E9;font-size:.72rem;line-height:1.4}
+@media(max-width:760px){.personal-section{padding:19px 0 30px}.personal-card{display:block;border-radius:17px;padding:27px 22px}.personal-card h2{font-size:1.7rem}.personal-action{margin-top:22px;min-width:0}.personal-cta{padding:16px}}
+
+.owner-strip{padding:0 0 39px;background:#F7F5F1}
+.owner-inner{border-radius:17px;background:#EDEAE5;padding:25px 28px;display:flex;align-items:center;justify-content:space-between;gap:19px}
+.owner-inner strong{font-size:1.14rem;letter-spacing:-.025em}
+.owner-inner p{color:#627083;font-size:.87rem;line-height:1.5;margin:6px 0 0}
+.owner-link{border-radius:10px;background:#14253D;color:#fff;font-size:.85rem;font-weight:850;padding:13px 18px;white-space:nowrap}
+.owner-link:hover{background:#27435F}
+@media(max-width:760px){.owner-inner{display:block;padding:24px}.owner-link{display:inline-block;margin-top:18px}}
+
+/* Links profissionais mantidos na página inicial */
+.nav-actions{display:flex;align-items:center;gap:9px}
+.nav-announce{border:1px solid #FF945D80;color:#FFE2CE}
+.nav-announce:hover{background:#FF945D16}
+.mobile-label{display:none}
+.footer-links{display:flex;flex-wrap:wrap;gap:16px}
+.footer-links a{color:#fff;font-weight:800}
+@media(max-width:580px){.brand-name{font-size:1.01rem}.nav-link{font-size:.79rem;padding:9px 10px}.desktop-label{display:none}.mobile-label{display:inline}.nav-actions{gap:5px}}
+
+/* REFINAMENTO VISUAL 2026: identidade, legibilidade e confiança */
+.nav{padding-top:10px;padding-bottom:10px}
+.brand-name{line-height:1.15}
+.brand-slogan{max-width:360px;line-height:1.4;white-space:normal}
+.search-box{margin-top:26px;padding-top:22px}
+.personal-section{padding-top:26px;padding-bottom:31px}
+.personal-card{box-shadow:0 9px 22px #14253D12;gap:22px}
+.personal-card h2{max-width:640px}
+.personal-card p{max-width:610px}
+.personal-cta{transition:background .2s,transform .2s}
+.personal-cta:hover{transform:translateY(-1px)}
+.trust-section{background:#fff;border-top:1px solid #EAE6DF;padding:34px 0 37px}
+.trust-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);gap:28px;align-items:center}
+.trust-kicker{color:#BC531C;font-size:.68rem;font-weight:850;letter-spacing:.13em}
+.trust-main h2{font-size:clamp(1.4rem,2.6vw,2rem);letter-spacing:-.04em;line-height:1.2;margin:10px 0}
+.trust-main p{color:#637181;font-size:.89rem;line-height:1.65;max-width:650px;margin:0}
+.trust-team{border-left:2px solid #E9D3BF;padding-left:27px}
+.trust-team strong{font-size:1.02rem;display:block;line-height:1.45}
+.trust-team strong span{color:#AAB3BE;font-weight:500}
+.trust-team p{font-size:.78rem;color:#637181;margin:6px 0 15px}
+.trust-team a{color:#C24D0B;font-weight:800;font-size:.84rem}
+.trust-team a:hover{text-decoration:underline}
+@media(max-width:760px){
+ .trust-layout{grid-template-columns:1fr;gap:18px}
+ .trust-section{padding:30px 0}
+ .trust-team{border-left:0;border-top:1px solid #EAE6DF;padding:16px 0 0}
+ .personal-card{padding:25px 21px}
+ .personal-card h2{font-size:1.7rem}
+ .personal-card p{font-size:.86rem}
 }
 @media(max-width:580px){
  .nav{display:grid;grid-template-columns:1fr;gap:12px;padding:13px 0 12px}
@@ -250,24 +291,24 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .brand-slogan{font-size:.65rem;line-height:1.4;max-width:none;margin-top:5px}
  .nav-actions{display:flex;width:100%;gap:9px}
  .nav-actions .nav-link{flex:1;text-align:center;font-size:.81rem;padding:11px 12px}
- .desktop-label{display:none}
- .mobile-label{display:inline}
+ .search-box{margin-top:18px;padding-top:17px}
+ .search{gap:10px}
+ .section-head{gap:8px}
+ .section-head .text-link{white-space:nowrap}
 }
 </style>
 </head>
 <body>
+
 <header class="top">
 <div class="wrap nav">
 <a class="brand" id="homeLink" href="index.html" aria-label="Portal Bauru Imóveis - início">
- <span class="brand-name">PORTAL <span>BAURU</span> <small>IMÓVEIS</small></span>
- <span class="brand-slogan">Conectando pessoas às oportunidades certas.</span>
+<span class="brand-name">PORTAL <span>BAURU</span> <small>IMÓVEIS</small></span>
+<span class="brand-slogan">Conectando pessoas às oportunidades certas.</span>
 </a>
 <nav class="nav-actions" aria-label="Menu principal">
- <a class="nav-link" id="menuProperties" href="imoveis.html">Ver imóveis</a>
- <a class="nav-link nav-announce" id="menuAdvertise" href="anuncie.html">
-  <span class="desktop-label">Anuncie conosco</span>
-  <span class="mobile-label">Anuncie</span>
- </a>
+<a class="nav-link" id="menuProperties" href="imoveis.html">Ver imóveis</a>
+<a class="nav-link nav-announce" id="menuAdvertise" href="anuncie.html"><span class="desktop-label">Anuncie conosco</span><span class="mobile-label">Anuncie</span></a>
 </nav>
 </div>
 </header>
@@ -275,65 +316,63 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <main>
 <section class="hero" aria-labelledby="titulo-principal">
 <div class="wrap hero-inner">
- <div class="eyebrow">Portal imobiliário em Bauru/SP</div>
- <h1 id="titulo-principal">Encontre seu <em>imóvel em Bauru.</em></h1>
- <p class="hero-copy">Pesquise por bairro, tipo e valor. Conheça os imóveis e fale com corretores locais.</p>
+<div class="eyebrow">Portal imobiliário em Bauru/SP</div>
+<h1 id="titulo-principal">Encontre seu <em>imóvel em Bauru.</em></h1>
+<p class="hero-copy">Pesquise por bairro, tipo e valor. Conheça os imóveis e fale com corretores locais.</p>
 
- <div class="search-box">
-  <form id="searchForm" class="search" action="imoveis.html" method="get">
-   <input type="hidden" id="finalidade" name="finalidade" value="venda">
-   <div class="field">
-    <label for="busca">Bairro, condomínio ou código</label>
-    <input id="busca" name="busca" type="search" placeholder="Onde você quer morar?" autocomplete="off">
-   </div>
-   <div class="field">
-    <label for="tipo">Tipo do imóvel</label>
-    <select id="tipo" name="tipo">
-     <option value="">Todos os tipos</option>
-     <option value="apartamento">Apartamento</option>
-     <option value="casa">Casa</option>
-     <option value="sobrado">Sobrado</option>
-     <option value="terreno">Terreno</option>
-     <option value="chacara">Chácara</option>
-     <option value="comercial">Comercial</option>
-     <option value="outro">Outros</option>
-    </select>
-   </div>
-   <div class="field">
-    <label for="preco">Valor máximo</label>
-    <select id="preco" name="preco">
-     <option value="">Sem limite</option>
-     <option value="150000">Até R$ 150 mil</option>
-     <option value="200000">Até R$ 200 mil</option>
-     <option value="250000">Até R$ 250 mil</option>
-     <option value="300000">Até R$ 300 mil</option>
-     <option value="400000">Até R$ 400 mil</option>
-     <option value="500000">Até R$ 500 mil</option>
-     <option value="750000">Até R$ 750 mil</option>
-     <option value="1000000">Até R$ 1 milhão</option>
-    </select>
-   </div>
-   <button class="btn btn-primary" type="submit">Buscar imóveis →</button>
-  </form>
-  <div class="search-more">
-   <a id="advancedFilters" class="advanced" href="imoveis.html">Mais filtros →</a>
-  </div>
- </div>
+<div class="search-box">
+<form id="searchForm" class="search" action="imoveis.html" method="get">
+<input type="hidden" id="finalidade" name="finalidade" value="venda">
+<div class="field">
+<label for="busca">Bairro, condomínio ou código</label>
+<input id="busca" name="busca" type="search" placeholder="Onde você quer morar?" autocomplete="off">
+</div>
+<div class="field">
+<label for="tipo">Tipo do imóvel</label>
+<select id="tipo" name="tipo">
+<option value="">Todos os tipos</option>
+<option value="apartamento">Apartamento</option>
+<option value="casa">Casa</option>
+<option value="sobrado">Sobrado</option>
+<option value="terreno">Terreno</option>
+<option value="chacara">Chácara</option>
+<option value="comercial">Comercial</option>
+<option value="outro">Outros</option>
+</select>
+</div>
+<div class="field">
+<label for="preco">Valor máximo</label>
+<select id="preco" name="preco">
+<option value="">Sem limite</option>
+<option value="150000">Até R$ 150 mil</option>
+<option value="200000">Até R$ 200 mil</option>
+<option value="250000">Até R$ 250 mil</option>
+<option value="300000">Até R$ 300 mil</option>
+<option value="400000">Até R$ 400 mil</option>
+<option value="500000">Até R$ 500 mil</option>
+<option value="750000">Até R$ 750 mil</option>
+<option value="1000000">Até R$ 1 milhão</option>
+</select>
+</div>
+<button class="btn btn-primary" type="submit">Buscar imóveis →</button>
+</form>
+<div class="search-more"><a id="advancedFilters" class="advanced" href="imoveis.html">Mais filtros →</a></div>
+</div>
 </div>
 </section>
 
 <section class="personal-section" aria-labelledby="personalTitle">
 <div class="wrap">
 <div class="personal-card">
- <div class="personal-copy">
-  <div class="personal-kicker">BUSCA PERSONALIZADA DE IMÓVEIS</div>
-  <h2 id="personalTitle">O imóvel que você procura <em>ainda não apareceu?</em></h2>
-  <p>Conte o que procura. Nossa equipe de corretores em Bauru busca oportunidades que combinem com seu perfil e entra em contato para apresentar as possibilidades.</p>
- </div>
- <div class="personal-action">
-  <a class="personal-cta" id="personalLink" href="imoveis.html?personalizada=1">Conte o que você procura</a>
-  <small>Atendimento individual, sem compromisso</small>
- </div>
+<div class="personal-copy">
+<div class="personal-kicker">BUSCA PERSONALIZADA DE IMÓVEIS</div>
+<h2 id="personalTitle">O imóvel que você procura <em>ainda não apareceu?</em></h2>
+<p>Conte o que procura. Nossa equipe de corretores em Bauru busca oportunidades que combinem com seu perfil e entra em contato para apresentar as possibilidades.</p>
+</div>
+<div class="personal-action">
+<a class="personal-cta" id="personalLink" href="imoveis.html?personalizada=1">Conte o que você procura</a>
+<small>Atendimento individual, sem compromisso</small>
+</div>
 </div>
 </div>
 </section>
@@ -341,15 +380,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="section" id="oportunidades" aria-labelledby="titulo-imoveis">
 <div class="wrap">
 <div class="section-head">
- <div>
-  <div class="section-kicker">Novas oportunidades</div>
-  <h2 id="titulo-imoveis">Imóveis para conhecer</h2>
-  <p class="section-intro">Confira os anúncios mais recentes em Bauru.</p>
- </div>
- <a class="text-link" id="allLink" href="imoveis.html">Ver todos →</a>
+<div>
+<div class="section-kicker">Novas oportunidades</div>
+<h2 id="titulo-imoveis">Imóveis para conhecer</h2>
+<p class="section-intro">Confira os anúncios mais recentes em Bauru.</p>
+</div>
+<a class="text-link" id="allLink" href="imoveis.html">Ver todos →</a>
 </div>
 <div id="properties" class="grid" aria-live="polite">
- <div class="empty">Carregando imóveis...</div>
+<div class="empty">Carregando imóveis...</div>
 </div>
 <div class="status" id="status" aria-live="polite"></div>
 </div>
@@ -358,39 +397,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="section featured" id="featuredSection" hidden aria-labelledby="featuredTitle">
 <div class="wrap">
 <div class="section-head">
- <div>
-  <div class="section-kicker">Seleção especial</div>
-  <h2 id="featuredTitle">Escolhas da semana</h2>
- </div>
+<div>
+<div class="section-kicker">Seleção especial</div>
+<h2 id="featuredTitle">Escolhas da semana</h2>
+</div>
 </div>
 <div id="weeklyProperties" class="weekly-grid"></div>
-</div>
-</section>
-
-<section class="trust-section" aria-labelledby="trustTitle">
-<div class="wrap trust-layout">
- <div class="trust-main">
-  <div class="trust-kicker">ATENDIMENTO COM EXPERIÊNCIA LOCAL</div>
-  <h2 id="trustTitle">Uma busca acompanhada por quem conhece Bauru.</h2>
-  <p>Por trás de cada atendimento, profissionais que conhecem o mercado imobiliário da região e acompanham você desde a escolha até a negociação.</p>
- </div>
- <div class="trust-team">
-  <strong>Rafael Gomes <span>e</span> Débora Navas</strong>
-  <p>Corretores de imóveis · Bauru/SP</p>
-  <a id="trustLink" href="imoveis.html?personalizada=1">Solicitar busca personalizada →</a>
- </div>
-</div>
-</section>
-
-<section class="owner-strip" aria-labelledby="ownerTitle">
-<div class="wrap">
-<div class="owner-inner">
- <div>
-  <strong id="ownerTitle">Tem um imóvel para vender?</strong>
-  <p>Apresente sua propriedade à nossa equipe e conheça nossas possibilidades de divulgação.</p>
- </div>
- <a class="owner-link" id="ownerCta" href="anuncie.html">Anuncie conosco →</a>
-</div>
 </div>
 </section>
 
@@ -399,25 +411,45 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <h2 id="tipos-imoveis">Explore imóveis à venda em Bauru</h2>
 <p>Encontre apartamentos, casas e terrenos com os filtros certos para você.</p>
 <div class="local-links" aria-label="Pesquisar por tipo de imóvel">
- <a class="local-link" id="catApartamento" href="imoveis.html?finalidade=venda&amp;tipo=apartamento">Apartamentos à venda</a>
- <a class="local-link" id="catCasa" href="imoveis.html?finalidade=venda&amp;tipo=casa">Casas à venda</a>
- <a class="local-link" id="catTerreno" href="imoveis.html?finalidade=venda&amp;tipo=terreno">Terrenos à venda</a>
+<a class="local-link" id="catApartamento" href="imoveis.html?finalidade=venda&amp;tipo=apartamento">Apartamentos à venda</a>
+<a class="local-link" id="catCasa" href="imoveis.html?finalidade=venda&amp;tipo=casa">Casas à venda</a>
+<a class="local-link" id="catTerreno" href="imoveis.html?finalidade=venda&amp;tipo=terreno">Terrenos à venda</a>
 </div>
 </div>
 </section>
+
+<section class="trust-section" aria-labelledby="trustTitle">
+<div class="wrap trust-layout">
+  <div class="trust-main">
+    <div class="trust-kicker">ATENDIMENTO COM EXPERIÊNCIA LOCAL</div>
+    <h2 id="trustTitle">Uma busca acompanhada por quem conhece Bauru.</h2>
+    <p>Por trás de cada atendimento, profissionais que conhecem o mercado imobiliário da região e acompanham você desde a escolha até a negociação.</p>
+  </div>
+  <div class="trust-team">
+    <strong>W. RAFAEL GOMES <span>e</span> Débora Navas</strong>
+    <p>Corretores de imóveis · Bauru/SP</p>
+    <a id="trustLink" href="imoveis.html?personalizada=1">Solicitar busca personalizada →</a>
+  </div>
+</div>
+</section>
+
+<section class="owner-strip" aria-labelledby="ownerTitle">
+<div class="wrap"><div class="owner-inner">
+<div><strong id="ownerTitle">Tem um imóvel para vender?</strong><p>Apresente sua propriedade à nossa equipe e conheça nossas possibilidades de divulgação.</p></div>
+<a class="owner-link" id="ownerCta" href="anuncie.html">Anuncie conosco →</a>
+</div></div>
+</section>
+
 </main>
 
 <footer class="footer">
 <div class="wrap footer-inner">
- <div>
-  <div class="footer-brand">PORTAL <span>BAURU</span> IMÓVEIS</div>
-  <div class="footer-slogan">Conectando pessoas às oportunidades certas.</div>
-  <div class="footer-info">W. Rafael Gomes · CRECI 196.907-F &amp; Débora Navas · CRECI 196.899-F · Bauru/SP</div>
- </div>
- <div class="footer-links">
-  <a id="footerProperties" href="imoveis.html">Ver imóveis</a>
-  <a id="footerAdvertise" href="anuncie.html">Anuncie conosco</a>
- </div>
+<div>
+<div class="footer-brand">PORTAL <span>BAURU</span> IMÓVEIS</div>
+<div class="footer-slogan">Conectando pessoas às oportunidades certas.</div>
+<div class="footer-info">W. RAFAEL GOMES · CRECI 196.907-F &amp; Débora Navas · CRECI 196.899-F · Bauru/SP</div>
+</div>
+<div class="footer-links"><a id="footerProperties" href="imoveis.html">Ver imóveis</a><a id="footerAdvertise" href="anuncie.html">Anuncie conosco</a></div>
 </div>
 </footer>
 
@@ -428,29 +460,28 @@ const supabase=createClient(
  'https://dtkszimtovtqdojjpqsy.supabase.co',
  'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
 );
-
 const params=new URLSearchParams(location.search);
-const ref=['rafael','debora'].includes(params.get('ref'))?params.get('ref'):null;
+const ref=params.get('ref');
+const validRef=['rafael','debora'].includes(ref)?ref:null;
 
 function linked(file,extra={}){
- const url=new URL(file,location.href);
- if(ref)url.searchParams.set('ref',ref);
- for(const [key,value] of Object.entries(extra)){
-  if(value!==null&&value!==undefined&&value!==''){
-   url.searchParams.set(key,String(value));
-  }
+ const u=new URL(file,location.href);
+ if(validRef)u.searchParams.set('ref',validRef);
+ for(const [k,v] of Object.entries(extra)){
+  if(v!==''&&v!=null)u.searchParams.set(k,String(v));
  }
- return url.href;
+ return u.href;
 }
 
-document.getElementById('homeLink').href=linked('index.html');
 document.getElementById('personalLink').href=linked('imoveis.html',{personalizada:'1'});
 document.getElementById('trustLink').href=linked('imoveis.html',{personalizada:'1'});
+document.getElementById('ownerCta').href=linked('anuncie.html');
+document.getElementById('menuAdvertise').href=linked('anuncie.html');
+document.getElementById('footerAdvertise').href=linked('anuncie.html');
 
-for(const id of ['menuAdvertise','ownerCta','footerAdvertise']){
- document.getElementById(id).href=linked('anuncie.html');
+for(const id of ['homeLink']){
+ document.getElementById(id).href=linked('index.html');
 }
-
 for(const id of ['menuProperties','allLink','footerProperties']){
  document.getElementById(id).href=linked('imoveis.html',{finalidade:'venda'});
 }
@@ -465,23 +496,27 @@ for(const [id,tipo] of [
  });
 }
 
-function parametrosDaBusca(){
- const parametros={};
+document.getElementById('searchForm')
+.addEventListener('submit',e=>{
+ e.preventDefault();
+ const extra={};
  for(const id of ['finalidade','tipo','busca','preco']){
-  const value=document.getElementById(id).value.trim();
-  if(value)parametros[id]=value;
+  const v=document.getElementById(id).value.trim();
+  if(v)extra[id]=v;
  }
- return parametros;
-}
-
-document.getElementById('searchForm').addEventListener('submit',event=>{
- event.preventDefault();
- location.href=linked('imoveis.html',parametrosDaBusca());
+ location.href=linked('imoveis.html',extra);
 });
 
-document.getElementById('advancedFilters').addEventListener('click',event=>{
- event.preventDefault();
- location.href=linked('imoveis.html',parametrosDaBusca());
+const purposeInput=document.getElementById('finalidade');
+
+document.getElementById('advancedFilters').addEventListener('click',e=>{
+ e.preventDefault();
+ const extra={};
+ for(const id of ['finalidade','tipo','busca','preco']){
+  const v=document.getElementById(id).value.trim();
+  if(v)extra[id]=v;
+ }
+ location.href=linked('imoveis.html',extra);
 });
 
 const root=document.getElementById('properties');
@@ -489,32 +524,26 @@ const weeklyRoot=document.getElementById('weeklyProperties');
 const featuredSection=document.getElementById('featuredSection');
 const status=document.getElementById('status');
 
-const money=value=>{
- const num=Number(value);
- if(value===null||value===undefined||value===''||!Number.isFinite(num)||num<=0){
-  return 'Valor sob consulta';
- }
- return new Intl.NumberFormat('pt-BR',{
-  style:'currency',currency:'BRL',
-  minimumFractionDigits:2,maximumFractionDigits:2
- }).format(num).replace(/[\u00a0\u202f]/g,' ');
-};
+const money=v=>v===null||v===undefined||v===''||!Number.isFinite(Number(v))||Number(v)<=0
+ ?'Valor sob consulta'
+ :new Intl.NumberFormat('pt-BR',{
+  style:'currency',currency:'BRL',minimumFractionDigits:2,maximumFractionDigits:2
+ }).format(Number(v)).replace(/[\u00a0\u202f]/g,' ');
 
 function el(tag,cls,text){
- const element=document.createElement(tag);
- if(cls)element.className=cls;
- if(text!==undefined)element.textContent=text;
- return element;
+ const n=document.createElement(tag);
+ if(cls)n.className=cls;
+ if(text!==undefined)n.textContent=text;
+ return n;
 }
 
-function photoElement(property,photos){
+function photoElement(p,photos){
  const photo=el('div','photo');
- const cover=photos.get(property.id);
-
+ const cover=photos.get(p.id);
  if(cover){
   const img=el('img');
   img.src=supabase.storage.from('portal-imoveis').getPublicUrl(cover).data.publicUrl;
-  img.alt='Fotografia do imóvel '+(property.titulo||'em Bauru');
+  img.alt='Fotografia do imóvel '+(p.titulo||'em Bauru');
   img.loading='lazy';
   img.onerror=()=>{
    img.remove();
@@ -524,175 +553,113 @@ function photoElement(property,photos){
  }else{
   photo.append(el('span','','Fotografias em breve'));
  }
-
  return photo;
 }
 
-function card(property,photos){
+function card(p,photos){
  const article=el('article','property');
- const url=linked('imovel.html',{id:property.id});
+ const url=linked('imovel.html',{id:p.id});
  const cover=el('a','photo-link');
  cover.href=url;
- cover.setAttribute('aria-label','Ver '+(property.titulo||'imóvel em Bauru'));
- cover.append(photoElement(property,photos));
-
- const seals={
-  novidade:'Novidade',
-  oportunidade:'Oportunidade',
-  preco_reduzido:'Preço reduzido',
-  destaque:'Destaque',
-  exclusivo:'Exclusivo'
- };
- if(seals[property.selo]){
-  cover.append(el('span','tag',seals[property.selo]));
- }
+ cover.setAttribute('aria-label','Ver '+(p.titulo||'imóvel em Bauru'));
+ cover.append(photoElement(p,photos));
+ const seals={novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido',destaque:'Destaque',exclusivo:'Exclusivo'};
+ if(seals[p.selo])cover.append(el('span','tag',seals[p.selo]));
  article.append(cover);
-
  const content=el('div','property-content');
- content.append(el('div','location',
-  [property.bairro,'Bauru/SP'].filter(Boolean).join(' · ')
- ));
-
+ content.append(el('div','location',[p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')));
  const h3=el('h3');
- const titleLink=el('a','',
-  property.titulo||property.empreendimento||'Imóvel em Bauru'
- );
+ const titleLink=el('a','',p.titulo||p.empreendimento||'Imóvel em Bauru');
  titleLink.href=url;
  h3.append(titleLink);
  content.append(h3);
- content.append(el('div','price',money(property.preco)));
-
+ content.append(el('div','price',money(p.preco)));
  const specs=[
-  property.quartos!=null?property.quartos+' quarto(s)':null,
-  property.suites?property.suites+' suíte(s)':null,
-  property.vagas!=null?property.vagas+' vaga(s)':null,
-  property.area_privativa?property.area_privativa+' m²':null
+  p.quartos!=null?p.quartos+' quarto(s)':null,
+  p.suites?p.suites+' suíte(s)':null,
+  p.vagas!=null?p.vagas+' vaga(s)':null,
+  p.area_privativa?p.area_privativa+' m²':null
  ].filter(Boolean);
-
- if(specs.length){
-  content.append(el('div','specs',specs.join(' · ')));
- }
-
+ if(specs.length)content.append(el('div','specs',specs.join(' · ')));
  article.append(content);
- const details=el('a','view','Ver detalhes →');
- details.href=url;
- article.append(details);
+ const a=el('a','view','Ver detalhes →');
+ a.href=url;
+ article.append(a);
  return article;
 }
 
-function weeklyCard(property,photos){
- const link=el('a','weekly-card');
- link.href=linked('imovel.html',{id:property.id});
- const cover=photoElement(property,photos);
- cover.className='weekly-photo';
- link.append(cover);
-
+function weeklyCard(p,photos){
+ const a=el('a','weekly-card');
+ a.href=linked('imovel.html',{id:p.id});
+ a.append(photoElement(p,photos));
+ a.firstChild.className='weekly-photo';
  const content=el('div','weekly-content');
- content.append(el('div','location',
-  [property.bairro,'Bauru/SP'].filter(Boolean).join(' · ')
- ));
- content.append(el('div','weekly-title',
-  property.titulo||property.empreendimento||'Imóvel em Bauru'
- ));
- content.append(el('div','weekly-price',money(property.preco)));
+ content.append(el('div','location',[p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')));
+ content.append(el('div','weekly-title',p.titulo||p.empreendimento||'Imóvel em Bauru'));
+ content.append(el('div','weekly-price',money(p.preco)));
  content.append(el('div','weekly-link','Conhecer imóvel →'));
- link.append(content);
- return link;
+ a.append(content);
+ return a;
 }
 
 function weeklySelection(items,count=2){
  if(!items.length)return [];
  const week=Math.floor(Date.now()/(7*24*60*60*1000));
- const ordered=[...items].sort((a,b)=>
-  String(a.id).localeCompare(String(b.id))
- );
- const start=(week*count)%ordered.length;
- return Array.from(
-  {length:Math.min(count,ordered.length)},
-  (_,i)=>ordered[(start+i)%ordered.length]
- );
+ const sorted=[...items].sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+ const start=(week*count)%sorted.length;
+ const result=[];
+ for(let i=0;i<Math.min(count,sorted.length);i++){
+  result.push(sorted[(start+i)%sorted.length]);
+ }
+ return result;
 }
 
 async function load(){
  try{
   const {data,error}=await supabase.from('imoveis')
-   .select(
-    'id,codigo,titulo,empreendimento,preco,bairro,quartos,'+
-    'suites,vagas,area_privativa,selo,destaque,publicado,'+
-    'situacao,finalidade,atualizado_em'
-   )
+   .select('id,codigo,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,selo,destaque,publicado,situacao,finalidade,atualizado_em')
    .eq('publicado',true)
    .order('atualizado_em',{ascending:false})
    .limit(1000);
-
   if(error)throw error;
-
-  const available=(data||[]).filter(property=>
-   !['vendido','alugado'].includes(
-    String(property.situacao||'').toLowerCase()
-   )
+  const available=(data||[]).filter(p=>
+   !['vendido','alugado'].includes(String(p.situacao||'').toLowerCase())
   );
-
-  const sales=available.filter(property=>
-   String(property.finalidade||'').trim().toLowerCase()==='venda'
+  const sales=available.filter(p=>
+   String(p.finalidade||'').trim().toLowerCase()==='venda'
   );
-
   const recent=sales.slice(0,3);
-  const featured=sales.filter(property=>
-   property.destaque===true&&!recent.some(item=>item.id===property.id)
-  );
+  const featured=sales.filter(p=>p.destaque===true&&!recent.some(r=>r.id===p.id));
   const weekly=weeklySelection(featured,2);
-
-  const ids=[...new Set([
-   ...recent.map(property=>property.id),
-   ...weekly.map(property=>property.id)
-  ])];
-
+  const ids=[...new Set([...recent.map(p=>p.id),...weekly.map(p=>p.id)])];
   const photos=new Map();
-
   if(ids.length){
-   const response=await supabase.from('imovel_fotos')
+   const r=await supabase.from('imovel_fotos')
     .select('imovel_id,caminho,ordem')
     .in('imovel_id',ids)
     .order('ordem',{ascending:true});
-
-   if(response.error){
-    console.warn('Capas:',response.error);
-   }else{
-    for(const photo of response.data||[]){
-     if(!photos.has(photo.imovel_id)&&photo.caminho){
-      photos.set(photo.imovel_id,photo.caminho);
-     }
-    }
+   if(r.error)console.warn('Capas:',r.error);
+   else for(const p of r.data||[]){
+    if(!photos.has(p.imovel_id)&&p.caminho)photos.set(p.imovel_id,p.caminho);
    }
   }
-
   root.replaceChildren();
   if(!recent.length){
-   root.append(el('div','empty',
-    'Nenhum imóvel à venda publicado disponível no momento.'
-   ));
+   root.append(el('div','empty','Nenhum imóvel à venda publicado disponível no momento.'));
   }else{
-   for(const property of recent){
-    root.append(card(property,photos));
-   }
+   for(const p of recent)root.append(card(p,photos));
   }
-
   weeklyRoot.replaceChildren();
   if(weekly.length){
-   for(const property of weekly){
-    weeklyRoot.append(weeklyCard(property,photos));
-   }
+   for(const p of weekly)weeklyRoot.append(weeklyCard(p,photos));
    featuredSection.hidden=false;
   }else{
    featuredSection.hidden=true;
   }
   status.textContent='';
- }catch(error){
-  console.error('Página inicial:',error);
-  root.replaceChildren(el('div','empty',
-   'Não foi possível carregar os imóveis agora.'
-  ));
+ }catch(e){
+  console.error('Página inicial:',e);
+  root.replaceChildren(el('div','empty','Não foi possível carregar os imóveis agora.'));
   weeklyRoot.replaceChildren();
   featuredSection.hidden=true;
   status.textContent='Atualize a página para tentar novamente.';
