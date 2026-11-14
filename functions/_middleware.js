@@ -5,7 +5,7 @@
   Arquivo completo: functions/_middleware.js
 */
 
-const SITE = 'https://portalbauru.pages.dev';
+const SITE = 'https://portalbauruimoveis.com.br';
 const API = 'https://dtkszimtovtqdojjpqsy.supabase.co';
 const KEY = 'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi';
 
