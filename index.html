@@ -16,6 +16,7 @@
 <meta property="og:url" content="https://portalbauru.pages.dev/">
 <meta name="twitter:card" content="summary">
 <title>Imóveis à venda em Bauru/SP | Portal Bauru Imóveis</title>
+
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -35,180 +36,692 @@
       "name":"Portal Bauru Imóveis",
       "alternateName":"Portal Bauru",
       "inLanguage":"pt-BR",
-      "publisher":{"@id":"https://portalbauru.pages.dev/#organizacao"}
+      "publisher":{
+        "@id":"https://portalbauru.pages.dev/#organizacao"
+      }
     },
     {
       "@type":"WebPage",
       "@id":"https://portalbauru.pages.dev/#pagina-inicial",
       "url":"https://portalbauru.pages.dev/",
       "name":"Imóveis à venda em Bauru/SP | Portal Bauru Imóveis",
-      "isPartOf":{"@id":"https://portalbauru.pages.dev/#site"},
-      "about":{"@type":"Place","name":"Bauru, São Paulo, Brasil"},
+      "isPartOf":{
+        "@id":"https://portalbauru.pages.dev/#site"
+      },
+      "about":{
+        "@type":"Place",
+        "name":"Bauru, São Paulo, Brasil"
+      },
       "inLanguage":"pt-BR"
     }
   ]
 }
 </script>
+
 <style>
-:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#14253D;background:#F7F5F1;font-synthesis:none}
+:root{
+ font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+ color:#14253D;
+ background:#F7F5F1;
+ font-synthesis:none
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0}
 a{text-decoration:none;color:inherit}
 button,input,select{font:inherit}
 button{cursor:pointer}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #F85F08;outline-offset:3px}
-.wrap{width:min(1150px,calc(100% - 36px));margin:auto}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible{
+ outline:3px solid #F85F08;
+ outline-offset:3px
+}
+.wrap{
+ width:min(1150px,calc(100% - 36px));
+ margin:auto
+}
 
-/* CABECALHO */
-.top{background:#14253D;color:white;border-bottom:1px solid #ffffff16}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;min-width:0}
-.brand-icon{width:34px;height:42px;display:grid;place-items:center;flex-shrink:0}
-.brand-icon svg{width:100%;height:100%}
+/* CABEÇALHO */
+.top{
+ background:#14253D;
+ color:white;
+ border-bottom:1px solid #ffffff16
+}
+.nav{
+ min-height:78px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:16px
+}
+.brand{
+ display:flex;
+ align-items:center;
+ gap:11px;
+ min-width:0
+}
+.brand-icon{
+ width:34px;
+ height:42px;
+ display:grid;
+ place-items:center;
+ flex-shrink:0
+}
+.brand-icon svg{
+ width:100%;
+ height:100%
+}
 .brand-copy{min-width:0}
-.brand-name{display:block;font-size:1.13rem;font-weight:850;letter-spacing:.025em;line-height:1.12;white-space:nowrap}
+.brand-name{
+ display:block;
+ font-size:1.13rem;
+ font-weight:850;
+ letter-spacing:.025em;
+ line-height:1.12;
+ white-space:nowrap
+}
 .brand-name span{color:#FF873E}
-.brand-name small{font-size:.79em;color:#F6F1EA;font-weight:600}
-.brand-slogan{display:block;color:#C5D0DC;font-size:.64rem;margin-top:5px;line-height:1.35}
-.nav-link{font-size:.86rem;font-weight:750;padding:11px 15px;border-radius:10px;border:1px solid #ffffff4f;white-space:nowrap}
+.brand-name small{
+ font-size:.79em;
+ color:#F6F1EA;
+ font-weight:600
+}
+.brand-slogan{
+ display:block;
+ color:#C5D0DC;
+ font-size:.64rem;
+ margin-top:5px;
+ line-height:1.35
+}
+.nav-link{
+ font-size:.86rem;
+ font-weight:750;
+ padding:11px 15px;
+ border-radius:10px;
+ border:1px solid #ffffff4f;
+ white-space:nowrap
+}
 .nav-link:hover{background:#ffffff12}
 
 /* HERO E BUSCA */
-.hero{background:radial-gradient(ellipse at 91% 10%,#2A4A66 0,transparent 49%),linear-gradient(130deg,#14253D,#1A334D);color:white}
+.hero{
+ background:
+  radial-gradient(ellipse at 91% 10%,#2A4A66 0,transparent 49%),
+  linear-gradient(130deg,#14253D,#1A334D);
+ color:white
+}
 .hero-inner{padding:45px 0 52px}
-.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-weight:850;font-size:.68rem;color:#FFAD7E}
-.hero h1{font-size:clamp(2.25rem,5.2vw,4.05rem);letter-spacing:-.055em;line-height:1.08;max-width:790px;margin:12px 0 15px;font-weight:850}
-.hero h1 em{font-style:normal;color:#FF975D}
-.hero-copy{max-width:670px;color:#DFE7EF;font-size:1rem;line-height:1.6;margin:0}
-.search-box{margin-top:27px;padding:20px 22px 18px;background:white;color:#14253D;border-radius:18px;box-shadow:0 18px 40px #07101b3d}
-.search-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
-.search-tabs{display:inline-flex;align-items:center;gap:3px;padding:4px;background:#F1F2F2;border-radius:11px}
-.search-tab{border:0;border-radius:8px;background:transparent;color:#627287;font-size:.89rem;font-weight:800;padding:10px 22px}
-.search-tab.active{background:#14253D;color:white;box-shadow:0 2px 6px #14253D18}
-.search-top-note{font-size:.78rem;color:#778390}
-.search{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr) auto;gap:11px;align-items:end}
+.eyebrow{
+ text-transform:uppercase;
+ letter-spacing:.15em;
+ font-weight:850;
+ font-size:.68rem;
+ color:#FFAD7E
+}
+.hero h1{
+ font-size:clamp(2.25rem,5.2vw,4.05rem);
+ letter-spacing:-.055em;
+ line-height:1.08;
+ max-width:790px;
+ margin:12px 0 15px;
+ font-weight:850
+}
+.hero h1 em{
+ font-style:normal;
+ color:#FF975D
+}
+.hero-copy{
+ max-width:670px;
+ color:#DFE7EF;
+ font-size:1rem;
+ line-height:1.6;
+ margin:0
+}
+.search-box{
+ margin-top:27px;
+ padding:20px 22px 18px;
+ background:white;
+ color:#14253D;
+ border-radius:18px;
+ box-shadow:0 18px 40px #07101b3d
+}
+.search-top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:10px;
+ margin-bottom:16px
+}
+.search-tabs{
+ display:inline-flex;
+ align-items:center;
+ gap:3px;
+ padding:4px;
+ background:#F1F2F2;
+ border-radius:11px
+}
+.search-tab{
+ border:0;
+ border-radius:8px;
+ background:transparent;
+ color:#627287;
+ font-size:.89rem;
+ font-weight:800;
+ padding:10px 22px
+}
+.search-tab.active{
+ background:#14253D;
+ color:white;
+ box-shadow:0 2px 6px #14253D18
+}
+.search-top-note{
+ font-size:.78rem;
+ color:#778390
+}
+.search{
+ display:grid;
+ grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr) auto;
+ gap:11px;
+ align-items:end
+}
 .field{min-width:0}
-.field label{display:block;font-size:.75rem;font-weight:800;color:#506174;margin:0 0 7px}
-.field input,.field select{width:100%;height:49px;border:1px solid #DFE4E9;border-radius:10px;background:#F9FAFB;color:#14253D;padding:0 12px;font-size:.91rem;outline-color:#F85F08}
+.field label{
+ display:block;
+ font-size:.75rem;
+ font-weight:800;
+ color:#506174;
+ margin:0 0 7px
+}
+.field input,.field select{
+ width:100%;
+ height:49px;
+ border:1px solid #DFE4E9;
+ border-radius:10px;
+ background:#F9FAFB;
+ color:#14253D;
+ padding:0 12px;
+ font-size:.91rem;
+ outline-color:#F85F08
+}
 .field input::placeholder{color:#8895A2}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;font-weight:800;cursor:pointer;text-align:center}
-.btn-primary{height:49px;padding:0 22px;background:#F85F08;color:#fff;white-space:nowrap;font-size:.89rem}
+.btn{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:8px;
+ border:0;
+ border-radius:10px;
+ font-weight:800;
+ cursor:pointer;
+ text-align:center
+}
+.btn-primary{
+ height:49px;
+ padding:0 22px;
+ background:#F85F08;
+ color:#fff;
+ white-space:nowrap;
+ font-size:.89rem
+}
 .btn-primary:hover{background:#DD5105}
-.search-more{display:flex;justify-content:flex-end;margin-top:12px}
-.advanced{color:#B54A0B;font-size:.79rem;font-weight:800;padding:4px 0}
+.search-more{
+ display:flex;
+ justify-content:flex-end;
+ margin-top:12px
+}
+.advanced{
+ color:#B54A0B;
+ font-size:.79rem;
+ font-weight:800;
+ padding:4px 0
+}
 .advanced:hover{text-decoration:underline}
 
 /* LISTAGEM */
 .section{padding:54px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:24px}
-.section-kicker{font-size:.69rem;text-transform:uppercase;letter-spacing:.13em;font-weight:850;color:#C95110}
-.section h2,.discover h2{font-size:clamp(1.7rem,3vw,2.25rem);letter-spacing:-.04em;line-height:1.18;margin:6px 0 0}
-.section-intro{color:#657487;font-size:.91rem;line-height:1.5;margin:8px 0 0}
-.text-link{font-size:.85rem;font-weight:800;color:#B94A0B;white-space:nowrap}
+.section-head{
+ display:flex;
+ align-items:end;
+ justify-content:space-between;
+ gap:15px;
+ margin-bottom:24px
+}
+.section-kicker{
+ font-size:.69rem;
+ text-transform:uppercase;
+ letter-spacing:.13em;
+ font-weight:850;
+ color:#C95110
+}
+.section h2,.discover h2{
+ font-size:clamp(1.7rem,3vw,2.25rem);
+ letter-spacing:-.04em;
+ line-height:1.18;
+ margin:6px 0 0
+}
+.section-intro{
+ color:#657487;
+ font-size:.91rem;
+ line-height:1.5;
+ margin:8px 0 0
+}
+.text-link{
+ font-size:.85rem;
+ font-weight:800;
+ color:#B94A0B;
+ white-space:nowrap
+}
 .text-link:hover{text-decoration:underline}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
-.property{display:flex;flex-direction:column;background:white;border:1px solid #E7E5E1;border-radius:16px;overflow:hidden;box-shadow:0 7px 24px #14253D0B;transition:transform .2s,box-shadow .2s}
-.property:hover{transform:translateY(-3px);box-shadow:0 16px 30px #14253D17}
-.photo-link{display:block;position:relative;overflow:hidden;aspect-ratio:1.4;background:#E3E8EC}
-.photo{width:100%;height:100%;display:grid;place-items:center;color:#657483;font-size:.82rem;text-align:center}
-.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
-.property:hover .photo img{transform:scale(1.035)}
-.tag{position:absolute;left:12px;top:12px;background:#F85F08;color:white;padding:7px 9px;border-radius:7px;font-size:.66rem;font-weight:850;z-index:1}
-.property-content{padding:18px 18px 12px;display:flex;flex-direction:column;gap:8px;flex:1}
-.location{color:#68798A;font-size:.78rem}
-.property-content h3{font-size:1.02rem;line-height:1.38;font-weight:800;margin:0;letter-spacing:-.015em}
-.property-content h3 a:hover{color:#BE4A0B}
-.price{font-size:1.32rem;font-weight:850;letter-spacing:-.035em;margin:3px 0 0}
-.specs{font-size:.78rem;color:#728092;padding-top:9px;border-top:1px solid #EEF0F2;line-height:1.55}
-.view{display:block;margin:0 18px 17px;padding-top:13px;color:#C44A06;border-top:1px solid #F0F0EE;font-size:.84rem;font-weight:850}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:19px
+}
+.property{
+ display:flex;
+ flex-direction:column;
+ background:white;
+ border:1px solid #E7E5E1;
+ border-radius:16px;
+ overflow:hidden;
+ box-shadow:0 7px 24px #14253D0B;
+ transition:transform .2s,box-shadow .2s
+}
+.property:hover{
+ transform:translateY(-3px);
+ box-shadow:0 16px 30px #14253D17
+}
+.photo-link{
+ display:block;
+ position:relative;
+ overflow:hidden;
+ aspect-ratio:1.4;
+ background:#E3E8EC
+}
+.photo{
+ width:100%;
+ height:100%;
+ display:grid;
+ place-items:center;
+ color:#657483;
+ font-size:.82rem;
+ text-align:center
+}
+.photo img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+ transition:transform .35s
+}
+.property:hover .photo img{
+ transform:scale(1.035)
+}
+.tag{
+ position:absolute;
+ left:12px;
+ top:12px;
+ background:#F85F08;
+ color:white;
+ padding:7px 9px;
+ border-radius:7px;
+ font-size:.66rem;
+ font-weight:850;
+ z-index:1
+}
+.property-content{
+ padding:18px 18px 12px;
+ display:flex;
+ flex-direction:column;
+ gap:8px;
+ flex:1
+}
+.location{
+ color:#68798A;
+ font-size:.78rem
+}
+.property-content h3{
+ font-size:1.02rem;
+ line-height:1.38;
+ font-weight:800;
+ margin:0;
+ letter-spacing:-.015em
+}
+.property-content h3 a:hover{
+ color:#BE4A0B
+}
+.price{
+ font-size:1.32rem;
+ font-weight:850;
+ letter-spacing:-.035em;
+ margin:3px 0 0
+}
+.specs{
+ font-size:.78rem;
+ color:#728092;
+ padding-top:9px;
+ border-top:1px solid #EEF0F2;
+ line-height:1.55
+}
+.view{
+ display:block;
+ margin:0 18px 17px;
+ padding-top:13px;
+ color:#C44A06;
+ border-top:1px solid #F0F0EE;
+ font-size:.84rem;
+ font-weight:850
+}
 .view:hover{text-decoration:underline}
-.empty{grid-column:1/-1;padding:28px;background:white;border:1px solid #E7E5E1;border-radius:14px;color:#627282;line-height:1.6}
-.status{font-size:.81rem;color:#687788;margin-top:10px}
-.section-bottom{display:flex;justify-content:center;margin-top:24px}
-.all-link{border:1px solid #CED4DA;border-radius:11px;padding:13px 20px;font-weight:800;font-size:.88rem;background:white}
-.all-link:hover{border-color:#F85F08;color:#C34D0A}
+.empty{
+ grid-column:1/-1;
+ padding:28px;
+ background:white;
+ border:1px solid #E7E5E1;
+ border-radius:14px;
+ color:#627282;
+ line-height:1.6
+}
+.status{
+ font-size:.81rem;
+ color:#687788;
+ margin-top:10px
+}
+.section-bottom{
+ display:flex;
+ justify-content:center;
+ margin-top:24px
+}
+.all-link{
+ border:1px solid #CED4DA;
+ border-radius:11px;
+ padding:13px 20px;
+ font-weight:800;
+ font-size:.88rem;
+ background:white
+}
+.all-link:hover{
+ border-color:#F85F08;
+ color:#C34D0A
+}
 
 /* DESTAQUES */
 .featured{padding-top:0}
 .featured[hidden]{display:none!important}
-.weekly-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.weekly-card{display:flex;min-height:155px;background:#fff;border:1px solid #E7E5E1;border-radius:15px;overflow:hidden;transition:transform .2s}
+.weekly-grid{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:16px
+}
+.weekly-card{
+ display:flex;
+ min-height:155px;
+ background:#fff;
+ border:1px solid #E7E5E1;
+ border-radius:15px;
+ overflow:hidden;
+ transition:transform .2s
+}
 .weekly-card:hover{transform:translateY(-2px)}
-.weekly-photo{width:41%;flex-shrink:0;display:grid;place-items:center;background:#E4E8EC;color:#69798A;font-size:.79rem;text-align:center}
-.weekly-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.weekly-content{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:8px;min-width:0}
-.weekly-title{font-size:.96rem;font-weight:850;line-height:1.35}
-.weekly-price{font-size:1.22rem;font-weight:850;color:#C44A0A}
-.weekly-link{font-size:.8rem;color:#B7480A;font-weight:850}
+.weekly-photo{
+ width:41%;
+ flex-shrink:0;
+ display:grid;
+ place-items:center;
+ background:#E4E8EC;
+ color:#69798A;
+ font-size:.79rem;
+ text-align:center
+}
+.weekly-photo img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block
+}
+.weekly-content{
+ padding:16px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ gap:8px;
+ min-width:0
+}
+.weekly-title{
+ font-size:.96rem;
+ font-weight:850;
+ line-height:1.35
+}
+.weekly-price{
+ font-size:1.22rem;
+ font-weight:850;
+ color:#C44A0A
+}
+.weekly-link{
+ font-size:.8rem;
+ color:#B7480A;
+ font-weight:850
+}
 
-/* NAVEGACAO POR TIPO E BAIRRO */
-.discover{background:#F0ECE5;border-top:1px solid #E8E2D9;padding:33px 0 38px}
-.discover h2{font-size:1.45rem;margin:0 0 7px}
-.discover p{font-size:.86rem;line-height:1.6;color:#687486;margin:0 0 16px}
-.local-links{display:flex;flex-wrap:wrap;gap:9px}
-.local-link{display:inline-flex;align-items:center;padding:11px 14px;border-radius:9px;border:1px solid #D8DFE4;background:white;font-size:.83rem;font-weight:750;color:#14253D}
-.local-link:hover{border-color:#F85F08;color:#BB4D0B}
-.bairros-seo{margin-top:24px!important;border-top:1px solid #E2DAD0;padding-top:20px}
-.bairros-seo h3{font-size:1rem!important;margin:0 0 5px!important}
-.bairros-seo p{font-size:.81rem!important;margin:0 0 12px!important}
-.bairros-seo>div{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto;gap:8px!important;padding-bottom:7px;scrollbar-width:thin}
+/* NAVEGAÇÃO POR TIPO E BAIRRO */
+.discover{
+ background:#F0ECE5;
+ border-top:1px solid #E8E2D9;
+ padding:33px 0 38px
+}
+.discover h2{
+ font-size:1.45rem;
+ margin:0 0 7px
+}
+.discover p{
+ font-size:.86rem;
+ line-height:1.6;
+ color:#687486;
+ margin:0 0 16px
+}
+.local-links{
+ display:flex;
+ flex-wrap:wrap;
+ gap:9px
+}
+.local-link{
+ display:inline-flex;
+ align-items:center;
+ padding:11px 14px;
+ border-radius:9px;
+ border:1px solid #D8DFE4;
+ background:white;
+ font-size:.83rem;
+ font-weight:750;
+ color:#14253D
+}
+.local-link:hover{
+ border-color:#F85F08;
+ color:#BB4D0B
+}
+.bairros-seo{
+ margin-top:24px!important;
+ border-top:1px solid #E2DAD0;
+ padding-top:20px
+}
+.bairros-seo h3{
+ font-size:1rem!important;
+ margin:0 0 5px!important
+}
+.bairros-seo p{
+ font-size:.81rem!important;
+ margin:0 0 12px!important
+}
+.bairros-seo>div{
+ display:flex!important;
+ flex-wrap:nowrap!important;
+ overflow-x:auto;
+ gap:8px!important;
+ padding-bottom:7px;
+ scrollbar-width:thin
+}
 .bairros-seo>div>a{flex-shrink:0}
-.bairros-seo>a{font-size:.81rem!important;margin-top:9px!important}
+.bairros-seo>a{
+ font-size:.81rem!important;
+ margin-top:9px!important
+}
 
-/* EQUIPE E RODAPE */
-.team{background:#fff;padding:26px 0}
-.team-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.team-message{font-size:.9rem;font-weight:750}
-.team-note{font-size:.76rem;line-height:1.7;color:#687586;text-align:right}
-.footer{background:#0F1E31;color:#D5DEE7;padding:31px 0;font-size:.79rem}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:16px}
-.footer-brand{font-weight:850;color:white;font-size:.95rem;letter-spacing:.02em}
+/* RODAPÉ */
+.team{
+ background:#fff;
+ padding:26px 0
+}
+.team-inner{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px
+}
+.team-message{
+ font-size:.9rem;
+ font-weight:750
+}
+.team-note{
+ font-size:.76rem;
+ line-height:1.7;
+ color:#687586;
+ text-align:right
+}
+.footer{
+ background:#0F1E31;
+ color:#D5DEE7;
+ padding:31px 0;
+ font-size:.79rem
+}
+.footer-inner{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:16px
+}
+.footer-brand{
+ font-weight:850;
+ color:white;
+ font-size:.95rem;
+ letter-spacing:.02em
+}
 .footer-brand span{color:#FF8C46}
-.footer-slogan{font-size:.78rem;color:#C7D3DE;margin-top:6px}
-.footer-info{margin-top:8px;color:#A9BAC9;line-height:1.5}
-.footer a{color:white;font-weight:750}
-
+.footer-slogan{
+ font-size:.78rem;
+ color:#C7D3DE;
+ margin-top:6px
+}
+.footer-info{
+ margin-top:8px;
+ color:#A9BAC9;
+ line-height:1.5
+}
+.footer a{
+ color:white;
+ font-weight:750
+}
 @media(max-width:900px){
- .search{grid-template-columns:repeat(2,minmax(0,1fr))}
- .search .field:first-of-type{grid-column:1/-1}
- .search .btn-primary{grid-column:1/-1;width:100%}
- .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .search{
+  grid-template-columns:repeat(2,minmax(0,1fr))
+ }
+ .search .field:first-of-type{
+  grid-column:1/-1
+ }
+ .search .btn-primary{
+  grid-column:1/-1;
+  width:100%
+ }
+ .grid{
+  grid-template-columns:repeat(2,minmax(0,1fr))
+ }
 }
 @media(max-width:640px){
  .wrap{width:calc(100% - 30px)}
  .nav{min-height:69px}
  .brand{gap:8px}
  .brand-icon{width:29px;height:36px}
- .brand-name{font-size:.9rem;letter-spacing:0}
- .brand-slogan{font-size:.52rem;margin-top:4px}
- .nav-link{font-size:.72rem;padding:10px 12px}
+ .brand-name{
+  font-size:.9rem;
+  letter-spacing:0
+ }
+ .brand-slogan{
+  font-size:.52rem;
+  margin-top:4px
+ }
+ .nav-link{
+  font-size:.72rem;
+  padding:10px 12px
+ }
  .hero-inner{padding:29px 0 32px}
  .eyebrow{font-size:.61rem}
- .hero h1{font-size:clamp(1.98rem,8.1vw,2.65rem);margin:9px 0 10px;letter-spacing:-.048em}
- .hero-copy{font-size:.83rem;line-height:1.46}
- .search-box{margin-top:20px;padding:14px;border-radius:15px}
+ .hero h1{
+  font-size:clamp(1.98rem,8.1vw,2.65rem);
+  margin:9px 0 10px;
+  letter-spacing:-.048em
+ }
+ .hero-copy{
+  font-size:.83rem;
+  line-height:1.46
+ }
+ .search-box{
+  margin-top:20px;
+  padding:14px;
+  border-radius:15px
+ }
  .search-top{margin-bottom:12px}
  .search-tabs{width:100%}
- .search-tab{flex:1;font-size:.85rem;padding:10px 12px}
+ .search-tab{
+  flex:1;
+  font-size:.85rem;
+  padding:10px 12px
+ }
  .search-top-note{display:none}
  .search{gap:11px}
- .search .field:first-of-type{grid-column:1/-1}
- .field label{font-size:.7rem;margin-bottom:5px}
- .field input,.field select{height:46px;font-size:.82rem;padding:0 10px}
- .field select{font-size:.78rem;padding:0 6px}
+ .search .field:first-of-type{
+  grid-column:1/-1
+ }
+ .field label{
+  font-size:.7rem;
+  margin-bottom:5px
+ }
+ .field input,.field select{
+  height:46px;
+  font-size:.82rem;
+  padding:0 10px
+ }
+ .field select{
+  font-size:.78rem;
+  padding:0 6px
+ }
  .field input::placeholder{font-size:.8rem}
- .search .btn-primary{height:47px;font-size:.88rem}
+ .search .btn-primary{
+  height:47px;
+  font-size:.88rem
+ }
  .search-more{margin-top:8px}
  .advanced{font-size:.76rem}
  .section{padding:36px 0}
- .section-head{margin-bottom:17px;align-items:center}
+ .section-head{
+  margin-bottom:17px;
+  align-items:center
+ }
  .section h2{font-size:1.55rem}
- .section-intro{font-size:.81rem;margin-top:5px}
+ .section-intro{
+  font-size:.81rem;
+  margin-top:5px
+ }
  .text-link{font-size:.76rem}
- .grid{grid-template-columns:1fr;gap:15px}
+ .grid{
+  grid-template-columns:1fr;
+  gap:15px
+ }
  .photo-link{aspect-ratio:1.6}
- .property-content{padding:15px 16px 11px;gap:7px}
+ .property-content{
+  padding:15px 16px 11px;
+  gap:7px
+ }
  .property-content h3{font-size:1rem}
  .price{font-size:1.24rem}
  .view{margin:0 16px 14px}
@@ -218,66 +731,194 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .discover{padding:29px 0 32px}
  .discover h2{font-size:1.25rem}
  .team-inner{display:block}
- .team-note{text-align:left;margin-top:8px}
+ .team-note{
+  text-align:left;
+  margin-top:8px
+ }
  .footer-inner{display:block}
- .footer-inner>a{display:inline-block;margin-top:15px}
+ .footer-inner>a{
+  display:inline-block;
+  margin-top:15px
+ }
 }
 
 /* BUSCA PERSONALIZADA */
-.personal-section{padding:28px 0 38px;background:#F7F5F1}
-.personal-card{background:linear-gradient(120deg,#14253D,#25435B);color:#fff;border-radius:20px;padding:35px 38px;display:flex;align-items:center;justify-content:space-between;gap:32px;box-shadow:0 12px 30px #14253D17}
-.personal-copy{flex:1;max-width:700px}
-.personal-kicker{color:#FFB385;text-transform:uppercase;letter-spacing:.15em;font-weight:850;font-size:.67rem;margin-bottom:12px}
-.personal-card h2{font-size:clamp(1.5rem,3.2vw,2.35rem);line-height:1.16;letter-spacing:-.045em;margin:0 0 14px}
-.personal-card h2 em{color:#FFA36F;font-style:normal}
-.personal-card p{color:#DDE8F1;font-size:.91rem;line-height:1.7;margin:0}
-.personal-action{min-width:227px;text-align:center}
-.personal-cta{display:block;background:#F85F08;color:white;padding:16px 20px;border-radius:11px;font-weight:850;font-size:.88rem}
+.personal-section{
+ padding:28px 0 38px;
+ background:#F7F5F1
+}
+.personal-card{
+ background:linear-gradient(120deg,#14253D,#25435B);
+ color:#fff;
+ border-radius:20px;
+ padding:35px 38px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:32px;
+ box-shadow:0 12px 30px #14253D17
+}
+.personal-copy{
+ flex:1;
+ max-width:700px
+}
+.personal-kicker{
+ color:#FFB385;
+ text-transform:uppercase;
+ letter-spacing:.15em;
+ font-weight:850;
+ font-size:.67rem;
+ margin-bottom:12px
+}
+.personal-card h2{
+ font-size:clamp(1.5rem,3.2vw,2.35rem);
+ line-height:1.16;
+ letter-spacing:-.045em;
+ margin:0 0 14px
+}
+.personal-card h2 em{
+ color:#FFA36F;
+ font-style:normal
+}
+.personal-card p{
+ color:#DDE8F1;
+ font-size:.91rem;
+ line-height:1.7;
+ margin:0
+}
+.personal-action{
+ min-width:227px;
+ text-align:center
+}
+.personal-cta{
+ display:block;
+ background:#F85F08;
+ color:white;
+ padding:16px 20px;
+ border-radius:11px;
+ font-weight:850;
+ font-size:.88rem
+}
 .personal-cta:hover{background:#DE5004}
-.personal-action small{display:block;margin-top:9px;color:#DAE3E9;font-size:.72rem;line-height:1.4}
+.personal-action small{
+ display:block;
+ margin-top:9px;
+ color:#DAE3E9;
+ font-size:.72rem;
+ line-height:1.4
+}
 @media(max-width:760px){
  .personal-section{padding:19px 0 30px}
- .personal-card{display:block;border-radius:17px;padding:27px 22px}
+ .personal-card{
+  display:block;
+  border-radius:17px;
+  padding:27px 22px
+ }
  .personal-card h2{font-size:1.7rem}
- .personal-action{margin-top:22px;min-width:0}
+ .personal-action{
+  margin-top:22px;
+  min-width:0
+ }
  .personal-cta{padding:16px}
 }
-.owner-strip{padding:0 0 39px;background:#F7F5F1}
-.owner-inner{border-radius:17px;background:#EDEAE5;padding:25px 28px;display:flex;align-items:center;justify-content:space-between;gap:19px}
-.owner-inner strong{font-size:1.14rem;letter-spacing:-.025em}
-.owner-inner p{color:#627083;font-size:.87rem;line-height:1.5;margin:6px 0 0}
-.owner-link{border-radius:10px;background:#14253D;color:#fff;font-size:.85rem;font-weight:850;padding:13px 18px;white-space:nowrap}
+
+/* ANUNCIE CONOSCO */
+.owner-strip{
+ padding:0 0 39px;
+ background:#F7F5F1
+}
+.owner-inner{
+ border-radius:17px;
+ background:#EDEAE5;
+ padding:25px 28px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:19px
+}
+.owner-inner strong{
+ font-size:1.14rem;
+ letter-spacing:-.025em
+}
+.owner-inner p{
+ color:#627083;
+ font-size:.87rem;
+ line-height:1.5;
+ margin:6px 0 0
+}
+.owner-link{
+ border-radius:10px;
+ background:#14253D;
+ color:#fff;
+ font-size:.85rem;
+ font-weight:850;
+ padding:13px 18px;
+ white-space:nowrap
+}
 .owner-link:hover{background:#27435F}
 @media(max-width:760px){
- .owner-inner{display:block;padding:24px}
- .owner-link{display:inline-block;margin-top:18px}
+ .owner-inner{
+  display:block;
+  padding:24px
+ }
+ .owner-link{
+  display:inline-block;
+  margin-top:18px
+ }
 }
-.nav-actions{display:flex;align-items:center;gap:9px}
-.nav-announce{border:1px solid #FF945D80;color:#FFE2CE}
+.nav-actions{
+ display:flex;
+ align-items:center;
+ gap:9px
+}
+.nav-announce{
+ border:1px solid #FF945D80;
+ color:#FFE2CE
+}
 .nav-announce:hover{background:#FF945D16}
 .mobile-label{display:none}
-.footer-links{display:flex;flex-wrap:wrap;gap:16px}
-.footer-links a{color:#fff;font-weight:800}
+.footer-links{
+ display:flex;
+ flex-wrap:wrap;
+ gap:16px
+}
+.footer-links a{
+ color:#fff;
+ font-weight:800
+}
 @media(max-width:580px){
  .brand-name{font-size:1.01rem}
- .nav-link{font-size:.79rem;padding:9px 10px}
+ .nav-link{
+  font-size:.79rem;
+  padding:9px 10px
+ }
  .desktop-label{display:none}
  .mobile-label{display:inline}
  .nav-actions{gap:5px}
 }
 </style>
 </head>
-<body>
 
+<body>
 <header class="top">
 <div class="wrap nav">
-<a class="brand" id="homeLink" href="index.html" aria-label="Portal Bauru Imóveis - início">
-<span class="brand-name">PORTAL <span>BAURU</span> <small>IMÓVEIS</small></span>
-<span class="brand-slogan">Conectando pessoas às oportunidades certas.</span>
+<a class="brand" id="homeLink" href="index.html"
+   aria-label="Portal Bauru Imóveis - início">
+<span class="brand-name">
+ PORTAL <span>BAURU</span> <small>IMÓVEIS</small>
+</span>
+<span class="brand-slogan">
+ Conectando pessoas às oportunidades certas.
+</span>
 </a>
 <nav class="nav-actions" aria-label="Menu principal">
-<a class="nav-link" id="menuProperties" href="imoveis.html">Ver imóveis</a>
-<a class="nav-link nav-announce" id="menuAdvertise" href="anuncie.html"><span class="desktop-label">Anuncie conosco</span><span class="mobile-label">Anuncie</span></a>
+<a class="nav-link" id="menuProperties"
+   href="imoveis.html">Ver imóveis</a>
+<a class="nav-link nav-announce"
+   id="menuAdvertise" href="anuncie.html">
+ <span class="desktop-label">Anuncie conosco</span>
+ <span class="mobile-label">Anuncie</span>
+</a>
 </nav>
 </div>
 </header>
@@ -286,24 +927,40 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="hero" aria-labelledby="titulo-principal">
 <div class="wrap hero-inner">
 <div class="eyebrow">Portal imobiliário em Bauru/SP</div>
-<h1 id="titulo-principal">Encontre seu <em>imóvel em Bauru.</em></h1>
-<p class="hero-copy">Pesquise por bairro, tipo e valor. Conheça os imóveis e fale com corretores locais.</p>
+<h1 id="titulo-principal">
+ Encontre seu <em>imóvel em Bauru.</em>
+</h1>
+<p class="hero-copy">
+ Pesquise por bairro, tipo e valor. Conheça os imóveis
+ e fale com corretores locais.
+</p>
 
 <div class="search-box">
 <div class="search-top">
-<div class="search-tabs" role="group" aria-label="Finalidade da busca">
-<button type="button" class="search-tab active" data-purpose="venda" aria-pressed="true">Comprar</button>
-<button type="button" class="search-tab" data-purpose="locacao" aria-pressed="false">Alugar</button>
+<div class="search-tabs" role="group"
+     aria-label="Finalidade da busca">
+<button type="button" class="search-tab active"
+        data-purpose="venda" aria-pressed="true">
+ Comprar
+</button>
 </div>
-<span class="search-top-note">Encontre sua próxima oportunidade</span>
+<span class="search-top-note">
+ Encontre sua próxima oportunidade
+</span>
 </div>
 
-<form id="searchForm" class="search" action="imoveis.html" method="get">
-<input type="hidden" id="finalidade" name="finalidade" value="venda">
+<form id="searchForm" class="search"
+      action="imoveis.html" method="get">
+<input type="hidden" id="finalidade"
+       name="finalidade" value="venda">
+
 <div class="field">
 <label for="busca">Bairro, condomínio ou código</label>
-<input id="busca" name="busca" type="search" placeholder="Onde você quer morar?" autocomplete="off">
+<input id="busca" name="busca" type="search"
+       placeholder="Onde você quer morar?"
+       autocomplete="off">
 </div>
+
 <div class="field">
 <label for="tipo">Tipo do imóvel</label>
 <select id="tipo" name="tipo">
@@ -317,6 +974,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <option value="outro">Outros</option>
 </select>
 </div>
+
 <div class="field">
 <label for="preco">Valor máximo</label>
 <select id="preco" name="preco">
@@ -331,9 +989,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <option value="1000000">Até R$ 1 milhão</option>
 </select>
 </div>
-<button class="btn btn-primary" type="submit">Buscar imóveis →</button>
+
+<button class="btn btn-primary" type="submit">
+ Buscar imóveis →
+</button>
 </form>
-<div class="search-more"><a id="advancedFilters" class="advanced" href="imoveis.html">Mais filtros →</a></div>
+
+<div class="search-more">
+<a id="advancedFilters" class="advanced"
+   href="imoveis.html">Mais filtros →</a>
+</div>
 </div>
 </div>
 </section>
@@ -342,27 +1007,46 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="wrap">
 <div class="personal-card">
 <div class="personal-copy">
-<div class="personal-kicker">BUSCA PERSONALIZADA DE IMÓVEIS</div>
-<h2 id="personalTitle">O imóvel que você procura <em>ainda não apareceu?</em></h2>
-<p>Conte o que é importante para você. Nossa equipe analisa suas preferências, procura oportunidades e entra em contato para ajudar a encontrar o imóvel ideal — mesmo quando ele não está na vitrine.</p>
+<div class="personal-kicker">
+ BUSCA PERSONALIZADA DE IMÓVEIS
 </div>
+<h2 id="personalTitle">
+ O imóvel que você procura
+ <em>ainda não apareceu?</em>
+</h2>
+<p>
+ Conte o que é importante para você. Nossa equipe
+ analisa suas preferências, procura oportunidades
+ e entra em contato para ajudar a encontrar o imóvel
+ ideal — mesmo quando ele não está na vitrine.
+</p>
+</div>
+
 <div class="personal-action">
-<a class="personal-cta" id="personalLink" href="imoveis.html?personalizada=1">Conte o que você procura</a>
+<a class="personal-cta" id="personalLink"
+   href="imoveis.html?personalizada=1">
+ Conte o que você procura
+</a>
 <small>Atendimento individual, sem compromisso</small>
 </div>
 </div>
 </div>
 </section>
 
-<section class="section" id="oportunidades" aria-labelledby="titulo-imoveis">
+<section class="section" id="oportunidades"
+         aria-labelledby="titulo-imoveis">
 <div class="wrap">
 <div class="section-head">
 <div>
 <div class="section-kicker">Novas oportunidades</div>
 <h2 id="titulo-imoveis">Imóveis para conhecer</h2>
-<p class="section-intro">Confira os anúncios mais recentes em Bauru.</p>
+<p class="section-intro">
+ Confira os anúncios mais recentes em Bauru.
+</p>
 </div>
-<a class="text-link" id="allLink" href="imoveis.html">Ver todos →</a>
+<a class="text-link" id="allLink" href="imoveis.html">
+ Ver todos →
+</a>
 </div>
 <div id="properties" class="grid" aria-live="polite">
 <div class="empty">Carregando imóveis...</div>
@@ -371,7 +1055,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 </div>
 </section>
 
-<section class="section featured" id="featuredSection" hidden aria-labelledby="featuredTitle">
+<section class="section featured"
+         id="featuredSection" hidden
+         aria-labelledby="featuredTitle">
 <div class="wrap">
 <div class="section-head">
 <div>
@@ -388,21 +1074,40 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="owner-inner">
 <div>
 <strong id="ownerTitle">Tem um imóvel para vender?</strong>
-<p>Apresente sua propriedade à nossa equipe e conheça nossas possibilidades de divulgação.</p>
+<p>
+ Apresente sua propriedade à nossa equipe e conheça
+ nossas possibilidades de divulgação.
+</p>
 </div>
-<a class="owner-link" id="ownerCta" href="anuncie.html">Anuncie conosco →</a>
+<a class="owner-link" id="ownerCta" href="anuncie.html">
+ Anuncie conosco →
+</a>
 </div>
 </div>
 </section>
 
 <section class="discover" aria-labelledby="tipos-imoveis">
 <div class="wrap">
-<h2 id="tipos-imoveis">Explore imóveis à venda em Bauru</h2>
-<p>Encontre apartamentos, casas e terrenos com os filtros certos para você.</p>
+<h2 id="tipos-imoveis">
+ Explore imóveis à venda em Bauru
+</h2>
+<p>
+ Encontre apartamentos, casas e terrenos
+ com os filtros certos para você.
+</p>
 <div class="local-links" aria-label="Pesquisar por tipo de imóvel">
-<a class="local-link" id="catApartamento" href="imoveis.html?finalidade=venda&amp;tipo=apartamento">Apartamentos à venda</a>
-<a class="local-link" id="catCasa" href="imoveis.html?finalidade=venda&amp;tipo=casa">Casas à venda</a>
-<a class="local-link" id="catTerreno" href="imoveis.html?finalidade=venda&amp;tipo=terreno">Terrenos à venda</a>
+<a class="local-link" id="catApartamento"
+   href="imoveis.html?finalidade=venda&amp;tipo=apartamento">
+ Apartamentos à venda
+</a>
+<a class="local-link" id="catCasa"
+   href="imoveis.html?finalidade=venda&amp;tipo=casa">
+ Casas à venda
+</a>
+<a class="local-link" id="catTerreno"
+   href="imoveis.html?finalidade=venda&amp;tipo=terreno">
+ Terrenos à venda
+</a>
 </div>
 </div>
 </section>
@@ -411,19 +1116,31 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <footer class="footer">
 <div class="wrap footer-inner">
 <div>
-<div class="footer-brand">PORTAL <span>BAURU</span> IMÓVEIS</div>
-<div class="footer-slogan">Conectando pessoas às oportunidades certas.</div>
-<div class="footer-info">W. Rafael Gomes · CRECI 196.907-F &amp; Débora Navas · CRECI 196.899-F · Bauru/SP</div>
+<div class="footer-brand">
+ PORTAL <span>BAURU</span> IMÓVEIS
+</div>
+<div class="footer-slogan">
+ Conectando pessoas às oportunidades certas.
+</div>
+<div class="footer-info">
+ W. Rafael Gomes · CRECI 196.907-F &amp;
+ Débora Navas · CRECI 196.899-F · Bauru/SP
+</div>
 </div>
 <div class="footer-links">
-<a id="footerProperties" href="imoveis.html">Ver imóveis</a>
-<a id="footerAdvertise" href="anuncie.html">Anuncie conosco</a>
+<a id="footerProperties" href="imoveis.html">
+ Ver imóveis
+</a>
+<a id="footerAdvertise" href="anuncie.html">
+ Anuncie conosco
+</a>
 </div>
 </div>
 </footer>
 
 <script type="module">
-import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import {createClient} from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 const supabase=createClient(
  'https://dtkszimtovtqdojjpqsy.supabase.co',
@@ -438,21 +1155,33 @@ function linked(file,extra={}){
  const u=new URL(file,location.href);
  if(validRef)u.searchParams.set('ref',validRef);
  for(const [k,v] of Object.entries(extra)){
-  if(v!==''&&v!=null)u.searchParams.set(k,String(v));
+  if(v!==''&&v!=null){
+   u.searchParams.set(k,String(v));
+  }
  }
  return u.href;
 }
 
-document.getElementById('personalLink').href=linked('imoveis.html',{personalizada:'1'});
-document.getElementById('ownerCta').href=linked('anuncie.html');
-document.getElementById('menuAdvertise').href=linked('anuncie.html');
-document.getElementById('footerAdvertise').href=linked('anuncie.html');
+document.getElementById('personalLink').href=
+ linked('imoveis.html',{personalizada:'1'});
 
-for(const id of ['homeLink']){
- document.getElementById(id).href=linked('index.html');
-}
-for(const id of ['menuProperties','allLink','footerProperties']){
- document.getElementById(id).href=linked('imoveis.html',{finalidade:'venda'});
+document.getElementById('ownerCta').href=
+ linked('anuncie.html');
+
+document.getElementById('menuAdvertise').href=
+ linked('anuncie.html');
+
+document.getElementById('footerAdvertise').href=
+ linked('anuncie.html');
+
+document.getElementById('homeLink').href=
+ linked('index.html');
+
+for(const id of [
+ 'menuProperties','allLink','footerProperties'
+]){
+ document.getElementById(id).href=
+  linked('imoveis.html',{finalidade:'venda'});
 }
 
 for(const [id,tipo] of [
@@ -460,23 +1189,27 @@ for(const [id,tipo] of [
  ['catCasa','casa'],
  ['catTerreno','terreno']
 ]){
- document.getElementById(id).href=linked('imoveis.html',{
-  finalidade:'venda',tipo
- });
+ document.getElementById(id).href=
+  linked('imoveis.html',{finalidade:'venda',tipo});
 }
 
 document.getElementById('searchForm')
 .addEventListener('submit',e=>{
  e.preventDefault();
  const extra={};
- for(const id of ['finalidade','tipo','busca','preco']){
+
+ for(const id of [
+  'finalidade','tipo','busca','preco'
+ ]){
   const v=document.getElementById(id).value.trim();
   if(v)extra[id]=v;
  }
  location.href=linked('imoveis.html',extra);
 });
 
-const purposeInput=document.getElementById('finalidade');
+const purposeInput=
+ document.getElementById('finalidade');
+
 document.querySelectorAll('.search-tab').forEach(tab=>{
  tab.addEventListener('click',()=>{
   purposeInput.value=tab.dataset.purpose;
@@ -488,10 +1221,14 @@ document.querySelectorAll('.search-tab').forEach(tab=>{
  });
 });
 
-document.getElementById('advancedFilters').addEventListener('click',e=>{
+document.getElementById('advancedFilters')
+.addEventListener('click',e=>{
  e.preventDefault();
  const extra={};
- for(const id of ['finalidade','tipo','busca','preco']){
+
+ for(const id of [
+  'finalidade','tipo','busca','preco'
+ ]){
   const v=document.getElementById(id).value.trim();
   if(v)extra[id]=v;
  }
@@ -499,15 +1236,23 @@ document.getElementById('advancedFilters').addEventListener('click',e=>{
 });
 
 const root=document.getElementById('properties');
-const weeklyRoot=document.getElementById('weeklyProperties');
-const featuredSection=document.getElementById('featuredSection');
+const weeklyRoot=
+ document.getElementById('weeklyProperties');
+const featuredSection=
+ document.getElementById('featuredSection');
 const status=document.getElementById('status');
 
-const money=v=>v===null||v===undefined||v===''||!Number.isFinite(Number(v))||Number(v)<=0
+const money=v=>
+ v===null||v===undefined||v===''||
+ !Number.isFinite(Number(v))||Number(v)<=0
  ?'Valor sob consulta'
  :new Intl.NumberFormat('pt-BR',{
-  style:'currency',currency:'BRL',maximumFractionDigits:0
- }).format(Number(v));
+  style:'currency',
+  currency:'BRL',
+  minimumFractionDigits:2,
+  maximumFractionDigits:2
+ }).format(Number(v))
+ .replace(/[\u00a0\u202f]/g,' ');
 
 function el(tag,cls,text){
  const n=document.createElement(tag);
@@ -519,18 +1264,27 @@ function el(tag,cls,text){
 function photoElement(p,photos){
  const photo=el('div','photo');
  const cover=photos.get(p.id);
+
  if(cover){
   const img=el('img');
-  img.src=supabase.storage.from('portal-imoveis').getPublicUrl(cover).data.publicUrl;
-  img.alt='Fotografia do imóvel '+(p.titulo||'em Bauru');
+  img.src=supabase.storage
+   .from('portal-imoveis')
+   .getPublicUrl(cover).data.publicUrl;
+  img.alt='Fotografia do imóvel '+
+   (p.titulo||'em Bauru');
   img.loading='lazy';
+
   img.onerror=()=>{
    img.remove();
-   photo.append(el('span','','Fotografia indisponível'));
+   photo.append(
+    el('span','','Fotografia indisponível')
+   );
   };
   photo.append(img);
  }else{
-  photo.append(el('span','','Fotografias em breve'));
+  photo.append(
+   el('span','','Fotografias em breve')
+  );
  }
  return photo;
 }
@@ -540,8 +1294,11 @@ function card(p,photos){
  const url=linked('imovel.html',{id:p.id});
  const cover=el('a','photo-link');
  cover.href=url;
- cover.setAttribute('aria-label','Ver '+(p.titulo||'imóvel em Bauru'));
+ cover.setAttribute(
+  'aria-label','Ver '+(p.titulo||'imóvel em Bauru')
+ );
  cover.append(photoElement(p,photos));
+
  const seals={
   novidade:'Novidade',
   oportunidade:'Oportunidade',
@@ -549,25 +1306,45 @@ function card(p,photos){
   destaque:'Destaque',
   exclusivo:'Exclusivo'
  };
- if(seals[p.selo])cover.append(el('span','tag',seals[p.selo]));
+
+ if(seals[p.selo]){
+  cover.append(el('span','tag',seals[p.selo]));
+ }
  article.append(cover);
 
  const content=el('div','property-content');
- content.append(el('div','location',[p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')));
+ content.append(
+  el('div','location',
+   [p.bairro,'Bauru/SP']
+   .filter(Boolean).join(' · ')
+  )
+ );
+
  const h3=el('h3');
- const titleLink=el('a','',p.titulo||p.empreendimento||'Imóvel em Bauru');
+ const titleLink=el(
+  'a','',
+  p.titulo||p.empreendimento||'Imóvel em Bauru'
+ );
  titleLink.href=url;
  h3.append(titleLink);
  content.append(h3);
  content.append(el('div','price',money(p.preco)));
+
  const specs=[
   p.quartos!=null?p.quartos+' quarto(s)':null,
   p.suites?p.suites+' suíte(s)':null,
   p.vagas!=null?p.vagas+' vaga(s)':null,
   p.area_privativa?p.area_privativa+' m²':null
  ].filter(Boolean);
- if(specs.length)content.append(el('div','specs',specs.join(' · ')));
+
+ if(specs.length){
+  content.append(
+   el('div','specs',specs.join(' · '))
+  );
+ }
+
  article.append(content);
+
  const a=el('a','view','Ver detalhes →');
  a.href=url;
  article.append(a);
@@ -579,21 +1356,41 @@ function weeklyCard(p,photos){
  a.href=linked('imovel.html',{id:p.id});
  a.append(photoElement(p,photos));
  a.firstChild.className='weekly-photo';
+
  const content=el('div','weekly-content');
- content.append(el('div','location',[p.bairro,'Bauru/SP'].filter(Boolean).join(' · ')));
- content.append(el('div','weekly-title',p.titulo||p.empreendimento||'Imóvel em Bauru'));
- content.append(el('div','weekly-price',money(p.preco)));
- content.append(el('div','weekly-link','Conhecer imóvel →'));
+ content.append(
+  el('div','location',
+   [p.bairro,'Bauru/SP']
+   .filter(Boolean).join(' · ')
+  )
+ );
+ content.append(
+  el('div','weekly-title',
+   p.titulo||p.empreendimento||'Imóvel em Bauru'
+  )
+ );
+ content.append(
+  el('div','weekly-price',money(p.preco))
+ );
+ content.append(
+  el('div','weekly-link','Conhecer imóvel →')
+ );
  a.append(content);
  return a;
 }
 
 function weeklySelection(items,count=2){
  if(!items.length)return [];
- const week=Math.floor(Date.now()/(7*24*60*60*1000));
- const sorted=[...items].sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+
+ const week=Math.floor(
+  Date.now()/(7*24*60*60*1000)
+ );
+ const sorted=[...items].sort(
+  (a,b)=>String(a.id).localeCompare(String(b.id))
+ );
  const start=(week*count)%sorted.length;
  const result=[];
+
  for(let i=0;i<Math.min(count,sorted.length);i++){
   result.push(sorted[(start+i)%sorted.length]);
  }
@@ -602,59 +1399,105 @@ function weeklySelection(items,count=2){
 
 async function load(){
  try{
-  const {data,error}=await supabase.from('imoveis')
-   .select('id,codigo,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,selo,destaque,publicado,situacao,finalidade,atualizado_em')
+  const {data,error}=await supabase
+   .from('imoveis')
+   .select(
+    'id,codigo,titulo,empreendimento,preco,'+
+    'bairro,quartos,suites,vagas,area_privativa,'+
+    'selo,destaque,publicado,situacao,finalidade,'+
+    'atualizado_em'
+   )
    .eq('publicado',true)
    .order('atualizado_em',{ascending:false})
    .limit(1000);
+
   if(error)throw error;
 
   const available=(data||[]).filter(p=>
-   !['vendido','alugado'].includes(String(p.situacao||'').toLowerCase())
+   !['vendido','alugado'].includes(
+    String(p.situacao||'').toLowerCase()
+   )
   );
+
   const sales=available.filter(p=>
-   String(p.finalidade||'').trim().toLowerCase()==='venda'
+   String(p.finalidade||'').trim().toLowerCase()
+    ==='venda'
   );
+
   const recent=sales.slice(0,3);
-  const featured=sales.filter(p=>p.destaque===true&&!recent.some(r=>r.id===p.id));
+
+  const featured=sales.filter(p=>
+   p.destaque===true&&
+   !recent.some(r=>r.id===p.id)
+  );
+
   const weekly=weeklySelection(featured,2);
-  const ids=[...new Set([...recent.map(p=>p.id),...weekly.map(p=>p.id)])];
+  const ids=[
+   ...new Set([
+    ...recent.map(p=>p.id),
+    ...weekly.map(p=>p.id)
+   ])
+  ];
+
   const photos=new Map();
 
   if(ids.length){
-   const r=await supabase.from('imovel_fotos')
+   const r=await supabase
+    .from('imovel_fotos')
     .select('imovel_id,caminho,ordem')
     .in('imovel_id',ids)
     .order('ordem',{ascending:true});
-   if(r.error)console.warn('Capas:',r.error);
-   else for(const p of r.data||[]){
-    if(!photos.has(p.imovel_id)&&p.caminho){
-     photos.set(p.imovel_id,p.caminho);
+
+   if(r.error){
+    console.warn('Capas:',r.error);
+   }else{
+    for(const p of r.data||[]){
+     if(!photos.has(p.imovel_id)&&p.caminho){
+      photos.set(p.imovel_id,p.caminho);
+     }
     }
    }
   }
 
   root.replaceChildren();
+
   if(!recent.length){
-   root.append(el('div','empty','Nenhum imóvel à venda publicado disponível no momento.'));
+   root.append(
+    el('div','empty',
+     'Nenhum imóvel à venda publicado disponível no momento.'
+    )
+   );
   }else{
-   for(const p of recent)root.append(card(p,photos));
+   for(const p of recent){
+    root.append(card(p,photos));
+   }
   }
 
   weeklyRoot.replaceChildren();
+
   if(weekly.length){
-   for(const p of weekly)weeklyRoot.append(weeklyCard(p,photos));
+   for(const p of weekly){
+    weeklyRoot.append(weeklyCard(p,photos));
+   }
    featuredSection.hidden=false;
   }else{
    featuredSection.hidden=true;
   }
+
   status.textContent='';
+
  }catch(e){
   console.error('Página inicial:',e);
-  root.replaceChildren(el('div','empty','Não foi possível carregar os imóveis agora.'));
+
+  root.replaceChildren(
+   el('div','empty',
+    'Não foi possível carregar os imóveis agora.'
+   )
+  );
   weeklyRoot.replaceChildren();
   featuredSection.hidden=true;
-  status.textContent='Atualize a página para tentar novamente.';
+  status.textContent=
+   'Atualize a página para tentar novamente.';
  }
 }
 
