@@ -11,7 +11,7 @@ const SUPABASE =
 const PUBLIC_KEY =
   'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi';
 
-const SITE = 'https://portalbauru.pages.dev';
+const SITE = 'https://portalbauruimoveis.com.br';
 
 const tipos = {
   apartamento: 'Apartamento',
