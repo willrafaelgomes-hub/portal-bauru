@@ -2,361 +2,1283 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#14253D">
-<meta name="description" content="Busque casas, apartamentos, chácaras, terrenos e casas em condomínio em Bauru. Veja imóveis à venda ou peça uma busca personalizada com corretores locais.">
+
+<title>Imóveis à venda em Bauru | Portal Bauru Imóveis</title>
+
+<meta name="description" content="Encontre casas, apartamentos, terrenos e imóveis à venda em Bauru. Pesquise por bairro, condomínio e preço no Portal Bauru Imóveis.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://portalbauruimoveis.com.br/">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Portal Bauru Imóveis">
-<meta property="og:title" content="Imóveis em Bauru: casas, apartamentos e chácaras | Portal Bauru">
-<meta property="og:description" content="Procure casas, apartamentos, chácaras, terrenos e imóveis em condomínio em Bauru. Não encontrou? Peça ajuda na busca.">
+<meta property="og:title" content="Imóveis à venda em Bauru | Portal Bauru Imóveis">
+<meta property="og:description" content="Casas, apartamentos, terrenos e oportunidades à venda em Bauru.">
 <meta property="og:url" content="https://portalbauruimoveis.com.br/">
-<title>Imóveis em Bauru: casas, apartamentos e chácaras | Portal Bauru</title>
+
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"Organization",
-      "@id":"https://portalbauruimoveis.com.br/#organizacao",
-      "name":"Portal Bauru Imóveis",
-      "url":"https://portalbauruimoveis.com.br/",
-      "description":"Portal para buscar imóveis à venda em Bauru, com casas, apartamentos, chácaras, terrenos e auxílio de corretores locais.",
-      "areaServed":{"@type":"City","name":"Bauru"}
+      "@type": "Organization",
+      "@id": "https://portalbauruimoveis.com.br/#organizacao",
+      "name": "Portal Bauru Imóveis",
+      "url": "https://portalbauruimoveis.com.br/",
+      "areaServed": {
+        "@type": "City",
+        "name": "Bauru"
+      }
     },
     {
-      "@type":"WebSite",
-      "@id":"https://portalbauruimoveis.com.br/#site",
-      "url":"https://portalbauruimoveis.com.br/",
-      "name":"Portal Bauru Imóveis",
-      "alternateName":"Portal Bauru",
-      "inLanguage":"pt-BR",
-      "publisher":{"@id":"https://portalbauruimoveis.com.br/#organizacao"}
-    },
-    {
-      "@type":"WebPage",
-      "@id":"https://portalbauruimoveis.com.br/#pagina-inicial",
-      "url":"https://portalbauruimoveis.com.br/",
-      "name":"Imóveis em Bauru: casas, apartamentos e chácaras | Portal Bauru",
-      "isPartOf":{"@id":"https://portalbauruimoveis.com.br/#site"},
-      "about":{"@type":"Place","name":"Bauru, São Paulo, Brasil"},
-      "inLanguage":"pt-BR"
+      "@type": "WebSite",
+      "@id": "https://portalbauruimoveis.com.br/#site",
+      "name": "Portal Bauru Imóveis",
+      "url": "https://portalbauruimoveis.com.br/",
+      "inLanguage": "pt-BR"
     }
   ]
 }
 </script>
-<style>
-:root{font-family:Arial,Helvetica,system-ui,sans-serif;font-size:16px;color:#14253D;background:#F8F7F4;font-synthesis:none}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-width:0}
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-button{cursor:pointer}
-:where(a,button,input,select):focus-visible{outline:3px solid #F85F08;outline-offset:3px}
-.wrap{width:min(1120px,calc(100% - 36px));margin-inline:auto}
-.top{background:#14253D;color:#FFF}
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:16px}
-.brand{display:flex;flex-direction:column;min-width:0}
-.brand-name{font-size:1.2rem;line-height:1.2;font-weight:800;letter-spacing:.005em}
-.brand-name span{color:#FF934F}
-.brand-name small{font-size:.75em;font-weight:600;color:#FFF}
-.brand-slogan{color:#DFE7EE;font-size:.78rem;line-height:1.4;margin-top:3px}
-.nav-actions{display:flex;gap:10px;align-items:center}
-.nav-link{min-height:46px;padding:12px 14px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid #B6C2CE;color:#FFF;font-size:.95rem;font-weight:700;white-space:nowrap}
-.nav-link:hover{background:#29445E}
-.nav-announce{border-color:#FDB28E}
-.hero{background:#FFF;border-bottom:1px solid #E3E2DF}
-.hero-inner{padding:29px 0 30px}
-.hero h1{font-size:clamp(1.75rem,3.2vw,2.45rem);letter-spacing:-.025em;line-height:1.18;margin:0 0 8px;font-weight:800}
-.hero-copy{color:#516273;margin:0 0 19px;font-size:1.02rem;line-height:1.55}
-.search{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr) minmax(0,1fr) auto;gap:11px;align-items:end}
-.field{min-width:0}
-.field label{font-size:.92rem;font-weight:700;display:block;margin-bottom:7px;color:#26394B}
-.field input,.field select{display:block;width:100%;height:50px;border:1px solid #9DAAB6;background:#FFF;color:#14253D;border-radius:9px;padding:0 12px;min-width:0;font-size:1rem}
-.field input::placeholder{color:#657586;opacity:1}
-.btn-primary{border:0;border-radius:9px;min-height:50px;padding:0 20px;background:#F85F08;color:#FFF;font-size:1rem;font-weight:800;white-space:nowrap}
-.btn-primary:hover{background:#DF5006}
-.section{padding:32px 0 42px}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:13px;margin-bottom:18px}
-.section h2{font-size:clamp(1.45rem,3vw,1.9rem);line-height:1.25;letter-spacing:-.018em;margin:0;font-weight:800}
-.text-link{display:inline-flex;align-items:center;min-height:44px;font-size:.97rem;font-weight:800;color:#AE4107;white-space:nowrap}
-.text-link:hover{text-decoration:underline}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.property{min-width:0;display:flex;flex-direction:column;border-radius:13px;overflow:hidden;background:#FFF;border:1px solid #E0E3E5;box-shadow:0 5px 14px #14253D0B}
-.photo-link{display:block;aspect-ratio:1.45;overflow:hidden;background:#E7ECEF}
-.photo{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#596979;font-size:.93rem;text-align:center}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.property-content{display:flex;flex-direction:column;gap:9px;padding:17px;flex:1}
-.location{font-size:.9rem;color:#5A6A79;margin:0;line-height:1.4}
-.property h3{font-size:1.08rem;line-height:1.4;letter-spacing:-.01em;margin:0;font-weight:750}
-.specs{font-size:.87rem;line-height:1.6;color:#4B5C6D;margin:0}
-.price{font-size:1.35rem;line-height:1.3;font-weight:850;margin-top:auto}
-.view{display:flex;min-height:47px;align-items:center;justify-content:center;margin-top:5px;border-radius:9px;border:1px solid #14253D;color:#14253D;font-size:.94rem;font-weight:800;text-align:center;padding:8px 12px}
-.view:hover{background:#F4F7F8}
-.empty{grid-column:1/-1;padding:26px;background:#FFF;border:1px solid #E1E4E6;border-radius:12px;font-size:1rem;line-height:1.6}
-.status{color:#4A5968;margin:8px 0;font-size:.9rem}
-.personal-section{background:#F2F0EC;border-top:1px solid #E4E1DC;padding:24px 0}
-.personal-card{display:flex;justify-content:space-between;align-items:center;gap:22px}
-.personal-card h2{font-size:1.3rem;line-height:1.3;margin:0 0 5px}
-.personal-card p{margin:0;color:#536474;line-height:1.55;font-size:.98rem}
-.personal-cta{display:flex;align-items:center;justify-content:center;border-radius:9px;background:#14253D;color:#FFF;min-height:49px;padding:11px 17px;font-weight:800;font-size:.97rem;text-align:center;white-space:nowrap}
-.personal-cta:hover{background:#29445E}
-.footer{background:#14253D;color:#EEF2F6;padding:24px 0}
-.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
-.footer-brand{font-weight:800;font-size:1rem}
-.footer-brand span{color:#FF934F}
-.footer-info{font-size:.88rem;line-height:1.65;color:#DFE7EE;margin-top:7px}
-.footer-note{font-size:.85rem;line-height:1.5;color:#DFE7EE;text-align:right}
-@media(max-width:900px){.search{grid-template-columns:repeat(2,minmax(0,1fr))}.field-main{grid-column:1/-1}.btn-primary{grid-column:1/-1}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){
- .wrap{width:calc(100% - 30px)}
- .nav{min-height:64px;gap:8px}
- .brand-name{font-size:1.01rem}
- .brand-slogan{display:none}
- .nav-link{min-height:45px;font-size:.91rem;padding:10px 12px}
- #menuProperties{display:none}
- .hero-inner{padding:23px 0 26px}
- .hero h1{font-size:1.83rem;margin-bottom:9px}
- .hero-copy{font-size:.98rem;line-height:1.5;margin-bottom:17px}
- .search{grid-template-columns:1fr;gap:12px}
- .field-main{grid-column:auto}
- .field label{font-size:.94rem;margin-bottom:5px}
- .field input,.field select{height:50px;font-size:1rem}
- .btn-primary{min-height:50px;grid-column:auto;width:100%}
- .section{padding:26px 0 34px}
- .section-head{margin-bottom:14px}
- .section h2{font-size:1.45rem}
- .text-link{font-size:.94rem}
- .grid{grid-template-columns:1fr;gap:17px}
- .photo-link{aspect-ratio:1.56}
- .property-content{padding:16px}
- .property h3{font-size:1.05rem}
- .personal-section{padding:23px 0}
- .personal-card{display:block}
- .personal-card h2{font-size:1.22rem}
- .personal-card p{font-size:.96rem}
- .personal-cta{margin-top:14px;width:100%;white-space:normal}
- .footer-inner{display:block}
- .footer-note{text-align:left;margin-top:11px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-/* Navegação de tipos na própria página inicial: sem criar páginas adicionais. */
-.seo-types{background:#FFF;border-top:1px solid #E3E5E6;padding:30px 0 34px}
-.seo-types h2{font-size:clamp(1.35rem,3vw,1.8rem);line-height:1.3;margin:0 0 8px;color:#14253D}
-.seo-types p{max-width:880px;font-size:.97rem;line-height:1.6;color:#536474;margin:0 0 19px}
-.seo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.seo-tile{display:flex;flex-direction:column;gap:7px;min-height:94px;padding:16px;border-radius:11px;border:1px solid #DEE4E8;background:#F8F7F4;color:#14253D;text-decoration:none}
-.seo-tile strong{font-size:1.02rem;line-height:1.3}
-.seo-tile span{font-size:.85rem;color:#596A79;line-height:1.45}
-.seo-tile:hover,.seo-tile:focus-visible{border-color:#F85F08;background:#FFF8F2}
-@media(max-width:750px){.seo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:420px){.seo-types{padding:25px 0}.seo-grid{grid-template-columns:1fr}.seo-tile{min-height:0;padding:14px}}
+<style>
+:root {
+  --azul: #14253D;
+  --escuro: #081F35;
+  --laranja: #F85F08;
+  --areia: #F6F1EA;
+  --cinza: #596779;
+  --borda: #E2E6EA;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--azul);
+  background: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--laranja);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: min(1160px, calc(100% - 44px));
+  margin: 0 auto;
+}
+
+/* FUNDO DA PÁGINA INICIAL */
+
+.hero-zone {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #FFFFFF;
+  background: var(--escuro);
+}
+
+.hero-zone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(5, 28, 49, .90) 0%,
+      rgba(5, 28, 49, .67) 32%,
+      rgba(5, 28, 49, .20) 70%,
+      rgba(5, 28, 49, .05) 100%
+    ),
+    url("https://images.unsplash.com/photo-1750231125894-fb1718c39ba0?auto=format&fit=crop&w=2200&q=85");
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-zone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 28, 49, .30),
+    transparent 35%
+  );
+}
+
+/* CABEÇALHO */
+
+.topbar {
+  background: rgba(5, 28, 49, .82);
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.nav {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+}
+
+.brand-symbol {
+  width: 49px;
+  height: 49px;
+  flex: none;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,.75);
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.brand-second {
+  color: #FF812B;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.menu {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.menu a {
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 15px;
+  border-radius: 9px;
+}
+
+.menu a:hover {
+  background: rgba(255,255,255,.13);
+}
+
+.menu a.anunciar {
+  border: 1px solid #FF8736;
+}
+
+.menu-button {
+  display: none;
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 9px;
+  padding: 9px 12px;
+  color: #FFFFFF;
+  background: transparent;
+  font-size: 23px;
+}
+
+/* DESTAQUE PRINCIPAL */
+
+.hero {
+  min-height: 570px;
+}
+
+.hero-inner {
+  min-height: 570px;
+  padding: 66px 0 53px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.hero-title {
+  max-width: 650px;
+}
+
+.hero h1 {
+  margin: 0 0 18px;
+  font-size: clamp(37px, 5vw, 63px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.09;
+}
+
+.hero h1 span {
+  color: #FF771C;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 440px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.5;
+}
+
+/* BUSCA DE IMÓVEIS */
+
+.search {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 1fr auto;
+  align-items: end;
+  gap: 11px;
+
+  padding: 15px;
+  background: rgba(255,255,255,.98);
+  border-radius: 17px;
+  color: var(--azul);
+  box-shadow: 0 17px 40px rgba(5,20,36,.25);
+}
+
+.field {
+  min-width: 0;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-width: 0;
+  height: 47px;
+  padding: 0 12px;
+  border: 1px solid #DCE1E6;
+  border-radius: 9px;
+  color: var(--azul);
+  background: #FFFFFF;
+}
+
+.field input::placeholder {
+  color: #627083;
+}
+
+.btn-search {
+  height: 47px;
+  white-space: nowrap;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--laranja);
+  color: #FFFFFF;
+  font-weight: 800;
+}
+
+.btn-search:hover,
+.btn-orange:hover {
+  background: #DB5106;
+}
+
+/* DIFERENCIAIS */
+
+.benefits {
+  background: var(--areia);
+  border-bottom: 1px solid #E8E1D9;
+}
+
+.benefits-inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 18px;
+  padding: 25px 0;
+}
+
+.benefit {
+  padding-right: 13px;
+  border-right: 1px solid #DAD5CE;
+}
+
+.benefit:last-child {
+  border: 0;
+}
+
+.benefit strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.benefit p {
+  color: #596779;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* LISTAGEM */
+
+.section {
+  padding: 47px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 33px);
+  letter-spacing: -.6px;
+}
+
+.section-head h2::before {
+  content: "";
+  display: inline-block;
+  vertical-align: -5px;
+  height: 27px;
+  width: 4px;
+  margin-right: 12px;
+  border-radius: 4px;
+  background: var(--laranja);
+}
+
+.section-head a {
+  color: #BC4B0B;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.section-head a:hover {
+  text-decoration: underline;
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 20px;
+}
+
+.property {
+  min-width: 0;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E5E8EB;
+  border-radius: 14px;
+  box-shadow: 0 5px 17px rgba(20,37,61,.07);
+}
+
+.property-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 210px;
+  background: #EFF1F3;
+  color: #697687;
+  font-size: 14px;
+  text-align: center;
+}
+
+.property-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-content {
+  padding: 18px;
+}
+
+.property-content h3 {
+  margin: 8px 0;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.property-content p {
+  margin: 7px 0;
+  color: var(--cinza);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.property-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--laranja);
+  margin: 13px 0;
+}
+
+.property-button {
+  display: block;
+  border: 1px solid var(--azul);
+  border-radius: 9px;
+  padding: 11px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.property-button:hover {
+  background: #F4F6F8;
+}
+
+.empty {
+  grid-column: 1 / -1;
+  padding: 25px;
+  border: 1px solid #E5E8EB;
+  background: #F9F7F4;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+/* LINKS POR TIPO */
+
+.categories {
+  padding: 39px 0;
+  background: var(--areia);
+}
+
+.categories p {
+  color: var(--cinza);
+  line-height: 1.6;
+  max-width: 820px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.category-grid a {
+  padding: 19px;
+  background: #FFFFFF;
+  border: 1px solid #E7E4DF;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.category-grid a:hover {
+  border-color: var(--laranja);
+}
+
+/* AJUDA AO COMPRADOR */
+
+.help {
+  padding: 38px 0;
+}
+
+.help-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 16px;
+  background: #F7F2EC;
+}
+
+.help-box p {
+  margin: 7px 0 0;
+  color: var(--cinza);
+  line-height: 1.5;
+}
+
+.btn-orange {
+  display: inline-block;
+  padding: 15px 24px;
+  background: var(--laranja);
+  color: #FFFFFF;
+  font-weight: 800;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* RODAPÉ */
+
+footer {
+  padding: 28px 0;
+  background: var(--escuro);
+  color: #FFFFFF;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.footer-inner strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer-inner small {
+  color: #DAE3EA;
+  line-height: 1.8;
+}
+
+/* TABLETS */
+
+@media (max-width: 900px) {
+  .search {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .search .field:first-of-type,
+  .btn-search {
+    grid-column: 1 / -1;
+  }
+
+  .benefits-inner {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+
+  .properties {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+  .wrap {
+    width: calc(100% - 30px);
+  }
+
+  .nav {
+    min-height: 67px;
+  }
+
+  .brand-symbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+
+  .brand-second {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .menu-button {
+    display: block;
+    margin-left: auto;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    z-index: 20;
+    min-width: 190px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 12px;
+    background: #0B253E;
+    box-shadow: 0 14px 29px rgba(0,0,0,.35);
+  }
+
+  .menu.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu a {
+    text-align: center;
+  }
+
+  .hero-zone::before {
+    background-image:
+      linear-gradient(
+        180deg,
+        rgba(5,28,49,.68),
+        rgba(5,28,49,.25) 48%,
+        rgba(5,28,49,.42)
+      ),
+      url("https://images.unsplash.com/photo-1750231125894-fb1718c39ba0?auto=format&fit=crop&w=1100&q=85");
+
+    background-position: 53% center;
+  }
+
+  .hero,
+  .hero-inner {
+    min-height: 690px;
+  }
+
+  .hero-inner {
+    padding: 45px 0 24px;
+  }
+
+  .hero h1 {
+    max-width: 345px;
+    font-size: clamp(33px, 9.3vw, 43px);
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  .search {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 12px;
+    border-radius: 15px;
+  }
+
+  .search .field:first-of-type,
+  .btn-search {
+    grid-column: auto;
+  }
+
+  .field input,
+  .field select {
+    height: 44px;
+  }
+
+  .btn-search {
+    height: 48px;
+  }
+
+  .benefits-inner {
+    gap: 18px 12px;
+    padding: 21px 0;
+  }
+
+  .benefit {
+    border: 0;
+  }
+
+  .benefit strong {
+    font-size: 13px;
+  }
+
+  .benefit p {
+    font-size: 12px;
+  }
+
+  .section {
+    padding: 32px 0;
+  }
+
+  .section-head {
+    align-items: flex-start;
+  }
+
+  .section-head a {
+    font-size: 12px;
+  }
+
+  .properties {
+    grid-template-columns: 1fr;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .category-grid a {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .help-box {
+    display: block;
+  }
+
+  .btn-orange {
+    display: block;
+    margin-top: 18px;
+  }
+
+  .footer-inner {
+    display: block;
+  }
+
+  .footer-inner small {
+    display: block;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-name {
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+}
 </style>
 </head>
+
 <body>
-<header class="top">
- <div class="wrap nav">
-  <a class="brand" id="homeLink" href="index.html" aria-label="Portal Bauru Imóveis, início">
-   <span class="brand-name">PORTAL <span>BAURU</span> <small>IMÓVEIS</small></span>
-   <span class="brand-slogan">Conectando pessoas às oportunidades certas.</span>
-  </a>
-  <nav class="nav-actions" aria-label="Navegação">
-   <a class="nav-link" id="menuProperties" href="imoveis.html">Ver imóveis</a>
-   <a class="nav-link nav-announce" id="menuAdvertise" href="anuncie.html">Anuncie</a>
-  </nav>
- </div>
+
+<div class="hero-zone">
+
+<header class="topbar">
+  <div class="wrap nav">
+
+    <a href="index.html" class="brand" id="homeLink" aria-label="Portal Bauru Imóveis, página inicial">
+
+      <svg class="brand-symbol" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="4" y="19" width="30" height="29" rx="8" stroke="#FFFFFF" stroke-width="5"/>
+        <rect x="18" y="4" width="30" height="30" rx="8" stroke="#F85F08" stroke-width="5"/>
+      </svg>
+
+      <span class="brand-copy">
+        <span class="brand-name">PORTAL BAURU</span>
+        <span class="brand-second">IMÓVEIS</span>
+      </span>
+    </a>
+
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainMenu">☰</button>
+
+    <nav class="menu" id="mainMenu" aria-label="Menu principal">
+      <a href="imoveis.html" id="menuProperties">Imóveis à venda</a>
+      <a href="anuncie.html" id="menuAdvertise" class="anunciar">Anuncie seu imóvel</a>
+    </nav>
+
+  </div>
 </header>
-<main>
- <section class="hero" aria-labelledby="heading-main">
+
+<section class="hero" aria-labelledby="heroTitle">
   <div class="wrap hero-inner">
-   <h1 id="heading-main">Encontre seu imóvel em Bauru</h1>
-   <p class="hero-copy">Pesquise casas, apartamentos, chácaras, terrenos, sobrados e imóveis em condomínio. Compare as opções à venda ou peça ajuda para encontrar o imóvel ideal em Bauru.</p>
-   <form class="search" id="searchForm" action="imoveis.html" method="get">
-    <input type="hidden" id="finalidade" name="finalidade" value="venda">
-    <div class="field field-main"><label for="busca">Bairro ou condomínio</label><input id="busca" name="busca" type="search" placeholder="Ex.: Bonardi, Centro" autocomplete="off"></div>
-    <div class="field"><label for="tipo">Tipo de imóvel</label><select id="tipo" name="tipo"><option value="">Todos os tipos</option><option value="apartamento">Apartamento</option><option value="casa">Casa</option><option value="sobrado">Sobrado</option><option value="terreno">Terreno</option><option value="chacara">Chácara</option><option value="comercial">Comercial</option><option value="outro">Outros</option></select></div>
-    <div class="field"><label for="preco">Valor máximo</label><select id="preco" name="preco"><option value="">Sem limite</option><option value="150000">Até R$ 150 mil</option><option value="200000">Até R$ 200 mil</option><option value="250000">Até R$ 250 mil</option><option value="300000">Até R$ 300 mil</option><option value="400000">Até R$ 400 mil</option><option value="500000">Até R$ 500 mil</option><option value="750000">Até R$ 750 mil</option><option value="1000000">Até R$ 1 milhão</option></select></div>
-    <button class="btn-primary" type="submit">Buscar imóveis</button>
-   </form>
+
+    <div class="hero-title">
+      <h1 id="heroTitle">Encontre seu imóvel à venda em <span>Bauru.</span></h1>
+      <p>Apartamentos, casas e terrenos com as melhores oportunidades da cidade.</p>
+    </div>
+
+    <form id="searchForm" class="search" action="imoveis.html" method="get">
+
+      <input type="hidden" name="finalidade" value="venda">
+
+      <div class="field">
+        <label for="busca">Bairro ou condomínio</label>
+        <input type="search" id="busca" name="busca" placeholder="Onde você quer comprar?" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label for="tipo">Tipo de imóvel</label>
+        <select id="tipo" name="tipo">
+          <option value="">Todos</option>
+          <option value="apartamento">Apartamento</option>
+          <option value="casa">Casa</option>
+          <option value="sobrado">Sobrado</option>
+          <option value="terreno">Terreno</option>
+          <option value="chacara">Chácara</option>
+          <option value="comercial">Comercial</option>
+          <option value="outro">Outros</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="preco">Faixa de preço</label>
+        <select id="preco" name="preco">
+          <option value="">Sem limite</option>
+          <option value="150000">Até R$ 150 mil</option>
+          <option value="200000">Até R$ 200 mil</option>
+          <option value="250000">Até R$ 250 mil</option>
+          <option value="300000">Até R$ 300 mil</option>
+          <option value="400000">Até R$ 400 mil</option>
+          <option value="500000">Até R$ 500 mil</option>
+          <option value="750000">Até R$ 750 mil</option>
+          <option value="1000000">Até R$ 1 milhão</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-search">Buscar imóveis</button>
+
+    </form>
+
   </div>
- </section>
- <section class="section" id="oportunidades" aria-labelledby="heading-properties">
+</section>
+
+</div>
+
+<section class="benefits">
+  <div class="wrap benefits-inner">
+
+    <div class="benefit">
+      <strong>Foco em Bauru</strong>
+      <p>Conhecimento local e regional</p>
+    </div>
+
+    <div class="benefit">
+      <strong>Segurança</strong>
+      <p>Negociações com transparência</p>
+    </div>
+
+    <div class="benefit">
+      <strong>Agilidade</strong>
+      <p>Encontre o imóvel ideal com facilidade</p>
+    </div>
+
+    <div class="benefit">
+      <strong>Suporte completo</strong>
+      <p>Do primeiro contato à escritura</p>
+    </div>
+
+  </div>
+</section>
+
+<main>
+
+<section class="section" id="oportunidades">
   <div class="wrap">
-   <div class="section-head"><h2 id="heading-properties">Imóveis à venda em Bauru</h2><a class="text-link" id="allLink" href="imoveis.html">Ver todos</a></div>
-   <div class="grid" id="properties" aria-live="polite"><div class="empty">Carregando imóveis...</div></div>
-   <div class="status" id="status" aria-live="polite"></div>
+
+    <div class="section-head">
+      <h2>Imóveis em destaque</h2>
+      <a href="imoveis.html" id="allLink">Ver todos os imóveis</a>
+    </div>
+
+    <div class="properties" id="properties" aria-live="polite">
+      <div class="empty">Carregando imóveis...</div>
+    </div>
+
   </div>
- </section>
- <section class="seo-types" aria-labelledby="heading-seo-types">
+</section>
+
+<section class="categories">
   <div class="wrap">
-   <h2 id="heading-seo-types">Que tipo de imóvel você procura em Bauru?</h2>
-   <p>O Portal Bauru Imóveis reúne anúncios de imóveis à venda e oferece atendimento de corretores de imóveis em Bauru, SP. Consulte as opções por tipo e localização. A disponibilidade muda com frequência; se não houver o imóvel desejado, você pode solicitar uma busca personalizada.</p>
-   <nav class="seo-grid" aria-label="Buscar imóveis por tipo">
-    <a class="seo-tile" href="imoveis.html?tipo=apartamento"><strong>Apartamentos em Bauru</strong><span>Veja os apartamentos anunciados</span></a>
-    <a class="seo-tile" href="imoveis.html?tipo=casa"><strong>Casas em Bauru</strong><span>Consulte casas à venda na cidade</span></a>
-    <a class="seo-tile" href="imoveis.html?tipo=chacara"><strong>Chácaras em Bauru</strong><span>Confira as opções disponíveis</span></a>
-    <a class="seo-tile" href="imoveis.html?tipo=terreno"><strong>Terrenos em Bauru</strong><span>Procure terrenos à venda</span></a>
-    <a class="seo-tile" href="imoveis.html?tipo=sobrado"><strong>Sobrados em Bauru</strong><span>Pesquise por tipo e localização</span></a>
-    <a class="seo-tile" href="imoveis.html?tipo=casa"><strong>Casas em condomínio em Bauru</strong><span>Veja casas e peça ajuda se não encontrar</span></a>
-   </nav>
+
+    <h2>Que tipo de imóvel você procura?</h2>
+
+    <p>Consulte casas, apartamentos, terrenos e outras opções disponíveis para compra em Bauru.</p>
+
+    <nav class="category-grid" aria-label="Buscar imóveis por tipo">
+      <a href="imoveis.html?tipo=apartamento">Apartamentos em Bauru</a>
+      <a href="imoveis.html?tipo=casa">Casas em Bauru</a>
+      <a href="imoveis.html?tipo=terreno">Terrenos em Bauru</a>
+      <a href="imoveis.html?tipo=sobrado">Sobrados em Bauru</a>
+      <a href="imoveis.html?tipo=chacara">Chácaras em Bauru</a>
+      <a href="imoveis.html?tipo=comercial">Imóveis comerciais</a>
+    </nav>
+
   </div>
- </section>
- <section class="personal-section" aria-labelledby="heading-personal">
-  <div class="wrap personal-card">
-   <div><h2 id="heading-personal">Não encontrou o imóvel que procura?</h2><p>Mesmo que não tenha encontrado uma opção no portal, conte suas preferências. Nossa equipe pode ajudar a procurar em Bauru.</p></div>
-   <a class="personal-cta" id="personalLink" href="imoveis.html?personalizada=1">Pedir ajuda na busca</a>
+</section>
+
+<section class="help">
+  <div class="wrap help-box">
+
+    <div>
+      <h2>Não encontrou o imóvel ideal?</h2>
+      <p>Conte suas preferências. Nossa equipe pode ajudar você a encontrar boas oportunidades em Bauru.</p>
+    </div>
+
+    <a href="imoveis.html?personalizada=1" class="btn-orange" id="personalLink">Pedir ajuda na busca</a>
+
   </div>
- </section>
+</section>
+
 </main>
-<footer class="footer"><div class="wrap footer-inner">
- <div><div class="footer-brand">PORTAL <span>BAURU</span> IMÓVEIS</div><div class="footer-info">W. RAFAEL GOMES · CRECI 196.907-F<br>Débora Navas · CRECI 196.899-F</div></div>
- <div class="footer-note">Bauru/SP<br>Conectando pessoas às oportunidades certas.</div>
-</div></footer>
+
+<footer>
+  <div class="wrap footer-inner">
+
+    <div>
+      <strong>PORTAL BAURU IMÓVEIS</strong>
+      <small>
+        W. Rafael Gomes — CRECI 196.907-F<br>
+        Débora Navas — CRECI 196.899-F
+      </small>
+    </div>
+
+    <small>
+      Bauru/SP<br>
+      Conectando pessoas às oportunidades certas.
+    </small>
+
+  </div>
+</footer>
+
 <script type="module">
 
-import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-const supabase=createClient(
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const supabase = createClient(
   'https://dtkszimtovtqdojjpqsy.supabase.co',
   'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
 );
-const params=new URLSearchParams(location.search);
-const ref=['rafael','debora'].includes(params.get('ref')) ? params.get('ref') : null;
-function linked(file,extra={}){
-  const url=new URL(file,location.href);
-  if(ref)url.searchParams.set('ref',ref);
-  for(const [key,value] of Object.entries(extra)){
-    if(value!==null && value!==undefined && value!==''){
-      url.searchParams.set(key,String(value));
+
+const parameters = new URLSearchParams(location.search);
+const potentialRef = parameters.get('ref');
+
+const corretor = ['rafael', 'debora'].includes(potentialRef)
+  ? potentialRef
+  : null;
+
+function createLink(page, filters = {}) {
+  const url = new URL(page, location.href);
+
+  if (corretor) {
+    url.searchParams.set('ref', corretor);
+  }
+
+  for (const [key, value] of Object.entries(filters)) {
+    if (value !== null && value !== undefined && value !== '') {
+      url.searchParams.set(key, String(value));
     }
   }
+
   return url.href;
 }
-for(const id of ['menuProperties','allLink']){
-  document.getElementById(id).href=linked('imoveis.html',{finalidade:'venda'});
-}
-document.getElementById('homeLink').href=linked('index.html');
-document.getElementById('menuAdvertise').href=linked('anuncie.html');
-document.getElementById('personalLink').href=linked('imoveis.html',{personalizada:'1'});
-for(const link of document.querySelectorAll('.seo-tile')){
-  const target=new URL(link.getAttribute('href'),location.href);
-  if(ref)target.searchParams.set('ref',ref);
-  link.href=target.href;
-}
 
-document.getElementById('searchForm').addEventListener('submit',event=>{
-  event.preventDefault();
-  const filters={finalidade:'venda'};
-  for(const id of ['busca','tipo','preco']){
-    const value=document.getElementById(id).value.trim();
-    if(value)filters[id]=value;
+/* NAVEGAÇÃO */
+
+document.getElementById('homeLink').href =
+  createLink('index.html');
+
+document.getElementById('menuProperties').href =
+  createLink('imoveis.html', { finalidade: 'venda' });
+
+document.getElementById('menuAdvertise').href =
+  createLink('anuncie.html');
+
+document.getElementById('allLink').href =
+  createLink('imoveis.html', { finalidade: 'venda' });
+
+document.getElementById('personalLink').href =
+  createLink('imoveis.html', { personalizada: 1 });
+
+document.querySelectorAll('.category-grid a').forEach(link => {
+  const url = new URL(link.getAttribute('href'), location.href);
+
+  url.searchParams.set('finalidade', 'venda');
+
+  if (corretor) {
+    url.searchParams.set('ref', corretor);
   }
-  location.href=linked('imoveis.html',filters);
+
+  link.href = url.href;
 });
 
-const root=document.getElementById('properties');
-const status=document.getElementById('status');
-const money=value=>{
-  const n=Number(value);
-  if(value===null||value===undefined||value===''||!Number.isFinite(n)||n<=0){
+/* MENU RESPONSIVO */
+
+const menuButton = document.getElementById('menuButton');
+const mainMenu = document.getElementById('mainMenu');
+
+menuButton.addEventListener('click', () => {
+  const isOpen = mainMenu.classList.toggle('open');
+
+  menuButton.setAttribute('aria-expanded', String(isOpen));
+  menuButton.setAttribute(
+    'aria-label',
+    isOpen ? 'Fechar menu' : 'Abrir menu'
+  );
+});
+
+/* FILTROS DE BUSCA */
+
+document.getElementById('searchForm').addEventListener('submit', event => {
+  event.preventDefault();
+
+  const filters = { finalidade: 'venda' };
+
+  for (const id of ['busca', 'tipo', 'preco']) {
+    const value = document.getElementById(id).value.trim();
+
+    if (value) {
+      filters[id] = value;
+    }
+  }
+
+  location.href = createLink('imoveis.html', filters);
+});
+
+/* UTILITÁRIOS */
+
+function formatMoney(value) {
+  const number = Number(value);
+
+  if (
+    value === null ||
+    value === undefined ||
+    value === '' ||
+    !Number.isFinite(number) ||
+    number <= 0
+  ) {
     return 'Valor sob consulta';
   }
-  return new Intl.NumberFormat('pt-BR',{
-    style:'currency',currency:'BRL',minimumFractionDigits:2,maximumFractionDigits:2
-  }).format(n).replace(/[\u00a0\u202f]/g,' ');
-};
-function el(tag,cls,text){
-  const item=document.createElement(tag);
-  if(cls)item.className=cls;
-  if(text!==undefined)item.textContent=text;
+
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(number);
+}
+
+function element(tag, className, text) {
+  const item = document.createElement(tag);
+
+  if (className) {
+    item.className = className;
+  }
+
+  if (text !== undefined) {
+    item.textContent = text;
+  }
+
   return item;
 }
-function makeCard(property,photos){
-  const card=el('article','property');
-  const href=linked('imovel.html',{id:property.id});
-  const cover=el('a','photo-link');
-  cover.href=href;
-  cover.setAttribute('aria-label','Ver '+(property.titulo||'imóvel em Bauru'));
-  const photo=el('div','photo');
-  const file=photos.get(property.id);
-  if(file){
-    const img=el('img');
-    img.loading='lazy';
-    img.alt='Fotografia do imóvel '+(property.titulo||'em Bauru');
-    img.src=supabase.storage.from('portal-imoveis').getPublicUrl(file).data.publicUrl;
-    img.onerror=()=>{img.remove();photo.append(el('span','','Foto indisponível'));};
-    photo.append(img);
-  }else{
-    photo.append(el('span','','Fotografias em breve'));
+
+/* CARTÕES DE IMÓVEIS */
+
+function buildCard(property, photos) {
+  const card = element('article', 'property');
+
+  const detailUrl = createLink('imovel.html', {
+    id: property.id
+  });
+
+  const cover = element('a', 'property-photo');
+  cover.href = detailUrl;
+
+  const photoPath = photos.get(property.id);
+
+  if (photoPath) {
+    const img = element('img');
+
+    img.loading = 'lazy';
+    img.alt = 'Fotografia do imóvel ' +
+      (property.titulo || 'em Bauru');
+
+    img.src = supabase.storage
+      .from('portal-imoveis')
+      .getPublicUrl(photoPath)
+      .data.publicUrl;
+
+    img.onerror = () => {
+      cover.replaceChildren(
+        element('span', '', 'Foto indisponível')
+      );
+    };
+
+    cover.append(img);
+  } else {
+    cover.append(
+      element('span', '', 'Fotografias em breve')
+    );
   }
-  cover.append(photo);
+
   card.append(cover);
-  const content=el('div','property-content');
-  content.append(el('p','location',[property.bairro,'Bauru/SP'].filter(Boolean).join(' · ')));
-  const title=el('h3');
-  const titleLink=el('a','',property.titulo||property.empreendimento||'Imóvel em Bauru');
-  titleLink.href=href;
-  title.append(titleLink);
-  content.append(title);
-  const info=[
-    property.quartos!=null ? property.quartos+' quarto(s)' : null,
-    property.suites ? property.suites+' suíte(s)' : null,
-    property.vagas!=null ? property.vagas+' vaga(s)' : null,
-    property.area_privativa ? property.area_privativa+' m²' : null
+
+  const content = element('div', 'property-content');
+
+  const locationText = [
+    property.bairro,
+    'Bauru/SP'
+  ].filter(Boolean).join(' · ');
+
+  content.append(
+    element('p', '', locationText)
+  );
+
+  content.append(
+    element(
+      'h3',
+      '',
+      property.titulo ||
+      property.empreendimento ||
+      'Imóvel em Bauru'
+    )
+  );
+
+  const specs = [
+    property.quartos != null
+      ? property.quartos + ' dormitórios'
+      : null,
+    property.suites
+      ? property.suites + ' suíte(s)'
+      : null,
+    property.vagas != null
+      ? property.vagas + ' vaga(s)'
+      : null,
+    property.area_privativa
+      ? property.area_privativa + ' m²'
+      : null
   ].filter(Boolean);
-  if(info.length)content.append(el('p','specs',info.join(' · ')));
-  content.append(el('strong','price',money(property.preco)));
-  const detail=el('a','view','Ver detalhes do imóvel');
-  detail.href=href;
-  content.append(detail);
+
+  if (specs.length) {
+    content.append(
+      element('p', '', specs.join(' · '))
+    );
+  }
+
+  content.append(
+    element(
+      'div',
+      'property-price',
+      formatMoney(property.preco)
+    )
+  );
+
+  const detailsButton = element(
+    'a',
+    'property-button',
+    'Ver detalhes do imóvel'
+  );
+
+  detailsButton.href = detailUrl;
+
+  content.append(detailsButton);
   card.append(content);
+
   return card;
 }
-async function load(){
-  try{
-    const {data,error}=await supabase.from('imoveis')
-      .select('id,codigo,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,publicado,situacao,finalidade,atualizado_em')
-      .eq('publicado',true)
-      .order('atualizado_em',{ascending:false})
+
+/* CARREGAMENTO DOS IMÓVEIS */
+
+async function loadProperties() {
+  const container = document.getElementById('properties');
+
+  try {
+    const { data, error } = await supabase
+      .from('imoveis')
+      .select(
+        'id,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,publicado,situacao,finalidade,atualizado_em'
+      )
+      .eq('publicado', true)
+      .order('atualizado_em', { ascending: false })
       .limit(1000);
-    if(error)throw error;
-    const records=(data||[]).filter(item=>
-      String(item.finalidade||'').toLowerCase()==='venda' &&
-      !['vendido','alugado'].includes(String(item.situacao||'').toLowerCase())
-    );
-    const photos=new Map();
-    if(records.length){
-      const response=await supabase.from('imovel_fotos')
+
+    if (error) {
+      throw error;
+    }
+
+    const records = (data || []).filter(property => {
+      const finalidade = String(
+        property.finalidade || ''
+      ).toLowerCase();
+
+      const situacao = String(
+        property.situacao || ''
+      ).toLowerCase();
+
+      return finalidade === 'venda' &&
+        !['vendido', 'alugado'].includes(situacao);
+    });
+
+    const photos = new Map();
+
+    if (records.length) {
+      const result = await supabase
+        .from('imovel_fotos')
         .select('imovel_id,caminho,ordem')
-        .in('imovel_id',records.map(item=>item.id))
-        .order('ordem',{ascending:true});
-      if(response.error){console.warn('Fotos dos imóveis:',response.error);}
-      else{
-        for(const photo of response.data||[]){
-          if(photo.caminho && !photos.has(photo.imovel_id)){
-            photos.set(photo.imovel_id,photo.caminho);
+        .in(
+          'imovel_id',
+          records.map(property => property.id)
+        )
+        .order('ordem', { ascending: true });
+
+      if (result.error) {
+        console.warn('Erro ao consultar fotos:', result.error);
+      } else {
+        for (const photo of result.data || []) {
+          if (
+            photo.caminho &&
+            !photos.has(photo.imovel_id)
+          ) {
+            photos.set(
+              photo.imovel_id,
+              photo.caminho
+            );
           }
         }
       }
     }
-    root.replaceChildren();
-    if(!records.length){
-      root.append(el('div','empty','Ainda não há imóveis publicados. Você pode solicitar uma busca personalizada.'));
-    }else{
-      for(const property of records)root.append(makeCard(property,photos));
+
+    container.replaceChildren();
+
+    if (!records.length) {
+      container.append(
+        element(
+          'div',
+          'empty',
+          'Ainda não há imóveis publicados. Você pode solicitar uma busca personalizada.'
+        )
+      );
+    } else {
+      records.forEach(property => {
+        container.append(
+          buildCard(property, photos)
+        );
+      });
     }
-    status.textContent='';
-  }catch(error){
-    console.error('Portal Bauru Imóveis:',error);
-    root.replaceChildren(el('div','empty','Não foi possível carregar os imóveis. Atualize a página para tentar novamente.'));
-    status.textContent='';
+
+  } catch (error) {
+    console.error('Portal Bauru Imóveis:', error);
+
+    container.replaceChildren(
+      element(
+        'div',
+        'empty',
+        'Não foi possível carregar os imóveis. Atualize a página para tentar novamente.'
+      )
+    );
   }
 }
-load();
+
+loadProperties();
+
 </script>
+
 </body>
 </html>
