@@ -6,232 +6,97 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#14253D">
 <title>Portal Bauru Imóveis | Administração</title>
-
 <style>
-:root{
-  font-family:Inter,system-ui,-apple-system,Arial,sans-serif;
-  color:#14253D;
-  background:#F6F1EA;
-}
+:root{font-family:Arial,Helvetica,sans-serif;color:#14253D;background:#F6F1EA}
 *{box-sizing:border-box}
 body{margin:0}
-header{
-  background:#14253D;
-  color:white;
-  padding:20px 5%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-}
-header strong{font-size:22px}
-main{max-width:1100px;margin:28px auto;padding:0 16px}
-.card{
-  background:white;
-  border-radius:18px;
-  padding:24px;
-  box-shadow:0 6px 30px #14253d12;
-  margin-bottom:20px;
-}
+a{color:inherit}
+header{background:#14253D;color:#fff;padding:19px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px}
+header strong{font-size:21px}
+header small{color:#D6BC7A}
+main{max-width:1100px;margin:25px auto;padding:0 15px}
+.card{background:#fff;border-radius:16px;padding:23px;box-shadow:0 5px 28px #14253d12;margin-bottom:20px}
 h1{font-size:25px}
 h2{font-size:21px}
 h3{font-size:17px;margin:0 0 12px}
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #d5d8dd;
-  border-radius:9px;
-  font:inherit;
-  margin:7px 0 16px;
-  background:white;
-  color:#14253D;
-}
-textarea{min-height:95px}
-button{
-  border:0;
-  border-radius:10px;
-  background:#F85F08;
-  color:white;
-  padding:12px 18px;
-  font-weight:700;
-  cursor:pointer;
-}
+input,select,textarea{width:100%;padding:12px;border:1px solid #D5D8DD;border-radius:9px;font:inherit;margin:7px 0 16px;background:#fff;color:#14253D;min-width:0}
+textarea{min-height:110px}
+input:focus,select:focus,textarea:focus{outline:2px solid #F85F08;outline-offset:1px}
+button,.button{border:0;border-radius:10px;background:#F85F08;color:white;padding:12px 18px;font-weight:700;cursor:pointer;font:inherit;text-decoration:none;display:inline-block;text-align:center}
 button.secondary{background:#14253D}
-button.ghost{background:#e9edf2;color:#14253D}
-button:disabled{opacity:.5;cursor:wait}
+button.ghost{background:#E9EDF2;color:#14253D}
+button:disabled{opacity:.55;cursor:wait}
 .row{display:flex;gap:12px;flex-wrap:wrap}
 .row>*{flex:1;min-width:170px}
 .hidden{display:none!important}
 .muted,.hint{color:#697386}
 .hint{font-size:13px;line-height:1.5}
 label{font-size:14px;font-weight:600}
-.error{color:#a12820}
-.success{color:#176d3b}
-#status{min-height:22px}
-.section{
-  border:1px solid #e2e6ea;
-  border-radius:14px;
-  padding:20px;
-  margin:18px 0;
-  background:#fafbfd;
-}
-.section-description{
-  font-size:13px;
-  color:#697386;
-  line-height:1.5;
-  margin:0 0 18px;
-}
-.group-title{font-size:14px;font-weight:700;margin:16px 0 9px}
-.options{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
-  gap:7px 14px;
-  margin:8px 0 18px;
-}
-.options label{
-  display:flex;
-  align-items:flex-start;
-  gap:9px;
-  font-weight:400;
-  line-height:1.4;
-  padding:4px 0;
-}
+.error{color:#A12820}
+.success{color:#176D3B}
+#status{min-height:22px;font-size:14px}
+.section{border:1px solid #E2E6EA;border-radius:14px;padding:20px;margin:18px 0;background:#FAFBFD}
+.section-description{font-size:13px;color:#697386;line-height:1.5;margin:0 0 16px}
+.group-title{font-size:14px;font-weight:700;margin:15px 0 8px}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:7px 14px;margin:8px 0 18px}
+.options label{display:flex;align-items:flex-start;gap:8px;font-weight:400;line-height:1.4;padding:4px 0}
 .options input{width:auto;margin:2px 0 0;flex-shrink:0}
 .check{display:flex;gap:8px;align-items:center;margin:12px 0}
 .check input{width:auto;margin:0}
 .cep-actions{display:flex;gap:10px;align-items:flex-start}
-.cep-actions input{flex:1;min-width:0}
+.cep-actions input{flex:1}
 .cep-actions button{margin-top:7px;white-space:nowrap}
 .address-feedback{min-height:18px;margin:0 0 12px;font-size:13px}
-.item{
-  border-top:1px solid #eee;
-  padding:16px 0;
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  align-items:center;
-}
+.item{border-top:1px solid #EEE;padding:16px 0;display:flex;justify-content:space-between;gap:14px;align-items:center}
 .item-details{min-width:0;overflow-wrap:anywhere}
 .item-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
 .item-actions button{font-size:12px;padding:10px 12px}
 .search-info{font-size:13px;color:#697386;margin:0 0 8px}
-.copy-feedback{font-size:12px;color:#176d3b;margin-top:5px}
-.photos{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(125px,1fr));
-  gap:12px;
-  margin:15px 0;
-}
-.photo{
-  border:1px solid #ddd;
-  border-radius:12px;
-  overflow:hidden;
-  padding:8px;
-  background:#fafafa;
-}
-.photo img{
-  width:100%;
-  aspect-ratio:4/3;
-  object-fit:cover;
-  border-radius:7px;
-}
-.photo button{
-  width:100%;
-  font-size:12px;
-  padding:9px 5px;
-  margin-top:5px;
-}
+.copy-feedback{font-size:12px;color:#176D3B;margin-top:5px}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:15px 0}
+.photo{border:1px solid #DDD;border-radius:12px;overflow:hidden;padding:8px;background:#FAFAFA}
+.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:7px}
+.photo button{width:100%;font-size:12px;padding:9px 5px;margin-top:5px}
 .photo small{display:block;margin:5px 0}
-.photo .drag-handle{
-  touch-action:none;
-  cursor:grab;
-  background:#14253D;
-  color:white;
-  user-select:none;
-}
+.photo .drag-handle{touch-action:none;cursor:grab;background:#14253D;color:white;user-select:none}
 .photo.dragging{opacity:.45;outline:3px solid #F85F08}
 .photo.drop-target{outline:3px dashed #F85F08}
 .photos.busy{pointer-events:none;opacity:.65}
-.uploadbar{
-  border:1px dashed #b9c0c8;
-  border-radius:12px;
-  padding:15px;
-  margin-top:12px;
-}
-.notice{
-  background:#fff6ed;
-  border-left:4px solid #F85F08;
-  padding:13px;
-  border-radius:8px;
-  font-size:13px;
-  line-height:1.5;
-  margin:16px 0;
-}
-.actions-bottom{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  position:sticky;
-  bottom:0;
-  background:white;
-  padding:14px 0;
-  border-top:1px solid #eee;
-  z-index:5;
-}
-details.advanced{
-  border:1px solid #e2e6ea;
-  border-radius:14px;
-  margin:14px 0;
-  background:#fafbfd;
-  overflow:hidden;
-}
-details.advanced summary{
-  padding:17px 19px;
-  cursor:pointer;
-  font-weight:700;
-}
-details.advanced[open] summary{border-bottom:1px solid #e2e6ea}
+.uploadbar{border:1px dashed #B9C0C8;border-radius:12px;padding:15px;margin-top:12px}
+.notice{background:#FFF6ED;border-left:4px solid #F85F08;padding:13px;border-radius:8px;font-size:13px;line-height:1.5;margin:16px 0}
+.actions-bottom{display:flex;gap:10px;flex-wrap:wrap;position:sticky;bottom:0;background:#fff;padding:14px 0;border-top:1px solid #EEE;z-index:5}
+details.advanced{border:1px solid #E2E6EA;border-radius:14px;margin:14px 0;background:#FAFBFD;overflow:hidden}
+details.advanced summary{padding:17px 19px;cursor:pointer;font-weight:700}
+details.advanced[open] summary{border-bottom:1px solid #E2E6EA}
 .details-body{padding:18px}
-.watermark-info{
-  background:#f1f5f8;
-  border:1px solid #dce5ea;
-  border-radius:12px;
-  padding:15px;
-  margin:15px 0;
-}
-.watermark-info strong{color:#14253D}
+.watermark-info{background:#F1F5F8;border:1px solid #DCE5EA;border-radius:12px;padding:15px;margin:15px 0}
 .watermark-info p{font-size:13px;color:#556578;line-height:1.55}
-#watermarkPreview{
-  display:block;
-  width:min(100%,520px);
-  height:auto;
-  margin:15px auto;
-  border-radius:10px;
-  background:#e8e9ea;
-}
+#watermarkPreview{display:block;width:min(100%,520px);height:auto;margin:12px auto;border-radius:10px;background:#E8E9EA}
+.final-preview{border:1px solid #E1D6C7;background:#F6F1EA;border-radius:14px;padding:22px;margin:24px 0 4px}
+.final-preview h3{font-size:20px}
+.final-preview .button{margin:12px 0 4px}
+.final-preview p{line-height:1.5;font-size:14px}
 @media(max-width:550px){
-  .card{padding:17px}
+  .card{padding:16px}
   .section{padding:15px}
   .item{display:block}
-  .item button{margin:8px 6px 0 0}
+  .item-actions{justify-content:flex-start;margin-top:8px}
   .cep-actions{flex-wrap:wrap}
   .cep-actions button{margin-top:0}
   .options{grid-template-columns:1fr 1fr}
-  header strong{font-size:19px}
+  header strong{font-size:18px}
+  .button{width:100%}
 }
 @media(max-width:380px){
   .options{grid-template-columns:1fr}
 }
 </style>
 </head>
-
 <body>
-
 <header>
   <strong>Portal Bauru Imóveis</strong>
-  <span>Administração</span>
+  <small>Administração de imóveis</small>
 </header>
-
 <main>
 
 <section id="login" class="card">
@@ -244,370 +109,377 @@ details.advanced[open] summary{border-bottom:1px solid #e2e6ea}
     <label>Senha
       <input id="password" type="password" autocomplete="current-password" required>
     </label>
-    <button>Entrar</button>
+    <button type="submit">Entrar</button>
   </form>
 </section>
 
 <section id="dashboard" class="hidden">
-
-<div class="row" style="align-items:center">
-  <h1>Gerenciar imóveis</h1>
-  <div style="text-align:right">
-    <button id="logout" class="ghost">Sair</button>
-  </div>
-</div>
-
-<section class="card">
-  <div class="row">
-    <input id="search" placeholder="Buscar condomínio, bairro, código ou características" aria-label="Buscar imóveis">
-    <button id="new" style="flex:0 0 auto">+ Novo imóvel</button>
-  </div>
-  <p id="searchCount" class="search-info" role="status"></p>
-  <div id="items"></div>
-</section>
-
-<section id="editor" class="card hidden">
-
-<h2 id="editorTitle">Novo imóvel</h2>
-<p class="hint">Preencha as informações do imóvel. Os dados avançados antigos continuam preservados.</p>
-
-<form id="propertyForm">
-
-<section class="section">
-  <h3>1. Identificação</h3>
-
-  <div class="row">
-    <label>Código
-      <input id="codigo" placeholder="Ex.: BAU-001">
-    </label>
-    <label>Título
-      <input id="titulo" required>
-    </label>
-  </div>
-
-  <div class="row">
-    <label>Finalidade
-      <select id="finalidade">
-        <option value="venda">Venda</option>
-        <option value="locacao">Locação</option>
-      </select>
-    </label>
-    <label>Tipo de imóvel
-      <select id="tipo">
-        <option value="apartamento">Apartamento</option>
-        <option value="casa">Casa</option>
-        <option value="sobrado">Sobrado</option>
-        <option value="terreno">Terreno</option>
-        <option value="chacara">Chácara</option>
-        <option value="comercial">Comercial</option>
-        <option value="outro">Outro</option>
-      </select>
-    </label>
-  </div>
-
-  <div class="row">
-    <label>Empreendimento / Condomínio
-      <input id="empreendimento">
-    </label>
-    <label>Bairro
-      <input id="bairro">
-    </label>
-  </div>
-</section>
-
-<section class="section">
-  <h3>2. Localização</h3>
-  <label for="cep">CEP</label>
-
-  <div class="cep-actions">
-    <input id="cep" inputmode="numeric" maxlength="9" placeholder="00000-000" autocomplete="postal-code">
-    <button id="buscarCep" type="button" class="secondary">Buscar CEP</button>
-  </div>
-
-  <p id="cepStatus" class="address-feedback" role="status"></p>
-
-  <label>Logradouro
-    <input id="logradouro" autocomplete="address-line1">
-  </label>
-
-  <div class="row">
-    <label>Quadra e número
-      <input id="quadraNumero" placeholder="Ex.: quadra 12, nº 5">
-    </label>
-    <label>Complemento
-      <input id="complemento" placeholder="Bloco, apartamento, lote...">
-    </label>
-  </div>
-
-  <div class="row">
-    <label>Cidade
-      <input id="cidade" value="Bauru" autocomplete="address-level2">
-    </label>
-    <label>Estado (UF)
-      <input id="estado" value="SP" maxlength="2" autocomplete="address-level1">
-    </label>
-  </div>
-</section>
-
-<section class="section">
-  <h3>3. Valores</h3>
-
-  <div class="row">
-    <label>Preço (R$)
-      <input id="preco" type="number" min="0" step="0.01">
-    </label>
-    <label>Condomínio mensal (R$)
-      <input id="condominio" type="number" min="0" step="0.01">
-    </label>
-    <label>IPTU (R$)
-      <input id="iptu" type="number" min="0" step="0.01">
-    </label>
-  </div>
-
-  <details class="advanced">
-    <summary>Preço anterior e outros custos (opcional)</summary>
-    <div class="details-body">
-      <label>Preço anterior (R$)
-        <input id="preco_anterior" type="number" min="0" step="0.01">
-      </label>
-      <label>Periodicidade do IPTU
-        <select data-detail="iptu_periodicidade">
-          <option value="">Não informado</option>
-          <option value="anual">Anual</option>
-          <option value="mensal">Mensal</option>
-        </select>
-      </label>
+  <div class="row" style="align-items:center">
+    <h1>Gerenciar imóveis</h1>
+    <div style="text-align:right">
+      <button id="logout" class="ghost">Sair</button>
     </div>
-  </details>
-</section>
-
-<section class="section">
-  <h3>4. Características principais</h3>
-
-  <div class="row">
-    <label data-types="apartamento casa sobrado chacara comercial outro">Área privativa (m²)
-      <input id="area_privativa" type="number" min="0" step="0.01">
-    </label>
-    <label>Área total (m²)
-      <input id="area_total" type="number" min="0" step="0.01">
-    </label>
-    <label data-types="casa sobrado terreno chacara comercial outro">Área do terreno (m²)
-      <input id="area_terreno" type="number" min="0" step="0.01">
-    </label>
-    <label data-types="casa sobrado chacara comercial outro">Área construída (m²)
-      <input id="area_construida" type="number" min="0" step="0.01">
-    </label>
   </div>
 
-  <div class="row" data-types="apartamento casa sobrado chacara comercial outro">
-    <label>Quartos
-      <input id="quartos" type="number" min="0" step="1">
-    </label>
-    <label>Suítes
-      <input id="suites" type="number" min="0" step="1">
-    </label>
-    <label>Banheiros
-      <input id="banheiros" type="number" min="0" step="1">
-    </label>
-    <label>Vagas de garagem
-      <input id="vagas" type="number" min="0" step="1">
-    </label>
-  </div>
-
-  <div class="row" data-types="apartamento">
-    <label>Andar
-      <input id="andar" placeholder="Ex.: 12 ou térreo">
-    </label>
-    <label>Bloco / Torre
-      <input data-detail="bloco_torre">
-    </label>
-  </div>
-
-  <div data-group="apartamento_posicao" data-types="apartamento"></div>
-  <div data-group="casa_construcao" data-types="casa sobrado chacara"></div>
-  <div data-group="vagas_caracteristicas" data-types="apartamento casa sobrado chacara comercial outro"></div>
-</section>
-
-<section class="section" data-types="apartamento casa sobrado chacara comercial outro">
-  <h3>5. Diferenciais do imóvel</h3>
-  <p class="section-description">Selecione somente as características que realmente valorizam este imóvel.</p>
-  <div data-group="planejados"></div>
-  <div data-group="varanda_tipo" data-types="apartamento casa sobrado chacara"></div>
-  <div data-group="vista"></div>
-  <div data-group="climatizacao"></div>
-  <div data-group="acabamentos"></div>
-  <div data-group="area_externa" data-types="casa sobrado chacara"></div>
-  <div data-group="estado_conservacao"></div>
-</section>
-
-<section class="section" data-types="apartamento casa sobrado chacara terreno comercial outro">
-  <h3>6. Condomínio e lazer</h3>
-  <p class="section-description">Marque apenas o que estiver disponível e confirmado.</p>
-  <div data-group="condominio_seguranca"></div>
-  <div data-group="condominio_lazer"></div>
-  <div data-group="condominio_servicos"></div>
-</section>
-
-<section class="section" data-types="terreno">
-  <h3>7. Informações do terreno</h3>
-  <div data-group="topografia"></div>
-  <div data-group="terreno_caracteristicas"></div>
-  <div data-group="infraestrutura_terreno"></div>
-</section>
-
-<details class="advanced">
-  <summary>Informações adicionais (opcional)</summary>
-  <div class="details-body">
-    <label>Área do quintal (m²)
-      <input id="area_quintal" type="number" min="0" step="0.01">
-    </label>
-    <label>Tipo de piso (campo antigo)
-      <input id="piso">
-    </label>
-    <label>Pontos de referência
-      <textarea data-detail="referencias_localizacao"></textarea>
-    </label>
-    <label>Observações sobre condomínio
-      <textarea data-detail="condominio_observacoes"></textarea>
-    </label>
-    <label>Observações sobre vista
-      <textarea data-detail="vista_observacoes"></textarea>
-    </label>
-  </div>
-</details>
-
-<section class="section">
-  <h3>8. Condições de negociação</h3>
-
-  <div class="row">
-    <label>Financiamento bancário
-      <select id="financiamento_status">
-        <option value="">Não informado</option>
-        <option value="sim">Aceita financiamento</option>
-        <option value="nao">Não aceita financiamento</option>
-        <option value="analise">A confirmar / sujeito à análise</option>
-      </select>
-    </label>
-    <label>Uso de FGTS
-      <select id="fgts_status">
-        <option value="">Não informado</option>
-        <option value="sim">Aceita FGTS</option>
-        <option value="nao">Não aceita FGTS</option>
-        <option value="analise">A confirmar / sujeito à análise</option>
-      </select>
-    </label>
-  </div>
-
-  <div data-group="permuta_status"></div>
-  <div data-group="ocupacao"></div>
-</section>
-
-<section class="section">
-  <h3>9. Apresentação</h3>
-  <label>Descrição do imóvel
-    <textarea id="descricao" placeholder="Apresente o imóvel de forma clara e comercial."></textarea>
-  </label>
-  <label>Outros diferenciais
-    <textarea id="diferenciais" placeholder="Ex.: piso laminado, planta diferenciada, localização privilegiada..."></textarea>
-  </label>
-</section>
-
-<section class="section">
-  <h3>10. Publicação</h3>
-
-  <div class="row">
-    <label>Situação
-      <select id="situacao">
-        <option value="disponivel">Disponível</option>
-        <option value="reservado">Reservado</option>
-        <option value="vendido">Vendido</option>
-        <option value="alugado">Alugado</option>
-      </select>
-    </label>
-    <label>Selo comercial
-      <select id="selo">
-        <option value="nenhum">Sem selo</option>
-        <option value="destaque">Destaque</option>
-        <option value="exclusivo">Exclusivo</option>
-        <option value="novidade">Novidade</option>
-      </select>
-    </label>
-  </div>
-
-  <label class="check">
-    <input id="destaque" type="checkbox">
-    Exibir na página inicial
-  </label>
-
-  <label class="check">
-    <input id="publicado" type="checkbox">
-    Publicar anúncio
-  </label>
-
-  <details class="advanced">
-    <summary>Confirmação de disponibilidade (opcional)</summary>
-    <div class="details-body">
-      <label>Última confirmação
-        <input id="disponibilidade_confirmada_em" type="date">
-      </label>
+  <section class="card">
+    <div class="row">
+      <input id="search" placeholder="Buscar condomínio, bairro, código ou características" aria-label="Buscar imóveis">
+      <button id="new" type="button" style="flex:0 0 auto">+ Novo imóvel</button>
     </div>
-  </details>
+    <p id="searchCount" class="search-info" role="status"></p>
+    <div id="items"></div>
+  </section>
 
-  <div class="notice">
-    Os dados antigos não exibidos continuam preservados no banco.
-    Não coloque contatos de proprietários, comissões ou valores
-    confidenciais nos campos públicos.
-  </div>
-</section>
-
-<div class="actions-bottom">
-  <button type="submit" id="saveProperty">Salvar imóvel</button>
-  <button type="button" id="cancel" class="ghost">Cancelar</button>
-</div>
-
-</form>
-
-<section id="photoSection" class="hidden">
-
-  <h2>Fotografias do imóvel</h2>
-
-  <div class="watermark-info">
-    <strong>Marca-d'água oficial — Portal Bauru Imóveis</strong>
-    <p>
-      A nova logo dos dois elos entrelaçados será aplicada
-      automaticamente, uma única vez no centro de cada fotografia.
-      A foto original no celular permanece intacta.
-    </p>
-
-    <canvas id="watermarkPreview" width="900" height="430"></canvas>
-
+  <section id="editor" class="card hidden">
+    <h2 id="editorTitle">Novo imóvel</h2>
     <p class="hint">
-      A marca já está incorporada ao código.
-      Não é necessário enviar PNG, SVG ou outro arquivo.
-      A proteção será aplicada às novas fotos enviadas
-      a partir desta atualização.
+      Siga a sequência: endereço, características, valores,
+      descrição, fotografias e visualização do anúncio.
     </p>
-  </div>
 
-  <div class="uploadbar">
-    <label for="photoInput">Selecionar fotografias</label>
-    <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
-    <button type="button" id="uploadPhotos">Enviar fotografias</button>
-    <p id="photoStatus" class="hint" role="status"></p>
-  </div>
+    <form id="propertyForm">
 
-  <div id="photoGrid" class="photos"></div>
+      <section class="section">
+        <h3>1. Endereço e localização</h3>
+        <label for="cep">CEP</label>
+        <div class="cep-actions">
+          <input id="cep" inputmode="numeric" maxlength="9"
+                 placeholder="00000-000" autocomplete="postal-code">
+          <button id="buscarCep" type="button" class="secondary">Buscar CEP</button>
+        </div>
+        <p id="cepStatus" class="address-feedback" role="status"></p>
 
-</section>
+        <label>Logradouro
+          <input id="logradouro" autocomplete="address-line1">
+        </label>
 
-</section>
+        <div class="row">
+          <label>Quadra e número
+            <input id="quadraNumero" placeholder="Ex.: quadra 12, nº 5">
+          </label>
+          <label>Complemento
+            <input id="complemento" placeholder="Bloco, apartamento, lote...">
+          </label>
+        </div>
+
+        <div class="row">
+          <label>Bairro
+            <input id="bairro">
+          </label>
+          <label>Cidade
+            <input id="cidade" value="Bauru" autocomplete="address-level2">
+          </label>
+          <label>Estado (UF)
+            <input id="estado" value="SP" maxlength="2" autocomplete="address-level1">
+          </label>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>2. Identificação do imóvel</h3>
+        <div class="row">
+          <label>Código
+            <input id="codigo" placeholder="Ex.: BAU-001">
+          </label>
+          <label>Título
+            <input id="titulo" placeholder="Ex.: Apartamento com 2 dormitórios" required>
+          </label>
+        </div>
+        <div class="row">
+          <label>Finalidade
+            <select id="finalidade">
+              <option value="venda">Venda</option>
+              <option value="locacao">Locação</option>
+            </select>
+          </label>
+          <label>Tipo de imóvel
+            <select id="tipo">
+              <option value="apartamento">Apartamento</option>
+              <option value="casa">Casa</option>
+              <option value="sobrado">Sobrado</option>
+              <option value="terreno">Terreno</option>
+              <option value="chacara">Chácara</option>
+              <option value="comercial">Comercial</option>
+              <option value="outro">Outro</option>
+            </select>
+          </label>
+        </div>
+        <label>Empreendimento / Condomínio
+          <input id="empreendimento">
+        </label>
+      </section>
+
+      <section class="section">
+        <h3>3. Características principais</h3>
+        <div class="row">
+          <label data-types="apartamento casa sobrado chacara comercial outro">
+            Área privativa (m²)
+            <input id="area_privativa" type="number" min="0" step="0.01">
+          </label>
+          <label>Área total (m²)
+            <input id="area_total" type="number" min="0" step="0.01">
+          </label>
+          <label data-types="casa sobrado terreno chacara comercial outro">
+            Área do terreno (m²)
+            <input id="area_terreno" type="number" min="0" step="0.01">
+          </label>
+          <label data-types="casa sobrado chacara comercial outro">
+            Área construída (m²)
+            <input id="area_construida" type="number" min="0" step="0.01">
+          </label>
+        </div>
+        <div class="row" data-types="apartamento casa sobrado chacara comercial outro">
+          <label>Quartos
+            <input id="quartos" type="number" min="0" step="1">
+          </label>
+          <label>Suítes
+            <input id="suites" type="number" min="0" step="1">
+          </label>
+          <label>Banheiros
+            <input id="banheiros" type="number" min="0" step="1">
+          </label>
+          <label>Vagas
+            <input id="vagas" type="number" min="0" step="1">
+          </label>
+        </div>
+        <div class="row" data-types="apartamento">
+          <label>Andar
+            <input id="andar" placeholder="Ex.: 12 ou térreo">
+          </label>
+          <label>Bloco / Torre
+            <input data-detail="bloco_torre">
+          </label>
+        </div>
+        <div data-group="apartamento_posicao" data-types="apartamento"></div>
+        <div data-group="casa_construcao" data-types="casa sobrado chacara"></div>
+        <div data-group="vagas_caracteristicas"
+             data-types="apartamento casa sobrado chacara comercial outro"></div>
+      </section>
+
+      <section class="section" data-types="apartamento casa sobrado chacara comercial outro">
+        <h3>4. Diferenciais do imóvel</h3>
+        <p class="section-description">Marque apenas as características confirmadas.</p>
+        <div data-group="planejados"></div>
+        <div data-group="varanda_tipo"
+             data-types="apartamento casa sobrado chacara"></div>
+        <div data-group="vista"></div>
+        <div data-group="climatizacao"></div>
+        <div data-group="acabamentos"></div>
+        <div data-group="area_externa" data-types="casa sobrado chacara"></div>
+        <div data-group="estado_conservacao"></div>
+      </section>
+
+      <section class="section" data-types="apartamento casa sobrado chacara terreno comercial outro">
+        <h3>5. Condomínio e lazer</h3>
+        <p class="section-description">Preencha conforme o imóvel e o condomínio.</p>
+        <div data-group="condominio_seguranca"></div>
+        <div data-group="condominio_lazer"></div>
+        <div data-group="condominio_servicos"></div>
+      </section>
+
+      <section class="section" data-types="terreno">
+        <h3>6. Informações do terreno</h3>
+        <div data-group="topografia"></div>
+        <div data-group="terreno_caracteristicas"></div>
+        <div data-group="infraestrutura_terreno"></div>
+      </section>
+
+      <section class="section">
+        <h3>7. Valores</h3>
+        <p class="section-description">
+          Digite o valor normalmente. Ex.: 320000 será apresentado como 320.000,00.
+        </p>
+        <div class="row">
+          <label>Preço do imóvel (R$)
+            <input id="preco" type="text" inputmode="decimal"
+                   placeholder="Ex.: 320.000,00" autocomplete="off">
+          </label>
+          <label>Condomínio mensal (R$)
+            <input id="condominio" type="text" inputmode="decimal"
+                   placeholder="Ex.: 450,00" autocomplete="off">
+          </label>
+          <label>IPTU (R$)
+            <input id="iptu" type="text" inputmode="decimal"
+                   placeholder="Ex.: 1.200,00" autocomplete="off">
+          </label>
+        </div>
+        <details class="advanced">
+          <summary>Preço anterior e outros custos (opcional)</summary>
+          <div class="details-body">
+            <label>Preço anterior (R$)
+              <input id="preco_anterior" type="text"
+                     inputmode="decimal" placeholder="Ex.: 350.000,00"
+                     autocomplete="off">
+            </label>
+            <label>Periodicidade do IPTU
+              <select data-detail="iptu_periodicidade">
+                <option value="">Não informado</option>
+                <option value="anual">Anual</option>
+                <option value="mensal">Mensal</option>
+              </select>
+            </label>
+          </div>
+        </details>
+      </section>
+
+      <details class="advanced">
+        <summary>Informações adicionais (opcional)</summary>
+        <div class="details-body">
+          <label>Área do quintal (m²)
+            <input id="area_quintal" type="number" min="0" step="0.01">
+          </label>
+          <label>Tipo de piso (campo antigo)
+            <input id="piso">
+          </label>
+          <label>Pontos de referência
+            <textarea data-detail="referencias_localizacao"></textarea>
+          </label>
+          <label>Observações sobre condomínio
+            <textarea data-detail="condominio_observacoes"></textarea>
+          </label>
+          <label>Observações sobre vista
+            <textarea data-detail="vista_observacoes"></textarea>
+          </label>
+        </div>
+      </details>
+
+      <section class="section">
+        <h3>8. Condições de negociação</h3>
+        <div class="row">
+          <label>Financiamento bancário
+            <select id="financiamento_status">
+              <option value="">Não informado</option>
+              <option value="sim">Aceita financiamento</option>
+              <option value="nao">Não aceita financiamento</option>
+              <option value="analise">A confirmar / sujeito à análise</option>
+            </select>
+          </label>
+          <label>Uso de FGTS
+            <select id="fgts_status">
+              <option value="">Não informado</option>
+              <option value="sim">Aceita FGTS</option>
+              <option value="nao">Não aceita FGTS</option>
+              <option value="analise">A confirmar / sujeito à análise</option>
+            </select>
+          </label>
+        </div>
+        <div data-group="permuta_status"></div>
+        <div data-group="ocupacao"></div>
+      </section>
+
+      <section class="section">
+        <h3>9. Descrição e apresentação</h3>
+        <label>Descrição do imóvel
+          <textarea id="descricao"
+                    placeholder="Apresente o imóvel de forma clara e comercial."></textarea>
+        </label>
+        <label>Outros diferenciais
+          <textarea id="diferenciais"
+                    placeholder="Ex.: localização, acabamentos, quintal..."></textarea>
+        </label>
+      </section>
+
+      <section class="section">
+        <h3>10. Situação e publicação</h3>
+        <div class="row">
+          <label>Situação
+            <select id="situacao">
+              <option value="disponivel">Disponível</option>
+              <option value="reservado">Reservado</option>
+              <option value="vendido">Vendido</option>
+              <option value="alugado">Alugado</option>
+            </select>
+          </label>
+          <label>Selo comercial
+            <select id="selo">
+              <option value="nenhum">Sem selo</option>
+              <option value="destaque">Destaque</option>
+              <option value="exclusivo">Exclusivo</option>
+              <option value="novidade">Novidade</option>
+            </select>
+          </label>
+        </div>
+        <label class="check">
+          <input id="destaque" type="checkbox">
+          Exibir na página inicial
+        </label>
+        <label class="check">
+          <input id="publicado" type="checkbox">
+          Publicar anúncio no site
+        </label>
+        <details class="advanced">
+          <summary>Confirmação de disponibilidade (opcional)</summary>
+          <div class="details-body">
+            <label>Última confirmação
+              <input id="disponibilidade_confirmada_em" type="date">
+            </label>
+          </div>
+        </details>
+        <div class="notice">
+          Se preferir, deixe como rascunho, envie as fotos e clique em
+          <strong>Publicar anúncio</strong> na última etapa.
+          Informações confidenciais e contatos de proprietários não devem
+          aparecer nos campos públicos.
+        </div>
+      </section>
+
+      <div class="actions-bottom">
+        <button id="saveProperty" type="submit">Salvar e ir para fotografias</button>
+        <button id="cancel" type="button" class="ghost">Cancelar</button>
+      </div>
+    </form>
+
+    <section id="photoSection" class="hidden">
+      <div class="section">
+        <h3>11. Fotografias do imóvel</h3>
+        <p class="hint">
+          Após salvar, envie as fotos reais em JPG, PNG ou WebP.
+          A primeira é a capa. A marca-d'água oficial será aplicada
+          automaticamente no centro; as fotos originais do celular
+          não serão alteradas.
+        </p>
+        <div class="watermark-info">
+          <strong>Marca-d'água — Portal Bauru Imóveis</strong>
+          <canvas id="watermarkPreview" width="900" height="430"></canvas>
+          <p>
+            Dois elos entrelaçados, uma única marca centralizada.
+            Prévia ilustrativa da posição da marca.
+          </p>
+        </div>
+        <div class="uploadbar">
+          <label for="photoInput">Selecionar fotografias</label>
+          <input id="photoInput" type="file"
+                 accept="image/jpeg,image/png,image/webp" multiple>
+          <button id="uploadPhotos" type="button">Enviar fotografias</button>
+          <p id="photoStatus" class="hint" role="status"></p>
+        </div>
+        <div id="photoGrid" class="photos"></div>
+      </div>
+
+      <div class="final-preview" id="finalPreview">
+        <h3>12. Ver anúncio publicado</h3>
+        <p id="previewInfo" role="status">
+          Depois de salvar e enviar as fotografias,
+          visualize o anúncio como o cliente verá.
+        </p>
+        <button id="publishNow" type="button" class="secondary hidden">
+          Publicar anúncio
+        </button>
+        <a id="viewPublished" class="button hidden" href="#"
+           target="_blank" rel="noopener noreferrer">
+          Ver anúncio publicado
+        </a>
+      </div>
+    </section>
+
+  </section>
 </section>
 
 <p id="status" role="status"></p>
-
 </main>
 
 <script type="module">
+
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 const supabase=createClient(
@@ -629,13 +501,14 @@ const fields=[
 ];
 
 const numberFields=[
-  'preco','preco_anterior','condominio','iptu',
   'area_privativa','area_terreno','area_total',
   'area_construida','area_quintal','quartos',
   'suites','banheiros','vagas'
 ];
 
-const groupDefinitions={
+const moneyFields=['preco','preco_anterior','condominio','iptu'];
+
+const groups={
   apartamento_posicao:{
     title:'Tipo de apartamento',
     options:['Térreo','Térreo com quintal','Andar superior','Cobertura']
@@ -679,8 +552,8 @@ const groupDefinitions={
     title:'Acabamentos especiais',
     multi:true,
     options:[
-      'Pé-direito alto','Projeto de iluminação','Porcelanato',
-      'Piso laminado','Piso vinílico'
+      'Pé-direito alto','Projeto de iluminação',
+      'Porcelanato','Piso laminado','Piso vinílico'
     ]
   },
   area_externa:{
@@ -727,8 +600,8 @@ const groupDefinitions={
     title:'Terreno',
     multi:true,
     options:[
-      'Murado','Cercado','De esquina',
-      'Em condomínio','Pronto para construir (confirmado)'
+      'Murado','Cercado','De esquina','Em condomínio',
+      'Pronto para construir (confirmado)'
     ]
   },
   infraestrutura_terreno:{
@@ -752,9 +625,7 @@ const groupDefinitions={
   }
 };
 
-const optionGroups=Object.keys(groupDefinitions);
-
-const legacyMappedOptions={
+const legacy={
   planejados:[
     'Cozinha planejada',
     'Quarto(s) com planejados',
@@ -771,34 +642,113 @@ const legacyMappedOptions={
 
 let records=[];
 let editing=null;
-let photoRecords=[];
-let currentDetails={};
 let currentProperty=null;
+let currentDetails={};
+let photoRecords=[];
 let orderBusy=false;
 let cepRequest=0;
 let originalAddress={quadra:null,numero:null};
 
-function message(msg,error=false){
+const inform=(msg,bad=false)=>{
   $('status').textContent=msg;
-  $('status').className=error?'error':'success';
+  $('status').className=bad?'error':'success';
+};
+
+const normalized=v=>String(v??'')
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g,'')
+  .toLocaleLowerCase('pt-BR');
+
+const propertyLink=(id,broker)=>{
+  const u=new URL('imovel.html',location.href);
+  u.searchParams.set('id',id);
+  u.searchParams.set('ref',broker);
+  return u.href;
+};
+
+/* FORMATAÇÃO DE VALORES EM REAIS */
+
+function moneyInput(value){
+  const v=String(value??'').replace(/[^\d,]/g,'');
+  const comma=v.indexOf(',');
+  const part=(comma<0?v:v.slice(0,comma))
+    .replace(/^0+(?=\d)/,'')||'0';
+  const first=part.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+
+  return v
+    ?first+(comma>=0
+      ?','+v.slice(comma+1).replace(/\D/g,'').slice(0,2)
+      :'')
+    :'';
 }
 
-function normalizeSearch(value){
-  return String(value??'')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g,'')
-    .toLocaleLowerCase('pt-BR');
+function moneyNumber(value){
+  const v=String(value??'').trim();
+
+  if(!v)return null;
+
+  const n=Number(
+    v.replace(/[^\d,.-]/g,'')
+     .replace(/\./g,'')
+     .replace(',','.')
+  );
+
+  return Number.isFinite(n)&&n>=0?n:null;
 }
+
+function moneyDisplay(value){
+  const n=Number(value);
+
+  return Number.isFinite(n)
+    ?new Intl.NumberFormat('pt-BR',{
+      minimumFractionDigits:2,
+      maximumFractionDigits:2
+    }).format(n)
+    :'';
+}
+
+for(const id of moneyFields){
+  const el=$(id);
+
+  el.addEventListener('input',()=>{
+    const old=el.value;
+    const caret=el.selectionStart??old.length;
+    const semantic=old.slice(0,caret)
+      .replace(/[^\d,]/g,'').length;
+
+    const formatted=moneyInput(old);
+    el.value=formatted;
+
+    let p=0,n=0;
+
+    while(p<formatted.length&&n<semantic){
+      if(/[\d,]/.test(formatted[p]))n++;
+      p++;
+    }
+
+    el.setSelectionRange(p,p);
+  });
+
+  el.addEventListener('blur',()=>{
+    const n=moneyNumber(el.value);
+    el.value=n===null?'':moneyDisplay(n);
+  });
+}
+
+/* OPÇÕES DO CADASTRO */
 
 function buildGroups(){
-  for(const [key,def] of Object.entries(groupDefinitions)){
-    const target=document.querySelector('[data-group="'+key+'"]');
-    if(!target)continue;
+  for(const [key,def] of Object.entries(groups)){
+    const root=document.querySelector(
+      '[data-group="'+key+'"]'
+    );
 
-    const heading=document.createElement('h4');
-    heading.className='group-title';
-    heading.textContent=def.title;
-    target.append(heading);
+    if(!root)continue;
+
+    const title=document.createElement('h4');
+    title.className='group-title';
+    title.textContent=def.title;
+    root.append(title);
 
     if(def.multi){
       const wrap=document.createElement('div');
@@ -810,109 +760,60 @@ function buildGroups(){
 
         input.type='checkbox';
         input.value=option;
-        input.dataset.groupKey=key;
 
-        label.append(input,document.createTextNode(option));
+        label.append(
+          input,
+          document.createTextNode(option)
+        );
+
         wrap.append(label);
       }
 
-      target.append(wrap);
+      root.append(wrap);
 
     }else{
       const select=document.createElement('select');
-      select.dataset.groupKey=key;
-
-      const empty=document.createElement('option');
-      empty.value='';
-      empty.textContent='Não informado';
-      select.append(empty);
+      select.innerHTML='<option value="">Não informado</option>';
 
       for(const option of def.options){
-        const item=document.createElement('option');
-        item.value=option;
-        item.textContent=option;
-        select.append(item);
+        const el=document.createElement('option');
+        el.value=option;
+        el.textContent=option;
+        select.append(el);
       }
 
-      target.append(select);
+      root.append(select);
     }
   }
 }
 
 function updateType(){
-  const type=$('tipo').value;
+  const t=$('tipo').value;
+
   document.querySelectorAll('[data-types]').forEach(el=>{
     el.classList.toggle(
       'hidden',
-      !el.dataset.types.split(/\s+/).includes(type)
+      !el.dataset.types.split(/\s+/).includes(t)
     );
   });
 }
 
-function readDetails(){
-  const details={...currentDetails};
-
+function fillDetails(d){
   document.querySelectorAll('[data-detail]').forEach(el=>{
-    if(el.closest('.hidden'))return;
-    const key=el.dataset.detail;
-    const raw=el.value.trim();
-
-    if(!raw)delete details[key];
-    else details[key]=el.type==='number'?Number(raw):raw;
+    el.value=d[el.dataset.detail]??'';
   });
 
-  for(const key of optionGroups){
-    const target=document.querySelector('[data-group="'+key+'"]');
-    if(!target||target.closest('.hidden'))continue;
+  for(const [key,def] of Object.entries(groups)){
+    const root=document.querySelector(
+      '[data-group="'+key+'"]'
+    );
 
-    const def=groupDefinitions[key];
-
-    if(def.multi){
-      const values=[
-        ...target.querySelectorAll('input[type="checkbox"]:checked')
-      ].map(el=>el.value);
-
-      const old=Array.isArray(currentDetails[key])
-        ?currentDetails[key]:[];
-
-      const visible=new Set(def.options);
-      const retained=old.filter(
-        v=>!visible.has(v)&&!legacyMappedOptions[key]?.includes(v)
-      );
-
-      const combined=[...new Set([...retained,...values])];
-
-      if(combined.length)details[key]=combined;
-      else delete details[key];
-
-    }else{
-      const value=target.querySelector('select')?.value||'';
-
-      if(value)details[key]=value;
-      else if(!currentDetails[key]||def.options.includes(currentDetails[key]))
-        delete details[key];
-    }
-  }
-
-  return details;
-}
-
-function fillDetails(details){
-  document.querySelectorAll('[data-detail]').forEach(el=>{
-    el.value=details[el.dataset.detail]??'';
-  });
-
-  for(const key of optionGroups){
-    const target=document.querySelector('[data-group="'+key+'"]');
-    if(!target)continue;
-
-    const def=groupDefinitions[key];
-    const value=details[key];
+    if(!root)continue;
 
     if(def.multi){
-      const selected=Array.isArray(value)?value:[];
+      const arr=Array.isArray(d[key])?d[key]:[];
 
-      const aliases={
+      const synonyms={
         'Armários planejados':[
           'Quarto(s) com planejados',
           'Banheiro(s) com planejados'
@@ -924,46 +825,105 @@ function fillDetails(details){
         'Projeto de iluminação':['Projeto luminotécnico']
       };
 
-      target.querySelectorAll('input[type="checkbox"]').forEach(el=>{
-        el.checked=selected.includes(el.value)||
-          (aliases[el.value]||[]).some(v=>selected.includes(v));
-      });
+      root.querySelectorAll('input[type=checkbox]')
+        .forEach(el=>{
+          el.checked=arr.includes(el.value)||
+            (synonyms[el.value]||[])
+              .some(v=>arr.includes(v));
+        });
 
     }else{
-      const select=target.querySelector('select');
+      const synonyms={
+        'Térreo comum':'Térreo',
+        'Térreo garden (quintal privativo)':'Térreo com quintal',
+        'Sacada':'Varanda'
+      };
 
-      if(select){
-        const aliases={
-          'Térreo comum':'Térreo',
-          'Térreo garden (quintal privativo)':'Térreo com quintal',
-          'Sacada':'Varanda'
-        };
+      const value=synonyms[d[key]]||d[key]||'';
+      const select=root.querySelector('select');
 
-        const normalized=aliases[value]||value;
-
-        select.value=[...select.options].some(
-          o=>o.value===normalized
-        )?normalized:'';
-      }
+      select.value=[...select.options]
+        .some(x=>x.value===value)?value:'';
     }
   }
 }
 
-/* AUTENTICAÇÃO */
+function readDetails(){
+  const result={...currentDetails};
+
+  document.querySelectorAll('[data-detail]').forEach(el=>{
+    if(el.closest('.hidden'))return;
+
+    const key=el.dataset.detail;
+    const value=el.value.trim();
+
+    if(value)result[key]=value;
+    else delete result[key];
+  });
+
+  for(const [key,def] of Object.entries(groups)){
+    const root=document.querySelector(
+      '[data-group="'+key+'"]'
+    );
+
+    if(!root||root.closest('.hidden'))continue;
+
+    if(def.multi){
+      const selected=[
+        ...root.querySelectorAll(
+          'input[type=checkbox]:checked'
+        )
+      ].map(x=>x.value);
+
+      const old=Array.isArray(currentDetails[key])
+        ?currentDetails[key]:[];
+
+      const kept=old.filter(
+        v=>!def.options.includes(v)&&
+          !(legacy[key]||[]).includes(v)
+      );
+
+      const values=[...new Set([...kept,...selected])];
+
+      if(values.length)result[key]=values;
+      else delete result[key];
+
+    }else{
+      const value=root.querySelector('select')?.value||'';
+
+      if(value)result[key]=value;
+      else if(
+        !currentDetails[key]||
+        def.options.includes(currentDetails[key])
+      ){
+        delete result[key];
+      }
+    }
+  }
+
+  return result;
+}
+
+/* ACESSO ADMINISTRATIVO */
 
 async function check(){
-  const {data:{user},error:userError}=await supabase.auth.getUser();
+  const {
+    data:{user},
+    error:e
+  }=await supabase.auth.getUser();
 
-  if(userError||!user){
+  if(e||!user){
     $('login').classList.remove('hidden');
     $('dashboard').classList.add('hidden');
     return;
   }
 
-  const {data,error}=await supabase.rpc('portal_eh_admin');
+  const {data,error}=await supabase.rpc(
+    'portal_eh_admin'
+  );
 
   if(error||!data){
-    message('Sua conta não está autorizada como administradora.',true);
+    inform('Esta conta não tem permissão administrativa.',true);
     await supabase.auth.signOut();
     $('login').classList.remove('hidden');
     $('dashboard').classList.add('hidden');
@@ -982,7 +942,7 @@ async function load(){
     .order('atualizado_em',{ascending:false});
 
   if(error){
-    message('Erro ao consultar imóveis: '+error.message,true);
+    inform('Erro ao consultar imóveis: '+error.message,true);
     return;
   }
 
@@ -990,14 +950,7 @@ async function load(){
   render();
 }
 
-/* LINKS INDIVIDUAIS DOS CORRETORES */
-
-const propertyLink=(id,broker)=>{
-  const url=new URL('imovel.html',location.href);
-  url.searchParams.set('id',id);
-  url.searchParams.set('ref',broker);
-  return url.href;
-};
+/* LINKS DE RAFAEL E DÉBORA */
 
 async function copyBrokerLink(id,broker,feedback){
   const url=propertyLink(id,broker);
@@ -1005,81 +958,93 @@ async function copyBrokerLink(id,broker,feedback){
   try{
     if(navigator.clipboard&&window.isSecureContext){
       await navigator.clipboard.writeText(url);
-    }else{
-      const field=document.createElement('textarea');
-      field.value=url;
-      field.style.position='fixed';
-      field.style.opacity='0';
-      document.body.append(field);
-      field.select();
-      const copied=document.execCommand('copy');
-      field.remove();
 
-      if(!copied)throw new Error('Cópia indisponível');
+    }else{
+      const x=document.createElement('textarea');
+      x.value=url;
+      x.style.cssText='position:fixed;opacity:0';
+
+      document.body.append(x);
+      x.select();
+
+      const ok=document.execCommand('copy');
+      x.remove();
+
+      if(!ok)throw Error('Cópia indisponível');
     }
 
     feedback.textContent='Link de '+
-      (broker==='rafael'?'Rafael':'Débora')+' copiado!';
+      (broker==='rafael'?'Rafael':'Débora')+
+      ' copiado!';
 
-  }catch(error){
-    feedback.textContent='Copie o endereço abaixo:';
+  }catch(e){
+    feedback.textContent='Copie este endereço:';
 
-    const field=document.createElement('input');
-    field.value=url;
-    field.readOnly=true;
-    field.onclick=()=>field.select();
+    const x=document.createElement('input');
+    x.value=url;
+    x.readOnly=true;
+    x.onclick=()=>x.select();
 
-    feedback.append(field);
-    field.focus();
-    field.select();
+    feedback.append(x);
+    x.focus();
+    x.select();
   }
 }
 
-/* LISTA DOS IMÓVEIS */
+/* LISTAGEM DE IMÓVEIS */
 
 function render(){
-  const q=normalizeSearch($('search').value.trim());
-  const words=q.split(/\s+/).filter(Boolean);
+  const words=normalized(
+    $('search').value.trim()
+  ).split(/\s+/).filter(Boolean);
 
-  const matches=records.filter(r=>{
-    const searchable=normalizeSearch([
-      r.codigo,r.titulo,r.empreendimento,r.bairro,
-      r.tipo,r.finalidade,r.descricao,r.diferenciais,
+  const list=records.filter(r=>{
+    const txt=normalized([
+      r.codigo,
+      r.titulo,
+      r.empreendimento,
+      r.bairro,
+      r.tipo,
+      r.finalidade,
+      r.descricao,
+      r.diferenciais,
       JSON.stringify(r.detalhes||{}),
-      ...(Array.isArray(r.caracteristicas)?r.caracteristicas:[])
+      ...(Array.isArray(r.caracteristicas)
+        ?r.caracteristicas:[])
     ].join(' '));
 
-    return words.every(word=>searchable.includes(word));
+    return words.every(w=>txt.includes(w));
   });
 
   const root=$('items');
   root.replaceChildren();
 
   $('searchCount').textContent=
-    matches.length+' imóvel(is) encontrado(s)'+
-    (q?' para a busca':'')+'.';
+    list.length+' imóvel(is) encontrado(s).';
 
-  if(!matches.length){
+  if(!list.length){
     const p=document.createElement('p');
     p.className='muted';
     p.textContent='Nenhum imóvel encontrado.';
     root.append(p);
   }
 
-  for(const r of matches){
-    const div=document.createElement('div');
-    div.className='item';
+  for(const r of list){
+    const item=document.createElement('div');
+    item.className='item';
 
-    const details=document.createElement('div');
-    details.className='item-details';
+    const info=document.createElement('div');
+    info.className='item-details';
 
-    const strong=document.createElement('strong');
-    strong.textContent=r.titulo||'Imóvel sem título';
+    const title=document.createElement('strong');
+    title.textContent=r.titulo||'Imóvel sem título';
 
-    const small=document.createElement('div');
-    small.className='muted';
-    small.textContent=[
-      r.codigo,r.empreendimento,r.bairro,
+    const sub=document.createElement('div');
+    sub.className='muted';
+    sub.textContent=[
+      r.codigo,
+      r.empreendimento,
+      r.bairro,
       r.publicado?'Publicado':'Rascunho'
     ].filter(Boolean).join(' • ');
 
@@ -1087,56 +1052,112 @@ function render(){
     feedback.className='copy-feedback';
     feedback.setAttribute('role','status');
 
-    details.append(strong,small,feedback);
+    info.append(title,sub,feedback);
 
     const actions=document.createElement('div');
     actions.className='item-actions';
 
     const edit=document.createElement('button');
     edit.type='button';
-    edit.textContent='Editar';
     edit.className='secondary';
+    edit.textContent='Editar';
     edit.onclick=()=>openEditor(r);
+
     actions.append(edit);
 
     if(r.publicado&&r.id){
       for(const broker of ['rafael','debora']){
-        const button=document.createElement('button');
-        button.type='button';
-        button.className='ghost';
-        button.textContent='Copiar link '+
+        const b=document.createElement('button');
+        b.type='button';
+        b.className='ghost';
+
+        b.textContent='Copiar link '+
           (broker==='rafael'?'Rafael':'Débora');
-        button.onclick=()=>copyBrokerLink(r.id,broker,feedback);
-        actions.append(button);
+
+        b.onclick=()=>copyBrokerLink(
+          r.id,broker,feedback
+        );
+
+        actions.append(b);
       }
     }
 
-    div.append(details,actions);
-    root.append(div);
+    item.append(info,actions);
+    root.append(item);
   }
 }
 
-function dateForInput(value){
-  if(!value)return '';
-  const date=new Date(value);
-  return Number.isNaN(date.getTime())?'':date.toISOString().slice(0,10);
+const dateForInput=v=>{
+  if(!v)return '';
+
+  const d=new Date(v);
+
+  return Number.isNaN(d.getTime())
+    ?''
+    :d.toISOString().slice(0,10);
+};
+
+const joinAddress=r=>[
+  String(r?.quadra??'').trim(),
+  String(r?.numero??'').trim()
+].filter(Boolean).join(', ');
+
+/* BOTÃO DE VISUALIZAÇÃO FINAL */
+
+function previewState(){
+  const info=$('previewInfo');
+  const publish=$('publishNow');
+  const view=$('viewPublished');
+
+  const available=
+    editing&&
+    currentProperty?.publicado&&
+    currentProperty?.finalidade==='venda'&&
+    !['vendido','alugado'].includes(
+      String(currentProperty?.situacao||'')
+        .toLowerCase()
+    );
+
+  view.classList.toggle('hidden',!available);
+
+  publish.classList.toggle(
+    'hidden',
+    !editing||
+    Boolean(currentProperty?.publicado)||
+    currentProperty?.finalidade!=='venda'
+  );
+
+  if(available){
+    view.href=propertyLink(editing,'rafael');
+
+    info.textContent=
+      'Seu anúncio está publicado. Abra para conferir preço, descrição e fotografias.';
+
+  }else{
+    view.removeAttribute('href');
+
+    info.textContent=!editing
+      ?'Salve o imóvel para continuar.'
+      :currentProperty?.finalidade!=='venda'
+        ?'A vitrine pública está configurada somente para imóveis à venda.'
+        :currentProperty?.publicado
+          ?'Imóvel indisponível para a vitrine pública: confira a situação.'
+          :'Imóvel salvo como rascunho. Depois das fotos, clique em Publicar anúncio.';
+  }
 }
 
-function joinAddress(r){
-  const q=String(r?.quadra??'').trim();
-  const n=String(r?.numero??'').trim();
-  return [q,n].filter(Boolean).join(', ');
-}
-
-/* EDIÇÃO */
+/* ABERTURA DO CADASTRO */
 
 async function openEditor(r=null){
   editing=r?.id||null;
   currentProperty=r;
-  currentDetails=r?.detalhes&&
+
+  currentDetails=
+    r?.detalhes&&
     typeof r.detalhes==='object'&&
     !Array.isArray(r.detalhes)
-      ?{...r.detalhes}:{};
+      ?{...r.detalhes}
+      :{};
 
   originalAddress={
     quadra:r?.quadra??null,
@@ -1145,30 +1166,51 @@ async function openEditor(r=null){
 
   $('propertyForm').reset();
   $('cepStatus').textContent='';
-  $('editorTitle').textContent=r?'Editar imóvel':'Novo imóvel';
+  $('editorTitle').textContent=
+    r?'Editar imóvel':'Novo imóvel';
 
   if(r){
     for(const f of fields){
       const el=$(f);
+
       if(!el)continue;
 
-      if(el.type==='checkbox')el.checked=!!r[f];
-      else if(f==='disponibilidade_confirmada_em')
+      if(el.type==='checkbox'){
+        el.checked=!!r[f];
+
+      }else if(f==='disponibilidade_confirmada_em'){
         el.value=dateForInput(r[f]);
-      else el.value=r[f]??'';
+
+      }else if(moneyFields.includes(f)){
+        el.value=
+          r[f]===null||
+          r[f]===undefined||
+          r[f]===''
+            ?''
+            :moneyDisplay(r[f]);
+
+      }else{
+        el.value=r[f]??'';
+      }
     }
 
     $('quadraNumero').value=joinAddress(r);
 
     $('financiamento_status').value=
       currentDetails.financiamento_status||
-      (r.aceita_financiamento===true?'sim':
-       r.aceita_financiamento===false?'nao':'');
+      (r.aceita_financiamento===true
+        ?'sim'
+        :r.aceita_financiamento===false
+          ?'nao'
+          :'');
 
     $('fgts_status').value=
       currentDetails.fgts_status||
-      (r.aceita_fgts===true?'sim':
-       r.aceita_fgts===false?'nao':'');
+      (r.aceita_fgts===true
+        ?'sim'
+        :r.aceita_fgts===false
+          ?'nao'
+          :'');
 
   }else{
     $('cidade').value='Bauru';
@@ -1181,26 +1223,37 @@ async function openEditor(r=null){
   updateType();
 
   $('editor').classList.remove('hidden');
-  $('photoSection').classList.toggle('hidden',!editing);
+  $('photoSection').classList.toggle(
+    'hidden',!editing
+  );
+
   $('photoGrid').replaceChildren();
   $('photoStatus').textContent='';
 
+  previewState();
+
   if(editing){
     await loadPhotos();
-    desenharPreviewMarca();
+    drawPreview();
   }
 
   $('editor').scrollIntoView({behavior:'smooth'});
 }
 
 $('new').onclick=()=>openEditor();
-$('cancel').onclick=()=>$('editor').classList.add('hidden');
+
+$('cancel').onclick=()=>{
+  $('editor').classList.add('hidden');
+};
+
 $('search').oninput=render;
 $('tipo').onchange=updateType;
 
+/* LOGIN E LOGOUT */
+
 $('loginForm').onsubmit=async e=>{
   e.preventDefault();
-  message('Autenticando...');
+  inform('Autenticando...');
 
   const {error}=await supabase.auth.signInWithPassword({
     email:$('email').value,
@@ -1208,7 +1261,7 @@ $('loginForm').onsubmit=async e=>{
   });
 
   if(error){
-    message('Não foi possível entrar: '+error.message,true);
+    inform('Não foi possível entrar: '+error.message,true);
     return;
   }
 
@@ -1218,17 +1271,20 @@ $('loginForm').onsubmit=async e=>{
 
 $('logout').onclick=async()=>{
   await supabase.auth.signOut();
-  message('Sessão encerrada.');
+  inform('Sessão encerrada.');
   await check();
 };
 
-/* CONSULTA DE CEP */
+/* BUSCA DO ENDEREÇO PELO CEP */
 
 function formatCep(value){
-  const digits=String(value||'').replace(/\D/g,'').slice(0,8);
-  return digits.length>5
-    ?digits.slice(0,5)+'-'+digits.slice(5)
-    :digits;
+  const d=String(value||'')
+    .replace(/\D/g,'')
+    .slice(0,8);
+
+  return d.length>5
+    ?d.slice(0,5)+'-'+d.slice(5)
+    :d;
 }
 
 $('cep').addEventListener('input',()=>{
@@ -1244,8 +1300,10 @@ $('cep').addEventListener('keydown',e=>{
 });
 
 $('cep').addEventListener('blur',()=>{
-  if($('cep').value.replace(/\D/g,'').length===8&&
-     !$('logradouro').value.trim()){
+  if(
+    $('cep').value.replace(/\D/g,'').length===8&&
+    !$('logradouro').value.trim()
+  ){
     buscarCep();
   }
 });
@@ -1253,100 +1311,104 @@ $('cep').addEventListener('blur',()=>{
 $('buscarCep').onclick=buscarCep;
 
 async function buscarCep(){
-  const digits=$('cep').value.replace(/\D/g,'');
+  const d=$('cep').value.replace(/\D/g,'');
 
-  if(digits.length!==8){
-    $('cepStatus').textContent='Informe um CEP com 8 números.';
-    $('cepStatus').className='address-feedback error';
+  if(d.length!==8){
+    $('cepStatus').textContent=
+      'Informe um CEP com 8 números.';
     return;
   }
 
   const request=++cepRequest;
   const btn=$('buscarCep');
   btn.disabled=true;
-
   $('cepStatus').textContent='Consultando CEP...';
-  $('cepStatus').className='address-feedback';
 
   try{
     const controller=new AbortController();
-    const timeout=setTimeout(()=>controller.abort(),10000);
+    const timer=setTimeout(
+      ()=>controller.abort(),10000
+    );
+
     let response;
 
     try{
       response=await fetch(
-        'https://viacep.com.br/ws/'+digits+'/json/',
+        'https://viacep.com.br/ws/'+d+'/json/',
         {signal:controller.signal}
       );
+
     }finally{
-      clearTimeout(timeout);
+      clearTimeout(timer);
     }
 
-    if(!response.ok)throw new Error('Serviço indisponível');
-    const data=await response.json();
+    if(!response.ok){
+      throw Error('Serviço indisponível');
+    }
+
+    const result=await response.json();
 
     if(request!==cepRequest)return;
 
-    if(data.erro){
+    if(result.erro){
       $('cepStatus').textContent=
-        'CEP não encontrado. Confira os números ou preencha manualmente.';
-      $('cepStatus').className='address-feedback error';
+        'CEP não encontrado. Preencha manualmente.';
       return;
     }
 
-    for(const [field,value] of Object.entries({
-      logradouro:data.logradouro,
-      bairro:data.bairro,
-      cidade:data.localidade,
-      estado:data.uf
+    for(const [k,v] of Object.entries({
+      logradouro:result.logradouro,
+      bairro:result.bairro,
+      cidade:result.localidade,
+      estado:result.uf
     })){
-      if(value)$(field).value=value;
+      if(v)$(k).value=v;
     }
 
-    $('cep').value=formatCep(digits);
-    $('cepStatus').textContent='Endereço encontrado! Confira quadra/número.';
-    $('cepStatus').className='address-feedback success';
+    $('cep').value=formatCep(d);
 
-  }catch(error){
+    $('cepStatus').textContent=
+      'Endereço encontrado! Confira o número e complemento.';
+
+  }catch(e){
     if(request===cepRequest){
       $('cepStatus').textContent=
-        'Não foi possível consultar agora. Preencha manualmente.';
-      $('cepStatus').className='address-feedback error';
+        'Não foi possível consultar o CEP. Preencha manualmente.';
     }
+
   }finally{
-    if(request===cepRequest)btn.disabled=false;
+    if(request===cepRequest){
+      btn.disabled=false;
+    }
   }
 }
 
 function parseAddress(value){
   const v=value.trim();
 
-  if(!v)return {quadra:null,numero:null};
+  if(!v){
+    return {quadra:null,numero:null};
+  }
 
-  const match=v.match(
+  const m=v.match(
     /^\s*(?:quadra|qd\.?|q\.?)[\s.:]*([^,;]+)[,;\s]+(?:n[º°o.]?|número|numero)?\s*[:.]?\s*(.+)$/i
   );
 
-  if(match){
+  if(m){
     return {
-      quadra:match[1].trim(),
-      numero:match[2].trim()
+      quadra:m[1].trim(),
+      numero:m[2].trim()
     };
   }
 
-  const pieces=v.split(/\s*[,;]\s*/);
+  const a=v.split(/\s*[,;]\s*/);
 
-  if(pieces.length===2){
-    return {
-      quadra:pieces[0]||null,
-      numero:pieces[1]||null
-    };
-  }
-
-  return {quadra:v,numero:null};
+  return a.length===2
+    ?{quadra:a[0]||null,numero:a[1]||null}
+    :{quadra:v,numero:null};
 }
 
-/* SALVAR IMÓVEL */
+/* SALVAR E AVANÇAR PARA AS FOTOGRAFIAS */
 
 $('propertyForm').onsubmit=async e=>{
   e.preventDefault();
@@ -1355,23 +1417,32 @@ $('propertyForm').onsubmit=async e=>{
 
   for(const f of fields){
     const el=$(f);
+
     if(!el)continue;
 
     payload[f]=el.type==='checkbox'
       ?el.checked
-      :el.value.trim()||null;
+      :moneyFields.includes(f)
+        ?moneyNumber(el.value)
+        :el.value.trim()||null;
   }
 
   for(const f of numberFields){
-    if(payload[f]!==null&&payload[f]!==undefined){
+    if(
+      payload[f]!==null&&
+      payload[f]!==undefined
+    ){
       payload[f]=Number(payload[f]);
     }
   }
 
   payload.descricao??='';
 
-  if(payload.cep&&payload.cep.replace(/\D/g,'').length!==8){
-    message('Confira o CEP: ele deve ter 8 números.',true);
+  if(
+    payload.cep&&
+    payload.cep.replace(/\D/g,'').length!==8
+  ){
+    inform('Confira o CEP: deve ter 8 números.',true);
     $('cep').focus();
     return;
   }
@@ -1381,58 +1452,143 @@ $('propertyForm').onsubmit=async e=>{
   }
 
   if(payload.disponibilidade_confirmada_em){
-    payload.disponibilidade_confirmada_em+='T12:00:00-03:00';
+    payload.disponibilidade_confirmada_em+=
+      'T12:00:00-03:00';
   }
 
-  const addressValue=$('quadraNumero').value.trim();
+  const a=$('quadraNumero').value.trim();
 
-  if(editing&&addressValue===joinAddress(currentProperty)){
+  if(
+    editing&&
+    a===joinAddress(currentProperty)
+  ){
     payload.quadra=originalAddress.quadra;
     payload.numero=originalAddress.numero;
+
   }else{
-    Object.assign(payload,parseAddress(addressValue));
+    Object.assign(payload,parseAddress(a));
   }
 
   const details=readDetails();
-  const financiamento=$('financiamento_status').value;
+  const fin=$('financiamento_status').value;
   const fgts=$('fgts_status').value;
 
-  if(financiamento)details.financiamento_status=financiamento;
+  if(fin)details.financiamento_status=fin;
   else delete details.financiamento_status;
 
   if(fgts)details.fgts_status=fgts;
   else delete details.fgts_status;
 
-  payload.aceita_financiamento=financiamento==='sim';
+  payload.aceita_financiamento=fin==='sim';
   payload.aceita_fgts=fgts==='sim';
   payload.detalhes=details;
 
   const btn=$('saveProperty');
   btn.disabled=true;
-  message('Salvando imóvel...');
+  inform('Salvando imóvel...');
 
   try{
-    const {error}=editing
-      ?await supabase.from('imoveis').update(payload).eq('id',editing)
-      :await supabase.from('imoveis').insert(payload);
+    const result=editing
+      ?await supabase
+        .from('imoveis')
+        .update(payload)
+        .eq('id',editing)
+      :await supabase
+        .from('imoveis')
+        .insert(payload)
+        .select('id')
+        .single();
 
-    if(error){
-      message('Erro ao salvar: '+error.message,true);
-      return;
+    if(result.error){
+      throw result.error;
     }
 
-    message('Imóvel salvo com sucesso.');
-    $('editor').classList.add('hidden');
+    editing=editing||result.data?.id;
+
+    if(!editing){
+      throw Error(
+        'Não foi possível obter o ID do imóvel salvo.'
+      );
+    }
+
+    currentProperty={
+      ...(currentProperty||{}),
+      ...payload,
+      id:editing
+    };
+
+    currentDetails=details;
+    $('editorTitle').textContent='Editar imóvel';
+
+    $('photoSection').classList.remove('hidden');
+
+    previewState();
+    await loadPhotos();
+    drawPreview();
     await load();
 
+    inform(
+      'Imóvel salvo! Envie as fotos e abra o anúncio no botão ao final.'
+    );
+
+    $('photoSection').scrollIntoView({
+      behavior:'smooth',
+      block:'start'
+    });
+
   }catch(error){
-    message('Erro ao salvar: '+error.message,true);
+    inform('Erro ao salvar: '+error.message,true);
+
   }finally{
     btn.disabled=false;
   }
 };
 
-/* FOTOGRAFIAS */
+/* PUBLICAR A PARTIR DA ÚLTIMA ETAPA */
+
+$('publishNow').onclick=async()=>{
+  if(!editing)return;
+
+  if(!confirm(
+    'Publicar este imóvel à venda no Portal Bauru Imóveis?'
+  )){
+    return;
+  }
+
+  const b=$('publishNow');
+  b.disabled=true;
+
+  try{
+    const {error}=await supabase
+      .from('imoveis')
+      .update({publicado:true})
+      .eq('id',editing);
+
+    if(error)throw error;
+
+    currentProperty={
+      ...currentProperty,
+      publicado:true
+    };
+
+    $('publicado').checked=true;
+
+    previewState();
+    await load();
+
+    inform(
+      'Anúncio publicado. Você já pode abrir a visualização.'
+    );
+
+  }catch(e){
+    inform('Erro ao publicar: '+e.message,true);
+
+  }finally{
+    b.disabled=false;
+  }
+};
+
+/* GERENCIAMENTO DAS FOTOGRAFIAS */
 
 const bucket='portal-imoveis';
 
@@ -1471,7 +1627,7 @@ function renderPhotos(){
   photoRecords.forEach((r,i)=>{
     const card=document.createElement('div');
     card.className='photo';
-    card.dataset.photoIndex=String(i);
+    card.dataset.index=i;
 
     const img=document.createElement('img');
     img.alt='Fotografia '+(i+1);
@@ -1479,12 +1635,15 @@ function renderPhotos(){
 
     img.src=supabase.storage
       .from(bucket)
-      .getPublicUrl(r.caminho).data.publicUrl;
+      .getPublicUrl(r.caminho)
+      .data.publicUrl;
 
     const label=document.createElement('small');
-    label.textContent=i===0?'★ Foto principal':'Foto '+(i+1);
+    label.textContent=i===0
+      ?'★ Foto principal'
+      :'Foto '+(i+1);
 
-    const buttons=document.createElement('div');
+    const actions=document.createElement('div');
 
     const drag=document.createElement('button');
     drag.type='button';
@@ -1496,38 +1655,45 @@ function renderPhotos(){
       e=>beginPhotoDrag(e,i,card,drag)
     );
 
-    buttons.append(drag);
+    actions.append(drag);
 
-    function action(text,fn,cls='ghost'){
+    const btn=(text,fn,cls='ghost')=>{
       const b=document.createElement('button');
       b.type='button';
       b.className=cls;
       b.textContent=text;
       b.onclick=fn;
-      buttons.append(b);
+      actions.append(b);
+    };
+
+    if(i>0){
+      btn('↑ Subir',()=>movePhoto(i,-1));
     }
 
-    if(i>0)action('↑ Subir',()=>movePhoto(i,-1));
-
     if(i<photoRecords.length-1){
-      action('↓ Descer',()=>movePhoto(i,1));
+      btn('↓ Descer',()=>movePhoto(i,1));
     }
 
     if(i>0){
-      action('Definir como capa',()=>makeCover(i));
+      btn('Definir como capa',()=>makeCover(i));
     }
 
-    action('Excluir',()=>deletePhoto(r),'secondary');
+    btn('Excluir',()=>deletePhoto(r),'secondary');
 
-    card.append(img,label,buttons);
+    card.append(img,label,actions);
     root.append(card);
   });
 }
 
-/* REORDENAÇÃO DAS FOTOS */
+/* ORDENAR FOTOGRAFIAS NO CELULAR */
 
 function beginPhotoDrag(e,from,card,handle){
-  if(orderBusy||(e.pointerType==='mouse'&&e.button!==0))return;
+  if(
+    orderBusy||
+    (e.pointerType==='mouse'&&e.button!==0)
+  ){
+    return;
+  }
 
   e.preventDefault();
   handle.setPointerCapture(e.pointerId);
@@ -1535,21 +1701,27 @@ function beginPhotoDrag(e,from,card,handle){
   let target=from;
   card.classList.add('dragging');
 
-  const clearTargets=()=>{
-    document.querySelectorAll('#photoGrid .drop-target')
-      .forEach(el=>el.classList.remove('drop-target'));
+  const clear=()=>{
+    document.querySelectorAll(
+      '#photoGrid .drop-target'
+    ).forEach(x=>{
+      x.classList.remove('drop-target');
+    });
   };
 
   const move=ev=>{
-    const under=document
+    const el=document
       .elementFromPoint(ev.clientX,ev.clientY)
       ?.closest('.photo');
 
-    clearTargets();
+    clear();
 
-    if(under&&under.parentElement===$('photoGrid')){
-      target=Number(under.dataset.photoIndex);
-      if(under!==card)under.classList.add('drop-target');
+    if(el&&el.parentElement===$('photoGrid')){
+      target=Number(el.dataset.index);
+
+      if(el!==card){
+        el.classList.add('drop-target');
+      }
     }
   };
 
@@ -1558,7 +1730,7 @@ function beginPhotoDrag(e,from,card,handle){
     handle.removeEventListener('pointerup',finish);
     handle.removeEventListener('pointercancel',cancel);
     card.classList.remove('dragging');
-    clearTargets();
+    clear();
   };
 
   const finish=async()=>{
@@ -1567,7 +1739,12 @@ function beginPhotoDrag(e,from,card,handle){
     if(target===from||orderBusy)return;
 
     const arr=[...photoRecords];
-    arr.splice(target,0,arr.splice(from,1)[0]);
+    arr.splice(
+      target,
+      0,
+      arr.splice(from,1)[0]
+    );
+
     await saveOrder(arr);
   };
 
@@ -1585,35 +1762,39 @@ async function saveOrder(arr){
   $('photoGrid').classList.add('busy');
 
   try{
-    await persistOrder(arr);
+    $('photoStatus').textContent='Salvando ordem...';
+
+    const {error}=await supabase.rpc(
+      'portal_reordenar_fotos',
+      {
+        p_imovel_id:editing,
+        p_foto_ids:arr.map(x=>x.id)
+      }
+    );
+
+    if(error)throw error;
+
+    $('photoStatus').textContent='Ordem salva.';
+
+  }catch(e){
+    $('photoStatus').textContent=
+      'Erro ao reorganizar: '+e.message;
+
   }finally{
+    await loadPhotos();
     orderBusy=false;
     $('photoGrid').classList.remove('busy');
   }
 }
 
-async function persistOrder(arr){
-  $('photoStatus').textContent='Salvando ordem...';
-
-  const {error}=await supabase.rpc('portal_reordenar_fotos',{
-    p_imovel_id:editing,
-    p_foto_ids:arr.map(r=>r.id)
-  });
-
-  if(error){
-    $('photoStatus').textContent=
-      'Erro ao reorganizar: '+error.message;
-    await loadPhotos();
-    return;
-  }
-
-  $('photoStatus').textContent='Ordem salva.';
-  await loadPhotos();
-}
-
-async function movePhoto(i,delta){
+async function movePhoto(i,d){
   const arr=[...photoRecords];
-  [arr[i],arr[i+delta]]=[arr[i+delta],arr[i]];
+
+  [arr[i],arr[i+d]]=[
+    arr[i+d],
+    arr[i]
+  ];
+
   await saveOrder(arr);
 }
 
@@ -1624,7 +1805,11 @@ async function makeCover(i){
 }
 
 async function deletePhoto(r){
-  if(!confirm('Excluir esta fotografia do imóvel?'))return;
+  if(!confirm(
+    'Excluir esta fotografia do imóvel?'
+  )){
+    return;
+  }
 
   const {error}=await supabase
     .from('imovel_fotos')
@@ -1632,51 +1817,51 @@ async function deletePhoto(r){
     .eq('id',r.id);
 
   if(error){
-    $('photoStatus').textContent='Erro ao excluir: '+error.message;
+    $('photoStatus').textContent=
+      'Erro ao excluir: '+error.message;
     return;
   }
 
-  const arquivos=[r.caminho];
+  const paths=[r.caminho];
 
   if(r.caminho.endsWith('-portal.jpg')){
-    const nome=r.caminho.split('/').pop().replace('-portal.jpg','');
+    const n=r.caminho
+      .split('/')
+      .pop()
+      .replace('-portal.jpg','');
 
-    const {data:originais}=await supabase.storage
+    const {data:originals}=await supabase.storage
       .from(bucket)
       .list(String(editing)+'/originais');
 
-    const original=originais?.find(f=>f.name.startsWith(nome+'.'));
+    const o=originals?.find(
+      f=>f.name.startsWith(n+'.')
+    );
 
-    if(original){
-      arquivos.push(String(editing)+'/originais/'+original.name);
+    if(o){
+      paths.push(
+        String(editing)+'/originais/'+o.name
+      );
     }
   }
 
   const {error:storageError}=await supabase.storage
     .from(bucket)
-    .remove(arquivos);
+    .remove(paths);
 
   $('photoStatus').textContent=storageError
-    ?'Foto retirada do anúncio, mas houve falha ao apagar o arquivo: '+storageError.message
+    ?'Foto retirada, mas houve erro ao apagar o arquivo: '+storageError.message
     :'Fotografia excluída.';
 
   await loadPhotos();
 }
 
-/* =====================================================
-   NOVA MARCA-D'ÁGUA OFICIAL
-   PORTAL BAURU IMÓVEIS
-
-   - DOIS ELOS ENTRELAÇADOS
-   - AZUL #14253D
-   - LARANJA #F85F08
-   - UMA ÚNICA MARCA CENTRALIZADA
-   - SEM ARQUIVOS EXTERNOS
-   ===================================================== */
+/* LOGOTIPO OFICIAL INCORPORADO AO CÓDIGO */
 
 const LOGO_SVG=`
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="1200" height="300" viewBox="0 0 1200 300">
+     width="1200" height="300"
+     viewBox="0 0 1200 300">
 
   <g fill="none"
      stroke-width="19"
@@ -1740,167 +1925,151 @@ const LOGO_SVG=`
         stroke-opacity=".85"/>
 </svg>`;
 
-const LOGO_PORTAL=
+const LOGO_URL=
   'data:image/svg+xml;charset=utf-8,'+
   encodeURIComponent(LOGO_SVG);
 
-let logoEmMemoria=null;
+let cachedLogo;
 
-function obterLogo(){
-  if(!logoEmMemoria){
-    logoEmMemoria=new Promise((resolve,reject)=>{
-      const image=new Image();
+function getLogo(){
+  if(!cachedLogo){
+    cachedLogo=new Promise((resolve,reject)=>{
+      const im=new Image();
 
-      image.onload=()=>resolve(image);
-      image.onerror=()=>{
-        logoEmMemoria=null;
-        reject(new Error('Não foi possível carregar a marca-d’água'));
+      im.onload=()=>resolve(im);
+
+      im.onerror=()=>{
+        cachedLogo=null;
+        reject(Error('Falha ao preparar logotipo'));
       };
 
-      image.src=LOGO_PORTAL;
+      im.src=LOGO_URL;
     });
   }
 
-  return logoEmMemoria;
+  return cachedLogo;
 }
 
-/* PREPARAÇÃO DA MARCA */
-
-function calcularMarca(canvas,logo){
-  const paisagem=canvas.width>=canvas.height;
-
-  const larguraLogo=Math.min(
-    canvas.width*(paisagem?0.57:0.78),
+function logoBounds(c,logo){
+  const w=Math.min(
+    c.width*(c.width>=c.height?.57:.78),
     900
   );
 
-  const alturaLogo=larguraLogo*(
-    logo.naturalHeight/logo.naturalWidth
-  );
-
   return {
-    x:(canvas.width-larguraLogo)/2,
-    y:(canvas.height-alturaLogo)/2,
-    largura:larguraLogo,
-    altura:alturaLogo
+    x:(c.width-w)/2,
+    y:(c.height-w*logo.naturalHeight/logo.naturalWidth)/2,
+    w,
+    h:w*logo.naturalHeight/logo.naturalWidth
   };
 }
 
-/* A MARCA FICA INCORPORADA AO JPEG */
+/* MARCA-D'ÁGUA CENTRALIZADA */
 
-async function gerarFotoComMarca(file){
-  const [logo,bitmap]=await Promise.all([
-    obterLogo(),
+async function markPhoto(file){
+  const [logo,img]=await Promise.all([
+    getLogo(),
     createImageBitmap(file)
   ]);
 
   try{
-    const canvas=document.createElement('canvas');
+    const c=document.createElement('canvas');
 
-    const fator=Math.min(
+    const scale=Math.min(
       1,
-      2560/Math.max(bitmap.width,bitmap.height)
+      2560/Math.max(img.width,img.height)
     );
 
-    canvas.width=Math.max(1,Math.round(bitmap.width*fator));
-    canvas.height=Math.max(1,Math.round(bitmap.height*fator));
+    c.width=Math.max(
+      1,
+      Math.round(img.width*scale)
+    );
 
-    const ctx=canvas.getContext('2d');
+    c.height=Math.max(
+      1,
+      Math.round(img.height*scale)
+    );
+
+    const ctx=c.getContext('2d');
 
     if(!ctx){
-      throw new Error('Não foi possível preparar a fotografia');
+      throw Error('Não foi possível preparar a imagem');
     }
 
-    // Desenha a fotografia original.
-    ctx.drawImage(
-      bitmap,0,0,canvas.width,canvas.height
-    );
+    ctx.drawImage(img,0,0,c.width,c.height);
 
-    // Uma única marca no centro.
-    const marca=calcularMarca(canvas,logo);
-
-    ctx.save();
-
-    // Marca suficientemente visível, sem cobrir
-    // completamente os detalhes da fotografia.
-    ctx.globalAlpha=0.65;
-
-    ctx.drawImage(
-      logo,
-      marca.x,
-      marca.y,
-      marca.largura,
-      marca.altura
-    );
-
-    ctx.restore();
-
-    const blob=await new Promise((resolve,reject)=>{
-      canvas.toBlob(
-        result=>result
-          ?resolve(result)
-          :reject(new Error('Falha ao converter fotografia')),
-        'image/jpeg',
-        0.92
-      );
-    });
-
-    if(!blob||blob.size===0){
-      throw new Error('A fotografia processada está vazia');
-    }
-
-    return blob;
-
-  }finally{
-    bitmap.close();
-  }
-}
-
-/* PRÉVIA INFORMATIVA DA MARCA */
-
-async function desenharPreviewMarca(){
-  const canvas=$('watermarkPreview');
-  if(!canvas)return;
-
-  try{
-    const logo=await obterLogo();
-    const ctx=canvas.getContext('2d');
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    // Fundo neutro representando a fotografia.
-    const grad=ctx.createLinearGradient(0,0,900,430);
-    grad.addColorStop(0,'#D7D5D1');
-    grad.addColorStop(.5,'#B9B4AC');
-    grad.addColorStop(1,'#A1A8AF');
-
-    ctx.fillStyle=grad;
-    ctx.fillRect(0,0,900,430);
-
-    const marca=calcularMarca(canvas,logo);
+    const b=logoBounds(c,logo);
 
     ctx.save();
     ctx.globalAlpha=.65;
+
     ctx.drawImage(
-      logo,
-      marca.x,
-      marca.y,
-      marca.largura,
-      marca.altura
+      logo,b.x,b.y,b.w,b.h
     );
+
     ctx.restore();
 
-  }catch(error){
-    console.warn('Prévia da marca:',error);
+    return await new Promise((resolve,reject)=>{
+      c.toBlob(
+        blob=>blob
+          ?resolve(blob)
+          :reject(
+            Error('Falha ao converter fotografia')
+          ),
+        'image/jpeg',
+        .92
+      );
+    });
+
+  }finally{
+    img.close();
   }
 }
 
-/* ENVIO DAS FOTOGRAFIAS COM MARCA */
+/* PRÉVIA DA MARCA */
+
+async function drawPreview(){
+  try{
+    const logo=await getLogo();
+    const c=$('watermarkPreview');
+
+    if(!c)return;
+
+    const ctx=c.getContext('2d');
+
+    const g=ctx.createLinearGradient(
+      0,0,900,430
+    );
+
+    g.addColorStop(0,'#D7D5D1');
+    g.addColorStop(.5,'#B9B4AC');
+    g.addColorStop(1,'#A1A8AF');
+
+    ctx.fillStyle=g;
+    ctx.fillRect(0,0,c.width,c.height);
+
+    const b=logoBounds(c,logo);
+
+    ctx.save();
+    ctx.globalAlpha=.65;
+
+    ctx.drawImage(
+      logo,b.x,b.y,b.w,b.h
+    );
+
+    ctx.restore();
+
+  }catch(e){
+    console.warn('Prévia da marca:',e);
+  }
+}
+
+/* ENVIO DAS FOTOGRAFIAS */
 
 $('uploadPhotos').onclick=async()=>{
   if(!editing){
     $('photoStatus').textContent=
-      'Salve o imóvel antes de adicionar fotografias.';
+      'Salve o imóvel antes das fotos.';
     return;
   }
 
@@ -1919,28 +2088,41 @@ $('uploadPhotos').onclick=async()=>{
   const errors=[];
 
   let nextOrder=photoRecords.length
-    ?Math.max(...photoRecords.map(r=>Number(r.ordem)||0))+1
+    ?Math.max(
+      ...photoRecords.map(r=>Number(r.ordem)||0)
+    )+1
     :1;
 
   try{
     for(const file of files){
+
       if(photoRecords.length+ok>=30){
-        errors.push(file.name+': limite de 30 fotos por imóvel');
+        errors.push(
+          file.name+': limite de 30 fotos'
+        );
         continue;
       }
 
-      if(!['image/jpeg','image/png','image/webp'].includes(file.type)){
-        errors.push(file.name+': formato não permitido');
+      if(![
+        'image/jpeg',
+        'image/png',
+        'image/webp'
+      ].includes(file.type)){
+        errors.push(
+          file.name+': formato inválido'
+        );
         continue;
       }
 
       if(file.size>10*1024*1024){
-        errors.push(file.name+': excede 10 MB');
+        errors.push(
+          file.name+': arquivo maior que 10 MB'
+        );
         continue;
       }
 
-      const uid=crypto.randomUUID();
-      const publicPath=String(editing)+'/'+uid+'-portal.jpg';
+      const path=String(editing)+'/'+
+        crypto.randomUUID()+'-portal.jpg';
 
       $('photoStatus').textContent=
         'Aplicando marca-d’água em '+file.name+'...';
@@ -1948,57 +2130,69 @@ $('uploadPhotos').onclick=async()=>{
       let marked;
 
       try{
-        marked=await gerarFotoComMarca(file);
-      }catch(error){
-        errors.push(file.name+': '+error.message);
+        marked=await markPhoto(file);
+
+      }catch(e){
+        errors.push(
+          file.name+': '+e.message
+        );
         continue;
       }
 
       $('photoStatus').textContent=
         'Enviando '+file.name+'...';
 
-      let uploadError;
+      let error;
 
       try{
-        ({error:uploadError}=await supabase.storage
+        ({error}=await supabase.storage
           .from(bucket)
-          .upload(publicPath,marked,{
+          .upload(path,marked,{
             contentType:'image/jpeg',
             upsert:false
           }));
-      }catch(error){
-        uploadError=error;
+
+      }catch(e){
+        error=e;
       }
 
-      if(uploadError){
-        errors.push(file.name+': '+uploadError.message);
+      if(error){
+        errors.push(
+          file.name+': '+error.message
+        );
         continue;
       }
 
-      const ordemEnvio=Math.min(
+      const ordem=Math.min(
         30,
-        Math.max(1,Math.trunc(Number(nextOrder)||1))
+        Math.max(
+          1,
+          Math.trunc(Number(nextOrder)||1)
+        )
       );
 
-      const {error:dbError}=await supabase
+      const db=await supabase
         .from('imovel_fotos')
         .insert({
           imovel_id:String(editing),
-          caminho:publicPath,
-          ordem:ordemEnvio
+          caminho:path,
+          ordem
         });
 
-      if(dbError){
+      if(db.error){
         await supabase.storage
           .from(bucket)
-          .remove([publicPath]);
+          .remove([path]);
 
-        errors.push(file.name+': '+dbError.message);
+        errors.push(
+          file.name+': '+db.error.message
+        );
+
         continue;
       }
 
       ok++;
-      nextOrder=ordemEnvio+1;
+      nextOrder=ordem+1;
     }
 
   }finally{
@@ -2008,8 +2202,12 @@ $('uploadPhotos').onclick=async()=>{
   }
 
   $('photoStatus').textContent=
-    ok+' fotografia(s) enviada(s) com a nova marca-d’água.'+
-    (errors.length?' Falhas: '+errors.join(' | '):'');
+    ok+' fotografia(s) enviada(s). '+
+    (
+      errors.length
+        ?'Falhas: '+errors.join(' | ')
+        :'Agora você pode abrir ou publicar o anúncio no botão abaixo.'
+    );
 };
 
 /* INICIALIZAÇÃO */
