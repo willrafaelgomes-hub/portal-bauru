@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -8,2214 +7,521 @@
 <title>Portal Bauru Imóveis | Administração</title>
 <style>
 :root{font-family:Arial,Helvetica,sans-serif;color:#14253D;background:#F6F1EA}
-*{box-sizing:border-box}
-body{margin:0}
-a{color:inherit}
+*{box-sizing:border-box}body{margin:0}a{color:inherit}
 header{background:#14253D;color:#fff;padding:19px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px}
-header strong{font-size:21px}
-header small{color:#D6BC7A}
+header strong{font-size:21px}header small{color:#D6BC7A}
 main{max-width:1100px;margin:25px auto;padding:0 15px}
 .card{background:#fff;border-radius:16px;padding:23px;box-shadow:0 5px 28px #14253d12;margin-bottom:20px}
-h1{font-size:25px}
-h2{font-size:21px}
-h3{font-size:17px;margin:0 0 12px}
+h1{font-size:25px}h2{font-size:21px}h3{font-size:17px;margin:0 0 12px}
 input,select,textarea{width:100%;padding:12px;border:1px solid #D5D8DD;border-radius:9px;font:inherit;margin:7px 0 16px;background:#fff;color:#14253D;min-width:0}
-textarea{min-height:110px}
-input:focus,select:focus,textarea:focus{outline:2px solid #F85F08;outline-offset:1px}
+textarea{min-height:110px}input:focus,select:focus,textarea:focus{outline:2px solid #F85F08;outline-offset:1px}
 button,.button{border:0;border-radius:10px;background:#F85F08;color:white;padding:12px 18px;font-weight:700;cursor:pointer;font:inherit;text-decoration:none;display:inline-block;text-align:center}
-button.secondary{background:#14253D}
-button.ghost{background:#E9EDF2;color:#14253D}
-button:disabled{opacity:.55;cursor:wait}
-.row{display:flex;gap:12px;flex-wrap:wrap}
-.row>*{flex:1;min-width:170px}
-.hidden{display:none!important}
-.muted,.hint{color:#697386}
-.hint{font-size:13px;line-height:1.5}
-label{font-size:14px;font-weight:600}
-.error{color:#A12820}
-.success{color:#176D3B}
-#status{min-height:22px;font-size:14px}
+button.secondary{background:#14253D}button.ghost{background:#E9EDF2;color:#14253D}
+button:disabled{opacity:.55;cursor:wait}.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:170px}
+.hidden{display:none!important}.muted,.hint{color:#697386}.hint{font-size:13px;line-height:1.5}label{font-size:14px;font-weight:600}
+.error{color:#A12820}.success{color:#176D3B}#status{min-height:22px;font-size:14px}
 .section{border:1px solid #E2E6EA;border-radius:14px;padding:20px;margin:18px 0;background:#FAFBFD}
 .section-description{font-size:13px;color:#697386;line-height:1.5;margin:0 0 16px}
 .group-title{font-size:14px;font-weight:700;margin:15px 0 8px}
 .options{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:7px 14px;margin:8px 0 18px}
 .options label{display:flex;align-items:flex-start;gap:8px;font-weight:400;line-height:1.4;padding:4px 0}
-.options input{width:auto;margin:2px 0 0;flex-shrink:0}
-.check{display:flex;gap:8px;align-items:center;margin:12px 0}
-.check input{width:auto;margin:0}
-.cep-actions{display:flex;gap:10px;align-items:flex-start}
-.cep-actions input{flex:1}
-.cep-actions button{margin-top:7px;white-space:nowrap}
+.options input{width:auto;margin:2px 0 0;flex-shrink:0}.check{display:flex;gap:8px;align-items:center;margin:12px 0}.check input{width:auto;margin:0}
+.cep-actions{display:flex;gap:10px;align-items:flex-start}.cep-actions input{flex:1}.cep-actions button{margin-top:7px;white-space:nowrap}
 .address-feedback{min-height:18px;margin:0 0 12px;font-size:13px}
 .item{border-top:1px solid #EEE;padding:16px 0;display:flex;justify-content:space-between;gap:14px;align-items:center}
-.item-details{min-width:0;overflow-wrap:anywhere}
-.item-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.item-actions button{font-size:12px;padding:10px 12px}
-.search-info{font-size:13px;color:#697386;margin:0 0 8px}
-.copy-feedback{font-size:12px;color:#176D3B;margin-top:5px}
+.item-details{min-width:0;overflow-wrap:anywhere}.item-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.item-actions button{font-size:12px;padding:10px 12px}.search-info{font-size:13px;color:#697386;margin:0 0 8px}.copy-feedback{font-size:12px;color:#176D3B;margin-top:5px}
 .photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin:15px 0}
 .photo{border:1px solid #DDD;border-radius:12px;overflow:hidden;padding:8px;background:#FAFAFA}
 .photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:7px}
-.photo button{width:100%;font-size:12px;padding:9px 5px;margin-top:5px}
-.photo small{display:block;margin:5px 0}
+.photo button{width:100%;font-size:12px;padding:9px 5px;margin-top:5px}.photo small{display:block;margin:5px 0}
 .photo .drag-handle{touch-action:none;cursor:grab;background:#14253D;color:white;user-select:none}
-.photo.dragging{opacity:.45;outline:3px solid #F85F08}
-.photo.drop-target{outline:3px dashed #F85F08}
-.photos.busy{pointer-events:none;opacity:.65}
+.photo.dragging{opacity:.45;outline:3px solid #F85F08}.photo.drop-target{outline:3px dashed #F85F08}.photos.busy{pointer-events:none;opacity:.65}
 .uploadbar{border:1px dashed #B9C0C8;border-radius:12px;padding:15px;margin-top:12px}
 .notice{background:#FFF6ED;border-left:4px solid #F85F08;padding:13px;border-radius:8px;font-size:13px;line-height:1.5;margin:16px 0}
 .actions-bottom{display:flex;gap:10px;flex-wrap:wrap;position:sticky;bottom:0;background:#fff;padding:14px 0;border-top:1px solid #EEE;z-index:5}
 details.advanced{border:1px solid #E2E6EA;border-radius:14px;margin:14px 0;background:#FAFBFD;overflow:hidden}
-details.advanced summary{padding:17px 19px;cursor:pointer;font-weight:700}
-details.advanced[open] summary{border-bottom:1px solid #E2E6EA}
-.details-body{padding:18px}
+details.advanced summary{padding:17px 19px;cursor:pointer;font-weight:700}details.advanced[open] summary{border-bottom:1px solid #E2E6EA}.details-body{padding:18px}
 .watermark-info{background:#F1F5F8;border:1px solid #DCE5EA;border-radius:12px;padding:15px;margin:15px 0}
-.watermark-info p{font-size:13px;color:#556578;line-height:1.55}
-#watermarkPreview{display:block;width:min(100%,520px);height:auto;margin:12px auto;border-radius:10px;background:#E8E9EA}
+.watermark-info p{font-size:13px;color:#556578;line-height:1.55}#watermarkPreview{display:block;width:min(100%,520px);height:auto;margin:12px auto;border-radius:10px;background:#E8E9EA}
 .final-preview{border:1px solid #E1D6C7;background:#F6F1EA;border-radius:14px;padding:22px;margin:24px 0 4px}
-.final-preview h3{font-size:20px}
-.final-preview .button{margin:12px 0 4px}
-.final-preview p{line-height:1.5;font-size:14px}
-@media(max-width:550px){
-  .card{padding:16px}
-  .section{padding:15px}
-  .item{display:block}
-  .item-actions{justify-content:flex-start;margin-top:8px}
-  .cep-actions{flex-wrap:wrap}
-  .cep-actions button{margin-top:0}
-  .options{grid-template-columns:1fr 1fr}
-  header strong{font-size:18px}
-  .button{width:100%}
-}
-@media(max-width:380px){
-  .options{grid-template-columns:1fr}
-}
+.final-preview h3{font-size:20px}.final-preview .button{margin:12px 0 4px}.final-preview p{line-height:1.5;font-size:14px}
+@media(max-width:550px){.card{padding:16px}.section{padding:15px}.item{display:block}.item-actions{justify-content:flex-start;margin-top:8px}.cep-actions{flex-wrap:wrap}.cep-actions button{margin-top:0}.options{grid-template-columns:1fr 1fr}header strong{font-size:18px}.button{width:100%}}
+@media(max-width:380px){.options{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <strong>Portal Bauru Imóveis</strong>
-  <small>Administração de imóveis</small>
-</header>
+<header><strong>Portal Bauru Imóveis</strong><small>Administração de imóveis</small></header>
 <main>
-
 <section id="login" class="card">
-  <h1>Entrar no painel</h1>
-  <p class="muted">Acesso exclusivo aos administradores autorizados.</p>
-  <form id="loginForm">
-    <label>E-mail
-      <input id="email" type="email" autocomplete="username" required>
-    </label>
-    <label>Senha
-      <input id="password" type="password" autocomplete="current-password" required>
-    </label>
-    <button type="submit">Entrar</button>
-  </form>
+  <h1>Entrar no painel</h1><p class="muted">Acesso exclusivo aos administradores autorizados.</p>
+  <form id="loginForm"><label>E-mail<input id="email" type="email" autocomplete="username" required></label>
+  <label>Senha<input id="password" type="password" autocomplete="current-password" required></label>
+  <button type="submit">Entrar</button></form>
 </section>
-
 <section id="dashboard" class="hidden">
-  <div class="row" style="align-items:center">
-    <h1>Gerenciar imóveis</h1>
-    <div style="text-align:right">
-      <button id="logout" class="ghost">Sair</button>
-    </div>
-  </div>
-
-  <section class="card">
-    <div class="row">
-      <input id="search" placeholder="Buscar condomínio, bairro, código ou características" aria-label="Buscar imóveis">
-      <button id="new" type="button" style="flex:0 0 auto">+ Novo imóvel</button>
-    </div>
-    <p id="searchCount" class="search-info" role="status"></p>
-    <div id="items"></div>
-  </section>
-
+  <div class="row" style="align-items:center"><h1>Gerenciar imóveis</h1><div style="text-align:right"><button id="logout" class="ghost">Sair</button></div></div>
+  <section class="card"><div class="row"><input id="search" placeholder="Buscar condomínio, bairro, código ou características" aria-label="Buscar imóveis"><button id="new" type="button" style="flex:0 0 auto">+ Novo imóvel</button></div>
+  <label>Filtrar anúncios<select id="filtroV2"><option value="">Todos</option><option value="ativos">Ativos</option><option value="inativos">Desativados</option><option value="destaques">Destacados</option><option value="vendidos">Vendidos</option></select></label><p id="searchCount" class="search-info" role="status"></p><div id="items"></div></section>
   <section id="editor" class="card hidden">
     <h2 id="editorTitle">Novo imóvel</h2>
-    <p class="hint">
-      Siga a sequência: endereço, características, valores,
-      descrição, fotografias e visualização do anúncio.
-    </p>
-
+    <p class="hint">Siga a sequência: endereço, características, valores, descrição, fotografias e visualização do anúncio.</p>
     <form id="propertyForm">
-
       <section class="section">
         <h3>1. Endereço e localização</h3>
         <label for="cep">CEP</label>
-        <div class="cep-actions">
-          <input id="cep" inputmode="numeric" maxlength="9"
-                 placeholder="00000-000" autocomplete="postal-code">
-          <button id="buscarCep" type="button" class="secondary">Buscar CEP</button>
-        </div>
+        <div class="cep-actions"><input id="cep" inputmode="numeric" maxlength="9" placeholder="00000-000" autocomplete="postal-code"><button id="buscarCep" type="button" class="secondary">Buscar CEP</button></div>
         <p id="cepStatus" class="address-feedback" role="status"></p>
-
-        <label>Logradouro
-          <input id="logradouro" autocomplete="address-line1">
-        </label>
-
-        <div class="row">
-          <label>Quadra e número
-            <input id="quadraNumero" placeholder="Ex.: quadra 12, nº 5">
-          </label>
-          <label>Complemento
-            <input id="complemento" placeholder="Bloco, apartamento, lote...">
-          </label>
-        </div>
-
-        <div class="row">
-          <label>Bairro
-            <input id="bairro">
-          </label>
-          <label>Cidade
-            <input id="cidade" value="Bauru" autocomplete="address-level2">
-          </label>
-          <label>Estado (UF)
-            <input id="estado" value="SP" maxlength="2" autocomplete="address-level1">
-          </label>
-        </div>
+        <label>Logradouro<input id="logradouro" autocomplete="address-line1"></label>
+        <div class="row"><label>Quadra e número<input id="quadraNumero" placeholder="Ex.: quadra 12, nº 5"></label><label>Complemento<input id="complemento" placeholder="Bloco, apartamento, lote..."></label></div>
+        <div class="row"><label>Bairro<input id="bairro"></label><label>Cidade<input id="cidade" value="Bauru" autocomplete="address-level2"></label><label>Estado (UF)<input id="estado" value="SP" maxlength="2" autocomplete="address-level1"></label></div>
       </section>
-
       <section class="section">
         <h3>2. Identificação do imóvel</h3>
-        <div class="row">
-          <label>Código
-            <input id="codigo" placeholder="Ex.: BAU-001">
-          </label>
-          <label>Título
-            <input id="titulo" placeholder="Ex.: Apartamento com 2 dormitórios" required>
-          </label>
-        </div>
-        <div class="row">
-          <label>Finalidade
-            <select id="finalidade">
-              <option value="venda">Venda</option>
-              <option value="locacao">Locação</option>
-            </select>
-          </label>
-          <label>Tipo de imóvel
-            <select id="tipo">
-              <option value="apartamento">Apartamento</option>
-              <option value="casa">Casa</option>
-              <option value="sobrado">Sobrado</option>
-              <option value="terreno">Terreno</option>
-              <option value="chacara">Chácara</option>
-              <option value="comercial">Comercial</option>
-              <option value="outro">Outro</option>
-            </select>
-          </label>
-        </div>
-        <label>Empreendimento / Condomínio
-          <input id="empreendimento">
-        </label>
+        <div class="row"><label>Código<input id="codigo" placeholder="Ex.: BAU-001"></label><input id="titulo" type="hidden"></div>
+        <div class="row"><label>Finalidade<select id="finalidade"><option value="venda">Venda</option><option value="locacao">Locação</option></select></label>
+        <label>Tipo de imóvel<select id="tipo"><option value="apartamento">Apartamento</option><option value="casa">Casa</option><option value="sobrado">Sobrado</option><option value="terreno">Terreno</option><option value="chacara">Chácara</option><option value="comercial">Comercial</option><option value="outro">Outro</option></select></label></div>
+        <label>Empreendimento / Condomínio<input id="empreendimento" list="condominiosV2"></label><datalist id="condominiosV2"></datalist><button type="button" id="aplicarCondominioV2" class="ghost">Preencher dados do residencial</button><label class="check"><input type="checkbox" id="guardarCondominioV2" checked>Guardar informações do residencial</label>
       </section>
-
       <section class="section">
         <h3>3. Características principais</h3>
         <div class="row">
-          <label data-types="apartamento casa sobrado chacara comercial outro">
-            Área privativa (m²)
-            <input id="area_privativa" type="number" min="0" step="0.01">
-          </label>
-          <label>Área total (m²)
-            <input id="area_total" type="number" min="0" step="0.01">
-          </label>
-          <label data-types="casa sobrado terreno chacara comercial outro">
-            Área do terreno (m²)
-            <input id="area_terreno" type="number" min="0" step="0.01">
-          </label>
-          <label data-types="casa sobrado chacara comercial outro">
-            Área construída (m²)
-            <input id="area_construida" type="number" min="0" step="0.01">
-          </label>
+          <label data-types="apartamento casa sobrado chacara comercial outro">Área privativa (m²)<input id="area_privativa" type="number" min="0" step="0.01"></label>
+          <label>Área total (m²)<input id="area_total" type="number" min="0" step="0.01"></label>
+          <label data-types="casa sobrado terreno chacara comercial outro">Área do terreno (m²)<input id="area_terreno" type="number" min="0" step="0.01"></label>
+          <label data-types="casa sobrado chacara comercial outro">Área construída (m²)<input id="area_construida" type="number" min="0" step="0.01"></label>
         </div>
         <div class="row" data-types="apartamento casa sobrado chacara comercial outro">
-          <label>Quartos
-            <input id="quartos" type="number" min="0" step="1">
-          </label>
-          <label>Suítes
-            <input id="suites" type="number" min="0" step="1">
-          </label>
-          <label>Banheiros
-            <input id="banheiros" type="number" min="0" step="1">
-          </label>
-          <label>Vagas
-            <input id="vagas" type="number" min="0" step="1">
-          </label>
+          <label>Quartos<input id="quartos" type="number" min="0" step="1"></label><label>Suítes<input id="suites" type="number" min="0" step="1"></label>
+          <label>Banheiros<input id="banheiros" type="number" min="0" step="1"></label><label>Vagas<input id="vagas" type="number" min="0" step="1"></label>
         </div>
-        <div class="row" data-types="apartamento">
-          <label>Andar
-            <input id="andar" placeholder="Ex.: 12 ou térreo">
-          </label>
-          <label>Bloco / Torre
-            <input data-detail="bloco_torre">
-          </label>
-        </div>
+        <div class="row" data-types="apartamento"><label>Andar<input id="andar" placeholder="Ex.: 12 ou térreo"></label><label>Bloco / Torre<input data-detail="bloco_torre"></label></div>
         <div data-group="apartamento_posicao" data-types="apartamento"></div>
         <div data-group="casa_construcao" data-types="casa sobrado chacara"></div>
-        <div data-group="vagas_caracteristicas"
-             data-types="apartamento casa sobrado chacara comercial outro"></div>
+        <div data-group="vagas_caracteristicas" data-types="apartamento casa sobrado chacara comercial outro"></div>
       </section>
-
       <section class="section" data-types="apartamento casa sobrado chacara comercial outro">
-        <h3>4. Diferenciais do imóvel</h3>
-        <p class="section-description">Marque apenas as características confirmadas.</p>
-        <div data-group="planejados"></div>
-        <div data-group="varanda_tipo"
-             data-types="apartamento casa sobrado chacara"></div>
-        <div data-group="vista"></div>
-        <div data-group="climatizacao"></div>
-        <div data-group="acabamentos"></div>
-        <div data-group="area_externa" data-types="casa sobrado chacara"></div>
-        <div data-group="estado_conservacao"></div>
+        <h3>4. Diferenciais do imóvel</h3><p class="section-description">Marque apenas as características confirmadas.</p>
+        <div data-group="planejados"></div><div data-group="varanda_tipo" data-types="apartamento casa sobrado chacara"></div>
+        <div data-group="vista"></div><div data-group="climatizacao"></div><div data-group="acabamentos"></div>
+        <div data-group="area_externa" data-types="casa sobrado chacara"></div><div data-group="estado_conservacao"></div>
       </section>
-
       <section class="section" data-types="apartamento casa sobrado chacara terreno comercial outro">
-        <h3>5. Condomínio e lazer</h3>
-        <p class="section-description">Preencha conforme o imóvel e o condomínio.</p>
-        <div data-group="condominio_seguranca"></div>
-        <div data-group="condominio_lazer"></div>
-        <div data-group="condominio_servicos"></div>
+        <h3>5. Condomínio e lazer</h3><p class="section-description">Preencha conforme o imóvel e o condomínio.</p>
+        <div data-group="condominio_seguranca"></div><div data-group="condominio_lazer"></div><div data-group="condominio_servicos"></div>
       </section>
-
       <section class="section" data-types="terreno">
-        <h3>6. Informações do terreno</h3>
-        <div data-group="topografia"></div>
-        <div data-group="terreno_caracteristicas"></div>
-        <div data-group="infraestrutura_terreno"></div>
+        <h3>6. Informações do terreno</h3><div data-group="topografia"></div><div data-group="terreno_caracteristicas"></div><div data-group="infraestrutura_terreno"></div>
       </section>
-
       <section class="section">
-        <h3>7. Valores</h3>
-        <p class="section-description">
-          Digite o valor normalmente. Ex.: 320000 será apresentado como 320.000,00.
-        </p>
-        <div class="row">
-          <label>Preço do imóvel (R$)
-            <input id="preco" type="text" inputmode="decimal"
-                   placeholder="Ex.: 320.000,00" autocomplete="off">
-          </label>
-          <label>Condomínio mensal (R$)
-            <input id="condominio" type="text" inputmode="decimal"
-                   placeholder="Ex.: 450,00" autocomplete="off">
-          </label>
-          <label>IPTU (R$)
-            <input id="iptu" type="text" inputmode="decimal"
-                   placeholder="Ex.: 1.200,00" autocomplete="off">
-          </label>
-        </div>
-        <details class="advanced">
-          <summary>Preço anterior e outros custos (opcional)</summary>
-          <div class="details-body">
-            <label>Preço anterior (R$)
-              <input id="preco_anterior" type="text"
-                     inputmode="decimal" placeholder="Ex.: 350.000,00"
-                     autocomplete="off">
-            </label>
-            <label>Periodicidade do IPTU
-              <select data-detail="iptu_periodicidade">
-                <option value="">Não informado</option>
-                <option value="anual">Anual</option>
-                <option value="mensal">Mensal</option>
-              </select>
-            </label>
-          </div>
-        </details>
+        <h3>7. Valores</h3><p class="section-description">Digite o valor normalmente. Ex.: 320000 será apresentado como 320.000,00.</p>
+        <div class="row"><label>Preço do imóvel (R$)<input id="preco" type="text" inputmode="decimal" placeholder="Ex.: 320.000,00" autocomplete="off"></label>
+        <label>Condomínio mensal (R$)<input id="condominio" type="text" inputmode="decimal" placeholder="Ex.: 450,00" autocomplete="off"></label>
+        <label>IPTU (R$)<input id="iptu" type="text" inputmode="decimal" placeholder="Ex.: 1.200,00" autocomplete="off"></label></div>
+        <details class="advanced"><summary>Preço anterior e outros custos (opcional)</summary><div class="details-body">
+          <label>Preço anterior (R$)<input id="preco_anterior" type="text" inputmode="decimal" placeholder="Ex.: 350.000,00" autocomplete="off"></label>
+          <label>Periodicidade do IPTU<select data-detail="iptu_periodicidade"><option value="">Não informado</option><option value="anual">Anual</option><option value="mensal">Mensal</option></select></label>
+        </div></details>
       </section>
-
-      <details class="advanced">
-        <summary>Informações adicionais (opcional)</summary>
-        <div class="details-body">
-          <label>Área do quintal (m²)
-            <input id="area_quintal" type="number" min="0" step="0.01">
-          </label>
-          <label>Tipo de piso (campo antigo)
-            <input id="piso">
-          </label>
-          <label>Pontos de referência
-            <textarea data-detail="referencias_localizacao"></textarea>
-          </label>
-          <label>Observações sobre condomínio
-            <textarea data-detail="condominio_observacoes"></textarea>
-          </label>
-          <label>Observações sobre vista
-            <textarea data-detail="vista_observacoes"></textarea>
-          </label>
-        </div>
-      </details>
-
+      <details class="advanced"><summary>Informações adicionais (opcional)</summary><div class="details-body">
+        <label>Área do quintal (m²)<input id="area_quintal" type="number" min="0" step="0.01"></label>
+        <label>Tipo de piso (campo antigo)<input id="piso"></label>
+        <label>Pontos de referência<textarea data-detail="referencias_localizacao"></textarea></label>
+        <label>Observações sobre condomínio<textarea data-detail="condominio_observacoes"></textarea></label>
+        <label>Observações sobre vista<textarea data-detail="vista_observacoes"></textarea></label>
+      </div></details>
       <section class="section">
         <h3>8. Condições de negociação</h3>
-        <div class="row">
-          <label>Financiamento bancário
-            <select id="financiamento_status">
-              <option value="">Não informado</option>
-              <option value="sim">Aceita financiamento</option>
-              <option value="nao">Não aceita financiamento</option>
-              <option value="analise">A confirmar / sujeito à análise</option>
-            </select>
-          </label>
-          <label>Uso de FGTS
-            <select id="fgts_status">
-              <option value="">Não informado</option>
-              <option value="sim">Aceita FGTS</option>
-              <option value="nao">Não aceita FGTS</option>
-              <option value="analise">A confirmar / sujeito à análise</option>
-            </select>
-          </label>
-        </div>
-        <div data-group="permuta_status"></div>
-        <div data-group="ocupacao"></div>
+        <div class="row"><label>Financiamento bancário<select id="financiamento_status"><option value="">Não informado</option><option value="sim">Aceita financiamento</option><option value="nao">Não aceita financiamento</option><option value="analise">A confirmar / sujeito à análise</option></select></label>
+        <label>Uso de FGTS<select id="fgts_status"><option value="">Não informado</option><option value="sim">Aceita FGTS</option><option value="nao">Não aceita FGTS</option><option value="analise">A confirmar / sujeito à análise</option></select></label></div>
+        <div data-group="permuta_status"></div><div data-group="ocupacao"></div>
       </section>
-
       <section class="section">
         <h3>9. Descrição e apresentação</h3>
-        <label>Descrição do imóvel
-          <textarea id="descricao"
-                    placeholder="Apresente o imóvel de forma clara e comercial."></textarea>
-        </label>
-        <label>Outros diferenciais
-          <textarea id="diferenciais"
-                    placeholder="Ex.: localização, acabamentos, quintal..."></textarea>
-        </label>
+        <label>Título e descrição do anúncio<textarea id="anuncioCompleto" rows="9" required placeholder="Primeira linha: título. Linhas seguintes: descrição."></textarea></label><textarea id="descricao" hidden style="display:none"></textarea>
+        <label>Outros diferenciais<textarea id="diferenciais" placeholder="Ex.: localização, acabamentos, quintal..."></textarea></label>
       </section>
-
       <section class="section">
         <h3>10. Situação e publicação</h3>
-        <div class="row">
-          <label>Situação
-            <select id="situacao">
-              <option value="disponivel">Disponível</option>
-              <option value="reservado">Reservado</option>
-              <option value="vendido">Vendido</option>
-              <option value="alugado">Alugado</option>
-            </select>
-          </label>
-          <label>Selo comercial
-            <select id="selo">
-              <option value="nenhum">Sem selo</option>
-              <option value="destaque">Destaque</option>
-              <option value="exclusivo">Exclusivo</option>
-              <option value="novidade">Novidade</option>
-            </select>
-          </label>
-        </div>
-        <label class="check">
-          <input id="destaque" type="checkbox">
-          Exibir na página inicial
-        </label>
-        <label class="check">
-          <input id="publicado" type="checkbox">
-          Publicar anúncio no site
-        </label>
-        <details class="advanced">
-          <summary>Confirmação de disponibilidade (opcional)</summary>
-          <div class="details-body">
-            <label>Última confirmação
-              <input id="disponibilidade_confirmada_em" type="date">
-            </label>
-          </div>
-        </details>
-        <div class="notice">
-          Se preferir, deixe como rascunho, envie as fotos e clique em
-          <strong>Publicar anúncio</strong> na última etapa.
-          Informações confidenciais e contatos de proprietários não devem
-          aparecer nos campos públicos.
-        </div>
+        <div class="row"><label>Situação<select id="situacao"><option value="disponivel">Disponível</option><option value="reservado">Reservado</option><option value="vendido">Vendido</option><option value="alugado">Alugado</option></select></label>
+        <label>Selo comercial<select id="selo"><option value="nenhum">Sem selo</option><option value="destaque">Destaque</option><option value="exclusivo">Exclusivo</option><option value="novidade">Novidade</option></select></label></div>
+        <label class="check"><input id="destaque" type="checkbox">Exibir na página inicial</label>
+        <label class="check"><input id="publicado" type="checkbox">Publicar anúncio no site</label>
+        <details class="advanced"><summary>Confirmação de disponibilidade (opcional)</summary><div class="details-body"><label>Última confirmação<input id="disponibilidade_confirmada_em" type="date"></label></div></details>
+        <div class="notice">Se preferir, deixe como rascunho, envie as fotos e clique em <strong>Publicar anúncio</strong> na última etapa. Informações confidenciais e contatos de proprietários não devem aparecer nos campos públicos.</div>
       </section>
 
-      <div class="actions-bottom">
-        <button id="saveProperty" type="submit">Salvar e ir para fotografias</button>
-        <button id="cancel" type="button" class="ghost">Cancelar</button>
-      </div>
+<section class="section"><h3>Informações complementares</h3><label>Link do YouTube (opcional)<input id="youtube_url" type="url" placeholder="https://youtu.be/..."></label><label>Mapa<select id="mapa_modo"><option value="oculto">Ocultar</option><option value="aproximado">Localização aproximada (a integrar)</option></select></label><label class="check"><input id="mostrar_empreendimento" type="checkbox" checked>Exibir nome do residencial (a integrar)</label><label class="check"><input id="mostrar_rua" type="checkbox">Exibir nome da rua (a integrar)</label><p class="hint">A visibilidade pública depende da atualização das páginas e permissões. Não inclua dados confidenciais na descrição.</p><details class="advanced"><summary>Dados privados do proprietário e negociação</summary><div class="details-body" id="privadosV2"></div></details></section>
     </form>
-
     <section id="photoSection" class="hidden">
-      <div class="section">
-        <h3>11. Fotografias do imóvel</h3>
-        <p class="hint">
-          Após salvar, envie as fotos reais em JPG, PNG ou WebP.
-          A primeira é a capa. A marca-d'água oficial será aplicada
-          automaticamente no centro; as fotos originais do celular
-          não serão alteradas.
-        </p>
-        <div class="watermark-info">
-          <strong>Marca-d'água — Portal Bauru Imóveis</strong>
+      <div class="section"><h3>11. Fotografias do imóvel</h3>
+        <p class="hint">Selecione e confira as fotos reais antes de salvar. Use em JPG, PNG ou WebP. A primeira é a capa. A marca-d'água oficial será aplicada automaticamente no centro; as fotos originais do celular não serão alteradas.</p>
+        <div class="watermark-info"><strong>Marca-d'água — Portal Bauru Imóveis</strong>
           <canvas id="watermarkPreview" width="900" height="430"></canvas>
-          <p>
-            Dois elos entrelaçados, uma única marca centralizada.
-            Prévia ilustrativa da posição da marca.
-          </p>
+          <p>Dois elos entrelaçados, uma única marca centralizada. Prévia ilustrativa da posição da marca.</p>
         </div>
-        <div class="uploadbar">
-          <label for="photoInput">Selecionar fotografias</label>
-          <input id="photoInput" type="file"
-                 accept="image/jpeg,image/png,image/webp" multiple>
-          <button id="uploadPhotos" type="button">Enviar fotografias</button>
-          <p id="photoStatus" class="hint" role="status"></p>
-        </div>
-        <div id="photoGrid" class="photos"></div>
+        <div class="uploadbar"><label for="photoInput">Selecionar fotografias</label>
+          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+          <button id="uploadPhotos" type="button">Salvar fotografias selecionadas</button><p id="photoStatus" class="hint" role="status"></p>
+        </div><div id="pendingGrid" class="photos"></div><div id="photoGrid" class="photos"></div>
       </div>
-
+      <div class="actions-bottom"><button id="saveProperty" type="submit" form="propertyForm">Salvar imóvel e fotografias</button><button id="cancel" type="button" class="ghost">Cancelar</button></div>
       <div class="final-preview" id="finalPreview">
         <h3>12. Ver anúncio publicado</h3>
-        <p id="previewInfo" role="status">
-          Depois de salvar e enviar as fotografias,
-          visualize o anúncio como o cliente verá.
-        </p>
-        <button id="publishNow" type="button" class="secondary hidden">
-          Publicar anúncio
-        </button>
-        <a id="viewPublished" class="button hidden" href="#"
-           target="_blank" rel="noopener noreferrer">
-          Ver anúncio publicado
-        </a>
+        <p id="previewInfo" role="status">Depois de salvar e enviar as fotografias, visualize o anúncio como o cliente verá.</p>
+        <button id="publishNow" type="button" class="secondary hidden">Publicar anúncio</button>
+        <a id="viewPublished" class="button hidden" href="#" target="_blank" rel="noopener noreferrer">Ver anúncio publicado</a>
       </div>
     </section>
-
   </section>
 </section>
-
 <p id="status" role="status"></p>
 </main>
-
 <script type="module">
-
 import {createClient} from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-const supabase=createClient(
-  'https://dtkszimtovtqdojjpqsy.supabase.co',
-  'sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi'
-);
-
+const supabase=createClient('https://dtkszimtovtqdojjpqsy.supabase.co','sb_publishable_sLtgD3fLRhSkrNWd_3M5Ww_a7q4gxJi');
 const $=id=>document.getElementById(id);
-
-const fields=[
-  'codigo','titulo','descricao','finalidade','tipo',
-  'empreendimento','preco','preco_anterior','condominio',
-  'iptu','bairro','area_privativa','area_terreno',
-  'area_total','area_construida','area_quintal','quartos',
-  'suites','banheiros','vagas','andar','piso','situacao',
-  'selo','destaque','publicado','cep','logradouro',
-  'complemento','cidade','estado','diferenciais',
-  'disponibilidade_confirmada_em'
-];
-
-const numberFields=[
-  'area_privativa','area_terreno','area_total',
-  'area_construida','area_quintal','quartos',
-  'suites','banheiros','vagas'
-];
-
+const fields=['codigo','titulo','descricao','finalidade','tipo','empreendimento','preco','preco_anterior','condominio','iptu','bairro','area_privativa','area_terreno','area_total','area_construida','area_quintal','quartos','suites','banheiros','vagas','andar','piso','situacao','selo','destaque','publicado','cep','logradouro','complemento','cidade','estado','diferenciais','disponibilidade_confirmada_em','youtube_url','mapa_modo','mostrar_empreendimento','mostrar_rua'];
+const numberFields=['area_privativa','area_terreno','area_total','area_construida','area_quintal','quartos','suites','banheiros','vagas'];
 const moneyFields=['preco','preco_anterior','condominio','iptu'];
-
 const groups={
-  apartamento_posicao:{
-    title:'Tipo de apartamento',
-    options:['Térreo','Térreo com quintal','Andar superior','Cobertura']
-  },
-  casa_construcao:{
-    title:'Tipo de construção',
-    options:['Térrea','Sobrado','Geminada','Isolada']
-  },
-  vagas_caracteristicas:{
-    title:'Garagem',
-    multi:true,
-    options:['Garagem','Garagem coberta','Garagem descoberta']
-  },
-  planejados:{
-    title:'Armários e móveis',
-    multi:true,
-    options:[
-      'Armários','Armários planejados','Cozinha planejada',
-      'Quartos com planejados','Banheiros com planejados','Mobiliado'
-    ]
-  },
-  varanda_tipo:{
-    title:'Varanda',
-    options:['Sem varanda','Varanda','Varanda gourmet']
-  },
-  vista:{
-    title:'Vista',
-    multi:true,
-    options:['Vista livre','Vista panorâmica','Vista para área verde']
-  },
-  climatizacao:{
-    title:'Climatização',
-    multi:true,
-    options:[
-      'Ar-condicionado instalado',
-      'Preparado para ar-condicionado',
-      'Ventilador de teto'
-    ]
-  },
-  acabamentos:{
-    title:'Acabamentos especiais',
-    multi:true,
-    options:[
-      'Pé-direito alto','Projeto de iluminação',
-      'Porcelanato','Piso laminado','Piso vinílico'
-    ]
-  },
-  area_externa:{
-    title:'Área externa privativa',
-    multi:true,
-    options:[
-      'Quintal','Quintal privativo','Área gourmet',
-      'Churrasqueira privativa','Piscina privativa','Jardim'
-    ]
-  },
-  estado_conservacao:{
-    title:'Conservação',
-    options:['Novo','Excelente','Bom','Reformado','Necessita reforma']
-  },
-  condominio_seguranca:{
-    title:'Portaria e segurança',
-    multi:true,
-    options:[
-      'Portaria 24 horas','Portaria remota',
-      'Controle de acesso','Câmeras de segurança'
-    ]
-  },
-  condominio_lazer:{
-    title:'Lazer',
-    multi:true,
-    options:[
-      'Piscina','Academia','Salão de festas','Churrasqueira',
-      'Quadra esportiva','Playground','Espaço gourmet','Coworking'
-    ]
-  },
-  condominio_servicos:{
-    title:'Estrutura e serviços',
-    multi:true,
-    options:[
-      'Elevador','Lavanderia compartilhada','Mini mercado',
-      'Acessibilidade','Vagas para visitantes'
-    ]
-  },
-  topografia:{
-    title:'Topografia',
-    options:['Plano','Aclive (subida)','Declive (descida)','Irregular / misto']
-  },
-  terreno_caracteristicas:{
-    title:'Terreno',
-    multi:true,
-    options:[
-      'Murado','Cercado','De esquina','Em condomínio',
-      'Pronto para construir (confirmado)'
-    ]
-  },
-  infraestrutura_terreno:{
-    title:'Infraestrutura',
-    multi:true,
-    options:[
-      'Rede de água','Rede de esgoto',
-      'Energia elétrica','Rua asfaltada'
-    ]
-  },
-  permuta_status:{
-    title:'Permuta',
-    options:['Não aceita','Aceita permuta','Estuda permuta / sob análise']
-  },
-  ocupacao:{
-    title:'Ocupação',
-    options:[
-      'Desocupado','Ocupado pelo proprietário',
-      'Alugado','Ocupado por terceiros'
-    ]
-  }
+ apartamento_posicao:{title:'Tipo de apartamento',options:['Térreo','Térreo com quintal','Andar superior','Cobertura']},
+ casa_construcao:{title:'Tipo de construção',options:['Térrea','Sobrado','Geminada','Isolada']},
+ vagas_caracteristicas:{title:'Garagem',multi:true,options:['Garagem','Garagem coberta','Garagem descoberta']},
+ planejados:{title:'Armários e móveis',multi:true,options:['Armários','Armários planejados','Cozinha planejada','Quartos com planejados','Banheiros com planejados','Mobiliado']},
+ varanda_tipo:{title:'Varanda',options:['Sem varanda','Varanda','Varanda gourmet']},
+ vista:{title:'Vista',multi:true,options:['Vista livre','Vista panorâmica','Vista para área verde']},
+ climatizacao:{title:'Climatização',multi:true,options:['Ar-condicionado instalado','Preparado para ar-condicionado','Ventilador de teto']},
+ acabamentos:{title:'Acabamentos especiais',multi:true,options:['Pé-direito alto','Projeto de iluminação','Porcelanato','Piso laminado','Piso vinílico']},
+ area_externa:{title:'Área externa privativa',multi:true,options:['Quintal','Quintal privativo','Área gourmet','Churrasqueira privativa','Piscina privativa','Jardim']},
+ estado_conservacao:{title:'Conservação',options:['Novo','Excelente','Bom','Reformado','Necessita reforma']},
+ condominio_seguranca:{title:'Portaria e segurança',multi:true,options:['Portaria 24 horas','Portaria remota','Controle de acesso','Câmeras de segurança']},
+ condominio_lazer:{title:'Lazer',multi:true,options:['Piscina','Academia','Salão de festas','Churrasqueira','Quadra esportiva','Playground','Espaço gourmet','Coworking']},
+ condominio_servicos:{title:'Estrutura e serviços',multi:true,options:['Elevador','Lavanderia compartilhada','Mini mercado','Acessibilidade','Vagas para visitantes']},
+ topografia:{title:'Topografia',options:['Plano','Aclive (subida)','Declive (descida)','Irregular / misto']},
+ terreno_caracteristicas:{title:'Terreno',multi:true,options:['Murado','Cercado','De esquina','Em condomínio','Pronto para construir (confirmado)']},
+ infraestrutura_terreno:{title:'Infraestrutura',multi:true,options:['Rede de água','Rede de esgoto','Energia elétrica','Rua asfaltada']},
+ permuta_status:{title:'Permuta',options:['Não aceita','Aceita permuta','Estuda permuta / sob análise']},
+ ocupacao:{title:'Ocupação',options:['Desocupado','Ocupado pelo proprietário','Alugado','Ocupado por terceiros']}
 };
-
-const legacy={
-  planejados:[
-    'Cozinha planejada',
-    'Quarto(s) com planejados',
-    'Banheiro(s) com planejados'
-  ],
-  climatizacao:['Infraestrutura para ar-condicionado'],
-  condominio_seguranca:['Portaria virtual'],
-  apartamento_posicao:[
-    'Térreo comum',
-    'Térreo garden (quintal privativo)'
-  ],
-  acabamentos:['Projeto luminotécnico']
-};
-
-let records=[];
-let editing=null;
-let currentProperty=null;
-let currentDetails={};
-let photoRecords=[];
-let orderBusy=false;
-let cepRequest=0;
-let originalAddress={quadra:null,numero:null};
-
-const inform=(msg,bad=false)=>{
-  $('status').textContent=msg;
-  $('status').className=bad?'error':'success';
-};
-
-const normalized=v=>String(v??'')
-  .normalize('NFD')
-  .replace(/[\u0300-\u036f]/g,'')
-  .toLocaleLowerCase('pt-BR');
-
-const propertyLink=(id,broker)=>{
-  const u=new URL('imovel.html',location.href);
-  u.searchParams.set('id',id);
-  u.searchParams.set('ref',broker);
-  return u.href;
-};
-
-/* FORMATAÇÃO DE VALORES EM REAIS */
-
+const legacy={planejados:['Cozinha planejada','Quarto(s) com planejados','Banheiro(s) com planejados'],climatizacao:['Infraestrutura para ar-condicionado'],condominio_seguranca:['Portaria virtual'],apartamento_posicao:['Térreo comum','Térreo garden (quintal privativo)'],acabamentos:['Projeto luminotécnico']};
+let records=[],editing=null,currentProperty=null,currentDetails={},photoRecords=[],orderBusy=false,cepRequest=0,originalAddress={quadra:null,numero:null};
+const inform=(msg,bad=false)=>{$('status').textContent=msg;$('status').className=bad?'error':'success'};
+const normalized=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');
+const propertyLink=(id,broker)=>{const u=new URL('imovel.html',location.href);u.searchParams.set('id',id);u.searchParams.set('ref',broker);return u.href};
 function moneyInput(value){
-  const v=String(value??'').replace(/[^\d,]/g,'');
-  const comma=v.indexOf(',');
-  const part=(comma<0?v:v.slice(0,comma))
-    .replace(/^0+(?=\d)/,'')||'0';
-  const first=part.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
-
-  return v
-    ?first+(comma>=0
-      ?','+v.slice(comma+1).replace(/\D/g,'').slice(0,2)
-      :'')
-    :'';
+ const v=String(value??'').replace(/[^\d,]/g,''),comma=v.indexOf(',');
+ const part=(comma<0?v:v.slice(0,comma)).replace(/^0+(?=\d)/,'')||'0';
+ const first=part.replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+ return v?first+(comma>=0?','+v.slice(comma+1).replace(/\D/g,'').slice(0,2):''):'';
 }
-
 function moneyNumber(value){
-  const v=String(value??'').trim();
-
-  if(!v)return null;
-
-  const n=Number(
-    v.replace(/[^\d,.-]/g,'')
-     .replace(/\./g,'')
-     .replace(',','.')
-  );
-
-  return Number.isFinite(n)&&n>=0?n:null;
+ const v=String(value??'').trim();if(!v)return null;
+ const n=Number(v.replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.'));
+ return Number.isFinite(n)&&n>=0?n:null;
 }
-
 function moneyDisplay(value){
-  const n=Number(value);
-
-  return Number.isFinite(n)
-    ?new Intl.NumberFormat('pt-BR',{
-      minimumFractionDigits:2,
-      maximumFractionDigits:2
-    }).format(n)
-    :'';
+ const n=Number(value);return Number.isFinite(n)?new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n):'';
 }
-
 for(const id of moneyFields){
-  const el=$(id);
-
-  el.addEventListener('input',()=>{
-    const old=el.value;
-    const caret=el.selectionStart??old.length;
-    const semantic=old.slice(0,caret)
-      .replace(/[^\d,]/g,'').length;
-
-    const formatted=moneyInput(old);
-    el.value=formatted;
-
-    let p=0,n=0;
-
-    while(p<formatted.length&&n<semantic){
-      if(/[\d,]/.test(formatted[p]))n++;
-      p++;
-    }
-
-    el.setSelectionRange(p,p);
-  });
-
-  el.addEventListener('blur',()=>{
-    const n=moneyNumber(el.value);
-    el.value=n===null?'':moneyDisplay(n);
-  });
+ const el=$(id);
+ el.addEventListener('input',()=>{
+   const old=el.value,caret=el.selectionStart??old.length,semantic=old.slice(0,caret).replace(/[^\d,]/g,'').length;
+   const formatted=moneyInput(old);el.value=formatted;
+   let p=0,n=0;while(p<formatted.length&&n<semantic){if(/[\d,]/.test(formatted[p]))n++;p++}
+   el.setSelectionRange(p,p);
+ });
+ el.addEventListener('blur',()=>{const n=moneyNumber(el.value);el.value=n===null?'':moneyDisplay(n)});
 }
-
-/* OPÇÕES DO CADASTRO */
-
 function buildGroups(){
-  for(const [key,def] of Object.entries(groups)){
-    const root=document.querySelector(
-      '[data-group="'+key+'"]'
-    );
-
-    if(!root)continue;
-
-    const title=document.createElement('h4');
-    title.className='group-title';
-    title.textContent=def.title;
-    root.append(title);
-
-    if(def.multi){
-      const wrap=document.createElement('div');
-      wrap.className='options';
-
-      for(const option of def.options){
-        const label=document.createElement('label');
-        const input=document.createElement('input');
-
-        input.type='checkbox';
-        input.value=option;
-
-        label.append(
-          input,
-          document.createTextNode(option)
-        );
-
-        wrap.append(label);
-      }
-
-      root.append(wrap);
-
-    }else{
-      const select=document.createElement('select');
-      select.innerHTML='<option value="">Não informado</option>';
-
-      for(const option of def.options){
-        const el=document.createElement('option');
-        el.value=option;
-        el.textContent=option;
-        select.append(el);
-      }
-
-      root.append(select);
-    }
-  }
+ for(const [key,def] of Object.entries(groups)){
+   const root=document.querySelector('[data-group="'+key+'"]');if(!root)continue;
+   const title=document.createElement('h4');title.className='group-title';title.textContent=def.title;root.append(title);
+   if(def.multi){
+     const wrap=document.createElement('div');wrap.className='options';
+     for(const option of def.options){const label=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.value=option;label.append(input,document.createTextNode(option));wrap.append(label)}
+     root.append(wrap);
+   }else{
+     const select=document.createElement('select');select.innerHTML='<option value="">Não informado</option>';
+     for(const option of def.options){const el=document.createElement('option');el.value=option;el.textContent=option;select.append(el)}root.append(select);
+   }
+ }
 }
-
-function updateType(){
-  const t=$('tipo').value;
-
-  document.querySelectorAll('[data-types]').forEach(el=>{
-    el.classList.toggle(
-      'hidden',
-      !el.dataset.types.split(/\s+/).includes(t)
-    );
-  });
-}
-
+function updateType(){const t=$('tipo').value;document.querySelectorAll('[data-types]').forEach(el=>el.classList.toggle('hidden',!el.dataset.types.split(/\s+/).includes(t)))}
 function fillDetails(d){
-  document.querySelectorAll('[data-detail]').forEach(el=>{
-    el.value=d[el.dataset.detail]??'';
-  });
-
-  for(const [key,def] of Object.entries(groups)){
-    const root=document.querySelector(
-      '[data-group="'+key+'"]'
-    );
-
-    if(!root)continue;
-
-    if(def.multi){
-      const arr=Array.isArray(d[key])?d[key]:[];
-
-      const synonyms={
-        'Armários planejados':[
-          'Quarto(s) com planejados',
-          'Banheiro(s) com planejados'
-        ],
-        'Preparado para ar-condicionado':[
-          'Infraestrutura para ar-condicionado'
-        ],
-        'Portaria remota':['Portaria virtual'],
-        'Projeto de iluminação':['Projeto luminotécnico']
-      };
-
-      root.querySelectorAll('input[type=checkbox]')
-        .forEach(el=>{
-          el.checked=arr.includes(el.value)||
-            (synonyms[el.value]||[])
-              .some(v=>arr.includes(v));
-        });
-
-    }else{
-      const synonyms={
-        'Térreo comum':'Térreo',
-        'Térreo garden (quintal privativo)':'Térreo com quintal',
-        'Sacada':'Varanda'
-      };
-
-      const value=synonyms[d[key]]||d[key]||'';
-      const select=root.querySelector('select');
-
-      select.value=[...select.options]
-        .some(x=>x.value===value)?value:'';
-    }
-  }
+ document.querySelectorAll('[data-detail]').forEach(el=>{el.value=d[el.dataset.detail]??''});
+ for(const [key,def] of Object.entries(groups)){
+   const root=document.querySelector('[data-group="'+key+'"]');if(!root)continue;
+   if(def.multi){
+     const arr=Array.isArray(d[key])?d[key]:[];
+     const synonyms={'Armários planejados':['Quarto(s) com planejados','Banheiro(s) com planejados'],'Preparado para ar-condicionado':['Infraestrutura para ar-condicionado'],'Portaria remota':['Portaria virtual'],'Projeto de iluminação':['Projeto luminotécnico']};
+     root.querySelectorAll('input[type=checkbox]').forEach(el=>el.checked=arr.includes(el.value)||(synonyms[el.value]||[]).some(v=>arr.includes(v)));
+   }else{
+     const synonyms={'Térreo comum':'Térreo','Térreo garden (quintal privativo)':'Térreo com quintal','Sacada':'Varanda'};
+     const value=synonyms[d[key]]||d[key]||'',select=root.querySelector('select');
+     select.value=[...select.options].some(x=>x.value===value)?value:'';
+   }
+ }
 }
-
 function readDetails(){
-  const result={...currentDetails};
-
-  document.querySelectorAll('[data-detail]').forEach(el=>{
-    if(el.closest('.hidden'))return;
-
-    const key=el.dataset.detail;
-    const value=el.value.trim();
-
-    if(value)result[key]=value;
-    else delete result[key];
-  });
-
-  for(const [key,def] of Object.entries(groups)){
-    const root=document.querySelector(
-      '[data-group="'+key+'"]'
-    );
-
-    if(!root||root.closest('.hidden'))continue;
-
-    if(def.multi){
-      const selected=[
-        ...root.querySelectorAll(
-          'input[type=checkbox]:checked'
-        )
-      ].map(x=>x.value);
-
-      const old=Array.isArray(currentDetails[key])
-        ?currentDetails[key]:[];
-
-      const kept=old.filter(
-        v=>!def.options.includes(v)&&
-          !(legacy[key]||[]).includes(v)
-      );
-
-      const values=[...new Set([...kept,...selected])];
-
-      if(values.length)result[key]=values;
-      else delete result[key];
-
-    }else{
-      const value=root.querySelector('select')?.value||'';
-
-      if(value)result[key]=value;
-      else if(
-        !currentDetails[key]||
-        def.options.includes(currentDetails[key])
-      ){
-        delete result[key];
-      }
-    }
-  }
-
-  return result;
+ const result={...currentDetails};
+ document.querySelectorAll('[data-detail]').forEach(el=>{
+   if(el.closest('.hidden'))return;
+   const key=el.dataset.detail,value=el.value.trim();if(value)result[key]=value;else delete result[key];
+ });
+ for(const [key,def] of Object.entries(groups)){
+   const root=document.querySelector('[data-group="'+key+'"]');if(!root||root.closest('.hidden'))continue;
+   if(def.multi){
+     const selected=[...root.querySelectorAll('input[type=checkbox]:checked')].map(x=>x.value);
+     const old=Array.isArray(currentDetails[key])?currentDetails[key]:[];
+     const kept=old.filter(v=>!def.options.includes(v)&&!(legacy[key]||[]).includes(v));
+     const values=[...new Set([...kept,...selected])];if(values.length)result[key]=values;else delete result[key];
+   }else{
+     const value=root.querySelector('select')?.value||'';
+     if(value)result[key]=value;
+     else if(!currentDetails[key]||def.options.includes(currentDetails[key]))delete result[key];
+   }
+ }
+ return result;
 }
-
-/* ACESSO ADMINISTRATIVO */
-
 async function check(){
-  const {
-    data:{user},
-    error:e
-  }=await supabase.auth.getUser();
-
-  if(e||!user){
-    $('login').classList.remove('hidden');
-    $('dashboard').classList.add('hidden');
-    return;
-  }
-
-  const {data,error}=await supabase.rpc(
-    'portal_eh_admin'
-  );
-
-  if(error||!data){
-    inform('Esta conta não tem permissão administrativa.',true);
-    await supabase.auth.signOut();
-    $('login').classList.remove('hidden');
-    $('dashboard').classList.add('hidden');
-    return;
-  }
-
-  $('login').classList.add('hidden');
-  $('dashboard').classList.remove('hidden');
-  await load();
+ const {data:{user},error:e}=await supabase.auth.getUser();
+ if(e||!user){$('login').classList.remove('hidden');$('dashboard').classList.add('hidden');return}
+ const {data,error}=await supabase.rpc('portal_eh_admin');
+ if(error||!data){inform('Esta conta não tem permissão administrativa.',true);await supabase.auth.signOut();$('login').classList.remove('hidden');$('dashboard').classList.add('hidden');return}
+ $('login').classList.add('hidden');$('dashboard').classList.remove('hidden');await load();
 }
-
 async function load(){
-  const {data,error}=await supabase
-    .from('imoveis')
-    .select('*')
-    .order('atualizado_em',{ascending:false});
-
-  if(error){
-    inform('Erro ao consultar imóveis: '+error.message,true);
-    return;
-  }
-
-  records=data||[];
-  render();
+ const {data,error}=await supabase.from('imoveis').select('*').order('atualizado_em',{ascending:false});
+ if(error){inform('Erro ao consultar imóveis: '+error.message,true);return}records=data||[];render();await refreshCondosV2();
 }
-
-/* LINKS DE RAFAEL E DÉBORA */
-
 async function copyBrokerLink(id,broker,feedback){
-  const url=propertyLink(id,broker);
-
-  try{
-    if(navigator.clipboard&&window.isSecureContext){
-      await navigator.clipboard.writeText(url);
-
-    }else{
-      const x=document.createElement('textarea');
-      x.value=url;
-      x.style.cssText='position:fixed;opacity:0';
-
-      document.body.append(x);
-      x.select();
-
-      const ok=document.execCommand('copy');
-      x.remove();
-
-      if(!ok)throw Error('Cópia indisponível');
-    }
-
-    feedback.textContent='Link de '+
-      (broker==='rafael'?'Rafael':'Débora')+
-      ' copiado!';
-
-  }catch(e){
-    feedback.textContent='Copie este endereço:';
-
-    const x=document.createElement('input');
-    x.value=url;
-    x.readOnly=true;
-    x.onclick=()=>x.select();
-
-    feedback.append(x);
-    x.focus();
-    x.select();
-  }
+ const url=propertyLink(id,broker);
+ try{
+   if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(url);
+   else{const x=document.createElement('textarea');x.value=url;x.style.cssText='position:fixed;opacity:0';document.body.append(x);x.select();const ok=document.execCommand('copy');x.remove();if(!ok)throw Error('Cópia indisponível')}
+   feedback.textContent='Link de '+(broker==='rafael'?'Rafael':'Débora')+' copiado!';
+ }catch(e){feedback.textContent='Copie este endereço:';const x=document.createElement('input');x.value=url;x.readOnly=true;x.onclick=()=>x.select();feedback.append(x);x.focus();x.select()}
 }
-
-/* LISTAGEM DE IMÓVEIS */
-
 function render(){
-  const words=normalized(
-    $('search').value.trim()
-  ).split(/\s+/).filter(Boolean);
-
-  const list=records.filter(r=>{
-    const txt=normalized([
-      r.codigo,
-      r.titulo,
-      r.empreendimento,
-      r.bairro,
-      r.tipo,
-      r.finalidade,
-      r.descricao,
-      r.diferenciais,
-      JSON.stringify(r.detalhes||{}),
-      ...(Array.isArray(r.caracteristicas)
-        ?r.caracteristicas:[])
-    ].join(' '));
-
-    return words.every(w=>txt.includes(w));
-  });
-
-  const root=$('items');
-  root.replaceChildren();
-
-  $('searchCount').textContent=
-    list.length+' imóvel(is) encontrado(s).';
-
-  if(!list.length){
-    const p=document.createElement('p');
-    p.className='muted';
-    p.textContent='Nenhum imóvel encontrado.';
-    root.append(p);
-  }
-
-  for(const r of list){
-    const item=document.createElement('div');
-    item.className='item';
-
-    const info=document.createElement('div');
-    info.className='item-details';
-
-    const title=document.createElement('strong');
-    title.textContent=r.titulo||'Imóvel sem título';
-
-    const sub=document.createElement('div');
-    sub.className='muted';
-    sub.textContent=[
-      r.codigo,
-      r.empreendimento,
-      r.bairro,
-      r.publicado?'Publicado':'Rascunho'
-    ].filter(Boolean).join(' • ');
-
-    const feedback=document.createElement('div');
-    feedback.className='copy-feedback';
-    feedback.setAttribute('role','status');
-
-    info.append(title,sub,feedback);
-
-    const actions=document.createElement('div');
-    actions.className='item-actions';
-
-    const edit=document.createElement('button');
-    edit.type='button';
-    edit.className='secondary';
-    edit.textContent='Editar';
-    edit.onclick=()=>openEditor(r);
-
-    actions.append(edit);
-
-    if(r.publicado&&r.id){
-      for(const broker of ['rafael','debora']){
-        const b=document.createElement('button');
-        b.type='button';
-        b.className='ghost';
-
-        b.textContent='Copiar link '+
-          (broker==='rafael'?'Rafael':'Débora');
-
-        b.onclick=()=>copyBrokerLink(
-          r.id,broker,feedback
-        );
-
-        actions.append(b);
-      }
-    }
-
-    item.append(info,actions);
-    root.append(item);
-  }
+ const words=normalized($('search').value.trim()).split(/\s+/).filter(Boolean);
+ const list=records.filter(r=>{
+   const txt=normalized([r.codigo,r.logradouro,r.numero,r.complemento,r.titulo,r.empreendimento,r.bairro,r.tipo,r.finalidade,r.descricao,r.diferenciais,JSON.stringify(r.detalhes||{}),...(Array.isArray(r.caracteristicas)?r.caracteristicas:[])].join(' '));
+   const f=$('filtroV2').value;return words.every(w=>txt.includes(w))&&(!f||(f==='ativos'&&r.publicado)||(f==='inativos'&&!r.publicado)||(f==='destaques'&&r.destaque)||(f==='vendidos'&&r.situacao==='vendido'));
+ });
+ const root=$('items');root.replaceChildren();$('searchCount').textContent=list.length+' imóvel(is) encontrado(s).';
+ if(!list.length){const p=document.createElement('p');p.className='muted';p.textContent='Nenhum imóvel encontrado.';root.append(p)}
+ for(const r of list){
+   const item=document.createElement('div');item.className='item';
+   const info=document.createElement('div');info.className='item-details';
+   const title=document.createElement('strong');title.textContent=r.titulo||'Imóvel sem título';
+   const sub=document.createElement('div');sub.className='muted';sub.textContent=[r.codigo,r.empreendimento,r.bairro,r.publicado?'Ativo':'Desativado'].filter(Boolean).join(' • ');
+   const feedback=document.createElement('div');feedback.className='copy-feedback';feedback.setAttribute('role','status');info.append(title,sub,feedback);
+   const actions=document.createElement('div');actions.className='item-actions';
+   const edit=document.createElement('button');edit.type='button';edit.className='secondary';edit.textContent='Editar';edit.onclick=()=>openEditor(r);actions.append(edit); 
+   function action(label,fn,cls='ghost'){const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=label;b.onclick=async()=>{if(photoUploading||$('saveProperty').disabled)return;b.disabled=true;try{await fn()}catch(e){inform(e.message,true)}finally{b.disabled=false}};actions.append(b)}
+   action(r.publicado?'Desativar':'Ativar',()=>{if(!r.publicado&&['vendido','alugado'].includes(r.situacao))throw Error('Altere a situação antes de ativar.');return changeProperty(r,{publicado:!r.publicado})});
+   action(r.destaque?'Retirar destaque':'Destacar',()=>changeProperty(r,{destaque:!r.destaque}));
+   action('Alterar preço',async()=>{const v=prompt('Novo preço em reais, sem ponto de milhar',String(r.preco??'').replace('.',','));if(v===null)return;if(!/^\d+(,\d{1,2})?$/.test(v.trim()))throw Error('Preço inválido');await changeProperty(r,{preco:Number(v.replace(',','.')),preco_anterior:r.preco})});
+   action('Duplicar',()=>openEditor({...r,id:null,codigo:null,publicado:false,destaque:false,situacao:'disponivel',numero:null,quadra:null,complemento:null,detalhes:Object.fromEntries(Object.entries(r.detalhes||{}).filter(([k])=>k!=='bloco_torre'))}));
+   if(r.publicado)action('Ver anúncio',()=>window.open(propertyLink(r.id,'rafael'),'_blank','noopener'));
+   action('Excluir',()=>removeProperty(r),'secondary');
+   if(r.publicado&&r.id){for(const broker of ['rafael','debora']){
+     const b=document.createElement('button');b.type='button';b.className='ghost';b.textContent='Copiar link '+(broker==='rafael'?'Rafael':'Débora');b.onclick=()=>copyBrokerLink(r.id,broker,feedback);actions.append(b);
+   }}
+   item.append(info,actions);root.append(item);
+ }
 }
-
-const dateForInput=v=>{
-  if(!v)return '';
-
-  const d=new Date(v);
-
-  return Number.isNaN(d.getTime())
-    ?''
-    :d.toISOString().slice(0,10);
-};
-
-const joinAddress=r=>[
-  String(r?.quadra??'').trim(),
-  String(r?.numero??'').trim()
-].filter(Boolean).join(', ');
-
-/* BOTÃO DE VISUALIZAÇÃO FINAL */
-
+const dateForInput=v=>{if(!v)return '';const d=new Date(v);return Number.isNaN(d.getTime())?'':d.toISOString().slice(0,10)};
+const joinAddress=r=>[String(r?.quadra??'').trim(),String(r?.numero??'').trim()].filter(Boolean).join(', ');
 function previewState(){
-  const info=$('previewInfo');
-  const publish=$('publishNow');
-  const view=$('viewPublished');
-
-  const available=
-    editing&&
-    currentProperty?.publicado&&
-    currentProperty?.finalidade==='venda'&&
-    !['vendido','alugado'].includes(
-      String(currentProperty?.situacao||'')
-        .toLowerCase()
-    );
-
-  view.classList.toggle('hidden',!available);
-
-  publish.classList.toggle(
-    'hidden',
-    !editing||
-    Boolean(currentProperty?.publicado)||
-    currentProperty?.finalidade!=='venda'
-  );
-
-  if(available){
-    view.href=propertyLink(editing,'rafael');
-
-    info.textContent=
-      'Seu anúncio está publicado. Abra para conferir preço, descrição e fotografias.';
-
-  }else{
-    view.removeAttribute('href');
-
-    info.textContent=!editing
-      ?'Salve o imóvel para continuar.'
-      :currentProperty?.finalidade!=='venda'
-        ?'A vitrine pública está configurada somente para imóveis à venda.'
-        :currentProperty?.publicado
-          ?'Imóvel indisponível para a vitrine pública: confira a situação.'
-          :'Imóvel salvo como rascunho. Depois das fotos, clique em Publicar anúncio.';
-  }
+ const info=$('previewInfo'),publish=$('publishNow'),view=$('viewPublished');
+ const available=editing&&currentProperty?.publicado&&currentProperty?.finalidade==='venda'&&!['vendido','alugado'].includes(String(currentProperty?.situacao||'').toLowerCase());
+ view.classList.toggle('hidden',!available);publish.classList.toggle('hidden',!editing||Boolean(currentProperty?.publicado)||currentProperty?.finalidade!=='venda');
+ if(available){view.href=propertyLink(editing,'rafael');info.textContent='Seu anúncio está publicado. Abra para conferir preço, descrição e fotografias.'}
+ else{view.removeAttribute('href');info.textContent=!editing?'Salve o imóvel para continuar.':currentProperty?.finalidade!=='venda'?'A vitrine pública está configurada somente para imóveis à venda.':currentProperty?.publicado?'Imóvel indisponível para a vitrine pública: confira a situação.':'Imóvel salvo como rascunho. Depois das fotos, clique em Publicar anúncio.'}
 }
-
-/* ABERTURA DO CADASTRO */
-
+async function changeProperty(r,values){
+ const {data,error}=await supabase.from('imoveis').update(values).eq('id',r.id).select('id').single();if(error||!data)throw Error(error?.message||'Alteração não confirmada');
+ if(editing===r.id){currentProperty={...currentProperty,...values};for(const k of Object.keys(values)){const el=$(k);if(el){if(el.type==='checkbox')el.checked=values[k];else el.value=moneyFields.includes(k)?moneyDisplay(values[k]):values[k]??''}};previewState()}
+ await load();inform('Anúncio atualizado.');
+}
+async function removeProperty(r){
+ if(!confirm('Excluir definitivamente o anúncio '+(r.titulo||r.id)+'? Esta ação não pode ser desfeita.'))return;
+ const photos=await supabase.from('imovel_fotos').select('caminho').eq('imovel_id',r.id);if(photos.error)throw photos.error;
+ const original=await supabase.storage.from(bucket).list(String(r.id)+'/originais',{limit:1000});
+ const paths=[...(photos.data||[]).map(x=>x.caminho),...(original.data||[]).filter(x=>x.id).map(x=>String(r.id)+'/originais/'+x.name)].filter(Boolean);
+ const result=await supabase.from('imoveis').delete().eq('id',r.id).select('id').single();if(result.error||!result.data)throw Error(result.error?.message||'Exclusão não confirmada');
+ if(editing===r.id){editing=null;currentProperty=null;clearPending();$('editor').classList.add('hidden')}
+ let storageError=null;if(paths.length){const result=await supabase.storage.from(bucket).remove([...new Set(paths)]);storageError=result.error}
+ await load();inform(storageError?'Anúncio excluído, mas houve falha na limpeza das fotos: '+storageError.message:'Anúncio excluído definitivamente.',!!storageError);
+}
+let pending=[];let photoUploading=false;
+function clearPending(){for(const x of pending)URL.revokeObjectURL(x.url);pending=[];renderPending();$('photoInput').value=''}
+function renderPending(){const root=$('pendingGrid');root.replaceChildren();pending.forEach((x,i)=>{const card=document.createElement('div');card.className='photo';const img=document.createElement('img');img.src=x.url;img.alt=x.file.name;const label=document.createElement('small');label.textContent=(i===0&&!photoRecords.length?'★ Capa • ':'')+x.file.name;card.append(img,label);const actions=document.createElement('div');const action=(text,fn)=>{const b=document.createElement('button');b.type='button';b.className='ghost';b.textContent=text;b.disabled=photoUploading;b.onclick=fn;actions.append(b)};if(i>0)action('↑ Subir',()=>{[pending[i-1],pending[i]]=[pending[i],pending[i-1]];renderPending()});if(i<pending.length-1)action('↓ Descer',()=>{[pending[i+1],pending[i]]=[pending[i],pending[i+1]];renderPending()});if(i>0)action('Primeira da seleção',()=>{pending.unshift(pending.splice(i,1)[0]);renderPending()});action('Excluir',()=>{URL.revokeObjectURL(x.url);pending.splice(i,1);renderPending()});card.append(actions);root.append(card)})}
+$('photoInput').onchange=()=>{const errors=[];for(const file of $('photoInput').files){if(pending.length+photoRecords.length>=30){errors.push('Limite de 30 fotos');break}if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>10*1024*1024){errors.push(file.name+': formato ou tamanho inválido');continue}pending.push({file,url:URL.createObjectURL(file)})}$('photoInput').value='';renderPending();$('photoStatus').textContent=errors.length?errors.join(' | '):pending.length+' foto(s) aguardando salvamento.'};
 async function openEditor(r=null){
-  editing=r?.id||null;
-  currentProperty=r;
-
-  currentDetails=
-    r?.detalhes&&
-    typeof r.detalhes==='object'&&
-    !Array.isArray(r.detalhes)
-      ?{...r.detalhes}
-      :{};
-
-  originalAddress={
-    quadra:r?.quadra??null,
-    numero:r?.numero??null
-  };
-
-  $('propertyForm').reset();
-  $('cepStatus').textContent='';
-  $('editorTitle').textContent=
-    r?'Editar imóvel':'Novo imóvel';
-
-  if(r){
-    for(const f of fields){
-      const el=$(f);
-
-      if(!el)continue;
-
-      if(el.type==='checkbox'){
-        el.checked=!!r[f];
-
-      }else if(f==='disponibilidade_confirmada_em'){
-        el.value=dateForInput(r[f]);
-
-      }else if(moneyFields.includes(f)){
-        el.value=
-          r[f]===null||
-          r[f]===undefined||
-          r[f]===''
-            ?''
-            :moneyDisplay(r[f]);
-
-      }else{
-        el.value=r[f]??'';
-      }
-    }
-
-    $('quadraNumero').value=joinAddress(r);
-
-    $('financiamento_status').value=
-      currentDetails.financiamento_status||
-      (r.aceita_financiamento===true
-        ?'sim'
-        :r.aceita_financiamento===false
-          ?'nao'
-          :'');
-
-    $('fgts_status').value=
-      currentDetails.fgts_status||
-      (r.aceita_fgts===true
-        ?'sim'
-        :r.aceita_fgts===false
-          ?'nao'
-          :'');
-
-  }else{
-    $('cidade').value='Bauru';
-    $('estado').value='SP';
-    $('financiamento_status').value='';
-    $('fgts_status').value='';
-  }
-
-  fillDetails(currentDetails);
-  updateType();
-
-  $('editor').classList.remove('hidden');
-  $('photoSection').classList.toggle(
-    'hidden',!editing
-  );
-
-  $('photoGrid').replaceChildren();
-  $('photoStatus').textContent='';
-
-  previewState();
-
-  if(editing){
-    await loadPhotos();
-    drawPreview();
-  }
-
-  $('editor').scrollIntoView({behavior:'smooth'});
+ if(photoUploading||$('saveProperty').disabled)return;
+ if(pending.length&&!confirm('Descartar fotografias ainda não salvas?'))return;
+ clearPending();photoRecords=[];
+ editing=r?.id||null;currentProperty=r;currentDetails=r?.detalhes&&typeof r.detalhes==='object'&&!Array.isArray(r.detalhes)?{...r.detalhes}:{};
+ originalAddress={quadra:r?.quadra??null,numero:r?.numero??null};$('propertyForm').reset();$('cepStatus').textContent='';$('editorTitle').textContent=r?.id?'Editar imóvel':'Novo imóvel';
+ if(r){for(const f of fields){const el=$(f);if(!el)continue;if(el.type==='checkbox')el.checked=!!r[f];else if(f==='disponibilidade_confirmada_em')el.value=dateForInput(r[f]);else if(moneyFields.includes(f))el.value=r[f]===null||r[f]===undefined||r[f]===''?'':moneyDisplay(r[f]);else el.value=r[f]??''}
+   $('quadraNumero').value=joinAddress(r);
+   $('financiamento_status').value=currentDetails.financiamento_status||(r.aceita_financiamento===true?'sim':r.aceita_financiamento===false?'nao':'');
+   $('fgts_status').value=currentDetails.fgts_status||(r.aceita_fgts===true?'sim':r.aceita_fgts===false?'nao':'');
+ }else{$('cidade').value='Bauru';$('estado').value='SP';$('financiamento_status').value='';$('fgts_status').value=''}
+ $('anuncioCompleto').value=[r?.titulo||'',r?.descricao||''].filter(Boolean).join('\n\n');$('mostrar_empreendimento').checked=r?.mostrar_empreendimento!==false;$('mapa_modo').value=r?.mapa_modo||'oculto';await loadPrivateV2();
+ fillDetails(currentDetails);updateType();$('editor').classList.remove('hidden');$('photoSection').classList.remove('hidden');
+ $('photoGrid').replaceChildren();$('photoStatus').textContent='';previewState();
+ if(editing){await loadPhotos()}drawPreview()
+ $('editor').scrollIntoView({behavior:'smooth'});
 }
-
-$('new').onclick=()=>openEditor();
-
-$('cancel').onclick=()=>{
-  $('editor').classList.add('hidden');
-};
-
-$('search').oninput=render;
-$('tipo').onchange=updateType;
-
-/* LOGIN E LOGOUT */
-
-$('loginForm').onsubmit=async e=>{
-  e.preventDefault();
-  inform('Autenticando...');
-
-  const {error}=await supabase.auth.signInWithPassword({
-    email:$('email').value,
-    password:$('password').value
-  });
-
-  if(error){
-    inform('Não foi possível entrar: '+error.message,true);
-    return;
-  }
-
-  $('password').value='';
-  await check();
-};
-
-$('logout').onclick=async()=>{
-  await supabase.auth.signOut();
-  inform('Sessão encerrada.');
-  await check();
-};
-
-/* BUSCA DO ENDEREÇO PELO CEP */
-
-function formatCep(value){
-  const d=String(value||'')
-    .replace(/\D/g,'')
-    .slice(0,8);
-
-  return d.length>5
-    ?d.slice(0,5)+'-'+d.slice(5)
-    :d;
-}
-
-$('cep').addEventListener('input',()=>{
-  $('cep').value=formatCep($('cep').value);
-  $('cepStatus').textContent='';
-});
-
-$('cep').addEventListener('keydown',e=>{
-  if(e.key==='Enter'){
-    e.preventDefault();
-    buscarCep();
-  }
-});
-
-$('cep').addEventListener('blur',()=>{
-  if(
-    $('cep').value.replace(/\D/g,'').length===8&&
-    !$('logradouro').value.trim()
-  ){
-    buscarCep();
-  }
-});
-
-$('buscarCep').onclick=buscarCep;
-
+$('new').onclick=()=>openEditor();$('cancel').onclick=()=>{if(photoUploading||$('saveProperty').disabled)return;if(pending.length&&!confirm('Descartar fotos não salvas?'))return;clearPending();$('editor').classList.add('hidden')};$('search').oninput=render;$('tipo').onchange=updateType;
+$('loginForm').onsubmit=async e=>{e.preventDefault();inform('Autenticando...');const {error}=await supabase.auth.signInWithPassword({email:$('email').value,password:$('password').value});if(error){inform('Não foi possível entrar: '+error.message,true);return}$('password').value='';await check()};
+$('logout').onclick=async()=>{await supabase.auth.signOut();inform('Sessão encerrada.');await check()};
+function formatCep(value){const d=String(value||'').replace(/\D/g,'').slice(0,8);return d.length>5?d.slice(0,5)+'-'+d.slice(5):d}
+$('cep').addEventListener('input',()=>{$('cep').value=formatCep($('cep').value);$('cepStatus').textContent=''});
+$('cep').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();buscarCep()}});
+$('cep').addEventListener('blur',()=>{if($('cep').value.replace(/\D/g,'').length===8&&!$('logradouro').value.trim())buscarCep()});$('buscarCep').onclick=buscarCep;
 async function buscarCep(){
-  const d=$('cep').value.replace(/\D/g,'');
-
-  if(d.length!==8){
-    $('cepStatus').textContent=
-      'Informe um CEP com 8 números.';
-    return;
-  }
-
-  const request=++cepRequest;
-  const btn=$('buscarCep');
-  btn.disabled=true;
-  $('cepStatus').textContent='Consultando CEP...';
-
-  try{
-    const controller=new AbortController();
-    const timer=setTimeout(
-      ()=>controller.abort(),10000
-    );
-
-    let response;
-
-    try{
-      response=await fetch(
-        'https://viacep.com.br/ws/'+d+'/json/',
-        {signal:controller.signal}
-      );
-
-    }finally{
-      clearTimeout(timer);
-    }
-
-    if(!response.ok){
-      throw Error('Serviço indisponível');
-    }
-
-    const result=await response.json();
-
-    if(request!==cepRequest)return;
-
-    if(result.erro){
-      $('cepStatus').textContent=
-        'CEP não encontrado. Preencha manualmente.';
-      return;
-    }
-
-    for(const [k,v] of Object.entries({
-      logradouro:result.logradouro,
-      bairro:result.bairro,
-      cidade:result.localidade,
-      estado:result.uf
-    })){
-      if(v)$(k).value=v;
-    }
-
-    $('cep').value=formatCep(d);
-
-    $('cepStatus').textContent=
-      'Endereço encontrado! Confira o número e complemento.';
-
-  }catch(e){
-    if(request===cepRequest){
-      $('cepStatus').textContent=
-        'Não foi possível consultar o CEP. Preencha manualmente.';
-    }
-
-  }finally{
-    if(request===cepRequest){
-      btn.disabled=false;
-    }
-  }
+ const d=$('cep').value.replace(/\D/g,'');if(d.length!==8){$('cepStatus').textContent='Informe um CEP com 8 números.';return}
+ const request=++cepRequest,btn=$('buscarCep');btn.disabled=true;$('cepStatus').textContent='Consultando CEP...';
+ try{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);let response;try{response=await fetch('https://viacep.com.br/ws/'+d+'/json/',{signal:controller.signal})}finally{clearTimeout(timer)}
+   if(!response.ok)throw Error('Serviço indisponível');const result=await response.json();if(request!==cepRequest)return;
+   if(result.erro){$('cepStatus').textContent='CEP não encontrado. Preencha manualmente.';return}
+   for(const [k,v] of Object.entries({logradouro:result.logradouro,bairro:result.bairro,cidade:result.localidade,estado:result.uf}))if(v)$(k).value=v;
+   $('cep').value=formatCep(d);$('cepStatus').textContent='Endereço encontrado! Confira o número e complemento.';
+ }catch(e){if(request===cepRequest)$('cepStatus').textContent='Não foi possível consultar o CEP. Preencha manualmente.'}
+ finally{if(request===cepRequest)btn.disabled=false}
 }
-
 function parseAddress(value){
-  const v=value.trim();
-
-  if(!v){
-    return {quadra:null,numero:null};
-  }
-
-  const m=v.match(
-    /^\s*(?:quadra|qd\.?|q\.?)[\s.:]*([^,;]+)[,;\s]+(?:n[º°o.]?|número|numero)?\s*[:.]?\s*(.+)$/i
-  );
-
-  if(m){
-    return {
-      quadra:m[1].trim(),
-      numero:m[2].trim()
-    };
-  }
-
-  const a=v.split(/\s*[,;]\s*/);
-
-  return a.length===2
-    ?{quadra:a[0]||null,numero:a[1]||null}
-    :{quadra:v,numero:null};
+ const v=value.trim();if(!v)return{quadra:null,numero:null};
+ const m=v.match(/^\s*(?:quadra|qd\.?|q\.?)[\s.:]*([^,;]+)[,;\s]+(?:n[º°o.]?|número|numero)?\s*[:.]?\s*(.+)$/i);
+ if(m)return{quadra:m[1].trim(),numero:m[2].trim()};
+ const a=v.split(/\s*[,;]\s*/);return a.length===2?{quadra:a[0]||null,numero:a[1]||null}:{quadra:v,numero:null};
 }
-
-/* SALVAR E AVANÇAR PARA AS FOTOGRAFIAS */
-
 $('propertyForm').onsubmit=async e=>{
-  e.preventDefault();
-
-  const payload={};
-
-  for(const f of fields){
-    const el=$(f);
-
-    if(!el)continue;
-
-    payload[f]=el.type==='checkbox'
-      ?el.checked
-      :moneyFields.includes(f)
-        ?moneyNumber(el.value)
-        :el.value.trim()||null;
-  }
-
-  for(const f of numberFields){
-    if(
-      payload[f]!==null&&
-      payload[f]!==undefined
-    ){
-      payload[f]=Number(payload[f]);
-    }
-  }
-
-  payload.descricao??='';
-
-  if(
-    payload.cep&&
-    payload.cep.replace(/\D/g,'').length!==8
-  ){
-    inform('Confira o CEP: deve ter 8 números.',true);
-    $('cep').focus();
-    return;
-  }
-
-  if(payload.estado){
-    payload.estado=payload.estado.toUpperCase();
-  }
-
-  if(payload.disponibilidade_confirmada_em){
-    payload.disponibilidade_confirmada_em+=
-      'T12:00:00-03:00';
-  }
-
-  const a=$('quadraNumero').value.trim();
-
-  if(
-    editing&&
-    a===joinAddress(currentProperty)
-  ){
-    payload.quadra=originalAddress.quadra;
-    payload.numero=originalAddress.numero;
-
-  }else{
-    Object.assign(payload,parseAddress(a));
-  }
-
-  const details=readDetails();
-  const fin=$('financiamento_status').value;
-  const fgts=$('fgts_status').value;
-
-  if(fin)details.financiamento_status=fin;
-  else delete details.financiamento_status;
-
-  if(fgts)details.fgts_status=fgts;
-  else delete details.fgts_status;
-
-  payload.aceita_financiamento=fin==='sim';
-  payload.aceita_fgts=fgts==='sim';
-  payload.detalhes=details;
-
-  const btn=$('saveProperty');
-  btn.disabled=true;
-  inform('Salvando imóvel...');
-
-  try{
-    const result=editing
-      ?await supabase
-        .from('imoveis')
-        .update(payload)
-        .eq('id',editing)
-      :await supabase
-        .from('imoveis')
-        .insert(payload)
-        .select('id')
-        .single();
-
-    if(result.error){
-      throw result.error;
-    }
-
-    editing=editing||result.data?.id;
-
-    if(!editing){
-      throw Error(
-        'Não foi possível obter o ID do imóvel salvo.'
-      );
-    }
-
-    currentProperty={
-      ...(currentProperty||{}),
-      ...payload,
-      id:editing
-    };
-
-    currentDetails=details;
-    $('editorTitle').textContent='Editar imóvel';
-
-    $('photoSection').classList.remove('hidden');
-
-    previewState();
-    await loadPhotos();
-    drawPreview();
-    await load();
-
-    inform(
-      'Imóvel salvo! Envie as fotos e abra o anúncio no botão ao final.'
-    );
-
-    $('photoSection').scrollIntoView({
-      behavior:'smooth',
-      block:'start'
-    });
-
-  }catch(error){
-    inform('Erro ao salvar: '+error.message,true);
-
-  }finally{
-    btn.disabled=false;
-  }
+ e.preventDefault();if(photoUploading)return;const linhas=$('anuncioCompleto').value.trim().split(/\r?\n/);$('titulo').value=linhas.shift()?.trim()||'';$('descricao').value=linhas.join('\n').trim();if(!$('titulo').value){inform('Informe o título na primeira linha.',true);return}if(!privateReadyV2){inform('Reabra o imóvel para carregar os dados privados.',true);return}const payload={};
+ for(const f of fields){const el=$(f);if(!el)continue;payload[f]=el.type==='checkbox'?el.checked:moneyFields.includes(f)?moneyNumber(el.value):el.value.trim()||null}
+ for(const f of numberFields)if(payload[f]!==null&&payload[f]!==undefined)payload[f]=Number(payload[f]);
+ payload.descricao??='';payload.rua_publica=payload.mostrar_rua?payload.logradouro:null;if(payload.cep&&payload.cep.replace(/\D/g,'').length!==8){inform('Confira o CEP: deve ter 8 números.',true);$('cep').focus();return}
+ if(payload.estado)payload.estado=payload.estado.toUpperCase();
+ if(payload.disponibilidade_confirmada_em)payload.disponibilidade_confirmada_em+='T12:00:00-03:00';
+ const a=$('quadraNumero').value.trim();if(editing&&a===joinAddress(currentProperty)){payload.quadra=originalAddress.quadra;payload.numero=originalAddress.numero}else Object.assign(payload,parseAddress(a));
+ const details=readDetails(),fin=$('financiamento_status').value,fgts=$('fgts_status').value;
+ if(fin)details.financiamento_status=fin;else delete details.financiamento_status;
+ if(fgts)details.fgts_status=fgts;else delete details.fgts_status;
+ payload.aceita_financiamento=fin==='sim';payload.aceita_fgts=fgts==='sim';payload.detalhes=details;
+ const desiredPublished=payload.publicado;if(!editing&&pending.length)payload.publicado=false;const btn=$('saveProperty');btn.disabled=true;inform('Salvando imóvel...');
+ try{
+   await linkCondominioV2(payload);
+   const result=editing?await supabase.from('imoveis').update(payload).eq('id',editing):await supabase.from('imoveis').insert(payload).select('id').single();
+   if(result.error)throw result.error;
+   editing=editing||result.data?.id;if(!editing)throw Error('Não foi possível obter o ID do imóvel salvo.');
+   currentProperty={...(currentProperty||{}),...payload,id:editing};currentDetails=details;await savePrivateV2();$('editorTitle').textContent='Editar imóvel';
+   $('photoSection').classList.remove('hidden');previewState();await loadPhotos();drawPreview();await load();
+   if(pending.length){const complete=await uploadPending();if(!complete){inform('Imóvel salvo, mas há fotos pendentes. Confira e tente novamente.',true);return}}if(desiredPublished&&!currentProperty.publicado){await changeProperty(currentProperty,{publicado:true})}inform('Imóvel e fotografias salvos!');$('photoSection').scrollIntoView({behavior:'smooth',block:'start'});
+ }catch(error){inform('Erro ao salvar: '+error.message,true)}finally{btn.disabled=false}
 };
-
-/* PUBLICAR A PARTIR DA ÚLTIMA ETAPA */
-
 $('publishNow').onclick=async()=>{
-  if(!editing)return;
-
-  if(!confirm(
-    'Publicar este imóvel à venda no Portal Bauru Imóveis?'
-  )){
-    return;
-  }
-
-  const b=$('publishNow');
-  b.disabled=true;
-
-  try{
-    const {error}=await supabase
-      .from('imoveis')
-      .update({publicado:true})
-      .eq('id',editing);
-
-    if(error)throw error;
-
-    currentProperty={
-      ...currentProperty,
-      publicado:true
-    };
-
-    $('publicado').checked=true;
-
-    previewState();
-    await load();
-
-    inform(
-      'Anúncio publicado. Você já pode abrir a visualização.'
-    );
-
-  }catch(e){
-    inform('Erro ao publicar: '+e.message,true);
-
-  }finally{
-    b.disabled=false;
-  }
+ if(!editing)return;if(!confirm('Publicar este imóvel à venda no Portal Bauru Imóveis?'))return;
+ const b=$('publishNow');b.disabled=true;
+ try{
+   const {error}=await supabase.from('imoveis').update({publicado:true}).eq('id',editing);if(error)throw error;
+   currentProperty={...currentProperty,publicado:true};$('publicado').checked=true;previewState();await load();inform('Anúncio publicado. Você já pode abrir a visualização.');
+ }catch(e){inform('Erro ao publicar: '+e.message,true)}finally{b.disabled=false}
 };
-
-/* GERENCIAMENTO DAS FOTOGRAFIAS */
-
 const bucket='portal-imoveis';
-
 async function loadPhotos(){
-  if(!editing)return;
-
-  const {data,error}=await supabase
-    .from('imovel_fotos')
-    .select('*')
-    .eq('imovel_id',String(editing))
-    .order('ordem',{ascending:true})
-    .order('criado_em',{ascending:true});
-
-  if(error){
-    $('photoStatus').textContent=
-      'Não foi possível carregar fotos: '+error.message;
-    return;
-  }
-
-  photoRecords=data||[];
-  renderPhotos();
+ if(!editing)return;
+ const {data,error}=await supabase.from('imovel_fotos').select('*').eq('imovel_id',String(editing)).order('ordem',{ascending:true}).order('criado_em',{ascending:true});
+ if(error){$('photoStatus').textContent='Não foi possível carregar fotos: '+error.message;return}photoRecords=data||[];renderPhotos();
 }
-
 function renderPhotos(){
-  const root=$('photoGrid');
-  root.replaceChildren();
-
-  if(!photoRecords.length){
-    const p=document.createElement('p');
-    p.className='hint';
-    p.textContent='Nenhuma fotografia cadastrada.';
-    root.append(p);
-    return;
-  }
-
-  photoRecords.forEach((r,i)=>{
-    const card=document.createElement('div');
-    card.className='photo';
-    card.dataset.index=i;
-
-    const img=document.createElement('img');
-    img.alt='Fotografia '+(i+1);
-    img.loading='lazy';
-
-    img.src=supabase.storage
-      .from(bucket)
-      .getPublicUrl(r.caminho)
-      .data.publicUrl;
-
-    const label=document.createElement('small');
-    label.textContent=i===0
-      ?'★ Foto principal'
-      :'Foto '+(i+1);
-
-    const actions=document.createElement('div');
-
-    const drag=document.createElement('button');
-    drag.type='button';
-    drag.className='drag-handle';
-    drag.textContent='☰ Segure e arraste';
-
-    drag.addEventListener(
-      'pointerdown',
-      e=>beginPhotoDrag(e,i,card,drag)
-    );
-
-    actions.append(drag);
-
-    const btn=(text,fn,cls='ghost')=>{
-      const b=document.createElement('button');
-      b.type='button';
-      b.className=cls;
-      b.textContent=text;
-      b.onclick=fn;
-      actions.append(b);
-    };
-
-    if(i>0){
-      btn('↑ Subir',()=>movePhoto(i,-1));
-    }
-
-    if(i<photoRecords.length-1){
-      btn('↓ Descer',()=>movePhoto(i,1));
-    }
-
-    if(i>0){
-      btn('Definir como capa',()=>makeCover(i));
-    }
-
-    btn('Excluir',()=>deletePhoto(r),'secondary');
-
-    card.append(img,label,actions);
-    root.append(card);
-  });
+ const root=$('photoGrid');root.replaceChildren();if(!photoRecords.length){const p=document.createElement('p');p.className='hint';p.textContent='Nenhuma fotografia cadastrada.';root.append(p);return}
+ photoRecords.forEach((r,i)=>{
+   const card=document.createElement('div');card.className='photo';card.dataset.index=i;
+   const img=document.createElement('img');img.alt='Fotografia '+(i+1);img.loading='lazy';img.src=supabase.storage.from(bucket).getPublicUrl(r.caminho).data.publicUrl;
+   const label=document.createElement('small');label.textContent=i===0?'★ Foto principal':'Foto '+(i+1);
+   const actions=document.createElement('div'),drag=document.createElement('button');drag.type='button';drag.className='drag-handle';drag.textContent='☰ Segure e arraste';drag.addEventListener('pointerdown',e=>beginPhotoDrag(e,i,card,drag));actions.append(drag);
+   const btn=(text,fn,cls='ghost')=>{const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=text;b.onclick=fn;actions.append(b)};
+   if(i>0)btn('↑ Subir',()=>movePhoto(i,-1));if(i<photoRecords.length-1)btn('↓ Descer',()=>movePhoto(i,1));
+   if(i>0)btn('Definir como capa',()=>makeCover(i));btn('Excluir',()=>deletePhoto(r),'secondary');card.append(img,label,actions);root.append(card);
+ });
 }
-
-/* ORDENAR FOTOGRAFIAS NO CELULAR */
-
 function beginPhotoDrag(e,from,card,handle){
-  if(
-    orderBusy||
-    (e.pointerType==='mouse'&&e.button!==0)
-  ){
-    return;
-  }
-
-  e.preventDefault();
-  handle.setPointerCapture(e.pointerId);
-
-  let target=from;
-  card.classList.add('dragging');
-
-  const clear=()=>{
-    document.querySelectorAll(
-      '#photoGrid .drop-target'
-    ).forEach(x=>{
-      x.classList.remove('drop-target');
-    });
-  };
-
-  const move=ev=>{
-    const el=document
-      .elementFromPoint(ev.clientX,ev.clientY)
-      ?.closest('.photo');
-
-    clear();
-
-    if(el&&el.parentElement===$('photoGrid')){
-      target=Number(el.dataset.index);
-
-      if(el!==card){
-        el.classList.add('drop-target');
-      }
-    }
-  };
-
-  const cleanup=()=>{
-    handle.removeEventListener('pointermove',move);
-    handle.removeEventListener('pointerup',finish);
-    handle.removeEventListener('pointercancel',cancel);
-    card.classList.remove('dragging');
-    clear();
-  };
-
-  const finish=async()=>{
-    cleanup();
-
-    if(target===from||orderBusy)return;
-
-    const arr=[...photoRecords];
-    arr.splice(
-      target,
-      0,
-      arr.splice(from,1)[0]
-    );
-
-    await saveOrder(arr);
-  };
-
-  const cancel=()=>cleanup();
-
-  handle.addEventListener('pointermove',move);
-  handle.addEventListener('pointerup',finish);
-  handle.addEventListener('pointercancel',cancel);
+ if(orderBusy||(e.pointerType==='mouse'&&e.button!==0))return;e.preventDefault();handle.setPointerCapture(e.pointerId);
+ let target=from;card.classList.add('dragging');
+ const clear=()=>document.querySelectorAll('#photoGrid .drop-target').forEach(x=>x.classList.remove('drop-target'));
+ const move=ev=>{const el=document.elementFromPoint(ev.clientX,ev.clientY)?.closest('.photo');clear();if(el&&el.parentElement===$('photoGrid')){target=Number(el.dataset.index);if(el!==card)el.classList.add('drop-target')}};
+ const cleanup=()=>{handle.removeEventListener('pointermove',move);handle.removeEventListener('pointerup',finish);handle.removeEventListener('pointercancel',cancel);card.classList.remove('dragging');clear()};
+ const finish=async()=>{cleanup();if(target===from||orderBusy)return;const arr=[...photoRecords];arr.splice(target,0,arr.splice(from,1)[0]);await saveOrder(arr)};
+ const cancel=()=>cleanup();handle.addEventListener('pointermove',move);handle.addEventListener('pointerup',finish);handle.addEventListener('pointercancel',cancel);
 }
-
-async function saveOrder(arr){
-  if(orderBusy)return;
-
-  orderBusy=true;
-  $('photoGrid').classList.add('busy');
-
-  try{
-    $('photoStatus').textContent='Salvando ordem...';
-
-    const {error}=await supabase.rpc(
-      'portal_reordenar_fotos',
-      {
-        p_imovel_id:editing,
-        p_foto_ids:arr.map(x=>x.id)
-      }
-    );
-
-    if(error)throw error;
-
-    $('photoStatus').textContent='Ordem salva.';
-
-  }catch(e){
-    $('photoStatus').textContent=
-      'Erro ao reorganizar: '+e.message;
-
-  }finally{
-    await loadPhotos();
-    orderBusy=false;
-    $('photoGrid').classList.remove('busy');
-  }
+async function saveOrder(arr){if(orderBusy)return;orderBusy=true;$('photoGrid').classList.add('busy');
+ try{$('photoStatus').textContent='Salvando ordem...';const {error}=await supabase.rpc('portal_reordenar_fotos',{p_imovel_id:editing,p_foto_ids:arr.map(x=>x.id)});if(error)throw error;$('photoStatus').textContent='Ordem salva.'}
+ catch(e){$('photoStatus').textContent='Erro ao reorganizar: '+e.message}finally{await loadPhotos();orderBusy=false;$('photoGrid').classList.remove('busy')}
 }
-
-async function movePhoto(i,d){
-  const arr=[...photoRecords];
-
-  [arr[i],arr[i+d]]=[
-    arr[i+d],
-    arr[i]
-  ];
-
-  await saveOrder(arr);
-}
-
-async function makeCover(i){
-  const arr=[...photoRecords];
-  arr.unshift(arr.splice(i,1)[0]);
-  await saveOrder(arr);
-}
-
+async function movePhoto(i,d){const arr=[...photoRecords];[arr[i],arr[i+d]]=[arr[i+d],arr[i]];await saveOrder(arr)}
+async function makeCover(i){const arr=[...photoRecords];arr.unshift(arr.splice(i,1)[0]);await saveOrder(arr)}
 async function deletePhoto(r){
-  if(!confirm(
-    'Excluir esta fotografia do imóvel?'
-  )){
-    return;
-  }
-
-  const {error}=await supabase
-    .from('imovel_fotos')
-    .delete()
-    .eq('id',r.id);
-
-  if(error){
-    $('photoStatus').textContent=
-      'Erro ao excluir: '+error.message;
-    return;
-  }
-
-  const paths=[r.caminho];
-
-  if(r.caminho.endsWith('-portal.jpg')){
-    const n=r.caminho
-      .split('/')
-      .pop()
-      .replace('-portal.jpg','');
-
-    const {data:originals}=await supabase.storage
-      .from(bucket)
-      .list(String(editing)+'/originais');
-
-    const o=originals?.find(
-      f=>f.name.startsWith(n+'.')
-    );
-
-    if(o){
-      paths.push(
-        String(editing)+'/originais/'+o.name
-      );
-    }
-  }
-
-  const {error:storageError}=await supabase.storage
-    .from(bucket)
-    .remove(paths);
-
-  $('photoStatus').textContent=storageError
-    ?'Foto retirada, mas houve erro ao apagar o arquivo: '+storageError.message
-    :'Fotografia excluída.';
-
-  await loadPhotos();
+ if(!confirm('Excluir esta fotografia do imóvel?'))return;
+ const {error}=await supabase.from('imovel_fotos').delete().eq('id',r.id);if(error){$('photoStatus').textContent='Erro ao excluir: '+error.message;return}
+ const paths=[r.caminho];if(r.caminho.endsWith('-portal.jpg')){const n=r.caminho.split('/').pop().replace('-portal.jpg','');const {data:originals}=await supabase.storage.from(bucket).list(String(editing)+'/originais');const o=originals?.find(f=>f.name.startsWith(n+'.'));if(o)paths.push(String(editing)+'/originais/'+o.name)}
+ const {error:storageError}=await supabase.storage.from(bucket).remove(paths);$('photoStatus').textContent=storageError?'Foto retirada, mas houve erro ao apagar o arquivo: '+storageError.message:'Fotografia excluída.';await loadPhotos();
 }
-
-/* LOGOTIPO OFICIAL INCORPORADO AO CÓDIGO */
-
-const LOGO_SVG=`
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="1200" height="300"
-     viewBox="0 0 1200 300">
-
-  <g fill="none"
-     stroke-width="19"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-
-    <path
-      d="M204 140 V194
-         C204 218 184 237 160 237
-         H103
-         C79 237 60 218 60 194
-         V136
-         C60 112 79 94 103 94
-         H147"
-      stroke="#14253D"/>
-
-    <path
-      d="M134 168 V104
-         C134 80 153 61 177 61
-         H229
-         C253 61 272 80 272 104
-         V158
-         C272 182 253 201 229 201
-         H202"
-      stroke="#F85F08"/>
-
-  </g>
-
-  <path d="M312 58 V246"
-        stroke="#FFFFFF"
-        stroke-width="3"
-        stroke-opacity=".85"/>
-
-  <g font-family="Arial,Helvetica,sans-serif"
-     font-weight="600"
-     text-anchor="middle"
-     paint-order="stroke fill">
-
-    <text x="765" y="151"
-          font-size="72"
-          letter-spacing="1.9"
-          fill="#FFFFFF"
-          stroke="#14253D"
-          stroke-width="3"
-          stroke-opacity=".55">
-      PORTAL BAURU
-    </text>
-
-    <text x="765" y="228"
-          font-size="60"
-          letter-spacing="12"
-          fill="#F85F08">
-      IMÓVEIS
-    </text>
-
-  </g>
-
-  <path d="M386 207 H475 M1048 207 H1133"
-        stroke="#FFFFFF"
-        stroke-width="3"
-        stroke-opacity=".85"/>
-</svg>`;
-
-const LOGO_URL=
-  'data:image/svg+xml;charset=utf-8,'+
-  encodeURIComponent(LOGO_SVG);
-
-let cachedLogo;
-
-function getLogo(){
-  if(!cachedLogo){
-    cachedLogo=new Promise((resolve,reject)=>{
-      const im=new Image();
-
-      im.onload=()=>resolve(im);
-
-      im.onerror=()=>{
-        cachedLogo=null;
-        reject(Error('Falha ao preparar logotipo'));
-      };
-
-      im.src=LOGO_URL;
-    });
-  }
-
-  return cachedLogo;
-}
-
-function logoBounds(c,logo){
-  const w=Math.min(
-    c.width*(c.width>=c.height?.57:.78),
-    900
-  );
-
-  return {
-    x:(c.width-w)/2,
-    y:(c.height-w*logo.naturalHeight/logo.naturalWidth)/2,
-    w,
-    h:w*logo.naturalHeight/logo.naturalWidth
-  };
-}
-
-/* MARCA-D'ÁGUA CENTRALIZADA */
-
+/* Logotipo integrado: dois elos entrelaçados. Nenhum arquivo externo é necessário. */
+const LOGO_SVG=`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300"><g fill="none" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"><path d="M204 140 V194 C204 218 184 237 160 237 H103 C79 237 60 218 60 194 V136 C60 112 79 94 103 94 H147" stroke="#14253D"/><path d="M134 168 V104 C134 80 153 61 177 61 H229 C253 61 272 80 272 104 V158 C272 182 253 201 229 201 H202" stroke="#F85F08"/></g><path d="M312 58 V246" stroke="#FFFFFF" stroke-width="3" stroke-opacity=".85"/><g font-family="Arial,Helvetica,sans-serif" font-weight="600" text-anchor="middle" paint-order="stroke fill"><text x="765" y="151" font-size="72" letter-spacing="1.9" fill="#FFFFFF" stroke="#14253D" stroke-width="3" stroke-opacity=".55">PORTAL BAURU</text><text x="765" y="228" font-size="60" letter-spacing="12" fill="#F85F08">IMÓVEIS</text></g><path d="M386 207 H475 M1048 207 H1133" stroke="#FFFFFF" stroke-width="3" stroke-opacity=".85"/></svg>`;
+const LOGO_URL='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(LOGO_SVG);let cachedLogo;
+function getLogo(){if(!cachedLogo)cachedLogo=new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>{cachedLogo=null;reject(Error('Falha ao preparar logotipo'))};im.src=LOGO_URL});return cachedLogo}
+function logoBounds(c,logo){const w=Math.min(c.width*(c.width>=c.height?.57:.78),900);return{x:(c.width-w)/2,y:(c.height-w*logo.naturalHeight/logo.naturalWidth)/2,w,h:w*logo.naturalHeight/logo.naturalWidth}}
 async function markPhoto(file){
-  const [logo,img]=await Promise.all([
-    getLogo(),
-    createImageBitmap(file)
-  ]);
-
-  try{
-    const c=document.createElement('canvas');
-
-    const scale=Math.min(
-      1,
-      2560/Math.max(img.width,img.height)
-    );
-
-    c.width=Math.max(
-      1,
-      Math.round(img.width*scale)
-    );
-
-    c.height=Math.max(
-      1,
-      Math.round(img.height*scale)
-    );
-
-    const ctx=c.getContext('2d');
-
-    if(!ctx){
-      throw Error('Não foi possível preparar a imagem');
-    }
-
-    ctx.drawImage(img,0,0,c.width,c.height);
-
-    const b=logoBounds(c,logo);
-
-    ctx.save();
-    ctx.globalAlpha=.65;
-
-    ctx.drawImage(
-      logo,b.x,b.y,b.w,b.h
-    );
-
-    ctx.restore();
-
-    return await new Promise((resolve,reject)=>{
-      c.toBlob(
-        blob=>blob
-          ?resolve(blob)
-          :reject(
-            Error('Falha ao converter fotografia')
-          ),
-        'image/jpeg',
-        .92
-      );
-    });
-
-  }finally{
-    img.close();
-  }
+ const [logo,img]=await Promise.all([getLogo(),createImageBitmap(file)]);
+ try{const c=document.createElement('canvas'),scale=Math.min(1,2560/Math.max(img.width,img.height));c.width=Math.max(1,Math.round(img.width*scale));c.height=Math.max(1,Math.round(img.height*scale));
+   const ctx=c.getContext('2d');if(!ctx)throw Error('Não foi possível preparar a imagem');ctx.drawImage(img,0,0,c.width,c.height);
+   const b=logoBounds(c,logo);ctx.save();ctx.globalAlpha=.65;ctx.drawImage(logo,b.x,b.y,b.w,b.h);ctx.restore();
+   return await new Promise((resolve,reject)=>c.toBlob(blob=>blob?resolve(blob):reject(Error('Falha ao converter fotografia')),'image/jpeg',.92));
+ }finally{img.close()}
 }
-
-/* PRÉVIA DA MARCA */
-
 async function drawPreview(){
-  try{
-    const logo=await getLogo();
-    const c=$('watermarkPreview');
-
-    if(!c)return;
-
-    const ctx=c.getContext('2d');
-
-    const g=ctx.createLinearGradient(
-      0,0,900,430
-    );
-
-    g.addColorStop(0,'#D7D5D1');
-    g.addColorStop(.5,'#B9B4AC');
-    g.addColorStop(1,'#A1A8AF');
-
-    ctx.fillStyle=g;
-    ctx.fillRect(0,0,c.width,c.height);
-
-    const b=logoBounds(c,logo);
-
-    ctx.save();
-    ctx.globalAlpha=.65;
-
-    ctx.drawImage(
-      logo,b.x,b.y,b.w,b.h
-    );
-
-    ctx.restore();
-
-  }catch(e){
-    console.warn('Prévia da marca:',e);
-  }
+ try{const logo=await getLogo(),c=$('watermarkPreview');if(!c)return;const ctx=c.getContext('2d'),g=ctx.createLinearGradient(0,0,900,430);g.addColorStop(0,'#D7D5D1');g.addColorStop(.5,'#B9B4AC');g.addColorStop(1,'#A1A8AF');ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);const b=logoBounds(c,logo);ctx.save();ctx.globalAlpha=.65;ctx.drawImage(logo,b.x,b.y,b.w,b.h);ctx.restore()}
+ catch(e){console.warn('Prévia da marca:',e)}
 }
-
-/* ENVIO DAS FOTOGRAFIAS */
-
-$('uploadPhotos').onclick=async()=>{
-  if(!editing){
-    $('photoStatus').textContent=
-      'Salve o imóvel antes das fotos.';
-    return;
-  }
-
-  const files=[...$('photoInput').files];
-
-  if(!files.length){
-    $('photoStatus').textContent=
-      'Selecione uma ou mais fotos.';
-    return;
-  }
-
-  const btn=$('uploadPhotos');
-  btn.disabled=true;
-
-  let ok=0;
-  const errors=[];
-
-  let nextOrder=photoRecords.length
-    ?Math.max(
-      ...photoRecords.map(r=>Number(r.ordem)||0)
-    )+1
-    :1;
-
-  try{
-    for(const file of files){
-
-      if(photoRecords.length+ok>=30){
-        errors.push(
-          file.name+': limite de 30 fotos'
-        );
-        continue;
-      }
-
-      if(![
-        'image/jpeg',
-        'image/png',
-        'image/webp'
-      ].includes(file.type)){
-        errors.push(
-          file.name+': formato inválido'
-        );
-        continue;
-      }
-
-      if(file.size>10*1024*1024){
-        errors.push(
-          file.name+': arquivo maior que 10 MB'
-        );
-        continue;
-      }
-
-      const path=String(editing)+'/'+
-        crypto.randomUUID()+'-portal.jpg';
-
-      $('photoStatus').textContent=
-        'Aplicando marca-d’água em '+file.name+'...';
-
-      let marked;
-
-      try{
-        marked=await markPhoto(file);
-
-      }catch(e){
-        errors.push(
-          file.name+': '+e.message
-        );
-        continue;
-      }
-
-      $('photoStatus').textContent=
-        'Enviando '+file.name+'...';
-
-      let error;
-
-      try{
-        ({error}=await supabase.storage
-          .from(bucket)
-          .upload(path,marked,{
-            contentType:'image/jpeg',
-            upsert:false
-          }));
-
-      }catch(e){
-        error=e;
-      }
-
-      if(error){
-        errors.push(
-          file.name+': '+error.message
-        );
-        continue;
-      }
-
-      const ordem=Math.min(
-        30,
-        Math.max(
-          1,
-          Math.trunc(Number(nextOrder)||1)
-        )
-      );
-
-      const db=await supabase
-        .from('imovel_fotos')
-        .insert({
-          imovel_id:String(editing),
-          caminho:path,
-          ordem
-        });
-
-      if(db.error){
-        await supabase.storage
-          .from(bucket)
-          .remove([path]);
-
-        errors.push(
-          file.name+': '+db.error.message
-        );
-
-        continue;
-      }
-
-      ok++;
-      nextOrder=ordem+1;
-    }
-
-  }finally{
-    btn.disabled=false;
-    $('photoInput').value='';
-    await loadPhotos();
-  }
-
-  $('photoStatus').textContent=
-    ok+' fotografia(s) enviada(s). '+
-    (
-      errors.length
-        ?'Falhas: '+errors.join(' | ')
-        :'Agora você pode abrir ou publicar o anúncio no botão abaixo.'
-    );
-};
-
-/* INICIALIZAÇÃO */
-
-buildGroups();
-updateType();
-check();
-
+async function uploadPending(){
+ if(!editing){$('photoStatus').textContent='Salve o imóvel antes das fotos.';return}
+ const files=pending.map(x=>x.file);if(!files.length){$('photoStatus').textContent='Selecione uma ou mais fotos.';return}
+ if(photoUploading)return false;photoUploading=true;const btn=$('uploadPhotos');btn.disabled=true;$('photoInput').disabled=true;renderPending();let ok=0;const errors=[];let nextOrder=photoRecords.length?Math.max(...photoRecords.map(r=>Number(r.ordem)||0))+1:1;
+ try{for(const file of files){
+   if(photoRecords.length+ok>=30){errors.push(file.name+': limite de 30 fotos');continue}
+   if(!['image/jpeg','image/png','image/webp'].includes(file.type)){errors.push(file.name+': formato inválido');continue}
+   if(file.size>10*1024*1024){errors.push(file.name+': arquivo maior que 10 MB');continue}
+   const path=String(editing)+'/'+crypto.randomUUID()+'-portal.jpg';$('photoStatus').textContent='Aplicando marca-d’água em '+file.name+'...';
+   let marked;try{marked=await markPhoto(file)}catch(e){errors.push(file.name+': '+e.message);continue}
+   $('photoStatus').textContent='Enviando '+file.name+'...';let error;
+   try{({error}=await supabase.storage.from(bucket).upload(path,marked,{contentType:'image/jpeg',upsert:false}))}catch(e){error=e}
+   if(error){errors.push(file.name+': '+error.message);continue}
+   const ordem=Math.min(30,Math.max(1,Math.trunc(Number(nextOrder)||1)));
+   const db=await supabase.from('imovel_fotos').insert({imovel_id:String(editing),caminho:path,ordem});
+   if(db.error){await supabase.storage.from(bucket).remove([path]);errors.push(file.name+': '+db.error.message);continue}
+   ok++;nextOrder=ordem+1;const i=pending.findIndex(x=>x.file===file);if(i>=0){URL.revokeObjectURL(pending[i].url);pending.splice(i,1);renderPending()}
+ }}finally{try{await loadPhotos()}finally{photoUploading=false;btn.disabled=false;$('photoInput').disabled=false;renderPending()}}
+ $('photoStatus').textContent=ok+' fotografia(s) enviada(s). '+(errors.length?'Falhas: '+errors.join(' | '):'Agora você pode abrir ou publicar o anúncio no botão abaixo.');
+return pending.length===0;
+}
+$('uploadPhotos').onclick=()=>{if(!editing){$('propertyForm').requestSubmit();return}uploadPending().catch(e=>inform(e.message,true))};
+let condosV2=[],privateReadyV2=false;
+const privateFieldsV2={proprietario_nome:'Nome do proprietário',proprietario_telefone:'Telefone',valor_minimo:'Valor mínimo',comissao:'Comissão',tipo_captacao:'Tipo de captação',parceiro_nome:'Corretor parceiro',parceiro_telefone:'Telefone do parceiro',parceiro_creci:'CRECI do parceiro',divisao_comissao:'Divisão da comissão',informacoes_chaves:'Informações das chaves',observacoes:'Observações internas'};
+for(const [k,n] of Object.entries(privateFieldsV2)){const l=document.createElement('label');l.textContent=n;const i=document.createElement('input');i.id='priv_'+k;if(['valor_minimo','comissao'].includes(k)){i.type='number';i.min='0';i.step='0.01'}l.append(i);$('privadosV2').append(l)}
+async function loadPrivateV2(){privateReadyV2=false;for(const k of Object.keys(privateFieldsV2))$('priv_'+k).value='';if(editing){const {data,error}=await supabase.from('portal_imoveis_privados').select('*').eq('imovel_id',editing).maybeSingle();if(error){inform('Erro ao carregar dados privados: '+error.message,true);return}for(const k of Object.keys(privateFieldsV2))$('priv_'+k).value=data?.[k]??''}privateReadyV2=true}
+async function savePrivateV2(){const p={imovel_id:editing,atualizado_em:new Date().toISOString()};for(const k of Object.keys(privateFieldsV2)){const v=$('priv_'+k).value.trim();p[k]=v?(['valor_minimo','comissao'].includes(k)?Number(v):v):null}const {error}=await supabase.from('portal_imoveis_privados').upsert(p,{onConflict:'imovel_id'});if(error)throw error}
+async function refreshCondosV2(){const {data,error}=await supabase.from('portal_condominios').select('*').order('nome');if(error){inform('Erro ao consultar residenciais: '+error.message,true);return}condosV2=data||[];const d=$('condominiosV2');d.replaceChildren();for(const c of condosV2){const o=document.createElement('option');o.value=c.nome;d.append(o)}}
+function condoMatchV2(){const n=normalized($('empreendimento').value.trim());return n?condosV2.find(c=>normalized(c.nome)===n):null}
+const sharedKeysV2=['condominio_seguranca','condominio_lazer','condominio_servicos'];
+$('aplicarCondominioV2').onclick=()=>{const c=condoMatchV2();if(!c){inform('Residencial não cadastrado. Preencha normalmente.');return}for(const k of ['cep','logradouro','bairro','cidade'])if(c[k])$(k).value=c[k];if(c.uf)$('estado').value=c.uf;fillDetails({...readDetails(),...Object.fromEntries(sharedKeysV2.filter(k=>c.infraestrutura?.[k]).map(k=>[k,c.infraestrutura[k]]))});inform('Dados do residencial preenchidos. Confira antes de salvar.')};
+async function linkCondominioV2(p){const nome=p.empreendimento?.trim();if(!nome){p.condominio_id=null;return}let c=condoMatchV2();if(!c&&$('guardarCondominioV2').checked){const {data,error}=await supabase.from('portal_condominios').insert({nome,cep:p.cep,logradouro:p.logradouro,bairro:p.bairro,cidade:p.cidade,uf:p.estado,infraestrutura:Object.fromEntries(sharedKeysV2.filter(k=>p.detalhes?.[k]).map(k=>[k,p.detalhes[k]]))}).select().single();if(error)throw error;c=data;await refreshCondosV2()}p.condominio_id=c?.id??null}
+$('filtroV2').onchange=render;
+buildGroups();updateType();check();
 </script>
 </body>
 </html>
