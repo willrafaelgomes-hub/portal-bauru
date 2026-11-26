@@ -65,7 +65,7 @@ footer{padding:28px 0;background:var(--escuro);color:#FFFFFF}.footer-inner{displ
 <section class="section" id="oportunidades"><div class="wrap"><div class="section-head"><h2>Imóveis em destaque</h2><a href="imoveis.html" id="allLink">Ver todos os imóveis</a></div><div class="properties" id="properties" aria-live="polite"><div class="empty">Carregando imóveis...</div></div></div></section>
 <section class="section" id="recentes" hidden><div class="wrap"><div class="section-head"><h2>Imóveis recém-cadastrados</h2><a href="imoveis.html" id="recentLink">Ver todos os imóveis</a></div><div class="properties" id="recentProperties" aria-live="polite"></div></div></section>
 <section class="categories"><div class="wrap"><h2>Que tipo de imóvel você procura?</h2><p>Consulte casas, apartamentos, terrenos e outras opções disponíveis para compra em Bauru.</p><nav class="category-grid" aria-label="Buscar imóveis por tipo">
-<a href="imoveis.html?tipo=apartamento">Apartamentos em Bauru</a><a href="imoveis.html?tipo=casa">Casas em Bauru</a><a href="imoveis.html?tipo=terreno">Terrenos em Bauru</a><a href="imoveis.html?tipo=sobrado">Sobrados em Bauru</a><a href="imoveis.html?tipo=chacara">Chácaras em Bauru</a><a href="imoveis.html?tipo=comercial">Imóveis comerciais</a></nav></div></section>
+<a href="imoveis.html?tipo=apartamento">Apartamentos em Bauru</a><a href="imoveis.html?tipo=casa">Casas em Bauru</a><a href="imoveis.html?tipo=terreno">Terrenos em Bauru</a><a href="imoveis.html?tipo=sobrado">Sobrados em Bauru</a><a href="imoveis.html?tipo=chacara">Chácaras em Bauru</a><a href="imoveis.html?tipo=comercial">Imóveis comerciais</a></nav><p><a id="residenciaisLink" class="btn-orange" href="residencial.html">Conheça os residenciais em Bauru</a></p></div></section>
 <section class="help"><div class="wrap help-box"><div><h2>Não encontrou o imóvel ideal?</h2><p>Conte suas preferências. Nossa equipe pode ajudar você a encontrar boas oportunidades em Bauru.</p></div><a href="imoveis.html?personalizada=1" class="btn-orange" id="personalLink">Pedir ajuda na busca</a></div></section>
 </main>
 <footer><div class="wrap footer-inner"><div><strong>PORTAL BAURU IMÓVEIS</strong><small>W. Rafael Gomes — CRECI 196.907-F<br>Débora Navas — CRECI 196.899-F</small></div><small>Bauru/SP<br>Conectando pessoas às oportunidades certas.</small></div></footer>
@@ -86,6 +86,7 @@ document.getElementById('menuProperties').href=createLink('imoveis.html',{finali
 document.getElementById('menuAdvertise').href=createLink('anuncie.html');
 document.getElementById('allLink').href=createLink('imoveis.html',{finalidade:'venda'});
 document.getElementById('recentLink').href=createLink('imoveis.html',{finalidade:'venda'});
+document.getElementById('residenciaisLink').href=createLink('residencial.html');
 document.getElementById('personalLink').href=createLink('imoveis.html',{personalizada:1});
 document.querySelectorAll('.category-grid a').forEach(link=>{const url=new URL(link.getAttribute('href'),location.href);url.searchParams.set('finalidade','venda');if(corretor)url.searchParams.set('ref',corretor);link.href=url.href});
 const menuButton=document.getElementById('menuButton'),mainMenu=document.getElementById('mainMenu');
