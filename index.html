@@ -115,41 +115,62 @@ async function loadProperties(){
   const recent=document.getElementById('recentProperties');
   const featuredSection=document.getElementById('oportunidades');
   const recentSection=document.getElementById('recentes');
-  const originalColumns='id,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,publicado,situacao,finalidade,atualizado_em';
-  const query=(columns,order)=>supabase.from('imoveis').select(columns).eq('publicado',true).order(order,{ascending:false}).limit(1000).abortSignal(AbortSignal.timeout(10000));
-  try{
-    let result=await query(originalColumns+',destaque,mostrar_empreendimento,criado_em','criado_em');
-    if(result.error){console.warn('Consulta de cadastro:',result.error.message);result=await query(originalColumns+',destaque','atualizado_em');}
-    if(result.error){console.warn('Consulta de destaque:',result.error.message);result=await query(originalColumns,'atualizado_em');}
-    if(result.error)throw result.error;
-    const records=(result.data||[]).filter(p=>String(p.finalidade||'').toLowerCase()==='venda'&&!['vendido','alugado'].includes(String(p.situacao||'').toLowerCase()));
-    const featured=records.filter(p=>p.destaque===true).slice(0,6);
+  const base='id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,vagas,situacao,selo,publicado';
+  const photos=new Map();
+  let records=[], featured=[], newest=[];
+  let generation=0;
+  function render(){
+    container.replaceChildren();recent.replaceChildren();
+    for(const p of featured)container.append(buildCard(p,photos));
+    for(const p of newest)recent.append(buildCard(p,photos));
+    featuredSection.hidden=!featured.length;
+    recentSection.hidden=!newest.length&&featured.length>0;
+    if(!records.length)recent.append(element('div','empty','Ainda não há imóveis publicados. Você pode solicitar uma busca personalizada.'));
+  }
+  function group(){
+    const ordered=[...records].sort((a,b)=>String(b.criado_em||'').localeCompare(String(a.criado_em||'')));
+    featured=ordered.filter(p=>p.destaque===true).slice(0,6);
     const ids=new Set(featured.map(p=>p.id));
-    const newest=records.filter(p=>!ids.has(p.id)).slice(0,6);
-    const all=[...featured,...newest];
-    const photos=new Map();
-    function render(){
-      container.replaceChildren();recent.replaceChildren();
-      for(const p of featured)container.append(buildCard(p,photos));
-      for(const p of newest)recent.append(buildCard(p,photos));
-      featuredSection.hidden=!featured.length;
-      recentSection.hidden=!newest.length&&featured.length>0;
-      if(!all.length)recent.append(element('div','empty','Ainda não há imóveis publicados. Você pode solicitar uma busca personalizada.'));
-    }
+    newest=ordered.filter(p=>!ids.has(p.id)).slice(0,6);
     render();
-    if(all.length){
+  }
+  async function loadPhotos(){
+    const run=++generation;
+    const ids=[...featured,...newest].map(p=>p.id).filter(id=>!photos.has(id));
+    if(!ids.length)return;
+    try{
+      const {data,error}=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',ids).order('ordem',{ascending:true});
+      if(error)throw error;
+      for(const photo of data||[])if(photo.caminho&&!photos.has(photo.imovel_id))photos.set(photo.imovel_id,photo.caminho);
+      if(run===generation)render();
+    }catch(error){console.warn('Fotos:',error);}
+  }
+  try{
+    // Mesma consulta básica da página imoveis.html, sem timeout ou ordenação adicional.
+    const {data,error}=await supabase.from('imoveis').select(base).eq('publicado',true);
+    if(error)throw error;
+    records=(data||[]).filter(p=>String(p.finalidade||'').toLowerCase()==='venda'&&!['vendido','alugado'].includes(String(p.situacao||'').toLowerCase()));
+    group();
+    loadPhotos();
+    // Metadados opcionais: falhas aqui nunca impedem a listagem principal.
+    if(records.length){
       try{
-        const photoResult=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',all.map(p=>p.id)).order('ordem',{ascending:true}).abortSignal(AbortSignal.timeout(8000));
-        if(photoResult.error)throw photoResult.error;
-        for(const photo of photoResult.data||[])if(photo.caminho&&!photos.has(photo.imovel_id))photos.set(photo.imovel_id,photo.caminho);
-        if(photos.size)render();
-      }catch(error){console.warn('Fotos:',error.message||error);}
+        let meta=await supabase.from('imoveis').select('id,destaque,criado_em').eq('publicado',true);
+        if(meta.error)meta=await supabase.from('imoveis').select('id,destaque').eq('publicado',true);
+        if(meta.error)throw meta.error;
+        const byId=new Map((meta.data||[]).map(p=>[p.id,p]));
+        records=records.map(p=>({...p,...(byId.get(p.id)||{})}));
+        group();loadPhotos();
+      }catch(error){console.warn('Metadados de destaque:',error);}
     }
   }catch(error){
     console.error('Portal Bauru Imóveis:',error);
     featuredSection.hidden=false;recentSection.hidden=true;
     const notice=element('div','empty','Não foi possível carregar os imóveis agora.');
-    const retry=element('button','btn-search','Tentar novamente');retry.type='button';retry.onclick=()=>{retry.disabled=true;container.replaceChildren(element('div','empty','Carregando imóveis...'));loadProperties();};notice.append(document.createElement('br'),retry);container.replaceChildren(notice);
+    const diagnostic=element('small','','Código: '+String(error.code||error.name||'consulta')+' — '+String(error.message||'Falha de conexão').slice(0,200));
+    const retry=element('button','btn-search','Tentar novamente');retry.type='button';retry.onclick=()=>{retry.disabled=true;container.replaceChildren(element('div','empty','Carregando imóveis...'));loadProperties();};
+    const link=element('a','property-button','Ver todos os imóveis');link.href=createLink('imoveis.html',{finalidade:'venda'});
+    notice.append(document.createElement('br'),diagnostic,document.createElement('br'),retry,link);container.replaceChildren(notice);
   }
 }
 
