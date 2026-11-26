@@ -316,7 +316,7 @@ button{cursor:pointer}
 <div class="fields">
 <div class="field">
 <label for="busca">Bairro, condomínio ou código</label>
-<input id="busca" placeholder="Ex.: Bonardi, Camélias, Centro" type="search"/>
+<input id="busca" placeholder="Ex.: Bonardi, Camélias, Centro" type="search" list="sugestoesBusca" autocomplete="off"/><datalist id="sugestoesBusca"></datalist>
 </div>
 <input id="finalidade" type="hidden" value="venda"/>
 <div class="field">
@@ -325,10 +325,14 @@ button{cursor:pointer}
 </div>
 <div class="field">
 <label for="preco">Valor máximo</label>
-<select id="preco"><option value="">Qualquer valor</option><option value="150000">Até R$ 150 mil</option><option value="200000">Até R$ 200 mil</option><option value="250000">Até R$ 250 mil</option><option value="300000">Até R$ 300 mil</option><option value="400000">Até R$ 400 mil</option><option value="500000">Até R$ 500 mil</option><option value="750000">Até R$ 750 mil</option><option value="1000000">Até R$ 1 milhão</option></select>
+<select id="preco"><option value="">Sem limite</option><option value="150000">Até R$ 150 mil</option><option value="200000">Até R$ 200 mil</option><option value="250000">Até R$ 250 mil</option><option value="300000">Até R$ 300 mil</option><option value="350000">Até R$ 350 mil</option><option value="400000">Até R$ 400 mil</option><option value="450000">Até R$ 450 mil</option><option value="500000">Até R$ 500 mil</option><option value="600000">Até R$ 600 mil</option><option value="750000">Até R$ 750 mil</option><option value="800000">Até R$ 800 mil</option><option value="1000000">Até R$ 1 milhão</option><option value="1500000">Até R$ 1,5 milhões</option><option value="2000000">Até R$ 2 milhões</option><option value="3000000">Até R$ 3 milhões</option></select>
 </div></div>
 <details class="more" id="mais">
 <summary>Mais filtros</summary>
+<div class="extra" style="margin-top:12px">
+<div class="field"><label for="precoMin">Preço mínimo (R$)</label><input id="precoMin" type="number" min="0" step="1" inputmode="numeric" placeholder="Ex.: 200000"/></div>
+<div class="field"><label for="precoMax">Preço máximo personalizado (R$)</label><input id="precoMax" type="number" min="0" step="1" inputmode="numeric" placeholder="Ex.: 850000"/></div>
+</div><p class="filter-hint">O máximo personalizado substitui a faixa de preço selecionada acima. Digite apenas números.</p>
 <div class="extra">
 
 <div class="field">
@@ -351,6 +355,10 @@ button{cursor:pointer}
 <label class="feature"><input id="elevador" type="checkbox"/>Elevador</label>
 <label class="feature"><input id="financiamento" type="checkbox"/>Aceita financiamento</label>
 <label class="feature"><input id="fgts" type="checkbox"/>Aceita FGTS</label>
+<label class="feature"><input id="quintal" type="checkbox"/>Quintal privativo</label>
+<label class="feature"><input id="planejados" type="checkbox"/>Móveis planejados</label>
+<label class="feature"><input id="garagemCoberta" type="checkbox"/>Garagem coberta</label>
+<label class="feature"><input id="churrasqueira" type="checkbox"/>Churrasqueira</label>
 </div>
 <p class="filter-hint">Os diferenciais só aparecem nos resultados quando estão confirmados no cadastro do imóvel.</p>
 </details>
@@ -369,6 +377,7 @@ button{cursor:pointer}
 <div>
 
 <h2>Confira os imóveis</h2>
+<div class="field" style="margin:12px 0;max-width:310px"><label for="ordenar">Ordenar por</label><select id="ordenar"><option value="">Ordem padrão</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option><option value="recentes">Mais recentes</option></select></div>
 
 <a class="quick-personal-link" href="imoveis.html?personalizada=1" id="pesquisaLinkRapido">Precisa de ajuda para encontrar um imóvel?</a>
 </div>
@@ -465,8 +474,8 @@ const supabase=createClient('https://dtkszimtovtqdojjpqsy.supabase.co','sb_publi
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search);
 const ref=['rafael','debora'].includes(params.get('ref'))?params.get('ref'):null;
-const filtros=['busca','finalidade','tipo','preco','quartos','vagas','suites','piscina','terreo','elevador','financiamento','fgts'];
-const booleanos=new Set(['piscina','terreo','elevador','financiamento','fgts']);
+const filtros=['busca','finalidade','tipo','preco','quartos','vagas','suites','piscina','terreo','elevador','financiamento','fgts','quintal','planejados','garagemCoberta','churrasqueira','precoMin','precoMax','ordenar'];
+const booleanos=new Set(['piscina','terreo','elevador','financiamento','fgts','quintal','planejados','garagemCoberta','churrasqueira']);
 const brokerPhone={rafael:'5514982329929',debora:'5514981306115'};
 function urlFor(file,extra={}){
   const u=new URL(file,location.href);
@@ -482,6 +491,7 @@ for(const id of filtros){
   if(id==='finalidade'){input.value='venda';continue;}
   if(val===null)continue;
   if(booleanos.has(id))input.checked=val==='1'||val==='true';
+  else if(id==='preco'&&!Array.from(input.options).some(o=>o.value===val)&&/^\d+$/.test(val))$('precoMax').value=val;
   else input.value=val;
 }
 if(filtros.slice(4).some(id=>params.has(id)))$('mais').open=true;
@@ -507,6 +517,10 @@ function marcado(p,campos,nomes){
   });
 }
 function temPiscina(p){return marcado(p,['condominio_lazer','area_externa'],['Piscina','Piscina privativa'])}
+function temQuintal(p){return marcado(p,['area_externa','apartamento_posicao'],['Quintal','Quintal privativo','Térreo com quintal','Térreo garden (quintal privativo)']);}
+function temPlanejados(p){return marcado(p,['planejados'],['Armários planejados','Cozinha planejada','Quartos com planejados','Banheiros com planejados','Quarto(s) com planejados','Banheiro(s) com planejados','Móveis planejados']);}
+function temGaragemCoberta(p){return marcado(p,['vagas_caracteristicas'],['Garagem coberta']);}
+function temChurrasqueira(p){return marcado(p,['area_externa','condominio_lazer'],['Churrasqueira','Churrasqueira privativa']);}
 function temElevador(p){return marcado(p,['condominio_servicos'],['Elevador'])}
 function ehTerreo(p){
   if(p.tipo!=='apartamento')return false;
@@ -542,7 +556,7 @@ function card(p){
   const body=el('div','content');
   body.append(el('div','location',[labels[p.tipo]||'Imóvel',p.bairro||'Bauru/SP'].join(' · ')));
   const title=el('h3');
-  const titleLink=el('a','',p.titulo||p.empreendimento||'Imóvel em Bauru');
+  const titleLink=el('a','',p.titulo||(p.mostrar_empreendimento!==false&&p.empreendimento)||'Imóvel em Bauru');
   titleLink.href=urlFor('imovel.html',{id:p.id});
   title.append(titleLink);
   body.append(title);
@@ -561,7 +575,7 @@ function card(p){
   body.append(detail);
   const retorno=el('button','interest-link','Solicitar retorno sobre este imóvel');
   retorno.type='button';
-  retorno.onclick=()=>abrirCaptacao([p.codigo,p.titulo,p.empreendimento].filter(Boolean).join(' · ')||'Imóvel em Bauru');
+  retorno.onclick=()=>abrirCaptacao([p.codigo,p.titulo,p.mostrar_empreendimento!==false?p.empreendimento:null].filter(Boolean).join(' · ')||'Imóvel em Bauru');
   body.append(retorno);
   article.append(body);
   return article;
@@ -585,11 +599,12 @@ function textoDaBusca(){
   if(dados.busca)parts.push('Busca: '+dados.busca);
   if(dados.finalidade)parts.push('Finalidade: '+'compra');
   if(dados.tipo)parts.push('Tipo: '+(labels[dados.tipo]||dados.tipo));
-  if(dados.preco)parts.push('Até '+money(dados.preco));
+  if(dados.precoMin)parts.push('A partir de '+money(dados.precoMin));
+  if(dados.precoMax||dados.preco)parts.push('Até '+money(dados.precoMax||dados.preco));
   if(dados.quartos)parts.push(dados.quartos+'+ quartos');
   if(dados.vagas)parts.push(dados.vagas+'+ vagas');
   if(dados.suites)parts.push(dados.suites+'+ suítes');
-  for(const [id,descricao] of [['piscina','piscina'],['terreo','apartamento térreo'],['elevador','elevador'],['financiamento','financiamento'],['fgts','FGTS']]){
+  for(const [id,descricao] of [['piscina','piscina'],['terreo','apartamento térreo'],['elevador','elevador'],['financiamento','financiamento'],['fgts','FGTS'],['quintal','quintal'],['planejados','móveis planejados'],['garagemCoberta','garagem coberta'],['churrasqueira','churrasqueira']]){
     if(dados[id])parts.push(descricao);
   }
   return parts.length?parts.join('; '):'Gostaria de receber opções de imóveis em Bauru';
@@ -643,11 +658,13 @@ function render(){
   if(!loaded||loadingFailed)return;
   const f=valores(),termos=norm(f.busca).split(' ').filter(Boolean);
   const encontrados=properties.filter(p=>{
-    const hay=norm([p.codigo,p.titulo,p.descricao,p.bairro,p.empreendimento].filter(Boolean).join(' '));
+    const caracteristicas=[...(Array.isArray(p.caracteristicas)?p.caracteristicas:[]),...Object.entries(detalhes(p)).filter(([k])=>!['financiamento_status','fgts_status','ocupacao','permuta_status'].includes(k)).flatMap(([,v])=>Array.isArray(v)?v:typeof v==='string'?[v]:[])].filter(v=>! /^(sem |nao )/.test(norm(v)));
+    const hay=norm([p.codigo,p.titulo,p.descricao,p.bairro,p.mostrar_empreendimento!==false?p.empreendimento:null,labels[p.tipo],...caracteristicas].filter(Boolean).join(' '));
     return termos.every(t=>hay.includes(t))&&
       (!f.finalidade||p.finalidade===f.finalidade)&&
       (!f.tipo||p.tipo===f.tipo)&&
-      (!f.preco||(p.preco!==null&&p.preco!==undefined&&p.preco!==''&&Number(p.preco)<=Number(f.preco)))&&
+      (!(f.precoMax||f.preco)||(p.preco!=null&&p.preco!==''&&Number(p.preco)<=Number(f.precoMax||f.preco)))&&
+      (!f.precoMin||(p.preco!=null&&p.preco!==''&&Number(p.preco)>=Number(f.precoMin)))&&
       (!f.quartos||Number(p.quartos||0)>=Number(f.quartos))&&
       (!f.vagas||Number(p.vagas||0)>=Number(f.vagas))&&
       (!f.suites||Number(p.suites||0)>=Number(f.suites))&&
@@ -655,15 +672,19 @@ function render(){
       (!f.terreo||ehTerreo(p))&&
       (!f.elevador||temElevador(p))&&
       (!f.financiamento||aceita(p,'financiamento'))&&
-      (!f.fgts||aceita(p,'fgts'));
+      (!f.fgts||aceita(p,'fgts'))&&(!f.quintal||temQuintal(p))&&(!f.planejados||temPlanejados(p))&&(!f.garagemCoberta||temGaragemCoberta(p))&&(!f.churrasqueira||temChurrasqueira(p));
   });
+  if(f.ordenar==='menor'||f.ordenar==='maior')encontrados.sort((a,b)=>{const pa=a.preco==null||a.preco===''?null:Number(a.preco),pb=b.preco==null||b.preco===''?null:Number(b.preco);if(pa===null)return pb===null?0:1;if(pb===null)return -1;return f.ordenar==='menor'?pa-pb:pb-pa;});
+  if(f.ordenar==='recentes')encontrados.sort((a,b)=>String(b.criado_em||'').localeCompare(String(a.criado_em||'')));
   $('count').textContent=encontrados.length+' '+(encontrados.length===1?'imóvel encontrado':'imóveis encontrados');
   $('grid').replaceChildren(...encontrados.map(card));
   if(encontrados.length){$('status').classList.add('hidden');$('status').replaceChildren()}
   else mostrarVazio();
 }
+$('ordenar').addEventListener('change',()=>{atualizaEndereco();render()});
 $('form').addEventListener('submit',e=>{
   e.preventDefault();
+  const f=valores();if(f.precoMin&&(f.precoMax||f.preco)&&Number(f.precoMin)>Number(f.precoMax||f.preco)){alert('O preço mínimo não pode ser maior que o máximo.');return;}
   atualizaEndereco();
   render();
   ( $('grid').children.length ? $('grid') : $('status') ).scrollIntoView({behavior:'smooth',block:'start'});
@@ -694,18 +715,24 @@ async function load(){
     norm(p.finalidade)==='venda'&&
     !['vendido','alugado'].includes(norm(p.situacao))
   );
+    properties=properties.map(p=>({...p,mostrar_empreendimento:false}));
     photoMap=new Map();
+    loaded=true;
+    render();
+    function sugestoes(){const d=$('sugestoesBusca');d.replaceChildren();const seen=new Set();for(const p of properties)for(const v of [p.bairro,p.mostrar_empreendimento!==false?p.empreendimento:null]){if(v&&!seen.has(norm(v))){seen.add(norm(v));const o=document.createElement('option');o.value=v;d.append(o)}}}
+    // Não sugere nomes de residenciais enquanto a preferência de visibilidade não for consultada.
+    const metaTask=(async()=>{try{const {data,error}=await supabase.from('imoveis').select('id,criado_em,mostrar_empreendimento').eq('publicado',true);if(error)throw error;const map=new Map((data||[]).map(p=>[p.id,p]));properties=properties.map(p=>({...p,...(map.get(p.id)||{mostrar_empreendimento:false})}));sugestoes();render();}catch(e){console.warn('Metadados opcionais:',e);$('ordenar').querySelector('[value="recentes"]').disabled=true;properties=properties.map(p=>({...p,mostrar_empreendimento:false}));sugestoes();render();}})();
     const ids=properties.map(p=>p.id);
     for(let i=0;i<ids.length;i+=75){
       const lote=ids.slice(i,i+75);
-      const {data:photos,error}=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',lote).order('ordem',{ascending:true});
+      let result;try{result=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',lote).order('ordem',{ascending:true});}catch(e){console.warn('Fotos:',e);continue;}
+      const {data:photos,error}=result;
       if(error){console.warn('Não foi possível carregar as fotos:',error);continue}
       for(const photo of photos||[]){
         if(!photoMap.has(photo.imovel_id))photoMap.set(photo.imovel_id,[]);
         photoMap.get(photo.imovel_id).push(photo);
       }
     }
-    loaded=true;
     render();
   }catch(error){
     loadingFailed=true;
