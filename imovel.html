@@ -62,6 +62,16 @@ footer{background:#14253D;color:#F6F1EA;padding:28px 0;font-size:13px}.footer-ro
 .sim-whatsapp{display:block;padding:13px;background:#168A4D;color:#fff;border-radius:10px;text-align:center;text-decoration:none;font-weight:800;margin-top:15px}
 .sim-honeypot{position:absolute!important;left:-9999px!important;height:1px!important;width:1px!important;overflow:hidden}
 @media(max-width:600px){.sim-dialog{padding:22px 18px}}
+
+.v2-media{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;display:block;background:#f0f2f4}
+.v2-map{width:100%;height:290px;border:0;border-radius:12px;display:block;background:#f0f2f4}
+.v2-link{display:inline-block;color:#9c420c;font-weight:700;margin-top:10px;text-decoration:underline}
+.v2-related{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.v2-related a{display:block;border:1px solid #e0e4e8;border-radius:10px;padding:12px;text-decoration:none;color:#14253d;overflow-wrap:anywhere}
+.v2-related strong,.v2-related span{display:block;margin-top:5px}
+.v2-related span{color:#b54b0c;font-weight:700}
+.v2-related img{width:100%;height:120px;object-fit:cover;border-radius:7px}
+@media(max-width:540px){.v2-related{grid-template-columns:1fr}.v2-map{height:240px}}
 </style>
 </head>
 <body>
@@ -83,6 +93,9 @@ footer{background:#14253D;color:#F6F1EA;padding:28px 0;font-size:13px}.footer-ro
 <section class="panel"><h2>Características do imóvel</h2><div class="features" id="features"></div></section>
 <section class="panel" id="description-panel"><h2>Sobre este imóvel</h2><div id="description" class="desc"></div></section>
 <section class="panel"><h2>Informações adicionais</h2><div id="extra" class="extras"></div></section>
+<section class="panel hidden" id="video-v2"><h2>Vídeo do imóvel</h2><div id="video-box-v2"></div></section>
+<section class="panel hidden" id="map-v2"><h2>Localização aproximada</h2><div id="map-box-v2"></div><p class="note">O mapa indica a região do imóvel, não seu endereço exato. Consulte nossa equipe para mais informações.</p></section>
+<section class="panel hidden" id="related-v2"><h2>Outros imóveis que podem interessar</h2><div id="related-box-v2" class="v2-related"></div></section>
 </div>
 <aside class="panel contact">
 <div class="muted" id="deal"></div><div class="price" id="price"></div>
@@ -108,105 +121,103 @@ footer{background:#14253D;color:#F6F1EA;padding:28px 0;font-size:13px}.footer-ro
 <div id="lightbox" class="lightbox hidden" role="dialog" aria-label="Galeria de fotos" aria-modal="true">
 <button id="close" type="button" aria-label="Fechar galeria">Fechar ✕</button>
 <button id="prev" class="previous" type="button" aria-label="Foto anterior">❮</button>
-<button id="next" class="next" type="button" aria-label="Próxima foto">❯</button>
 <img id="large" alt="Fotografia do imóvel">
+<button id="next" class="next" type="button" aria-label="Próxima foto">❯</button>
 <div id="counter" class="counter"></div>
 </div>
 
 <div class="sim-overlay" id="sim-overlay" hidden>
-<section class="sim-dialog" role="dialog" aria-modal="true" aria-labelledby="sim-title">
-<button type="button" class="sim-close" id="sim-close" aria-label="Fechar">×</button>
-<h2 id="sim-title">Pré-análise de financiamento</h2>
-<p class="sim-intro">Responda algumas perguntas para prepararmos sua simulação. Não é necessário enviar documentos agora.</p>
-<div class="sim-progress" aria-label="Progresso do formulário">
-<span id="sim-bar-0" class="active"></span><span id="sim-bar-1"></span><span id="sim-bar-2"></span>
-</div>
-<form id="sim-form" class="sim-form" novalidate>
-<section class="sim-step" id="sim-step-0">
-<h3 class="sim-step-title">1. Seus dados</h3>
-<label for="sim-name">Nome completo *</label>
-<input id="sim-name" type="text" autocomplete="name" maxlength="100" required>
-<label for="sim-phone">WhatsApp com DDD *</label>
-<input id="sim-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(14) 99999-9999" maxlength="22" required>
-<label for="sim-first">Será seu primeiro imóvel? *</label>
-<select id="sim-first" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-<label for="sim-civil">Estado civil *</label>
-<select id="sim-civil" required>
-<option value="">Selecione</option><option>Solteiro(a)</option><option>Casado(a)</option><option>União estável</option><option>Divorciado(a)</option><option>Viúvo(a)</option>
-</select>
-<div id="sim-spouse-name-box" class="sim-conditional" hidden>
-<label for="sim-spouse-name">Nome completo do cônjuge/companheiro(a) *</label>
-<input id="sim-spouse-name" type="text" maxlength="100" autocomplete="off">
-<small class="sim-note">As informações do cônjuge serão consideradas na pré-análise.</small>
-</div>
-</section>
-
-<section class="sim-step" id="sim-step-1" hidden>
-<h3 class="sim-step-title">2. Renda e carteira de trabalho</h3>
-<label for="sim-income-kind">Como você comprova sua renda? *</label>
-<select id="sim-income-kind" required>
-<option value="">Selecione</option>
-<option value="Formal">Formal — CLT, declaração de Imposto de Renda ou pró-labore</option>
-<option value="Informal">Informal — movimentação bancária</option>
-<option value="Mista">Formal e informal (mista)</option>
-<option value="Sem renda">Não possuo renda atualmente</option>
-</select>
-<div id="sim-income-value-box">
-<label for="sim-income">Qual sua renda bruta mensal total? (R$) *</label>
-<input id="sim-income" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 3500" required>
-<small class="sim-note">Informe o valor bruto, antes de descontos.</small>
-</div>
-<label for="sim-work">Você possui pelo menos 3 anos de registro em carteira? *</label>
-<select id="sim-work" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-<div id="sim-spouse-income-box" class="sim-conditional" hidden>
-<strong>Dados de renda do cônjuge/companheiro(a)</strong>
-<label for="sim-spouse-kind">Como o cônjuge comprova a renda? *</label>
-<select id="sim-spouse-kind">
-<option value="">Selecione</option><option value="Formal">Formal — CLT, IR ou pró-labore</option><option value="Informal">Informal — movimentação bancária</option><option value="Mista">Formal e informal (mista)</option><option value="Sem renda">Não possui renda atualmente</option>
-</select>
-<div id="sim-spouse-income-value-box">
-<label for="sim-spouse-income">Renda bruta mensal do cônjuge (R$) *</label>
-<input id="sim-spouse-income" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 2500">
-<small class="sim-note">Valor bruto, antes dos descontos.</small>
-</div>
-<label for="sim-spouse-work">Cônjuge possui 3 anos de registro em carteira? *</label>
-<select id="sim-spouse-work"><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-</div>
-</section>
-
-<section class="sim-step" id="sim-step-2" hidden>
-<h3 class="sim-step-title">3. FGTS, entrada e documentação</h3>
-<label for="sim-fgts">Você possui saldo de FGTS? *</label>
-<select id="sim-fgts" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-<div id="sim-fgts-value-box" class="sim-conditional" hidden>
-<label for="sim-fgts-value">Valor aproximado do seu FGTS (R$) *</label>
-<input id="sim-fgts-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 12000">
-</div>
-<div id="sim-spouse-fgts-box" class="sim-conditional" hidden>
-<label for="sim-spouse-fgts">O cônjuge possui saldo de FGTS? *</label>
-<select id="sim-spouse-fgts"><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-<div id="sim-spouse-fgts-value-box" hidden>
-<label for="sim-spouse-fgts-value">Valor aproximado do FGTS do cônjuge (R$) *</label>
-<input id="sim-spouse-fgts-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 8000">
-</div>
-</div>
-<label for="sim-entry">Possui dinheiro disponível para entrada? *</label>
-<select id="sim-entry" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-<div id="sim-entry-value-box" class="sim-conditional" hidden>
-<label for="sim-entry-value">Quanto possui para entrada? (R$) *</label>
-<input id="sim-entry-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 15000">
-</div>
-<label for="sim-docs">Possui recursos para pagar a documentação? *</label>
-<select id="sim-docs" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
-<div class="sim-honeypot" aria-hidden="true"><label for="sim-site">Site</label><input id="sim-site" tabindex="-1" autocomplete="off"></div>
-<label class="sim-consent"><input id="sim-consent" type="checkbox" required><span>Autorizo o Portal Bauru Imóveis a usar as informações fornecidas para avaliar as possibilidades de financiamento e entrar em contato pelo WhatsApp. Se informei dados do cônjuge, confirmo que tenho sua autorização.</span></label>
-<small class="sim-note">O resultado depende da análise bancária e da elegibilidade do imóvel. Não garantimos aprovação.</small>
-</section>
-<div class="sim-actions"><button class="sim-back" id="sim-back" type="button" hidden>Voltar</button><button class="sim-next" id="sim-next" type="button">Continuar</button><button class="sim-send" id="sim-send" type="submit" hidden>Solicitar simulação</button></div>
-<p id="sim-feedback" class="sim-feedback" role="status" aria-live="polite"></p>
-</form>
-<div id="sim-result" class="sim-result" hidden></div>
-</section>
+  <section class="sim-dialog" role="dialog" aria-modal="true" aria-labelledby="sim-title">
+    <button type="button" class="sim-close" id="sim-close" aria-label="Fechar">×</button>
+    <h2 id="sim-title">Pré-análise de financiamento</h2>
+    <p class="sim-intro">Responda algumas perguntas para prepararmos sua simulação. Não é necessário enviar documentos agora.</p>
+    <div class="sim-progress" aria-label="Progresso do formulário">
+      <span id="sim-bar-0" class="active"></span><span id="sim-bar-1"></span><span id="sim-bar-2"></span>
+    </div>
+    <form id="sim-form" class="sim-form" novalidate>
+      <section class="sim-step" id="sim-step-0">
+        <h3 class="sim-step-title">1. Seus dados</h3>
+        <label for="sim-name">Nome completo *</label>
+        <input id="sim-name" type="text" autocomplete="name" maxlength="100" required>
+        <label for="sim-phone">WhatsApp com DDD *</label>
+        <input id="sim-phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(14) 99999-9999" maxlength="22" required>
+        <label for="sim-first">Será seu primeiro imóvel? *</label>
+        <select id="sim-first" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <label for="sim-civil">Estado civil *</label>
+        <select id="sim-civil" required>
+          <option value="">Selecione</option><option>Solteiro(a)</option><option>Casado(a)</option><option>União estável</option><option>Divorciado(a)</option><option>Viúvo(a)</option>
+        </select>
+        <div id="sim-spouse-name-box" class="sim-conditional" hidden>
+          <label for="sim-spouse-name">Nome completo do cônjuge/companheiro(a) *</label>
+          <input id="sim-spouse-name" type="text" maxlength="100" autocomplete="off">
+          <small class="sim-note">As informações do cônjuge serão consideradas na pré-análise.</small>
+        </div>
+      </section>
+      <section class="sim-step" id="sim-step-1" hidden>
+        <h3 class="sim-step-title">2. Renda e carteira de trabalho</h3>
+        <label for="sim-income-kind">Como você comprova sua renda? *</label>
+        <select id="sim-income-kind" required>
+          <option value="">Selecione</option>
+          <option value="Formal">Formal — CLT, declaração de Imposto de Renda ou pró-labore</option>
+          <option value="Informal">Informal — movimentação bancária</option>
+          <option value="Mista">Formal e informal (mista)</option>
+          <option value="Sem renda">Não possuo renda atualmente</option>
+        </select>
+        <div id="sim-income-value-box">
+          <label for="sim-income">Qual sua renda bruta mensal total? (R$) *</label>
+          <input id="sim-income" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 3500" required>
+          <small class="sim-note">Informe o valor bruto, antes de descontos.</small>
+        </div>
+        <label for="sim-work">Você possui pelo menos 3 anos de registro em carteira? *</label>
+        <select id="sim-work" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div id="sim-spouse-income-box" class="sim-conditional" hidden>
+          <strong>Dados de renda do cônjuge/companheiro(a)</strong>
+          <label for="sim-spouse-kind">Como o cônjuge comprova a renda? *</label>
+          <select id="sim-spouse-kind">
+            <option value="">Selecione</option><option value="Formal">Formal — CLT, IR ou pró-labore</option><option value="Informal">Informal — movimentação bancária</option><option value="Mista">Formal e informal (mista)</option><option value="Sem renda">Não possui renda atualmente</option>
+          </select>
+          <div id="sim-spouse-income-value-box">
+            <label for="sim-spouse-income">Renda bruta mensal do cônjuge (R$) *</label>
+            <input id="sim-spouse-income" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 2500">
+            <small class="sim-note">Valor bruto, antes dos descontos.</small>
+          </div>
+          <label for="sim-spouse-work">Cônjuge possui 3 anos de registro em carteira? *</label>
+          <select id="sim-spouse-work"><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        </div>
+      </section>
+      <section class="sim-step" id="sim-step-2" hidden>
+        <h3 class="sim-step-title">3. FGTS, entrada e documentação</h3>
+        <label for="sim-fgts">Você possui saldo de FGTS? *</label>
+        <select id="sim-fgts" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div id="sim-fgts-value-box" class="sim-conditional" hidden>
+          <label for="sim-fgts-value">Valor aproximado do seu FGTS (R$) *</label>
+          <input id="sim-fgts-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 12000">
+        </div>
+        <div id="sim-spouse-fgts-box" class="sim-conditional" hidden>
+          <label for="sim-spouse-fgts">O cônjuge possui saldo de FGTS? *</label>
+          <select id="sim-spouse-fgts"><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+          <div id="sim-spouse-fgts-value-box" hidden>
+            <label for="sim-spouse-fgts-value">Valor aproximado do FGTS do cônjuge (R$) *</label>
+            <input id="sim-spouse-fgts-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 8000">
+          </div>
+        </div>
+        <label for="sim-entry">Possui dinheiro disponível para entrada? *</label>
+        <select id="sim-entry" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div id="sim-entry-value-box" class="sim-conditional" hidden>
+          <label for="sim-entry-value">Quanto possui para entrada? (R$) *</label>
+          <input id="sim-entry-value" type="number" min="0" max="999999999" step="0.01" inputmode="decimal" placeholder="Ex.: 15000">
+        </div>
+        <label for="sim-docs">Possui recursos para pagar a documentação? *</label>
+        <select id="sim-docs" required><option value="">Selecione</option><option>Sim</option><option>Não</option></select>
+        <div class="sim-honeypot" aria-hidden="true"><label for="sim-site">Site</label><input id="sim-site" tabindex="-1" autocomplete="off"></div>
+        <label class="sim-consent"><input id="sim-consent" type="checkbox" required><span>Autorizo o Portal Bauru Imóveis a usar as informações fornecidas para avaliar as possibilidades de financiamento e entrar em contato pelo WhatsApp. Se informei dados do cônjuge, confirmo que tenho sua autorização.</span></label>
+        <small class="sim-note">O resultado depende da análise bancária e da elegibilidade do imóvel. Não garantimos aprovação.</small>
+      </section>
+      <div class="sim-actions"><button class="sim-back" id="sim-back" type="button" hidden>Voltar</button><button class="sim-next" id="sim-next" type="button">Continuar</button><button class="sim-send" id="sim-send" type="submit" hidden>Solicitar simulação</button></div>
+      <p id="sim-feedback" class="sim-feedback" role="status" aria-live="polite"></p>
+    </form>
+    <div id="sim-result" class="sim-result" hidden></div>
+  </section>
 </div>
 
 <script type="module">
@@ -239,7 +250,7 @@ let contacting=false;
 async function openContact(p){if(contacting)return;contacting=true;const btn=$('contact'),mobile=$('mobile-contact');btn.textContent='Preparando atendimento...';mobile.textContent='Preparando atendimento...';mobile.disabled=true;btn.setAttribute('aria-disabled','true');try{let broker=ref;if(!broker){const {data,error}=await supabase.rpc('portal_proximo_corretor');if(error)throw error;if(!Object.prototype.hasOwnProperty.call(brokerPhone,data))throw new Error('Resposta inesperada do rodízio');broker=data}window.location.assign(contactLink(p,broker))}catch(e){console.error('Contato WhatsApp:',e);alert('Não foi possível preparar o WhatsApp agora. Tente novamente em instantes.')}finally{contacting=false;btn.textContent='Conversar pelo WhatsApp';mobile.textContent='Agendar visita pelo WhatsApp';mobile.disabled=false;btn.removeAttribute('aria-disabled')}}
 function setMeta(selector,attribute,value){const element=document.querySelector(selector);if(element)element.setAttribute(attribute,value)}
 function cleanText(value){return String(value||'').replace(/\s+/g,' ').trim()}
-function prepareSEO(p){const type=typeNames[p.tipo]||'Imóvel';const purpose=p.finalidade==='locacao'?'para alugar':'à venda';const place=p.bairro?`no ${p.bairro}, em Bauru/SP`:'em Bauru/SP';const rawTitle=cleanText(p.titulo);const title=rawTitle?`${rawTitle} | Portal Bauru Imóveis`:`${type} ${purpose} ${place} | Portal Bauru Imóveis`;const characteristics=[p.quartos!=null?`${p.quartos} quarto(s)`:null,p.suites?`${p.suites} suíte(s)`:null,p.vagas!=null?`${p.vagas} vaga(s)`:null,p.area_privativa?`${Number(p.area_privativa).toLocaleString('pt-BR')} m²`:null].filter(Boolean).join(', ');const description=[`${type} ${purpose} ${place}.`,characteristics?`${characteristics}.`:null,p.preco!=null?`Valor: ${money(p.preco)}.`:null,p.descricao?cleanText(p.descricao):null].filter(Boolean).join(' ').slice(0,165).trim();const canonical=canonicalUrl(p.id);document.title=title;setMeta('#seo-description','content',description);setMeta('#og-title','content',title);setMeta('#og-description','content',description);setMeta('#og-url','content',canonical);let canonicalTag=document.querySelector('link[rel="canonical"]');if(!canonicalTag){canonicalTag=document.createElement('link');canonicalTag.rel='canonical';document.head.append(canonicalTag)}canonicalTag.href=canonical;if(photos.length){let image=document.querySelector('meta[property="og:image"]');if(!image){image=document.createElement('meta');image.setAttribute('property','og:image');document.head.append(image)}image.setAttribute('content',photos[0])}const realEstate={'@context':'https://schema.org','@type':'RealEstateListing','@id':canonical+'#anuncio',url:canonical,name:rawTitle||`${type} ${purpose} ${place}`,description:cleanText(p.descricao)||description,inLanguage:'pt-BR',mainEntity:{'@type':'Accommodation',name:rawTitle||`${type} em Bauru`,description:cleanText(p.descricao)||description,address:{'@type':'PostalAddress',addressLocality:'Bauru',addressRegion:'SP',addressCountry:'BR'},...(p.area_privativa?{floorSize:{'@type':'QuantitativeValue',value:Number(p.area_privativa),unitCode:'MTK'}}:{}),...(p.quartos!=null?{numberOfBedrooms:Number(p.quartos)}:{}),...(p.banheiros!=null?{numberOfBathroomsTotal:Number(p.banheiros)}:{}),...(photos.length?{image:photos}:{})},...(p.preco!=null?{offers:{'@type':'Offer',price:Number(p.preco),priceCurrency:'BRL',availability:p.situacao==='reservado'?'https://schema.org/LimitedAvailability':'https://schema.org/InStock',url:canonical}}:{}),publisher:{'@type':'Organization',name:'Portal Bauru Imóveis',url:'https://portalbauruimoveis.com.br/'}};if(p.bairro)realEstate.mainEntity.address.addressSubregion=p.bairro;const script=document.createElement('script');script.type='application/ld+json';script.id='property-structured-data';script.textContent=JSON.stringify(realEstate).replace(/</g,'\\u003c');document.head.append(script)}
+function prepareSEO(p){const type=typeNames[p.tipo]||'Imóvel';const purpose=p.finalidade==='locacao'?'para alugar':'à venda';const place=p.bairro?`no ${p.bairro}, em Bauru/SP`:'em Bauru/SP';const rawTitle=cleanText(p.titulo);const title=rawTitle?`${rawTitle} | Portal Bauru Imóveis`:`${type} ${purpose} ${place} | Portal Bauru Imóveis`;const characteristics=[p.quartos!=null?`${p.quartos} quarto(s)`:null,p.suites?`${p.suites} suíte(s)`:null,p.vagas!=null?`${p.vagas} vaga(s)`:null,p.area_privativa?`${Number(p.area_privativa).toLocaleString('pt-BR')} m²`:null].filter(Boolean).join(', ');const description=[`${type} ${purpose} ${place}.`,characteristics?`${characteristics}.`:null,p.preco!=null?`Valor: ${money(p.preco)}.`:null,p.descricao?cleanText(p.descricao):null].filter(Boolean).join(' ').slice(0,165).trim();const canonical=canonicalUrl(p.id);document.title=title;setMeta('#seo-description','content',description);setMeta('#og-title','content',title);setMeta('#og-description','content',description);setMeta('#og-url','content',canonical);let canonicalTag=document.querySelector('link[rel="canonical"]');if(!canonicalTag){canonicalTag=document.createElement('link');canonicalTag.rel='canonical';document.head.append(canonicalTag)}canonicalTag.href=canonical;if(photos.length){let image=document.querySelector('meta[property="og:image"]');if(!image){image=document.createElement('meta');image.setAttribute('property','og:image');document.head.append(image)}image.setAttribute('content',photos[0])}const realEstate={'@context':'https://schema.org','@type':'RealEstateListing','@id':canonical+'#anuncio',url:canonical,name:rawTitle||`${type} ${purpose} ${place}`,description:cleanText(p.descricao)||description,inLanguage:'pt-BR',mainEntity:{'@type':'Accommodation',name:rawTitle||`${type} em Bauru`,description:cleanText(p.descricao)||description,address:{'@type':'PostalAddress',addressLocality:'Bauru',addressRegion:'SP',addressCountry:'BR'},...(p.area_privativa?{floorSize:{'@type':'QuantitativeValue',value:Number(p.area_privativa),unitCode:'MTK'}}:{}),...(p.quartos!=null?{numberOfBedrooms:Number(p.quartos)}:{}),...(p.banheiros!=null?{numberOfBathroomsTotal:Number(p.banheiros)}:{}),...(photos.length?{image:photos}:{})},...(p.preco!=null?{offers:{'@type':'Offer',price:Number(p.preco),priceCurrency:'BRL',availability:p.situacao==='reservado'?'https://schema.org/LimitedAvailability':'https://schema.org/InStock',url:canonical}}:{}),publisher:{'@type':'Organization',name:'Portal Bauru Imóveis',url:'https://portalbauru.pages.dev/'}};if(p.bairro)realEstate.mainEntity.address.addressSubregion=p.bairro;const script=document.createElement('script');script.type='application/ld+json';script.id='property-structured-data';script.textContent=JSON.stringify(realEstate).replace(/</g,'\\u003c');document.head.append(script)}
 
 /* Pré-análise em três etapas, integrada ao CRM */
 let simProperty=null,simStep=0,simSending=false,simFocus=null,simOverflow='';
@@ -247,76 +258,76 @@ const simYes=id=>$(id).value==='Sim';
 const simPartner=()=>['Casado(a)','União estável'].includes($('sim-civil').value);
 const simVal=id=>$(id).value.trim();
 function simToggle(boxId,on,requiredIds=[]){
- const box=$(boxId);box.hidden=!on;
- box.querySelectorAll('input,select').forEach(el=>{
-  el.disabled=!on;
-  el.required=on&&requiredIds.includes(el.id);
- });
+  const box=$(boxId);box.hidden=!on;
+  box.querySelectorAll('input,select').forEach(el=>{
+    el.disabled=!on;
+    el.required=on&&requiredIds.includes(el.id);
+  });
 }
 function simDependencies(){
- const partner=simPartner();
- simToggle('sim-spouse-name-box',partner,['sim-spouse-name']);
- simToggle('sim-spouse-income-box',partner,['sim-spouse-kind','sim-spouse-work']);
- simToggle('sim-spouse-fgts-box',partner,['sim-spouse-fgts']);
- simToggle('sim-income-value-box',simVal('sim-income-kind')!=='Sem renda',['sim-income']);
- simToggle('sim-spouse-income-value-box',partner&&simVal('sim-spouse-kind')!=='Sem renda',['sim-spouse-income']);
- simToggle('sim-fgts-value-box',simYes('sim-fgts'),['sim-fgts-value']);
- simToggle('sim-spouse-fgts-value-box',partner&&simYes('sim-spouse-fgts'),['sim-spouse-fgts-value']);
- simToggle('sim-entry-value-box',simYes('sim-entry'),['sim-entry-value']);
+  const partner=simPartner();
+  simToggle('sim-spouse-name-box',partner,['sim-spouse-name']);
+  simToggle('sim-spouse-income-box',partner,['sim-spouse-kind','sim-spouse-work']);
+  simToggle('sim-spouse-fgts-box',partner,['sim-spouse-fgts']);
+  simToggle('sim-income-value-box',simVal('sim-income-kind')!=='Sem renda',['sim-income']);
+  simToggle('sim-spouse-income-value-box',partner&&simVal('sim-spouse-kind')!=='Sem renda',['sim-spouse-income']);
+  simToggle('sim-fgts-value-box',simYes('sim-fgts'),['sim-fgts-value']);
+  simToggle('sim-spouse-fgts-value-box',partner&&simYes('sim-spouse-fgts'),['sim-spouse-fgts-value']);
+  simToggle('sim-entry-value-box',simYes('sim-entry'),['sim-entry-value']);
 }
 ['sim-civil','sim-income-kind','sim-spouse-kind','sim-fgts','sim-spouse-fgts','sim-entry'].forEach(id=>$(id).addEventListener('change',simDependencies));
 function simShowStep(n){
- simStep=n;
- for(let i=0;i<3;i++){
-  $('sim-step-'+i).hidden=i!==n;
-  $('sim-bar-'+i).classList.toggle('active',i<=n);
- }
- $('sim-back').hidden=n===0;
- $('sim-next').hidden=n===2;
- $('sim-send').hidden=n!==2;
- $('sim-feedback').textContent='';
- $('sim-dialog')?.scrollTo?.(0,0);
+  simStep=n;
+  for(let i=0;i<3;i++){
+    $('sim-step-'+i).hidden=i!==n;
+    $('sim-bar-'+i).classList.toggle('active',i<=n);
+  }
+  $('sim-back').hidden=n===0;
+  $('sim-next').hidden=n===2;
+  $('sim-send').hidden=n!==2;
+  $('sim-feedback').textContent='';
+  $('sim-dialog')?.scrollTo?.(0,0);
 }
 function simStepValid(n){
- const step=$('sim-step-'+n);
- for(const input of step.querySelectorAll('input,select')){
-  if(input.disabled||input.closest('[hidden]'))continue;
-  if(!input.checkValidity()){
-   input.reportValidity();input.focus();return false;
+  const step=$('sim-step-'+n);
+  for(const input of step.querySelectorAll('input,select')){
+    if(input.disabled||input.closest('[hidden]'))continue;
+    if(!input.checkValidity()){
+      input.reportValidity();input.focus();return false;
+    }
   }
- }
- if(n===0){
-  const telefone=simVal('sim-phone').replace(/\D/g,'');
-  const valido=([10,11].includes(telefone.length)||([12,13].includes(telefone.length)&&telefone.startsWith('55')));
-  if(simVal('sim-name').length<2||!valido){
-   $('sim-feedback').textContent='Confira seu nome e WhatsApp com DDD.';return false;
+  if(n===0){
+    const telefone=simVal('sim-phone').replace(/\D/g,'');
+    const valido=([10,11].includes(telefone.length)||([12,13].includes(telefone.length)&&telefone.startsWith('55')));
+    if(simVal('sim-name').length<2||!valido){
+      $('sim-feedback').textContent='Confira seu nome e WhatsApp com DDD.';return false;
+    }
+    if(simPartner()&&simVal('sim-spouse-name').length<2){
+      $('sim-feedback').textContent='Informe o nome completo do cônjuge.';return false;
+    }
   }
-  if(simPartner()&&simVal('sim-spouse-name').length<2){
-   $('sim-feedback').textContent='Informe o nome completo do cônjuge.';return false;
-  }
- }
- return true;
+  return true;
 }
 function simOpen(){
- if(!simProperty)return;
- simFocus=document.activeElement;
- simOverflow=document.body.style.overflow;
- $('sim-form').reset();
- $('sim-form').hidden=false;
- $('sim-result').hidden=true;
- $('sim-result').replaceChildren();
- $('sim-alternative')?.remove();
- $('sim-feedback').textContent='';
- simDependencies();
- $('sim-overlay').hidden=false;
- document.body.style.overflow='hidden';
- simShowStep(0);$('sim-name').focus();
+  if(!simProperty)return;
+  simFocus=document.activeElement;
+  simOverflow=document.body.style.overflow;
+  $('sim-form').reset();
+  $('sim-form').hidden=false;
+  $('sim-result').hidden=true;
+  $('sim-result').replaceChildren();
+  $('sim-alternative')?.remove();
+  $('sim-feedback').textContent='';
+  simDependencies();
+  $('sim-overlay').hidden=false;
+  document.body.style.overflow='hidden';
+  simShowStep(0);$('sim-name').focus();
 }
 function simClose(){
- if(simSending)return;
- $('sim-overlay').hidden=true;
- document.body.style.overflow=simOverflow;
- simFocus?.focus?.();
+  if(simSending)return;
+  $('sim-overlay').hidden=true;
+  document.body.style.overflow=simOverflow;
+  simFocus?.focus?.();
 }
 $('simulation').onclick=simOpen;
 $('sim-close').onclick=simClose;
@@ -326,81 +337,100 @@ $('sim-back').onclick=()=>simShowStep(Math.max(0,simStep-1));
 $('sim-next').onclick=()=>{if(simStepValid(simStep))simShowStep(Math.min(2,simStep+1))};
 function simMoney(value){return money(value||0)}
 function simInterest(p){
- const first=['Pré-análise de financiamento',
-  'Imóvel: '+String(p.codigo||p.titulo||p.empreendimento||'anúncio').slice(0,55),
-  'Preço: '+money(p.preco),
-  '1º imóvel: '+simVal('sim-first'),
-  'Civil: '+simVal('sim-civil'),
-  'Renda: '+simVal('sim-income-kind'),
-  'Bruta: '+(simVal('sim-income-kind')==='Sem renda'?'R$ 0':simMoney(simVal('sim-income'))),
-  '3 anos carteira: '+simVal('sim-work'),
-  'FGTS: '+(simYes('sim-fgts')?'Sim '+simMoney(simVal('sim-fgts-value')):'Não'),
-  'Entrada: '+(simYes('sim-entry')?'Sim '+simMoney(simVal('sim-entry-value')):'Não'),
-  'Documentação: '+simVal('sim-docs')];
- if(simPartner())first.push(
-  'Cônjuge: '+simVal('sim-spouse-name').slice(0,55),
-  'Renda cônj.: '+simVal('sim-spouse-kind'),
-  'Bruta cônj.: '+(simVal('sim-spouse-kind')==='Sem renda'?'R$ 0':simMoney(simVal('sim-spouse-income'))),
-  '3 anos cônj.: '+simVal('sim-spouse-work'),
-  'FGTS cônj.: '+(simYes('sim-spouse-fgts')?'Sim '+simMoney(simVal('sim-spouse-fgts-value')):'Não')
- );
- return first.join(' | ').slice(0,500);
+  const first=['Pré-análise de financiamento',
+    'Imóvel: '+String(p.codigo||p.titulo||p.empreendimento||'anúncio').slice(0,55),
+    'Preço: '+money(p.preco),
+    '1º imóvel: '+simVal('sim-first'),
+    'Civil: '+simVal('sim-civil'),
+    'Renda: '+simVal('sim-income-kind'),
+    'Bruta: '+(simVal('sim-income-kind')==='Sem renda'?'R$ 0':simMoney(simVal('sim-income'))),
+    '3 anos carteira: '+simVal('sim-work'),
+    'FGTS: '+(simYes('sim-fgts')?'Sim '+simMoney(simVal('sim-fgts-value')):'Não'),
+    'Entrada: '+(simYes('sim-entry')?'Sim '+simMoney(simVal('sim-entry-value')):'Não'),
+    'Documentação: '+simVal('sim-docs')];
+  if(simPartner())first.push(
+    'Cônjuge: '+simVal('sim-spouse-name').slice(0,55),
+    'Renda cônj.: '+simVal('sim-spouse-kind'),
+    'Bruta cônj.: '+(simVal('sim-spouse-kind')==='Sem renda'?'R$ 0':simMoney(simVal('sim-spouse-income'))),
+    '3 anos cônj.: '+simVal('sim-spouse-work'),
+    'FGTS cônj.: '+(simYes('sim-spouse-fgts')?'Sim '+simMoney(simVal('sim-spouse-fgts-value')):'Não')
+  );
+  return first.join(' | ').slice(0,500);
 }
 function simWhatsApp(broker,target){
- if(!brokerPhone[broker])return;
- const a=node('a','sim-whatsapp','Continuar pelo WhatsApp');
- const msg='Olá! Solicitei uma pré-análise de financiamento pelo Portal Bauru Imóveis e gostaria de acompanhar minha simulação. '+brokerShareUrl(broker);
- a.href='https://wa.me/'+brokerPhone[broker]+'?text='+encodeURIComponent(msg);
- a.target='_blank';a.rel='noopener noreferrer';target.append(a);
+  if(!brokerPhone[broker])return;
+  const a=node('a','sim-whatsapp','Continuar pelo WhatsApp');
+  const msg='Olá! Solicitei uma pré-análise de financiamento pelo Portal Bauru Imóveis e gostaria de acompanhar minha simulação. '+brokerShareUrl(broker);
+  a.href='https://wa.me/'+brokerPhone[broker]+'?text='+encodeURIComponent(msg);
+  a.target='_blank';a.rel='noopener noreferrer';target.append(a);
 }
 $('sim-form').addEventListener('submit',async e=>{
- e.preventDefault();
- if(simSending||!simProperty)return;
- for(let n=0;n<3;n++){
-  simShowStep(n);
-  if(!simStepValid(n))return;
- }
- const interesse=simInterest(simProperty);
- simSending=true;
- $('sim-send').disabled=true;
- $('sim-send').textContent='Registrando...';
- $('sim-feedback').textContent='';
- try{
-  const {data,error}=await supabase.rpc('portal_receber_interessado',{
-   p_nome:simVal('sim-name').replace(/\s+/g,' '),
-   p_telefone:simVal('sim-phone').replace(/\D/g,''),
-   p_interesse:interesse,
-   p_referencia:ref,
-   p_consentiu:$('sim-consent').checked,
-   p_site:simVal('sim-site')
-  });
-  if(error||!data||data.ok!==true)throw error||new Error('Cadastro não confirmado');
-  const result=$('sim-result');result.replaceChildren();
-  result.append(node('strong','','Solicitação recebida!'));
-  result.append(node('p','','Recebemos suas informações. Nossa equipe fará a análise das possibilidades de financiamento e encaminhará a simulação para o WhatsApp informado. Se precisarmos de mais algum dado, entraremos em contato.'));
-  simWhatsApp(data.corretor,result);
-  $('sim-form').hidden=true;result.hidden=false;
- }catch(error){
-  console.error('Pré-análise do Portal:',error);
-  $('sim-feedback').textContent='Não conseguimos confirmar seu cadastro automaticamente. Você pode continuar pelo WhatsApp.';
-  const alt=node('div');alt.id='sim-alternative';
-  $('sim-feedback').after(alt);
-  let broker=ref;
-  if(!broker){
-   try{
-    const {data,error:e}=await supabase.rpc('portal_proximo_corretor');
-    if(!e&&brokerPhone[data])broker=data;
-   }catch(_){}
+  e.preventDefault();
+  if(simSending||!simProperty)return;
+  for(let n=0;n<3;n++){
+    simShowStep(n);
+    if(!simStepValid(n))return;
   }
-  simWhatsApp(broker,alt);
- }finally{
-  simSending=false;
-  $('sim-send').disabled=false;
-  $('sim-send').textContent='Solicitar simulação';
- }
+  const interesse=simInterest(simProperty);
+  simSending=true;
+  $('sim-send').disabled=true;
+  $('sim-send').textContent='Registrando...';
+  $('sim-feedback').textContent='';
+  try{
+    const {data,error}=await supabase.rpc('portal_receber_interessado',{
+      p_nome:simVal('sim-name').replace(/\s+/g,' '),
+      p_telefone:simVal('sim-phone').replace(/\D/g,''),
+      p_interesse:interesse,
+      p_referencia:ref,
+      p_consentiu:$('sim-consent').checked,
+      p_site:simVal('sim-site')
+    });
+    if(error||!data||data.ok!==true)throw error||new Error('Cadastro não confirmado');
+    const result=$('sim-result');result.replaceChildren();
+    result.append(node('strong','','Solicitação recebida!'));
+    result.append(node('p','','Recebemos suas informações. Nossa equipe fará a análise das possibilidades de financiamento e encaminhará a simulação para o WhatsApp informado. Se precisarmos de mais algum dado, entraremos em contato.'));
+    simWhatsApp(data.corretor,result);
+    $('sim-form').hidden=true;result.hidden=false;
+  }catch(error){
+    console.error('Pré-análise do Portal:',error);
+    $('sim-feedback').textContent='Não conseguimos confirmar seu cadastro automaticamente. Você pode continuar pelo WhatsApp.';
+    const alt=node('div');alt.id='sim-alternative';
+    $('sim-feedback').after(alt);
+    let broker=ref;
+    if(!broker){
+      try{
+        const {data,error:e}=await supabase.rpc('portal_proximo_corretor');
+        if(!e&&brokerPhone[data])broker=data;
+      }catch(_){}
+    }
+    simWhatsApp(broker,alt);
+  }finally{
+    simSending=false;
+    $('sim-send').disabled=false;
+    $('sim-send').textContent='Solicitar simulação';
+  }
 });
 
-async function load(){try{if(!id||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id))throw new Error('Link do imóvel inválido. Volte à lista e escolha um imóvel.');const {data:p,error}=await supabase.from('imoveis').select('id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,banheiros,vagas,situacao,selo,aceita_financiamento,aceita_fgts,publicado').eq('id',id).eq('publicado',true).single();if(error||!p)throw new Error('Este imóvel não está disponível para consulta pública.');if(['vendido','alugado'].includes(String(p.situacao||'').toLowerCase()))throw new Error('Este imóvel não está mais disponível.');if(String(p.finalidade||'').toLowerCase()!=='venda')throw new Error('Este imóvel não está disponível para compra.');simProperty=p;const {data:items,error:photoError}=await supabase.from('imovel_fotos').select('caminho,ordem').eq('imovel_id',id).order('ordem',{ascending:true});if(photoError)console.warn('Fotos:',photoError.message);for(const item of items||[]){if(item.caminho)photos.push(supabase.storage.from('portal-imoveis').getPublicUrl(item.caminho).data.publicUrl)}const displayTitle=p.titulo||[typeNames[p.tipo]||'Imóvel',p.empreendimento].filter(Boolean).join(' no ');$('title').textContent=displayTitle;$('location').textContent=[p.empreendimento,p.bairro,'Bauru/SP'].filter(Boolean).join(' • ');prepareSEO(p);if(p.selo&&p.selo!=='nenhum')$('badge').append(node('span','tag',({novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido',destaque:'Destaque',exclusivo:'Exclusivo'})[p.selo]||p.selo));renderGallery(displayTitle);addFeature(p.area_privativa?Number(p.area_privativa).toLocaleString('pt-BR')+' m²':null,'Área privativa');addFeature(p.quartos,'Quartos');addFeature(p.suites,'Suítes');addFeature(p.banheiros,'Banheiros');addFeature(p.vagas,'Vagas');addFeature(typeNames[p.tipo]||p.tipo,'Tipo');if(p.descricao)$('description').textContent=p.descricao;else $('description-panel').classList.add('hidden');const extras=[];if(p.aceita_financiamento===true)extras.push('Aceita financiamento');if(p.aceita_fgts===true)extras.push('Aceita FGTS');if(p.situacao==='reservado')extras.push('Imóvel reservado: consulte disponibilidade');if(!extras.length)extras.push('Consulte condições e disponibilidade com nossa equipe.');for(const extra of extras)$('extra').append(node('span','extra-item',extra));$('deal').textContent=p.finalidade==='locacao'?'Valor de locação':'Valor de venda';$('price').textContent=money(p.preco);$('code').textContent=p.codigo||'Não informado';if(p.finalidade==='venda')$('simulation').classList.remove('hidden');$('contact').addEventListener('click',e=>{e.preventDefault();openContact(p)});$('mobile-cta').classList.remove('hidden');$('mobile-contact').addEventListener('click',()=>openContact(p));async function copyBrokerLink(broker){const url=brokerShareUrl(broker);const feedback=$('share-feedback');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(url);feedback.textContent='Link de '+(broker==='rafael'?'Rafael':'Débora')+' copiado!'}else{window.prompt('Copie o link:',url);feedback.textContent='Confira o link para compartilhar.'}}catch(e){window.prompt('Copie o link:',url);feedback.textContent='Confira o link para compartilhar.'}}$('copy-rafael').addEventListener('click',()=>copyBrokerLink('rafael'));$('copy-debora').addEventListener('click',()=>copyBrokerLink('debora'));$('share').onclick=async()=>{const url=location.href;try{if(navigator.share)await navigator.share({title:document.title,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);$('share').textContent='Link copiado!'}else prompt('Copie o link:',url)}catch(e){if(e.name!=='AbortError')prompt('Copie o link:',url)}};$('status').classList.add('hidden');$('content').classList.remove('hidden')}catch(e){$('status').textContent=e.message||'Não foi possível carregar o imóvel.';console.error(e)}}
+function youtubeIdV2(value){
+ try{const u=new URL(value);if(!['https:','http:'].includes(u.protocol))return null;const h=u.hostname.toLowerCase();let id=null;
+ if(h==='youtu.be')id=u.pathname.split('/')[1];
+ else if(['youtube.com','www.youtube.com','m.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com'].includes(h)){
+ if(u.pathname==='/watch')id=u.searchParams.get('v');else if(/^\/(shorts|embed|live)\//.test(u.pathname))id=u.pathname.split('/')[2];}
+ return /^[A-Za-z0-9_-]{11}$/.test(id||'')?id:null;
+ }catch{return null}
+}
+async function enhanceV2(p){
+ const video=youtubeIdV2(p.youtube_url);
+ if(video){const panel=$('video-v2'),box=$('video-box-v2');const b=node('button','btn secondary','Assistir ao vídeo');b.type='button';b.onclick=()=>{const frame=node('iframe','v2-media');frame.src='https://www.youtube-nocookie.com/embed/'+video;frame.title='Vídeo do imóvel';frame.allow='accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';b.replaceWith(frame)};box.append(b);const a=node('a','v2-link','Abrir no YouTube');a.href='https://www.youtube.com/watch?v='+video;a.target='_blank';a.rel='noopener noreferrer';box.append(a);panel.classList.remove('hidden')}
+ if(p.mapa_modo==='aproximado'&&p.bairro){const area=String(p.bairro).trim()+', Bauru, SP, Brasil';const box=$('map-box-v2');const b=node('button','btn secondary','Visualizar mapa da região');b.type='button';b.onclick=()=>{const f=node('iframe','v2-map');f.title='Mapa aproximado do bairro';f.loading='lazy';f.referrerPolicy='no-referrer';f.src='https://maps.google.com/maps?q='+encodeURIComponent(area)+'&z=13&output=embed';b.replaceWith(f)};box.append(b);const a=node('a','v2-link','Abrir região no Google Maps');a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(area);a.target='_blank';a.rel='noopener noreferrer';box.append(a);$('map-v2').classList.remove('hidden')}
+ if(p.condominio!=null)addFeature(money(p.condominio),'Condomínio');if(p.iptu!=null)addFeature(money(p.iptu),'IPTU');if(p.andar)addFeature(p.andar,'Andar');
+ // Only published, available or reserved listings of the same type.
+ const {data,error}=await supabase.from('imoveis').select('id,titulo,preco,bairro').eq('publicado',true).eq('finalidade','venda').eq('tipo',p.tipo).in('situacao',['disponivel','reservado']).neq('id',p.id).order('atualizado_em',{ascending:false}).limit(4);
+ if(error||!data?.length)return;
+ const {data:relatedPhotos}=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',data.map(x=>x.id)).order('ordem',{ascending:true});const covers=new Map();for(const f of relatedPhotos||[])if(!covers.has(f.imovel_id)&&f.caminho)covers.set(f.imovel_id,f.caminho);
+ const root=$('related-box-v2');for(const item of data){const a=node('a');const url=new URL('https://portalbauruimoveis.com.br/imovel.html');url.searchParams.set('id',item.id);if(ref)url.searchParams.set('ref',ref);a.href=url.href;const path=covers.get(item.id);if(path){const img=node('img');img.src=supabase.storage.from('portal-imoveis').getPublicUrl(path).data.publicUrl;img.alt='Foto do imóvel';img.loading='lazy';img.onerror=()=>img.remove();a.append(img)}a.append(node('strong','',item.titulo||'Imóvel em Bauru'),node('small','',item.bairro||'Bauru/SP'),node('span','',money(item.preco)));root.append(a)}$('related-v2').classList.remove('hidden');
+}
+async function load(){try{if(!id||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id))throw new Error('Link do imóvel inválido. Volte à lista e escolha um imóvel.');const {data:p,error}=await supabase.from('imoveis').select('id,codigo,titulo,descricao,finalidade,tipo,empreendimento,preco,bairro,area_privativa,quartos,suites,banheiros,vagas,situacao,selo,aceita_financiamento,aceita_fgts,publicado,mostrar_empreendimento,mostrar_rua,rua_publica,youtube_url,mapa_modo,condominio,iptu,andar').eq('id',id).eq('publicado',true).single();if(error||!p)throw new Error('Este imóvel não está disponível para consulta pública.');if(['vendido','alugado'].includes(String(p.situacao||'').toLowerCase()))throw new Error('Este imóvel não está mais disponível.');if(String(p.finalidade||'').toLowerCase()!=='venda')throw new Error('Este imóvel não está disponível para compra.');if(p.mostrar_empreendimento===false)p.empreendimento=null;simProperty=p;const {data:items,error:photoError}=await supabase.from('imovel_fotos').select('caminho,ordem').eq('imovel_id',id).order('ordem',{ascending:true});if(photoError)console.warn('Fotos:',photoError.message);for(const item of items||[]){if(item.caminho)photos.push(supabase.storage.from('portal-imoveis').getPublicUrl(item.caminho).data.publicUrl)}const displayTitle=p.titulo||[typeNames[p.tipo]||'Imóvel',p.empreendimento].filter(Boolean).join(' no ');$('title').textContent=displayTitle;$('location').textContent=[p.empreendimento,p.mostrar_rua?p.rua_publica:null,p.bairro,'Bauru/SP'].filter(Boolean).join(' • ');prepareSEO(p);if(p.selo&&p.selo!=='nenhum')$('badge').append(node('span','tag',({novidade:'Novidade',oportunidade:'Oportunidade',preco_reduzido:'Preço reduzido',destaque:'Destaque',exclusivo:'Exclusivo'})[p.selo]||p.selo));renderGallery(displayTitle);addFeature(p.area_privativa?Number(p.area_privativa).toLocaleString('pt-BR')+' m²':null,'Área privativa');addFeature(p.quartos,'Quartos');addFeature(p.suites,'Suítes');addFeature(p.banheiros,'Banheiros');addFeature(p.vagas,'Vagas');addFeature(typeNames[p.tipo]||p.tipo,'Tipo');if(p.descricao)$('description').textContent=p.descricao;else $('description-panel').classList.add('hidden');const extras=[];if(p.aceita_financiamento===true)extras.push('Aceita financiamento');if(p.aceita_fgts===true)extras.push('Aceita FGTS');if(p.situacao==='reservado')extras.push('Imóvel reservado: consulte disponibilidade');if(!extras.length)extras.push('Consulte condições e disponibilidade com nossa equipe.');for(const extra of extras)$('extra').append(node('span','extra-item',extra));$('deal').textContent=p.finalidade==='locacao'?'Valor de locação':'Valor de venda';$('price').textContent=money(p.preco);$('code').textContent=p.codigo||'Não informado';if(p.finalidade==='venda')$('simulation').classList.remove('hidden');$('contact').addEventListener('click',e=>{e.preventDefault();openContact(p)});$('mobile-cta').classList.remove('hidden');$('mobile-contact').addEventListener('click',()=>openContact(p));async function copyBrokerLink(broker){const url=brokerShareUrl(broker);const feedback=$('share-feedback');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(url);feedback.textContent='Link de '+(broker==='rafael'?'Rafael':'Débora')+' copiado!'}else{window.prompt('Copie o link:',url);feedback.textContent='Confira o link para compartilhar.'}}catch(e){window.prompt('Copie o link:',url);feedback.textContent='Confira o link para compartilhar.'}}$('copy-rafael').addEventListener('click',()=>copyBrokerLink('rafael'));$('copy-debora').addEventListener('click',()=>copyBrokerLink('debora'));$('share').onclick=async()=>{const url=location.href;try{if(navigator.share)await navigator.share({title:document.title,url});else if(navigator.clipboard){await navigator.clipboard.writeText(url);$('share').textContent='Link copiado!'}else prompt('Copie o link:',url)}catch(e){if(e.name!=='AbortError')prompt('Copie o link:',url)}};$('status').classList.add('hidden');$('content').classList.remove('hidden');enhanceV2(p).catch(e=>console.warn('Recursos adicionais:',e))}catch(e){$('status').textContent=e.message||'Não foi possível carregar o imóvel.';console.error(e)}}
 if(new URLSearchParams(location.search).get('equipe')==='1'){
  const panel=document.querySelector('.broker-share');
  if(panel)panel.style.display='block';
