@@ -115,37 +115,44 @@ async function loadProperties(){
   const recent=document.getElementById('recentProperties');
   const featuredSection=document.getElementById('oportunidades');
   const recentSection=document.getElementById('recentes');
-  const columns='id,titulo,empreendimento,mostrar_empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,destaque,criado_em';
-  const base=()=>supabase.from('imoveis').select(columns).eq('publicado',true).eq('finalidade','venda').in('situacao',['disponivel','reservado']);
+  const originalColumns='id,titulo,empreendimento,preco,bairro,quartos,suites,vagas,area_privativa,publicado,situacao,finalidade,atualizado_em';
+  const query=(columns,order)=>supabase.from('imoveis').select(columns).eq('publicado',true).order(order,{ascending:false}).limit(1000).abortSignal(AbortSignal.timeout(10000));
   try{
-    const [featuredResult,recentResult]=await Promise.all([
-      base().eq('destaque',true).order('criado_em',{ascending:false,nullsFirst:false}).order('id',{ascending:false}).limit(6),
-      base().order('criado_em',{ascending:false,nullsFirst:false}).order('id',{ascending:false}).limit(12)
-    ]);
-    if(featuredResult.error)throw featuredResult.error;
-    if(recentResult.error)throw recentResult.error;
-    const featured=featuredResult.data||[];
-    const featuredIds=new Set(featured.map(p=>p.id));
-    const newest=(recentResult.data||[]).filter(p=>!featuredIds.has(p.id)).slice(0,6);
+    let result=await query(originalColumns+',destaque,mostrar_empreendimento,criado_em','criado_em');
+    if(result.error){console.warn('Consulta de cadastro:',result.error.message);result=await query(originalColumns+',destaque','atualizado_em');}
+    if(result.error){console.warn('Consulta de destaque:',result.error.message);result=await query(originalColumns,'atualizado_em');}
+    if(result.error)throw result.error;
+    const records=(result.data||[]).filter(p=>String(p.finalidade||'').toLowerCase()==='venda'&&!['vendido','alugado'].includes(String(p.situacao||'').toLowerCase()));
+    const featured=records.filter(p=>p.destaque===true).slice(0,6);
+    const ids=new Set(featured.map(p=>p.id));
+    const newest=records.filter(p=>!ids.has(p.id)).slice(0,6);
     const all=[...featured,...newest];
     const photos=new Map();
-    if(all.length){
-      const result=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',all.map(p=>p.id)).order('ordem',{ascending:true});
-      if(result.error)console.warn('Erro ao consultar fotos:',result.error);
-      else for(const photo of result.data||[])if(photo.caminho&&!photos.has(photo.imovel_id))photos.set(photo.imovel_id,photo.caminho);
+    function render(){
+      container.replaceChildren();recent.replaceChildren();
+      for(const p of featured)container.append(buildCard(p,photos));
+      for(const p of newest)recent.append(buildCard(p,photos));
+      featuredSection.hidden=!featured.length;
+      recentSection.hidden=!newest.length&&featured.length>0;
+      if(!all.length)recent.append(element('div','empty','Ainda não há imóveis publicados. Você pode solicitar uma busca personalizada.'));
     }
-    container.replaceChildren();recent.replaceChildren();
-    for(const p of featured)container.append(buildCard(p,photos));
-    for(const p of newest)recent.append(buildCard(p,photos));
-    featuredSection.hidden=!featured.length;
-    recentSection.hidden=!newest.length&&featured.length>0;
-    if(!all.length)recent.append(element('div','empty','Ainda não há imóveis publicados. Você pode solicitar uma busca personalizada.'));
+    render();
+    if(all.length){
+      try{
+        const photoResult=await supabase.from('imovel_fotos').select('imovel_id,caminho,ordem').in('imovel_id',all.map(p=>p.id)).order('ordem',{ascending:true}).abortSignal(AbortSignal.timeout(8000));
+        if(photoResult.error)throw photoResult.error;
+        for(const photo of photoResult.data||[])if(photo.caminho&&!photos.has(photo.imovel_id))photos.set(photo.imovel_id,photo.caminho);
+        if(photos.size)render();
+      }catch(error){console.warn('Fotos:',error.message||error);}
+    }
   }catch(error){
     console.error('Portal Bauru Imóveis:',error);
     featuredSection.hidden=false;recentSection.hidden=true;
-    container.replaceChildren(element('div','empty','Não foi possível carregar os imóveis. Atualize a página para tentar novamente.'));
+    const notice=element('div','empty','Não foi possível carregar os imóveis agora.');
+    const retry=element('button','btn-search','Tentar novamente');retry.type='button';retry.onclick=()=>{retry.disabled=true;container.replaceChildren(element('div','empty','Carregando imóveis...'));loadProperties();};notice.append(document.createElement('br'),retry);container.replaceChildren(notice);
   }
 }
+
 loadProperties();
 </script>
 </body>
